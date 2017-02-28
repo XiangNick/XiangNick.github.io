@@ -16,7 +16,7 @@ select * from t_user where password = &apos;${password}&apos;and username = &apo
 <meta property="og:site_name" content="Mr.Zhang">
 <meta property="og:description" content="以用户登录为例，传统代码为一个form表单，输入username和password去数据库发送sql检索，用的是字符串拼接${}。
 select * from t_user where password = &apos;${password}&apos;and username = &apos;${username}&apos;">
-<meta property="og:updated_time" content="2017-02-28T05:35:32.048Z">
+<meta property="og:updated_time" content="2017-02-28T13:34:16.496Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="以mybatis为例浅聊SQL注入">
 <meta name="twitter:description" content="以用户登录为例，传统代码为一个form表单，输入username和password去数据库发送sql检索，用的是字符串拼接${}。
@@ -198,14 +198,10 @@ select * from t_user where password = &apos;${password}&apos;and username = &apo
 </code></pre>
 <p>在数据库端便会对该sql进行编译，如果下次有该查询时，mabatis会发送</p>
 <pre><code class="sql"><span class="keyword">select</span> * <span class="keyword">from</span> t_user <span class="keyword">where</span> <span class="keyword">password</span> = #{<span class="keyword">password</span>} <span class="keyword">and</span> username = #{username}
-<span class="string">``</span><span class="string">` 作为“KEY”，页面传入的参数作为“VALUE”
-去数据库查询，预编译的方式使得发送至数据库的值为sql “KEY” 和 参数 “VALUE”，
-数据库根据KEY找到编译好的sql，将参数注入进行查询
-
-如果页面输入
-`</span><span class="string">``</span> <span class="keyword">sql</span>
-zhangsan
-<span class="number">1111</span><span class="string">' or '</span><span class="number">1</span> = <span class="number">1</span>
+</code></pre>
+<p>作为“KEY”，页面传入的参数作为“VALUE”<br>去数据库查询，预编译的方式使得发送至数据库的值为sql “KEY” 和 参数 “VALUE”，<br>数据库根据KEY找到编译好的sql，将参数注入进行查询<br>如果页面输入</p>
+<pre><code class="sql">zhangsan
+1111&#39; or &#39;1 = 1
 </code></pre>
 <p>则sql语句为</p>
 <pre><code class="sql"><span class="keyword">select</span> * <span class="keyword">from</span> t_user <span class="keyword">where</span> <span class="keyword">password</span> = <span class="string">'1111'</span> <span class="keyword">or</span> <span class="string">'1 = 1'</span><span class="keyword">and</span> username = <span class="string">'zhangsan'</span>
@@ -485,7 +481,7 @@ zhangsan
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;span style=&quot;text-indent:2em&quot;&gt;本科大三，自学编程，全栈学习者，挚爱技术，目前小菜鸟一只。&lt;/span&gt;</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;span style=&quot;text-indent:2em&quot;&gt;&quot;本科大三，自学编程，全栈学习者，挚爱技术，目前小菜鸟一只。梦想进入教育业、医疗业、交通业的软件开发，利用微薄的技术去造福大家。&quot;&lt;/span&gt;</div>
   	  	
     	</section>
     
