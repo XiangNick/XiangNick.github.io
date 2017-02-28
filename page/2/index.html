@@ -6,21 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>MySQL和Oracle分页的区别 | Mr Zhang</title>
+  <title>Mr Zhang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="MySQL和Oracle分页的区别">
-<meta property="og:type" content="article">
-<meta property="og:title" content="MySQL和Oracle分页的区别">
-<meta property="og:url" content="http://yoursite.com/2017/02/28/MySQL和Oracle分页的区别/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Mr Zhang">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="Mr Zhang">
-<meta property="og:description" content="MySQL和Oracle分页的区别">
-<meta property="og:image" content="http://img.blog.csdn.net/20161205091837687">
-<meta property="og:image" content="http://img.blog.csdn.net/20161205091930609">
-<meta property="og:updated_time" content="2017-02-28T05:02:23.322Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MySQL和Oracle分页的区别">
-<meta name="twitter:description" content="MySQL和Oracle分页的区别">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20161205091837687">
+<meta name="twitter:title" content="Mr Zhang">
   
     <link rel="alternative" href="/atom.xml" title="Mr Zhang" type="application/atom+xml">
   
@@ -156,62 +149,35 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-MySQL和Oracle分页的区别" class="article article-type-post " itemscope itemprop="blogPost">
+            
+  
+    <article id="post-EasyUI的datagrid组件实现分页" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      MySQL和Oracle分页的区别
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/28/EasyUI的datagrid组件实现分页/"> EasyUI的datagrid组件实现分页</a>
     </h1>
   
 
         
-        <a href="/2017/02/28/MySQL和Oracle分页的区别/" class="archive-article-date">
-  	<time datetime="2017-02-28T05:01:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-28</time>
+        <a href="/2017/02/28/EasyUI的datagrid组件实现分页/" class="archive-article-date">
+  	<time datetime="2017-02-28T04:40:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-28</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>MySQL和Oracle分页的区别<br><a id="more"></a></p>
-<ul>
-<li><strong>MySQL 分页 (利用LIMIT关键字）  计算参数为 开始序号(startNum)，要查的总条数 (totalNum)</strong><br><img src="http://img.blog.csdn.net/20161205091837687" alt="MySQL利用LIMIT关键字实现分页"></li>
-</ul>
+        <p>本篇博客用于EasyUI的datagrid组件实现分页展示，后台为Struts2+Spring+Hibernate，利用DetachedCriteria对象进行简单的分页查询。</p>
 <hr>
-<ul>
-<li><strong>Oracle 分页 (利用自带的rownum) 计算参数为 开始序号(startNum) ， 结束序号 (endNum)</strong><blockquote>
-<p>Oracle分页利用其自带的rownum，但是rownum在表中不能使用&gt;号<br>(比如select rownum,e.* from emp where rownum &gt; n,n为除了0以外的任何值,查出的都是空)，但是可以使用&lt;,为了避免，所以采用子查询将其rownum转换为子查询表中的一列数据列,而不是数据表自带的rownum属性使其可以使用</p>
-</blockquote>
-</li>
-</ul>
-<p><img src="http://img.blog.csdn.net/20161205091930609" alt="Oracle使用数据表自带的rownum的分页"><br>这种方式的好处在于，除了中间的业务查询，其余的都是固定的模版，我们只需要关心中间的业务查询即可。</p>
-
+        
+          <a class="article-more-a" href="/2017/02/28/EasyUI的datagrid组件实现分页/#more">more >></a>
+        
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -222,7 +188,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DB</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">j2ee</a>
         		</li>
       		
 		</ul>
@@ -231,83 +197,18 @@
       
 
       
-
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/28/EasyUI的datagrid组件实现分页/">展开全文 >></a>
+        </p>
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/02/28/MySQL和Oracle分页的区别/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
-  
-<nav id="article-nav">
-  
-    <a href="/2017/02/28/以mybatis为例浅聊SQL注入/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          以mybatis为例浅聊SQL注入
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2017/02/28/OCUpload、pinyin4j、poi简单入门/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">OCUpload、pinyin4j、poi简单入门</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
+
 
 
 
@@ -315,10 +216,11 @@
 
 
   
-    <div class="duoshuo"></div>
   
-
-
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
+  
 
 
           </div>
@@ -340,8 +242,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
-		isPost: true,
+		isHome: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
