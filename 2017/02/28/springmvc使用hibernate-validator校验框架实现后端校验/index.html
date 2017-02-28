@@ -6,14 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017 | Mr Zhang</title>
+  <title>springmvc使用hibernate-validator校验框架实现后端校验 | Mr Zhang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Mr Zhang">
-<meta property="og:url" content="http://yoursite.com/archives/2017/index.html">
+  <meta name="description" content="一、springmvc校验springmvc使用JSR-303校验规范，JSR-303是javaEE6的规范。
+springmvc具体使用hibernate-validator校验框架（和hibernate的ORM没有关系），hibernate-validator基于javabean的属性校验。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="springmvc使用hibernate-validator校验框架实现后端校验">
+<meta property="og:url" content="http://yoursite.com/2017/02/28/springmvc使用hibernate-validator校验框架实现后端校验/index.html">
 <meta property="og:site_name" content="Mr Zhang">
+<meta property="og:description" content="一、springmvc校验springmvc使用JSR-303校验规范，JSR-303是javaEE6的规范。
+springmvc具体使用hibernate-validator校验框架（和hibernate的ORM没有关系），hibernate-validator基于javabean的属性校验。">
+<meta property="og:image" content="http://img.blog.csdn.net/20161231232403854?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20161231233149637?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20161231233202340?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-02-28T05:23:07.191Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mr Zhang">
+<meta name="twitter:title" content="springmvc使用hibernate-validator校验框架实现后端校验">
+<meta name="twitter:description" content="一、springmvc校验springmvc使用JSR-303校验规范，JSR-303是javaEE6的规范。
+springmvc具体使用hibernate-validator校验框架（和hibernate的ORM没有关系），hibernate-validator基于javabean的属性校验。">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20161231232403854?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
   
     <link rel="alternative" href="/atom.xml" title="Mr Zhang" type="application/atom+xml">
   
@@ -149,36 +160,76 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-springmvc使用hibernate-validator校验框架实现后端校验" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      springmvc使用hibernate-validator校验框架实现后端校验
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/28/springmvc使用hibernate-validator校验框架实现后端校验/" class="archive-article-date">
+
+        
+        <a href="/2017/02/28/springmvc使用hibernate-validator校验框架实现后端校验/" class="archive-article-date">
   	<time datetime="2017-02-28T05:20:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-28</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/28/springmvc使用hibernate-validator校验框架实现后端校验/">springmvc使用hibernate-validator校验框架实现后端校验</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、springmvc校验"><a href="#一、springmvc校验" class="headerlink" title="一、springmvc校验"></a>一、springmvc校验</h2><p>springmvc使用JSR-303校验规范，JSR-303是javaEE6的规范。</p>
+<p>springmvc具体使用hibernate-validator校验框架（和hibernate的ORM没有关系），hibernate-validator基于javabean的属性校验。<br><a id="more"></a></p>
+<h2 id="二丶实现步骤"><a href="#二丶实现步骤" class="headerlink" title="二丶实现步骤"></a>二丶实现步骤</h2><p>① 添加jar包支持  本例使用hibernate-validator 4.3.0.Final版本  maven的pom文件引入以下内容即可</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.hibernate<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hibernate-validator<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.3.0.Final<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>  <img src="http://img.blog.csdn.net/20161231232403854?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>    jboss-logging和validation-api为其依赖。</p>
+<hr>
+<p>② 在springmvc的处理器适配器中配置validator：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">mvc:annotation-driven</span>  <span class="attr">validator</span>=<span class="string">"validator"</span>/&gt;</span></div></pre></td></tr></table></figure></p>
+<p>定义validator的bean</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 定义校验器 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"validator"</span></span></div><div class="line">		<span class="attr">class</span>=<span class="string">"org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"</span>&gt;</div><div class="line">		<span class="comment">&lt;!-- 校验器 --&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"providerClass"</span> <span class="attr">value</span>=<span class="string">"org.hibernate.validator.HibernateValidator"</span> /&gt;</span></div><div class="line">		<span class="comment">&lt;!-- 指定校验使用的资源文件，如果不指定则默认使用classpath下的ValidationMessages.properties--&gt;</span> </div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"validationMessageSource"</span> <span class="attr">ref</span>=<span class="string">"messageSource"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"messageSource"</span> <span class="attr">class</span>=<span class="string">"org.springframework.context.support.ReloadableResourceBundleMessageSource"</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!-- 资源文件名 --&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"basenames"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">list</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">value</span>&gt;</span>classpath:CustomerValidationMessages<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">list</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!-- 资源文件编码格式 --&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"fileEncodings"</span> <span class="attr">value</span>=<span class="string">"utf-8"</span>/&gt;</span></div><div class="line">		<span class="comment">&lt;!-- 对资源文件内容缓存时间，秒 --&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"cacheSeconds"</span> <span class="attr">value</span>=<span class="string">"120"</span>/&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div></pre></td></tr></table></figure>
+<hr>
+<p>③ 在需要校验的javaben实体类中添加相关校验注解，此处以Items这个po类为例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Items</span> </span>&#123;</div><div class="line">	</div><div class="line">	<span class="meta">@Size</span>(min=<span class="number">1</span>,max=<span class="number">30</span>,message=<span class="string">"&#123;item.name.length&#125;"</span>,groups=&#123;ItemsValidationForEdit.class&#125;)</div><div class="line">	<span class="meta">@NotNull</span>(message=<span class="string">"&#123;item.name.notnull&#125;"</span>,groups=&#123;ItemsValidationForEdit.class&#125;)</div><div class="line">	<span class="keyword">private</span> String name;</div><div class="line">	</div><div class="line">	<span class="keyword">private</span> String pic;</div><div class="line">	<span class="meta">@NotNull</span>(message=<span class="string">"&#123;item.createdate.notnull&#125;"</span>,groups=&#123;ItemsValidationForEdit.class&#125;)</div><div class="line">	<span class="keyword">private</span> Date createtime;</div></pre></td></tr></table></figure>
+<p>相关的校验规则由注解名称即可理解，这里解释下注解内的属性含义。<br>message为出现错误时的提示信息，groups为将我们的校验器分组，因为po类是共用的，可能同一个字段在不同的场景下有不同的校验需求，所以将其分组，在controller中进行校验时，可指定分组，来进行校验。<br>分组groups中的XXX.class为定义的一个“空的interface”，没有含义，仅仅只是为了分组。<br><img src="http://img.blog.csdn.net/20161231233149637?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20161231233202340?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>在po类中利用注解进行校验分类和定义后，可以在后台进行校验，一般选择在service层，因为判断数据合法性属于业务需求，可是在有些情况下，对于用户的体验性来说，如果在controller就进行数据合法性校验，如果不合法可以直接返回，不调用service，响应稍微快些，用户体验好。所以此例中在controller层进行校验。</p>
+<hr>
+<p>④ 在后台通过注解校验</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 修改商品提交</span></div><div class="line">	<span class="meta">@RequestMapping</span>(<span class="string">"/saveItems"</span>)</div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">saveItems</span><span class="params">(Model model, Integer id,</span></span></div><div class="line">			@Validated(value = &#123; ItemsValidationForEdit.class&#125;) Items item,</div><div class="line">			BindingResult bindingResult) <span class="keyword">throws</span> Exception &#123;</div><div class="line">		<span class="keyword">if</span> (bindingResult.hasErrors()) &#123;</div><div class="line">			List&lt;ObjectError&gt; allErrors = bindingResult.getAllErrors();</div><div class="line">			model.addAttribute(<span class="string">"allErrors"</span>, allErrors);</div><div class="line">			<span class="keyword">return</span> <span class="string">"editItem"</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="comment">// 更新</span></div><div class="line">		itemsService.updateItems(id, item);</div><div class="line">		<span class="comment">// 返回成功页面</span></div><div class="line">		<span class="comment">// 重定向到商品查询</span></div><div class="line">		<span class="keyword">return</span> <span class="string">"forward:queryItems.action"</span>;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<p>controller方法参数中的<br>@Validated(value = { ItemsValidationForEdit.class}) Items item,<br>            BindingResult bindingResult）<br>            含义为：<br>            对Items这个形参进行校验，选择他其中定义的ItemsValidationForEdit这个分组的校验规则。<br>            注意：如果你需要进行校验，在方法参数中，需要在校验对象的前后加上@Validated和BindingResult bindingResult，他们是成对出现的。</p>
+<hr>
+<p>顺便贴下hibernate-validator的校验注解</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">Bean Validation 中内置的 constraint         </div><div class="line"><span class="meta">@Null</span>   被注释的元素必须为 <span class="keyword">null</span>    </div><div class="line"><span class="meta">@NotNull</span>    被注释的元素必须不为 <span class="keyword">null</span>    </div><div class="line"><span class="meta">@AssertTrue</span>     被注释的元素必须为 <span class="keyword">true</span>    </div><div class="line"><span class="meta">@AssertFalse</span>    被注释的元素必须为 <span class="keyword">false</span>    </div><div class="line"><span class="meta">@Min</span>(value)     被注释的元素必须是一个数字，其值必须大于等于指定的最小值    </div><div class="line"><span class="meta">@Max</span>(value)     被注释的元素必须是一个数字，其值必须小于等于指定的最大值    </div><div class="line"><span class="meta">@DecimalMin</span>(value)  被注释的元素必须是一个数字，其值必须大于等于指定的最小值    </div><div class="line"><span class="meta">@DecimalMax</span>(value)  被注释的元素必须是一个数字，其值必须小于等于指定的最大值    </div><div class="line"><span class="meta">@Size</span>(max=, min=)   被注释的元素的大小必须在指定的范围内    </div><div class="line"><span class="meta">@Digits</span> (integer, fraction)     被注释的元素必须是一个数字，其值必须在可接受的范围内    </div><div class="line"><span class="meta">@Past</span>   被注释的元素必须是一个过去的日期    </div><div class="line"><span class="meta">@Future</span>     被注释的元素必须是一个将来的日期    </div><div class="line"><span class="meta">@Pattern</span>(regex=,flag=)  被注释的元素必须符合指定的正则表达式    </div><div class="line">    </div><div class="line">Hibernate Validator 附加的 constraint    </div><div class="line"><span class="meta">@NotBlank</span>(message =)   验证字符串非<span class="keyword">null</span>，且长度必须大于<span class="number">0</span>    </div><div class="line"><span class="meta">@Email</span>  被注释的元素必须是电子邮箱地址    </div><div class="line"><span class="meta">@Length</span>(min=,max=)  被注释的字符串的大小必须在指定的范围内    </div><div class="line"><span class="meta">@NotEmpty</span>   被注释的字符串的必须非空    </div><div class="line"><span class="meta">@Range</span>(min=,max=,message=)  被注释的元素必须在合适的范围内</div></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -190,236 +241,88 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/02/28/springmvc使用hibernate-validator校验框架实现后端校验/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/28/SpringMVC中post、get乱码解决/" class="archive-article-date">
-  	<time datetime="2017-02-28T05:14:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-28</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/28/SpringMVC中post、get乱码解决/">SpringMVC中post、get乱码解决</a>
-    </h1>
+  
+    <a href="/2017/02/28/SpringMVC中post、get乱码解决/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SpringMVC中post、get乱码解决</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">j2ee</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/28/以mybatis为例浅聊SQL注入/" class="archive-article-date">
-  	<time datetime="2017-02-28T05:03:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/28/以mybatis为例浅聊SQL注入/">以mybatis为例浅聊SQL注入</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DB</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/28/MySQL和Oracle分页的区别/" class="archive-article-date">
-  	<time datetime="2017-02-28T05:01:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/28/MySQL和Oracle分页的区别/">MySQL和Oracle分页的区别</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DB</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/28/OCUpload、pinyin4j、poi简单入门/" class="archive-article-date">
-  	<time datetime="2017-02-28T04:50:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/28/OCUpload、pinyin4j、poi简单入门/">OCUpload、pinyin4j、poi简单入门</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">j2ee</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/28/EasyUI的datagrid组件实现分页/" class="archive-article-date">
-  	<time datetime="2017-02-28T04:40:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/28/EasyUI的datagrid组件实现分页/"> EasyUI的datagrid组件实现分页</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">j2ee</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/28/hello-world/" class="archive-article-date">
-  	<time datetime="2017-02-28T02:48:05.958Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/28/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -442,8 +345,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

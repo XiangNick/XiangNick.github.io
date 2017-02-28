@@ -151,6 +151,413 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-springmvc使用hibernate-validator校验框架实现后端校验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/28/springmvc使用hibernate-validator校验框架实现后端校验/">springmvc使用hibernate-validator校验框架实现后端校验</a>
+    </h1>
+  
+
+        
+        <a href="/2017/02/28/springmvc使用hibernate-validator校验框架实现后端校验/" class="archive-article-date">
+  	<time datetime="2017-02-28T05:20:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、springmvc校验"><a href="#一、springmvc校验" class="headerlink" title="一、springmvc校验"></a>一、springmvc校验</h2><p>springmvc使用JSR-303校验规范，JSR-303是javaEE6的规范。</p>
+<p>springmvc具体使用hibernate-validator校验框架（和hibernate的ORM没有关系），hibernate-validator基于javabean的属性校验。<br>
+        
+          <a class="article-more-a" href="/2017/02/28/springmvc使用hibernate-validator校验框架实现后端校验/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">j2ee</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/28/springmvc使用hibernate-validator校验框架实现后端校验/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-SpringMVC中post、get乱码解决" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/28/SpringMVC中post、get乱码解决/">SpringMVC中post、get乱码解决</a>
+    </h1>
+  
+
+        
+        <a href="/2017/02/28/SpringMVC中post、get乱码解决/" class="archive-article-date">
+  	<time datetime="2017-02-28T05:14:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一丶乱码原因"><a href="#一丶乱码原因" class="headerlink" title="一丶乱码原因"></a>一丶乱码原因</h2><p>由于中间件为Tomcat，用户请求和返回的响应都需要经过tomcat，tomcat默认编码为ISO-8859-1和我们程序的编码(一般为UTF-8)不同，导致post、get请求乱码。</p>
+<p>二丶解决方案</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a>
+        
+          <a class="article-more-a" href="/2017/02/28/SpringMVC中post、get乱码解决/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">j2ee</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/28/SpringMVC中post、get乱码解决/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-以mybatis为例浅聊SQL注入" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/28/以mybatis为例浅聊SQL注入/">以mybatis为例浅聊SQL注入</a>
+    </h1>
+  
+
+        
+        <a href="/2017/02/28/以mybatis为例浅聊SQL注入/" class="archive-article-date">
+  	<time datetime="2017-02-28T05:03:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="以用户登录为例，传统代码为一个form表单，输入username和password去数据库发送sql检索，用的是字符串拼接-。"><a href="#以用户登录为例，传统代码为一个form表单，输入username和password去数据库发送sql检索，用的是字符串拼接-。" class="headerlink" title="以用户登录为例，传统代码为一个form表单，输入username和password去数据库发送sql检索，用的是字符串拼接${}。"></a>以用户登录为例，传统代码为一个form表单，输入username和password去数据库发送sql检索，用的是字符串拼接${}。</h2><pre><code class="sql"><span class="keyword">select</span> * <span class="keyword">from</span> t_user <span class="keyword">where</span> <span class="keyword">password</span> = <span class="string">'${password}'</span><span class="keyword">and</span> username = <span class="string">'${username}'</span>
+</code></pre>
+<p>如果页面输入</p>
+<pre><code class="sql">zhangsan
+1111&#39; or &#39;1 = 1
+</code></pre>
+        
+          <a class="article-more-a" href="/2017/02/28/以mybatis为例浅聊SQL注入/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DB</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/28/以mybatis为例浅聊SQL注入/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-MySQL和Oracle分页的区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/28/MySQL和Oracle分页的区别/">MySQL和Oracle分页的区别</a>
+    </h1>
+  
+
+        
+        <a href="/2017/02/28/MySQL和Oracle分页的区别/" class="archive-article-date">
+  	<time datetime="2017-02-28T05:01:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>MySQL和Oracle分页的区别<br>
+        
+          <a class="article-more-a" href="/2017/02/28/MySQL和Oracle分页的区别/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DB</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/28/MySQL和Oracle分页的区别/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-OCUpload、pinyin4j、poi简单入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/28/OCUpload、pinyin4j、poi简单入门/">OCUpload、pinyin4j、poi简单入门</a>
+    </h1>
+  
+
+        
+        <a href="/2017/02/28/OCUpload、pinyin4j、poi简单入门/" class="archive-article-date">
+  	<time datetime="2017-02-28T04:50:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>通过几个小demo完成以上三项的简单入门，通过此篇博客，您可以对它们有初步的认识，编写日常简单的应用。具体深入可以查询相关api。<br><strong>OCUpload</strong></li>
+</ul>
+<hr>
+<p> OCUpload为JQuery的插件(One Click Upload)，意思为一键上传，封装了对于文件上传的一些方法，只需几行代码，文件上传优雅而简洁。</p>
+<ul>
+<li>对于传统的文件上传，只是通过input标签，通过设置enctype为multipart/form-data，选中文件后还需点击按钮，提交表单，才能在后台进行相关字段解析，通过流来进行文件上传，上传成功后，页面多半要刷新，无法给用户良好的体验。</li>
+<li>OCUpload实现了页面“不刷新”，选择文件后直接上传，不需要选中文件后再点击按钮上传表单。简单实现为：</li>
+</ul>
+<h2 id=""><a href="#" class="headerlink" title=""></a>
+        
+          <a class="article-more-a" href="/2017/02/28/OCUpload、pinyin4j、poi简单入门/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">j2ee</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/28/OCUpload、pinyin4j、poi简单入门/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-EasyUI的datagrid组件实现分页" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/28/EasyUI的datagrid组件实现分页/"> EasyUI的datagrid组件实现分页</a>
+    </h1>
+  
+
+        
+        <a href="/2017/02/28/EasyUI的datagrid组件实现分页/" class="archive-article-date">
+  	<time datetime="2017-02-28T04:40:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本篇博客用于EasyUI的datagrid组件实现分页展示，后台为Struts2+Spring+Hibernate，利用DetachedCriteria对象进行简单的分页查询。</p>
+<hr>
+<h2 id="要点："><a href="#要点：" class="headerlink" title="要点："></a><strong>要点：</strong></h2><ul>
+<li><strong>datagrid组件的参数和响应格式</strong></li>
+<li><strong>DetachedCriteria对象的条件查询</strong></li>
+</ul>
+<hr>
+        
+          <a class="article-more-a" href="/2017/02/28/EasyUI的datagrid组件实现分页/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">j2ee</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/28/EasyUI的datagrid组件实现分页/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -297,6 +704,14 @@
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DB</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
