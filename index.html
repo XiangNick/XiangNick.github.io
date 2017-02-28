@@ -236,8 +236,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一-乱码原因"><a href="#一-乱码原因" class="headerlink" title="一 乱码原因"></a>一 乱码原因</h2><p>由于中间件为Tomcat，用户请求和返回的响应都需要经过tomcat，tomcat默认编码为ISO-8859-1和我们程序的编码(一般为UTF-8)不同，导致post、get请求乱码。</p>
-<h2 id="二-解决方案"><a href="#二-解决方案" class="headerlink" title="二 解决方案"></a>二 解决方案</h2><h2 id=""><a href="#" class="headerlink" title=""></a>
+        <h2 id="一-乱码原因"><a href="#一-乱码原因" class="headerlink" title="一 乱码原因"></a>一 乱码原因</h2><p>由于中间件为Tomcat，用户请求和返回的响应都需要经过tomcat，tomcat默认编码为ISO-8859-1和我们程序的编码(一般为UTF-8)不同，导致post、get请求乱码。<br>
         
           <a class="article-more-a" href="/2017/02/28/SpringMVC中post、get乱码解决/#more">more >></a>
         
@@ -303,10 +302,6 @@
       
         <p>以用户登录为例，传统代码为一个form表单，输入username和password去数据库发送sql检索，用的是字符串拼接${}。</p>
 <pre><code class="sql"><span class="keyword">select</span> * <span class="keyword">from</span> t_user <span class="keyword">where</span> <span class="keyword">password</span> = <span class="string">'${password}'</span><span class="keyword">and</span> username = <span class="string">'${username}'</span>
-</code></pre>
-<p>如果页面输入</p>
-<pre><code class="sql">zhangsan
-1111&#39; or &#39;1 = 1
 </code></pre>
         
           <a class="article-more-a" href="/2017/02/28/以mybatis为例浅聊SQL注入/#more">more >></a>
@@ -501,11 +496,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>本篇博客用于EasyUI的datagrid组件实现分页展示，后台为Struts2+Spring+Hibernate，利用DetachedCriteria对象进行简单的分页查询。</p>
-<hr>
-<h2 id="要点："><a href="#要点：" class="headerlink" title="要点："></a><strong>要点：</strong></h2><ul>
-<li><strong>datagrid组件的参数和响应格式</strong></li>
-<li><strong>DetachedCriteria对象的条件查询</strong></li>
-</ul>
 <hr>
         
           <a class="article-more-a" href="/2017/02/28/EasyUI的datagrid组件实现分页/#more">more >></a>

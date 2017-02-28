@@ -9,30 +9,18 @@
   <title>以mybatis为例浅聊SQL注入 | Mr Zhang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="以用户登录为例，传统代码为一个form表单，输入username和password去数据库发送sql检索，用的是字符串拼接${}。
-select * from t_user where password = &apos;${password}&apos;and username = &apos;${username}&apos;
-
-如果页面输入
-zhangsan
-1111&amp;#39; or &amp;#39;1 = 1">
+select * from t_user where password = &apos;${password}&apos;and username = &apos;${username}&apos;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="以mybatis为例浅聊SQL注入">
 <meta property="og:url" content="http://yoursite.com/2017/02/28/以mybatis为例浅聊SQL注入/index.html">
 <meta property="og:site_name" content="Mr Zhang">
 <meta property="og:description" content="以用户登录为例，传统代码为一个form表单，输入username和password去数据库发送sql检索，用的是字符串拼接${}。
-select * from t_user where password = &apos;${password}&apos;and username = &apos;${username}&apos;
-
-如果页面输入
-zhangsan
-1111&amp;#39; or &amp;#39;1 = 1">
-<meta property="og:updated_time" content="2017-02-28T05:29:48.288Z">
+select * from t_user where password = &apos;${password}&apos;and username = &apos;${username}&apos;">
+<meta property="og:updated_time" content="2017-02-28T05:35:32.048Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="以mybatis为例浅聊SQL注入">
 <meta name="twitter:description" content="以用户登录为例，传统代码为一个form表单，输入username和password去数据库发送sql检索，用的是字符串拼接${}。
-select * from t_user where password = &apos;${password}&apos;and username = &apos;${username}&apos;
-
-如果页面输入
-zhangsan
-1111&amp;#39; or &amp;#39;1 = 1">
+select * from t_user where password = &apos;${password}&apos;and username = &apos;${username}&apos;">
   
     <link rel="alternative" href="/atom.xml" title="Mr Zhang" type="application/atom+xml">
   
@@ -191,11 +179,11 @@ zhangsan
         <p>以用户登录为例，传统代码为一个form表单，输入username和password去数据库发送sql检索，用的是字符串拼接${}。</p>
 <pre><code class="sql"><span class="keyword">select</span> * <span class="keyword">from</span> t_user <span class="keyword">where</span> <span class="keyword">password</span> = <span class="string">'${password}'</span><span class="keyword">and</span> username = <span class="string">'${username}'</span>
 </code></pre>
+<a id="more"></a>
 <p>如果页面输入</p>
 <pre><code class="sql">zhangsan
 1111&#39; or &#39;1 = 1
 </code></pre>
-<a id="more"></a>
 <p>则sql语句为</p>
 <pre><code class="sql"><span class="keyword">select</span> * <span class="keyword">from</span> t_user <span class="keyword">where</span> <span class="keyword">password</span> = <span class="string">'1111'</span> <span class="keyword">or</span> <span class="string">'1 = 1'</span><span class="keyword">and</span> username = <span class="string">'zhangsan'</span>
 </code></pre>
