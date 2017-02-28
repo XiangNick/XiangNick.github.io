@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>SpringMVC中post、get乱码解决 | Mr Zhang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一丶乱码原因由于中间件为Tomcat，用户请求和返回的响应都需要经过tomcat，tomcat默认编码为ISO-8859-1和我们程序的编码(一般为UTF-8)不同，导致post、get请求乱码。
-二丶解决方案">
+  <meta name="description" content="一 乱码原因由于中间件为Tomcat，用户请求和返回的响应都需要经过tomcat，tomcat默认编码为ISO-8859-1和我们程序的编码(一般为UTF-8)不同，导致post、get请求乱码。
+二 解决方案">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringMVC中post、get乱码解决">
 <meta property="og:url" content="http://yoursite.com/2017/02/28/SpringMVC中post、get乱码解决/index.html">
 <meta property="og:site_name" content="Mr Zhang">
-<meta property="og:description" content="一丶乱码原因由于中间件为Tomcat，用户请求和返回的响应都需要经过tomcat，tomcat默认编码为ISO-8859-1和我们程序的编码(一般为UTF-8)不同，导致post、get请求乱码。
-二丶解决方案">
-<meta property="og:updated_time" content="2017-02-28T05:19:12.312Z">
+<meta property="og:description" content="一 乱码原因由于中间件为Tomcat，用户请求和返回的响应都需要经过tomcat，tomcat默认编码为ISO-8859-1和我们程序的编码(一般为UTF-8)不同，导致post、get请求乱码。
+二 解决方案">
+<meta property="og:updated_time" content="2017-02-28T05:30:13.192Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringMVC中post、get乱码解决">
-<meta name="twitter:description" content="一丶乱码原因由于中间件为Tomcat，用户请求和返回的响应都需要经过tomcat，tomcat默认编码为ISO-8859-1和我们程序的编码(一般为UTF-8)不同，导致post、get请求乱码。
-二丶解决方案">
+<meta name="twitter:description" content="一 乱码原因由于中间件为Tomcat，用户请求和返回的响应都需要经过tomcat，tomcat默认编码为ISO-8859-1和我们程序的编码(一般为UTF-8)不同，导致post、get请求乱码。
+二 解决方案">
   
     <link rel="alternative" href="/atom.xml" title="Mr Zhang" type="application/atom+xml">
   
@@ -176,9 +176,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一丶乱码原因"><a href="#一丶乱码原因" class="headerlink" title="一丶乱码原因"></a>一丶乱码原因</h2><p>由于中间件为Tomcat，用户请求和返回的响应都需要经过tomcat，tomcat默认编码为ISO-8859-1和我们程序的编码(一般为UTF-8)不同，导致post、get请求乱码。</p>
-<p>二丶解决方案</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><p><strong>Post乱码解决方案：</strong><br>在web.xml中添加编码过滤器来解决，可以自己编写过滤器，最常用的方法是使用spring提供的编码过滤器：<br>在Web.xml中增加如下配置（要注意的是它的位置一定要是第一个执行的过滤器）</p>
+        <h2 id="一-乱码原因"><a href="#一-乱码原因" class="headerlink" title="一 乱码原因"></a>一 乱码原因</h2><p>由于中间件为Tomcat，用户请求和返回的响应都需要经过tomcat，tomcat默认编码为ISO-8859-1和我们程序的编码(一般为UTF-8)不同，导致post、get请求乱码。</p>
+<h2 id="二-解决方案"><a href="#二-解决方案" class="headerlink" title="二 解决方案"></a>二 解决方案</h2><h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><p><strong>Post乱码解决方案：</strong><br>在web.xml中添加编码过滤器来解决，可以自己编写过滤器，最常用的方法是使用spring提供的编码过滤器：<br>在Web.xml中增加如下配置（要注意的是它的位置一定要是第一个执行的过滤器）</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 解决post乱码 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">filter</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CharacterEncodingFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.springframework.web.filter.CharacterEncodingFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">init-param</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">param-name</span>&gt;</span>encoding<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">param-value</span>&gt;</span>utf-8<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">filter</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CharacterEncodingFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>该过滤器要做的其实就是强制为所有请求和响应设置编码格式：<br>request.setCharacterEncoding(“utf-8”);<br>response.setCharacterEncoding(“utf-8”);</p>
 <hr>

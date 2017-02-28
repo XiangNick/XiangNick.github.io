@@ -8,21 +8,21 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>springmvc使用hibernate-validator校验框架实现后端校验 | Mr Zhang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、springmvc校验springmvc使用JSR-303校验规范，JSR-303是javaEE6的规范。
+  <meta name="description" content="一 springmvc校验springmvc使用JSR-303校验规范，JSR-303是javaEE6的规范。
 springmvc具体使用hibernate-validator校验框架（和hibernate的ORM没有关系），hibernate-validator基于javabean的属性校验。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="springmvc使用hibernate-validator校验框架实现后端校验">
 <meta property="og:url" content="http://yoursite.com/2017/02/28/springmvc使用hibernate-validator校验框架实现后端校验/index.html">
 <meta property="og:site_name" content="Mr Zhang">
-<meta property="og:description" content="一、springmvc校验springmvc使用JSR-303校验规范，JSR-303是javaEE6的规范。
+<meta property="og:description" content="一 springmvc校验springmvc使用JSR-303校验规范，JSR-303是javaEE6的规范。
 springmvc具体使用hibernate-validator校验框架（和hibernate的ORM没有关系），hibernate-validator基于javabean的属性校验。">
 <meta property="og:image" content="http://img.blog.csdn.net/20161231232403854?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20161231233149637?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20161231233202340?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-02-28T05:23:07.191Z">
+<meta property="og:updated_time" content="2017-02-28T05:30:58.559Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="springmvc使用hibernate-validator校验框架实现后端校验">
-<meta name="twitter:description" content="一、springmvc校验springmvc使用JSR-303校验规范，JSR-303是javaEE6的规范。
+<meta name="twitter:description" content="一 springmvc校验springmvc使用JSR-303校验规范，JSR-303是javaEE6的规范。
 springmvc具体使用hibernate-validator校验框架（和hibernate的ORM没有关系），hibernate-validator基于javabean的属性校验。">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20161231232403854?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
   
@@ -180,9 +180,9 @@ springmvc具体使用hibernate-validator校验框架（和hibernate的ORM没有�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、springmvc校验"><a href="#一、springmvc校验" class="headerlink" title="一、springmvc校验"></a>一、springmvc校验</h2><p>springmvc使用JSR-303校验规范，JSR-303是javaEE6的规范。</p>
+        <h2 id="一-springmvc校验"><a href="#一-springmvc校验" class="headerlink" title="一 springmvc校验"></a>一 springmvc校验</h2><p>springmvc使用JSR-303校验规范，JSR-303是javaEE6的规范。</p>
 <p>springmvc具体使用hibernate-validator校验框架（和hibernate的ORM没有关系），hibernate-validator基于javabean的属性校验。<br><a id="more"></a></p>
-<h2 id="二丶实现步骤"><a href="#二丶实现步骤" class="headerlink" title="二丶实现步骤"></a>二丶实现步骤</h2><p>① 添加jar包支持  本例使用hibernate-validator 4.3.0.Final版本  maven的pom文件引入以下内容即可</p>
+<h2 id="二-实现步骤"><a href="#二-实现步骤" class="headerlink" title="二 实现步骤"></a>二 实现步骤</h2><p>① 添加jar包支持  本例使用hibernate-validator 4.3.0.Final版本  maven的pom文件引入以下内容即可</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.hibernate<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hibernate-validator<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.3.0.Final<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>  <img src="http://img.blog.csdn.net/20161231232403854?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>    jboss-logging和validation-api为其依赖。</p>
 <hr>
