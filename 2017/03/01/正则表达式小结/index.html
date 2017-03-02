@@ -20,7 +20,7 @@
 121.通过构造函数定义var 变量名= new RegExp(/表达式/);
 122.通过直接量定义var 变量名= /表达式/;
 二、五大内置对象">
-<meta property="og:updated_time" content="2017-03-01T15:47:23.654Z">
+<meta property="og:updated_time" content="2017-03-02T15:17:02.559Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式小结 ">
 <meta name="twitter:description" content="一、创建方式js中，创建正则表达式的两种方式：
@@ -64,7 +64,7 @@
 		
 		<p class="header-subtitle">全栈学习者，小菜鸟  mail:XiangNickMonster@163.com</p>
 		
-		<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=26425119&auto=1&height=32" style="margin:0 0 -32px -35px;"></iframe>
+		<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=22688472&auto=1&height=32" style="margin:0 0 -32px -35px;"></iframe>
 		<nav class="header-menu">
 			<ul>
 			
@@ -194,18 +194,36 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/\s/</span>.test(<span class="string">" "</span>));<span class="comment">//true </span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/\s/</span>.test(<span class="string">"sad"</span>));<span class="comment">//false</span></div></pre></td></tr></table></figure>
 <p>⑤\S<br>非空格才能匹配</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/\S/</span>.test(<span class="string">" "</span>));<span class="comment">//false</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/\S/</span>.test(<span class="string">"sad"</span>));<span class="comment">//true</span></div></pre></td></tr></table></figure>
-<p>⑥\w对单词的匹配<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">\w	单词才能匹配，匹配字母或数字或下划线  [a-zA-Z_0<span class="number">-9</span>]		单词字符</div><div class="line">\W	非单词才能匹配[^a-zA-Z_0<span class="number">-9</span>]	非单词字符</div></pre></td></tr></table></figure></p>
+<p>⑥\w对单词的匹配<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">\w：单词才能匹配，匹配字母或数字或下划线 [a-zA-Z_0<span class="number">-9</span>]	单词字符</div><div class="line">\W：非单词才能匹配[^a-zA-Z_0<span class="number">-9</span>] 非单词字符</div></pre></td></tr></table></figure></p>
 <p>⑦\d代表单词的开头和结尾</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/\dstudy\d/</div></pre></td></tr></table></figure>
 <p><strong>2.简单类</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">①/string/.test(<span class="string">"string"</span>) <span class="comment">//中间是任意字符串，只要完整包含他即可(有他就行[完整的他])</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/git520/</span>.test(<span class="string">"gi"</span>));<span class="comment">//fasle</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/git520/</span>.test(<span class="string">"asdgit520#$"</span>));<span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/git520/</span>.test(<span class="string">"052tig"</span>));<span class="comment">//false 反向不行</span></div><div class="line"></div><div class="line">②/[string]/.test(<span class="string">"string"</span>) <span class="comment">//[]整体对应一个字符，如[abc]，只要有[string]内的任意一个字符，都可以        </span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/[520git]/</span>.test(<span class="string">"ilove"</span>));<span class="comment">//true</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">①/string/.test(<span class="string">"string"</span>) <span class="comment">//中间是任意字符串，只要完整包含他即可(有他就行，完整的他)</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/git520/</span>.test(<span class="string">"gi"</span>));<span class="comment">//fasle</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/git520/</span>.test(<span class="string">"asdgit520#$"</span>));<span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/git520/</span>.test(<span class="string">"052tig"</span>));<span class="comment">//false 反向不行</span></div><div class="line"></div><div class="line">②/[string]/.test(<span class="string">"string"</span>) <span class="comment">//[]整体对应一个字符，如[abc]，只要有[string]内的任意一个字符，都可以        </span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/[520git]/</span>.test(<span class="string">"ilove"</span>));<span class="comment">//true</span></div></pre></td></tr></table></figure>
 <p><strong>3.负向类</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">//[^string] 对括号内的字符取反，不够和正好(eg:[^abc]中，只有test a,ab,abc都返回false,其他的都是true)返回false，多了和没有返回true</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/[^abc]/</span>.test(<span class="string">"a"</span>));<span class="comment">//false</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/[^abc]/</span>.test(<span class="string">"ab"</span>));<span class="comment">//false</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/[^abc]/</span>.test(<span class="string">"abc"</span>));<span class="comment">//false</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/[^abc]/</span>.test(<span class="string">"abs"</span>));<span class="comment">//true</span></div><div class="line"><span class="comment">//就是/[^abc]/.test() 只要test 的是a,ab,abc就错,其他的都对</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">//[^string] 对括号内的字符取反，不够和正好返回false，多了和没有返回true(eg:[^abc]中，只有test a,ab,abc都返回false,其他的都是true)</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/[^abc]/</span>.test(<span class="string">"a"</span>));<span class="comment">//false</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/[^abc]/</span>.test(<span class="string">"ab"</span>));<span class="comment">//false</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/[^abc]/</span>.test(<span class="string">"abc"</span>));<span class="comment">//false</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/[^abc]/</span>.test(<span class="string">"abs"</span>));<span class="comment">//true</span></div><div class="line"><span class="comment">//就是/[^abc]/.test() 只要test 的是a,ab,abc就错,其他的都对</span></div></pre></td></tr></table></figure>
 <p><strong>4.范围类</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//只要存在字符在这个范围内的都行</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/[a-c]/</span>.test(<span class="string">"b"</span>));<span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/[a-c]/</span>.test(<span class="string">"ss"</span>));<span class="comment">//false</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/[a-c]/</span>.test(<span class="string">"sasd"</span>));<span class="comment">//true</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//只要存在字符在这个范围内的都行</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/[a-c]/</span>.test(<span class="string">"b"</span>));<span class="comment">//true</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/[a-c]/</span>.test(<span class="string">"ss"</span>));<span class="comment">//false</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/[a-c]/</span>.test(<span class="string">"sasd"</span>));<span class="comment">//true</span></div></pre></td></tr></table></figure>
 <p><strong>5.组合类</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//组合起来，存在这个范围内的字符都可以,一个[]就代表一个字符</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/[a-c1-3]/</span>.test(<span class="number">2</span>));<span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/[a-c1-3]/</span>.test(<span class="string">"a"</span>));<span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/[a-c1-3]/</span>.test(<span class="string">"abs23fz"</span>));<span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/[a-c1-3]/</span>.test(<span class="string">"z5"</span>));<span class="comment">//true</span></div></pre></td></tr></table></figure>
-<p>未完待续….</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//组合起来，存在这个范围内的字符都可以,一个[]就代表一个字符</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/[a-c1-3]/</span>.test(<span class="number">2</span>));<span class="comment">//true</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/[a-c1-3]/</span>.test(<span class="string">"a"</span>));<span class="comment">//true</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/[a-c1-3]/</span>.test(<span class="string">"abs23fz"</span>));<span class="comment">//true</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/[a-c1-3]/</span>.test(<span class="string">"z5"</span>));<span class="comment">//true</span></div></pre></td></tr></table></figure>
+<p><strong>三、正则边界</strong></p>
+<p><strong>1.正则边界</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//1.以^开始，以$结尾，代表精确匹配</span></div><div class="line"><span class="comment">//注：^只有在[]里表示取反。在//表示正则的开头</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/^rick$/</span>.test(<span class="string">"rick"</span>));<span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/^rick$/</span>.test(<span class="string">"rickl"</span>));<span class="comment">//fasle</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/^rick$/</span>.test(<span class="string">"ric"</span>));<span class="comment">//false</span></div></pre></td></tr></table></figure>
+<p><strong>四、量词</strong></p>
+<p><strong>1.量词</strong></p>
+<blockquote>
+<p>❤（多个字母，重复最后一个）❤</p>
+<ul>
+<li>贪婪 大于等于0</li>
+</ul>
+<ul>
+<li>懒惰 大于等于1<br>? 占有 要么0要么1</li>
+</ul>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/^a*$/</span>.test(<span class="string">""</span>));<span class="comment">//true 0次可以</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/^a*$/</span>.test(<span class="string">"a"</span>));<span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/^a*$/</span>.test(<span class="string">"aaaa"</span>));<span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/^a*$/</span>.test(<span class="string">"aaab"</span>));<span class="comment">//false 因为^$控制了边界内只能有大于等于0个a</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/^a*$/</span>.test(<span class="string">"b"</span>));<span class="comment">//false  b更错了</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/^zxcv*$/</span>.test(<span class="string">"zxcvv"</span>));<span class="comment">//true 多个字母，重复最后一个</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/^zxcv*$/</span>.test(<span class="string">"zxc"</span>));<span class="comment">//true  大于等于0，0个也可以</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/^zxcv*$/</span>.test(<span class="string">"zxzv"</span>));<span class="comment">//false 边界定义了，边界内必须要完全匹配</span></div><div class="line">        </div><div class="line"><span class="comment">// &#123;&#125;重复多少次的意思，&#123;n&#125; n次 &#123;n,&#125; n次即以上 &#123;n,m&#125; n&lt;=x&lt;=m</span></div><div class="line"><span class="comment">// * &#123;0,&#125;</span></div><div class="line"><span class="comment">// + &#123;1.&#125;</span></div><div class="line"><span class="comment">// ? &#123;0.1&#125;</span></div><div class="line"><span class="comment">// x|y x或者y</span></div><div class="line">        </div><div class="line">        </div><div class="line"><span class="comment">//()括号：提高权限，优先计算  | :前后只要有一个符合即可</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/(abc)|(xyz)/</span>.test(<span class="string">"abcq"</span>));<span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/(abc)|(xyz)/</span>.test(<span class="string">"sxyz"</span>));<span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/(abc)|(xyz)/</span>.test(<span class="string">"abxy"</span>));<span class="comment">//false 都没有完整符合abc或xyz中的一个</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/(abc)|(xyz)/</span>.test(<span class="string">"ab"</span>));<span class="comment">//false  同上</span></div></pre></td></tr></table></figure>
+<p><strong>五、练习</strong></p>
+<p><strong>1.练习</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//eg: 0562-2812914 (0开头，4位)-(2开头，7位)</span></div><div class="line"> <span class="keyword">var</span> <span class="built_in">RegExp</span> = <span class="regexp">/^0\d&#123;3&#125;-2\d&#123;6&#125;$/</span>;</div></pre></td></tr></table></figure>
+<p>—未完待续</p>
 
       
 
@@ -421,14 +439,6 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
               </li>
              
@@ -437,11 +447,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">《深入理解Java虚拟机》</a>
+                <a href="javascript:void(0)" class="js-tag color3">DB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">《深入理解Java虚拟机》</a>
               </li>
             
             <div class="clearfix"></div>

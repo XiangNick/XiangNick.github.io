@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Mr.Zhang">
 <meta property="og:description" content="2.2 运行时数据区域">
 <meta property="og:image" content="http://img.blog.csdn.net/20170302132942047?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-03-02T06:12:12.184Z">
+<meta property="og:updated_time" content="2017-03-02T12:53:43.832Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二章 Java内存区域与内存溢出异常">
 <meta name="twitter:description" content="2.2 运行时数据区域">
@@ -57,7 +57,7 @@
 		
 		<p class="header-subtitle">全栈学习者，小菜鸟  mail:XiangNickMonster@163.com</p>
 		
-		<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=26425119&auto=1&height=32" style="margin:0 0 -32px -35px;"></iframe>
+		<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=22688472&auto=1&height=32" style="margin:0 0 -32px -35px;"></iframe>
 		<nav class="header-menu">
 			<ul>
 			
@@ -183,7 +183,7 @@
 <p>程序计数器是一块较小的内存空间，是当前线程所执行的字节码的行号指示器，字节码解释器通过改变这个计数器的值来取下一条需要执行的字节码指令，分支、循环、跳转、异常处理等都依赖这个计数器。<br>java多线程是通过处理器轮流切换并分配处理器执行时间的方式来实现，在一个处理器，或者多核处理器的一个内核中，都只会执行一条线程中的指令，为了在java多线程切换后能回到正确的执行位置，所以<font color="#87CEFA"><strong>程序计数器是每个线程独立独占的。</strong></font></p>
 <p>线程执行：<br>Java方法：   计数器记录的是正在执行的虚拟机字节码指令的地址。<br>Native方法：   计数器为空。此内存区域是唯一一个在虚拟机规范中没有规定任何OOM情况的区域。</p>
 <p><strong>2.2.2 Java虚拟机栈  </strong><font color="#87CEFA"><strong>(线程私有)</strong></font></p>
-<p>生命周期与线程相同,虚拟器栈描述的是Java方法执行的内存模型：每个方法在执行的同时会创建一恶搞栈帧用于存储  <font color="#87CEFA"><strong>局部变量表</strong></font>、操作数栈、动态连接、方法入口等。<br>每一个方法从调用直到执行完成的过程，就对应着一个栈帧在虚拟机栈中从入栈到出栈的过程。</p>
+<p>生命周期与线程相同,虚拟器栈描述的是Java方法执行的内存模型：每个方法在执行的同时会创建一个栈帧用于存储  <font color="#87CEFA"><strong>局部变量表</strong></font>、操作数栈、动态连接、方法入口等。<br>每一个方法从调用直到执行完成的过程，就对应着一个栈帧在虚拟机栈中从入栈到出栈的过程。</p>
 <p>局部变量表：存放编译期可见的各种数据类型<br>(boolean,byte,char,short,int,float,long,double)、对象引用(reference类型)、returnAddress类型(指向一条字节码指令的地址)</p>
 <blockquote>
 <p>Jvm栈有两种异常情况：<br>StackOverflowError：线程请求的栈深度大于虚拟机允许的深度<br>OutOfMemoryError：虚拟机栈可以动态扩展，当扩展时无法申请到足够内存抛出</p>
@@ -406,14 +406,6 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
               </li>
              
@@ -422,11 +414,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">《深入理解Java虚拟机》</a>
+                <a href="javascript:void(0)" class="js-tag color3">DB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">《深入理解Java虚拟机》</a>
               </li>
             
             <div class="clearfix"></div>
