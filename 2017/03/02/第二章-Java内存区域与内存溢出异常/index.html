@@ -6,17 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: j2ee | Mr.Zhang</title>
+  <title>第二章 Java内存区域与内存溢出异常 | Mr.Zhang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="全栈学习者，小菜鸟     mail:XiangNickMonster@163.com">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mr.Zhang">
-<meta property="og:url" content="http://yoursite.com/tags/j2ee/index.html">
+  <meta name="description" content="2.2 运行时数据区域">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第二章 Java内存区域与内存溢出异常">
+<meta property="og:url" content="http://yoursite.com/2017/03/02/第二章-Java内存区域与内存溢出异常/index.html">
 <meta property="og:site_name" content="Mr.Zhang">
-<meta property="og:description" content="全栈学习者，小菜鸟     mail:XiangNickMonster@163.com">
+<meta property="og:description" content="2.2 运行时数据区域">
+<meta property="og:image" content="http://img.blog.csdn.net/20170302132942047?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-03-02T06:12:12.184Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mr.Zhang">
-<meta name="twitter:description" content="全栈学习者，小菜鸟     mail:XiangNickMonster@163.com">
+<meta name="twitter:title" content="第二章 Java内存区域与内存溢出异常">
+<meta name="twitter:description" content="2.2 运行时数据区域">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20170302132942047?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Zhang" type="application/atom+xml">
   
@@ -151,174 +154,174 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-第二章-Java内存区域与内存溢出异常" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      第二章 Java内存区域与内存溢出异常
+    </h1>
+  
+
+        
+        <a href="/2017/03/02/第二章-Java内存区域与内存溢出异常/" class="archive-article-date">
+  	<time datetime="2017-03-02T06:10:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-02</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="2-2-运行时数据区域"><a href="#2-2-运行时数据区域" class="headerlink" title="2.2 运行时数据区域"></a>2.2 运行时数据区域</h2><p><img src="http://img.blog.csdn.net/20170302132942047?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="Java虚拟机运行时数据区"><br><a id="more"></a></p>
+<blockquote>
+<p>图1.1 Java虚拟机运行时数据区</p>
+</blockquote>
+<hr>
+<p><strong>2.2.1 程序计数器  </strong><font color="#87CEFA"><strong>(线程私有)</strong></font></p>
+<p>程序计数器是一块较小的内存空间，是当前线程所执行的字节码的行号指示器，字节码解释器通过改变这个计数器的值来取下一条需要执行的字节码指令，分支、循环、跳转、异常处理等都依赖这个计数器。<br>java多线程是通过处理器轮流切换并分配处理器执行时间的方式来实现，在一个处理器，或者多核处理器的一个内核中，都只会执行一条线程中的指令，为了在java多线程切换后能回到正确的执行位置，所以<font color="#87CEFA"><strong>程序计数器是每个线程独立独占的。</strong></font></p>
+<p>线程执行：<br>Java方法：   计数器记录的是正在执行的虚拟机字节码指令的地址。<br>Native方法：   计数器为空。此内存区域是唯一一个在虚拟机规范中没有规定任何OOM情况的区域。</p>
+<p><strong>2.2.2 Java虚拟机栈  </strong><font color="#87CEFA"><strong>(线程私有)</strong></font></p>
+<p>生命周期与线程相同,虚拟器栈描述的是Java方法执行的内存模型：每个方法在执行的同时会创建一恶搞栈帧用于存储  <font color="#87CEFA"><strong>局部变量表</strong></font>、操作数栈、动态连接、方法入口等。<br>每一个方法从调用直到执行完成的过程，就对应着一个栈帧在虚拟机栈中从入栈到出栈的过程。</p>
+<p>局部变量表：存放编译期可见的各种数据类型<br>(boolean,byte,char,short,int,float,long,double)、对象引用(reference类型)、returnAddress类型(指向一条字节码指令的地址)</p>
+<blockquote>
+<p>Jvm栈有两种异常情况：<br>StackOverflowError：线程请求的栈深度大于虚拟机允许的深度<br>OutOfMemoryError：虚拟机栈可以动态扩展，当扩展时无法申请到足够内存抛出</p>
+</blockquote>
+<p><strong>2.2.3 本地方法栈  </strong><font color="#87CEFA"><strong>(线程私有)</strong></font></p>
+<p>与虚拟机栈作用非常相似，不过执行的是本地方法，语言、数据结构都没强制规定，为虚拟机使用到的Native方法服务。<br>也会抛出StackOverflowError和OutOfMemoryError</p>
+<hr>
+<p><strong>2.2.4 Java堆  </strong><font color="#87CEFA"><strong>(线程共有)</strong></font></p>
+<p>在虚拟机启动时创建，是Java虚拟机管理的最大一块内存，也是垃圾收集器管理的主要区域(所以很多时候也称作GC堆)。此内存区域<strong>唯一目的就是：存放对象的实例。</strong></p>
+<p>从内存回收角度，Java堆可以细分为：<br>新生代和老年代，再细点就是 Eden空间、Form Survivor空间、To Survivor空间<br>从内存分配角度，线程共享的Java堆可以划分出：<br> 多个线程私有的分配缓冲区(TLAB，Thread Local Allocation Buffer)</p>
+<p>不论怎么划分，都与存放内容无关，存放的都是对象实例，划分都为了更好的回收内存或更快地分配内存。</p>
+<p>—未完待续</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/28/springmvc使用hibernate-validator校验框架实现后端校验/" class="archive-article-date">
-  	<time datetime="2017-02-28T05:20:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/28/springmvc使用hibernate-validator校验框架实现后端校验/">springmvc使用hibernate-validator校验框架实现后端校验</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">j2ee</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">读书笔记</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/28/SpringMVC中post、get乱码解决/" class="archive-article-date">
-  	<time datetime="2017-02-28T05:14:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/28/SpringMVC中post、get乱码解决/">SpringMVC中post、get乱码解决</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
+      		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">j2ee</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">《深入理解Java虚拟机》</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/03/02/第二章-Java内存区域与内存溢出异常/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/28/OCUpload、pinyin4j、poi简单入门/" class="archive-article-date">
-  	<time datetime="2017-02-28T04:50:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-28</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/28/OCUpload、pinyin4j、poi简单入门/">OCUpload、pinyin4j、poi简单入门</a>
-    </h1>
+  
+    <a href="/2017/03/02/JVM常用参数种类/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JVM常用参数种类</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">j2ee</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/28/EasyUI的datagrid组件实现分页/" class="archive-article-date">
-  	<time datetime="2017-02-28T04:40:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/28/EasyUI的datagrid组件实现分页/"> EasyUI的datagrid组件实现分页</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">j2ee</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -341,9 +344,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
