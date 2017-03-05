@@ -6,17 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Mr.Zhang</title>
+  <title>JQuery选择器小结 | Mr.Zhang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="全栈学习者，小菜鸟     mail:XiangNickMonster@163.com">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mr.Zhang">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="先贴张图">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JQuery选择器小结">
+<meta property="og:url" content="http://yoursite.com/2017/03/05/JQuery选择器小结/index.html">
 <meta property="og:site_name" content="Mr.Zhang">
-<meta property="og:description" content="全栈学习者，小菜鸟     mail:XiangNickMonster@163.com">
+<meta property="og:description" content="先贴张图">
+<meta property="og:image" content="http://img.blog.csdn.net/20170305144008182?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-03-05T07:48:55.517Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mr.Zhang">
-<meta name="twitter:description" content="全栈学习者，小菜鸟     mail:XiangNickMonster@163.com">
+<meta name="twitter:title" content="JQuery选择器小结">
+<meta name="twitter:description" content="先贴张图">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20170305144008182?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Zhang" type="application/atom+xml">
   
@@ -151,36 +154,85 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-JQuery选择器小结" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/05/JQuery选择器小结/" class="archive-article-date">
-  	<time datetime="2017-03-05T07:45:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-05</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/05/JQuery选择器小结/">JQuery选择器小结</a>
+    <h1 class="article-title" itemprop="name">
+      JQuery选择器小结
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/03/05/JQuery选择器小结/" class="archive-article-date">
+  	<time datetime="2017-03-05T07:45:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p><strong>先贴张图</strong></p>
+</blockquote>
+<p><img src="http://img.blog.csdn.net/20170305144008182?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><a id="more"></a></p>
+<hr>
+<h2 id="“引号内选择器”"><a href="#“引号内选择器”" class="headerlink" title="“引号内选择器”"></a>“引号内选择器”</h2><font color="#8470FF">以下选择器，都在$(“”)的双引号内写</font>
+
+
+<p>一丶基本选择器</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#top"</span>) <span class="comment">//id选择器，返回单个</span></div><div class="line">$(<span class="string">"div"</span>) <span class="comment">//标签选择器，返回数组 </span></div><div class="line">$(<span class="string">".box"</span>) <span class="comment">//类选择器，返回数组 </span></div><div class="line">$(<span class="string">"*"</span>) <span class="comment">// 选择文档中所有元素，返回数组</span></div></pre></td></tr></table></figure>
+<p>二丶层级选择器</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"form input"</span>) <span class="comment">//选择所有的后代 </span></div><div class="line">$(<span class="string">"div &gt; .box"</span>) <span class="comment">//选择子代(亲儿子)</span></div><div class="line">$(<span class="string">"label + input"</span>) <span class="comment">//[返回]label标签后面直接跟一个input标签的所有[input标签] </span></div><div class="line">$(<span class="string">"#prev ~ div"</span>) <span class="comment">//同胞选择器，[返回]id为prev的所有同父[div同胞]</span></div></pre></td></tr></table></figure>
+<p>三丶基本过滤选择器</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"tr:even"</span>) <span class="comment">//返回偶数tr（注意：返回数组，序号从0开始,0,2,4..） </span></div><div class="line">$(<span class="string">"tr:odd"</span>) <span class="comment">//返回奇数tr </span></div><div class="line">$(<span class="string">"td:eq(2)"</span>) <span class="comment">//索引等于2的td </span></div><div class="line">$(<span class="string">"td:gt(4)"</span>) <span class="comment">//索引大于4</span></div><div class="line">$(<span class="string">"td:ll(4)"</span>) <span class="comment">//索引小于4 </span></div><div class="line"></div><div class="line">$(<span class="string">"tr:first"</span>) <span class="comment">//所有tr元素的第一个 </span></div><div class="line">$(<span class="string">"tr:last"</span>) <span class="comment">//所有tr元素的最后一个 </span></div><div class="line">$(<span class="string">"input:checked"</span>) <span class="comment">//所有被选中的input</span></div><div class="line">$(<span class="string">"input:not(:checked)"</span>) <span class="comment">//所有没被选中的input</span></div><div class="line">$(<span class="string">":header"</span>)  <span class="comment">//所有的标题元素(h1-h6)</span></div><div class="line">$(<span class="string">"div:animated"</span>) <span class="comment">//所有正在运动的div</span></div></pre></td></tr></table></figure>
+<p>四丶内容过滤选择器 <font color="#8470FF">(根据内容来选择)</font></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"div:contains('github')"</span>) <span class="comment">//选择所有div中含有github文本的[div]</span></div><div class="line">$(<span class="string">"td:empty"</span>) <span class="comment">//选择所有内容为空（也不包括文本节点）的[td]</span></div><div class="line">$(<span class="string">"div:has(p)"</span>) <span class="comment">//选择所有含有p标签的[div元素] </span></div><div class="line">$(<span class="string">"td:parent"</span>) <span class="comment">//选择已为人父的[td](有子标签或文本都算为人父)</span></div></pre></td></tr></table></figure>
+<p>五丶可视化过滤选择器</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"div:hidden"</span>) <span class="comment">//被hidden的div元素 </span></div><div class="line">$(<span class="string">"div:visible"</span>) <span class="comment">//可视化的div元素</span></div></pre></td></tr></table></figure>
+<p>六丶属性过滤选择器 <font color="#8470FF">(根据属性来选择)</font></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"div[id]"</span>) <span class="comment">//选择所有含有id属性的div元素 </span></div><div class="line">$(<span class="string">"input[name='news']"</span>) <span class="comment">//选择name属性为'news'的input元素</span></div><div class="line">$(<span class="string">"input[name!='newsletter']"</span>) <span class="comment">//选择name属性不为'news'的input元素</span></div><div class="line">$(<span class="string">"input[name^='news']"</span>) <span class="comment">//选择name属性以'news'开头的input元素 </span></div><div class="line">$(<span class="string">"input[name$='news']"</span>) <span class="comment">//选择name属性以'news'结尾的input元素 </span></div><div class="line">$(<span class="string">"input[name*='color']"</span>) <span class="comment">//选择name属性包含'color'的input元素</span></div><div class="line">$(<span class="string">"input[id][name$='color']"</span>) <span class="comment">//多个属性联合选择</span></div></pre></td></tr></table></figure>
+<p>七丶子元素过滤选择器 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"div span:first-child"</span>) <span class="comment">//返回所有的div元素的第一个子节点的数组 </span></div><div class="line">$(<span class="string">"div span:last-child"</span>) <span class="comment">//返回所有的div元素的最后一个节点的数组 </span></div><div class="line">$(<span class="string">"div button:only-child"</span>) <span class="comment">//只有唯一一个子节点的所有子节点的数组</span></div></pre></td></tr></table></figure>
+<p>八丶表单元素选择器： </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">":input"</span>) <span class="comment">//所有的表单元素，input, textarea, select等 </span></div><div class="line">$(<span class="string">":text"</span>) <span class="comment">//所有的text input元素 </span></div><div class="line">$(<span class="string">":password"</span>) <span class="comment">//所有的password input元素 </span></div><div class="line">$(<span class="string">":radio"</span>) <span class="comment">//所有的radio input元素 </span></div><div class="line">$(<span class="string">":checkbox"</span>) <span class="comment">//所有的checkbox input元素 </span></div><div class="line">$(<span class="string">":submit"</span>) <span class="comment">//所有的submit input元素 </span></div><div class="line">$(<span class="string">":image"</span>) <span class="comment">//所有的image input元素 </span></div><div class="line">$(<span class="string">":reset"</span>) <span class="comment">//所有的reset input元素 </span></div><div class="line">$(<span class="string">":button"</span>) <span class="comment">//所有的button input元素 </span></div><div class="line">$(<span class="string">":file"</span>) <span class="comment">//所有的file input元素 </span></div><div class="line">$(<span class="string">":hidden"</span>)<span class="comment">//所有hidden input元素</span></div></pre></td></tr></table></figure>
+<p>九丶表单元素过滤选择器 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">":enabled"</span>) <span class="comment">//选择所有的可操作的表单元素 </span></div><div class="line">$(<span class="string">":disabled"</span>) <span class="comment">//所有的不可操作的表单元素 </span></div><div class="line">$(<span class="string">":checked"</span>) <span class="comment">//所有的被checked的表单元素 </span></div><div class="line">$(<span class="string">"select option:selected"</span>) <span class="comment">//所有的select的子元素option中被selected的option</span></div></pre></td></tr></table></figure>
+<hr>
+<h2 id="“方法调用选择器”"><a href="#“方法调用选择器”" class="headerlink" title="“方法调用选择器”"></a>“方法调用选择器”</h2><font color="#8470FF">以下都为【方法】，需要在$(“”)外.方法()</font>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.find(selector) <span class="comment">//后代查找</span></div><div class="line">.children(selector) <span class="comment">//子代查找</span></div><div class="line">.parent(selector) <span class="comment">//查找亲父亲</span></div><div class="line">.siblings(selector) <span class="comment">//查找所有兄弟</span></div><div class="line">.eq(index) <span class="comment">//相等查找</span></div><div class="line">.prev(selector) <span class="comment">//查找前一个兄弟</span></div><div class="line">.next(selector) <span class="comment">//查找后一个兄弟</span></div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">注：方法中有selector，为选择器的意思，如果方法不加参数，默认选择，加了参数就多了一层筛选，比如$(".box").find()为查找class为box的所有后代，而$(".box").find("ul")为查找它的所有ul后代而非全部后代</div></pre></td></tr></table></figure>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -196,183 +248,88 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/03/05/JQuery选择器小结/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/02/第二章-Java内存区域与内存溢出异常/" class="archive-article-date">
-  	<time datetime="2017-03-02T06:10:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-02</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/02/第二章-Java内存区域与内存溢出异常/">第二章 Java内存区域与内存溢出异常</a>
-    </h1>
+  
+    <a href="/2017/03/02/第二章-Java内存区域与内存溢出异常/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">第二章 Java内存区域与内存溢出异常</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">读书笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">《深入理解Java虚拟机》</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/02/JVM常用参数种类/" class="archive-article-date">
-  	<time datetime="2017-03-02T05:22:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/02/JVM常用参数种类/">JVM常用参数种类</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">读书笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JVM</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/01/正则表达式小结/" class="archive-article-date">
-  	<time datetime="2017-03-01T15:04:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/01/正则表达式小结/">正则表达式小结 </a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/28/springmvc使用hibernate-validator校验框架实现后端校验/" class="archive-article-date">
-  	<time datetime="2017-02-28T05:20:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/28/springmvc使用hibernate-validator校验框架实现后端校验/">springmvc使用hibernate-validator校验框架实现后端校验</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">j2ee</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -395,8 +352,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
