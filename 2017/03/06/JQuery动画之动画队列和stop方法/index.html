@@ -6,17 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: JQuery | Mr.Zhang</title>
+  <title>JQuery动画之动画队列和stop方法 | Mr.Zhang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="全栈学习者，小菜鸟     mail:XiangNickMonster@163.com">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mr.Zhang">
-<meta property="og:url" content="http://yoursite.com/tags/JQuery/index.html">
+  <meta name="description" content="在介绍动画队列之前，先谈谈js的单线程和浏览器的事件驱动。
+Javascript是单线程的【转】因为JS运行在浏览器中，是单线程的，每个window一个JS线程，既然是单线程的，在某个特定的时刻只有特定的代码能够被执行，并阻塞其它的代码。而浏览器是事件驱动的（Event driven），浏览器中很多行为是异步（Asynchronized）的，会创建事件并放入执行队列中。javascript引擎是单">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JQuery动画之动画队列和stop方法">
+<meta property="og:url" content="http://yoursite.com/2017/03/06/JQuery动画之动画队列和stop方法/index.html">
 <meta property="og:site_name" content="Mr.Zhang">
-<meta property="og:description" content="全栈学习者，小菜鸟     mail:XiangNickMonster@163.com">
+<meta property="og:description" content="在介绍动画队列之前，先谈谈js的单线程和浏览器的事件驱动。
+Javascript是单线程的【转】因为JS运行在浏览器中，是单线程的，每个window一个JS线程，既然是单线程的，在某个特定的时刻只有特定的代码能够被执行，并阻塞其它的代码。而浏览器是事件驱动的（Event driven），浏览器中很多行为是异步（Asynchronized）的，会创建事件并放入执行队列中。javascript引擎是单">
+<meta property="og:image" content="http://img.blog.csdn.net/20170306194048745?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-03-06T12:11:28.314Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mr.Zhang">
-<meta name="twitter:description" content="全栈学习者，小菜鸟     mail:XiangNickMonster@163.com">
+<meta name="twitter:title" content="JQuery动画之动画队列和stop方法">
+<meta name="twitter:description" content="在介绍动画队列之前，先谈谈js的单线程和浏览器的事件驱动。
+Javascript是单线程的【转】因为JS运行在浏览器中，是单线程的，每个window一个JS线程，既然是单线程的，在某个特定的时刻只有特定的代码能够被执行，并阻塞其它的代码。而浏览器是事件驱动的（Event driven），浏览器中很多行为是异步（Asynchronized）的，会创建事件并放入执行队列中。javascript引擎是单">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20170306194048745?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Zhang" type="application/atom+xml">
   
@@ -151,36 +157,90 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-JQuery动画之动画队列和stop方法" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/05/JQuery选择器小结/" class="archive-article-date">
-  	<time datetime="2017-03-05T07:45:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-05</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/05/JQuery选择器小结/">JQuery选择器小结</a>
+    <h1 class="article-title" itemprop="name">
+      JQuery动画之动画队列和stop方法
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/03/06/JQuery动画之动画队列和stop方法/" class="archive-article-date">
+  	<time datetime="2017-03-06T12:08:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在介绍动画队列之前，先谈谈js的单线程和浏览器的事件驱动。</p>
+<h2 id="Javascript是单线程的【转】"><a href="#Javascript是单线程的【转】" class="headerlink" title="Javascript是单线程的【转】"></a>Javascript是单线程的【转】</h2><p>因为JS运行在浏览器中，是单线程的，每个window一个JS线程，既然是单线程的，在某个特定的时刻只有特定的代码能够被执行，并阻塞其它的代码。而浏览器是事件驱动的（Event driven），浏览器中很多行为是异步（Asynchronized）的，会创建事件并放入执行队列中。javascript引擎是单线程处理它的任务队列，你可以理解成就是普通函数和回调函数构成的队列。当异步事件发生时，如mouse click, a timer firing, or an XMLHttpRequest completing（鼠标点击事件发生、定时器触发事件发生、XMLHttpRequest完成回调触发等），将他们放入执行队列，等待当前代码执行完成。<br><a id="more"></a></p>
+<h2 id="异步事件驱动"><a href="#异步事件驱动" class="headerlink" title="异步事件驱动"></a>异步事件驱动</h2><p>前面已经提到浏览器是事件驱动的（Event driven），浏览器中很多行为是异步（Asynchronized）的，例如：鼠标点击事件、窗口大小拖拉事件、定时器触发事件、XMLHttpRequest完成回调等。当一个异步事件发生的时候，它就进入事件队列。浏览器有一个内部大消息循环，Event Loop（事件循环），会轮询大的事件队列并处理事件。例如，浏览器当前正在忙于处理onclick事件，这时另外一个事件发生了（如：window onSize），这个异步事件就被放入事件队列等待处理，只有前面的处理完毕了，空闲了才会执行这个事件。setTimeout也是一样，当调用的时候，js引擎会启动定时器timer，大约xxms以后执行xxx，当定时器时间到，就把该事件放到主事件队列等待处理（浏览器不忙的时候才会真正执行）。每个浏览器具体实现主事件队列不尽相同，在此不赘述。</p>
+<h2 id="浏览器不是单线程的"><a href="#浏览器不是单线程的" class="headerlink" title="浏览器不是单线程的"></a>浏览器不是单线程的</h2><p>虽然JS运行在浏览器中，是单线程的，每个window一个JS线程，但浏览器不是单线程的，例如Webkit或是Gecko引擎，都可能有如下线程：</p>
+<blockquote>
+<p>javascript引擎线程<br>      界面渲染线程<br>      浏览器事件触发线程<br>      Http请求线程</p>
+</blockquote>
+<p> 很多人弄不清，如果js是单线程的，那么谁去轮询大的Event loop事件队列？答案是浏览器会有单独的线程去处理这个队列。</p>
+<h2 id="Ajax异步请求是否真的异步"><a href="#Ajax异步请求是否真的异步" class="headerlink" title="Ajax异步请求是否真的异步?"></a>Ajax异步请求是否真的异步?</h2><p>   很多人不清楚，既然说JavaScript是单线程运行的，那么XMLHttpRequest在连接后是否真的异步?<br>   其实请求确实是异步的，这请求是由浏览器新开一个线程请求（见前面的浏览器多线程）。当请求的状态变更时，如果先前已设置回调，这异步线程就产生状态变更事件放到 JavaScript引擎的事件处理队列中等待处理。当浏览器空闲的时候出队列任务被处理，JavaScript引擎始终是单线程运行回调函数。javascript引擎确实是单线程处理它的任务队列，能理解成就是普通函数和回调函数构成的队列。</p>
+<blockquote>
+<font color="#00BFFF">总结一下，Ajax请求确实是异步的，这请求是由浏览器新开一个&gt;线程请求，事件回调的时候是放入Event<br>loop单线程事件队列等候处理。</font>
+
+</blockquote>
+<p>setTimeout(func, 0)为什么有时候有用？<br>      写js多的人可能发现，有时候加一个setTimeout(func, 0)非常有用，为什么？难道是模拟多线程吗？错！前面已经说过了，javascript是JS运行在浏览器中，是单线程的，每个window一个JS线程，既然是单线程的，setTimeout(func, 0)神奇在哪儿？那就是告诉js引擎，在0ms以后把func放到主事件队列中，等待当前的代码执行完毕再执行，注意：重点是改变了代码流程，把func的执行放到了等待当前的代码执行完毕再执行。这就是它的神奇之处了。它的用处有三个：</p>
+<blockquote>
+<p>①让浏览器渲染当前的变化（很多浏览器UI render和js执行是放在一个线程中，线程阻塞会导致界面无法更新渲染）<br>      ②重新评估”script is running too long”警告<br>      ③改变执行顺序</p>
+</blockquote>
+<hr>
+<h2 id="接下来，我们来聊聊JQuery的动画队列。【原】"><a href="#接下来，我们来聊聊JQuery的动画队列。【原】" class="headerlink" title="接下来，我们来聊聊JQuery的动画队列。【原】"></a>接下来，我们来聊聊JQuery的动画队列。【原】</h2><p>在用户触发动画事件时，也将会把动画方法放入队列中，以队列的方式执行。<br><img src="http://img.blog.csdn.net/20170306194048745?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>如下图，该粉色的div盒子，可以由上方的按钮触发滑入滑出动画。(最后一个停止先不看)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">        $(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            $(<span class="string">"button:eq(0)"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                $(<span class="string">"div:eq(0)"</span>).slideDown(<span class="string">"slow"</span>);</div><div class="line">            &#125;);</div><div class="line">            $(<span class="string">"button:eq(1)"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                $(<span class="string">"div:eq(0)"</span>).slideUp(<span class="string">"slow"</span>);</div><div class="line">            &#125;);</div><div class="line">            $(<span class="string">"button:eq(2)"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </div><div class="line">                $(<span class="string">"div:eq(0)"</span>).stop(<span class="literal">true</span>,<span class="literal">true</span>);</div><div class="line">            &#125;);</div><div class="line">        &#125;);</div><div class="line">    &lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>当依次点击滑入、滑出按钮时，会将slideDown和slideUp方法依次放入事件队列中，待处理完之前的事件后，会按两个方法入队列的顺序依次执行，也就是先执行slideDown再执行slideUp方法。如果我们将动画的执行时间设置的再慢些(动画方法中的参数:fast:200ms,normal:400ms,slow:600ms)，如3000ms时，你会看到该盒子会慢慢地展开，等完全展开完毕后才会再收起，这就是按入队列顺序执行动画。<br>接下来就可以聊聊JQuery中的stop方法。该方法有三个参数(type,clearQueue, gotoEnd)，第一个type参数先不谈，方法的clearQueue, gotoEnd参数分别为什么意思呢？让我们通过实验来了解。</p>
+<hr>
+<p>stop方法的上述2个参数默认都为false。</p>
+<p>默认false,false</p>
+<font color="#6495ED">① 第一种情况:false,false </font>
+
+<p>(后续动画不停止,当前动画不继续执行,原地停下)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"div:eq(0)"</span>).stop(<span class="literal">false</span>,<span class="literal">false</span>);</div></pre></td></tr></table></figure>
+<p><font color="#6495ED">②第二种情况:true,false</font><br>(后续动画停止，当前动画不继续执行,原地停下) </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"div:eq(0)"</span>).stop(<span class="literal">true</span>,<span class="literal">false</span>);</div></pre></td></tr></table></figure>
+<p><font color="#6495ED">③第三种情况:false,true</font><br>(后续动画不停止,当前动画立马执行完成)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"div:eq(0)"</span>).stop(<span class="literal">false</span>,<span class="literal">true</span>);</div></pre></td></tr></table></figure>
+<p><font color="#6495ED">④第四种情况:true,true;</font><br> (后续动画停止,当前动画立马执行完成) </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"div:eq(0)"</span>).stop(<span class="literal">true</span>,<span class="literal">true</span>)</div></pre></td></tr></table></figure>
+<p>看到这，应该已经明白。第一个clearQueue参数代表是否停止后续动画(true表示停止后续动画),第二个 gotoEnd代表当前动画是立即完成还是直接原地停下(true表示当前动画立马执行完成，false表示当前动画立马原地停下)</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -190,25 +250,94 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">JQuery</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/03/06/JQuery动画之动画队列和stop方法/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/03/05/JQuery选择器小结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JQuery选择器小结</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-    
+
 
 
           </div>
@@ -231,9 +360,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
