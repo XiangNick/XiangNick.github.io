@@ -20,7 +20,7 @@ Html4.0   网页开发：       html -&amp;gt;  结构  4.0       Css -&amp;gt; 
 <meta property="og:image" content="http://img.blog.csdn.net/20170311110151333?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170311171757148?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170311172522882?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-03-11T09:34:14.927Z">
+<meta property="og:updated_time" content="2017-03-11T09:47:39.256Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Html5区别">
 <meta name="twitter:description" content="H5和H4的区别1一、标准改变
@@ -201,6 +201,26 @@ Html4.0   网页开发：       html -&amp;gt;  结构  4.0       Css -&amp;gt; 
 <li>keygen  生成加密字符串</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">keygen 元素的作用是提供一种验证用户的可靠方法。 </div><div class="line">      keygen 元素是密钥对生成器（key-pair generator）。当提交表单时，会生成两个键，一个是私钥，一个公钥。 </div><div class="line">      私钥（private key）存储于客户端，公钥（public key）则被发送到服务器。公钥可用于之后验证用户的客户端证书（client certificate）。</div><div class="line">      服务器获取客户端的私钥后可用来和公钥比较判断是否被劫持过。</div></pre></td></tr></table></figure>
+<ul>
+<li>output 仅仅在页面表单里展示数据，没啥用，还不能提交</li>
+<li>meter 表示度量器，不建议用作进度条</li>
+<li>progress</li>
+<li>Min-width</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">三、表单属性</div></pre></td></tr></table></figure>
+<ul>
+<li>placeholder 占位符 </li>
+<li>multiple 文件上传多选或多个邮箱地址   </li>
+<li>autocomplete  自动完成，用于表单元素，也可用于表单自身(on/off) </li>
+<li>novalidate  关闭验证，可用于form标签 required 必填项 </li>
+<li>pattern 正则表达式 验证表单  </li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">手机号:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"tel"</span> <span class="attr">name</span>=<span class="string">"tel"</span> <span class="attr">required</span>=<span class="string">"required"</span> <span class="attr">pattern</span>=<span class="string">"^(\+86)?1[3,5,8](\d&#123;9&#125;)$"</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">四、表单事件</div></pre></td></tr></table></figure>
+<ul>
+<li>oninput 用户输入内容时触发，可用于移动端输入字数统计 </li>
+<li>oninvalid 验证不通过时触发</li>
+</ul>
 
       
 
@@ -407,15 +427,15 @@ Html4.0   网页开发：       html -&amp;gt;  结构  4.0       Css -&amp;gt; 
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
               </li>
              
               <li class="article-tag-list-item">
