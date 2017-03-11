@@ -6,18 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>SpringMVC中post、get乱码解决 | Mr.Zhang</title>
+  <title>Archives: 2017/3 | Mr.Zhang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一 乱码原因由于中间件为Tomcat，用户请求和返回的响应都需要经过tomcat，tomcat默认编码为ISO-8859-1和我们程序的编码(一般为UTF-8)不同，导致post、get请求乱码。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="SpringMVC中post、get乱码解决">
-<meta property="og:url" content="http://yoursite.com/2017/02/28/SpringMVC中post、get乱码解决/index.html">
+  <meta name="description" content="全栈学习者，小菜鸟     mail:XiangNickMonster@163.com">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mr.Zhang">
+<meta property="og:url" content="http://yoursite.com/archives/2017/03/page/2/index.html">
 <meta property="og:site_name" content="Mr.Zhang">
-<meta property="og:description" content="一 乱码原因由于中间件为Tomcat，用户请求和返回的响应都需要经过tomcat，tomcat默认编码为ISO-8859-1和我们程序的编码(一般为UTF-8)不同，导致post、get请求乱码。">
-<meta property="og:updated_time" content="2017-02-28T05:35:39.007Z">
+<meta property="og:description" content="全栈学习者，小菜鸟     mail:XiangNickMonster@163.com">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SpringMVC中post、get乱码解决">
-<meta name="twitter:description" content="一 乱码原因由于中间件为Tomcat，用户请求和返回的响应都需要经过tomcat，tomcat默认编码为ISO-8859-1和我们程序的编码(一般为UTF-8)不同，导致post、get请求乱码。">
+<meta name="twitter:title" content="Mr.Zhang">
+<meta name="twitter:description" content="全栈学习者，小菜鸟     mail:XiangNickMonster@163.com">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Zhang" type="application/atom+xml">
   
@@ -152,166 +151,64 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-SpringMVC中post、get乱码解决" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      SpringMVC中post、get乱码解决
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/03/01/正则表达式小结/" class="archive-article-date">
+  	<time datetime="2017-03-01T15:04:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-01</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/03/01/正则表达式小结/">正则表达式小结 </a>
     </h1>
   
 
-        
-        <a href="/2017/02/28/SpringMVC中post、get乱码解决/" class="archive-article-date">
-  	<time datetime="2017-02-28T05:14:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一-乱码原因"><a href="#一-乱码原因" class="headerlink" title="一 乱码原因"></a>一 乱码原因</h2><p>由于中间件为Tomcat，用户请求和返回的响应都需要经过tomcat，tomcat默认编码为ISO-8859-1和我们程序的编码(一般为UTF-8)不同，导致post、get请求乱码。<br><a id="more"></a></p>
-<h2 id="二-解决方案"><a href="#二-解决方案" class="headerlink" title="二 解决方案"></a>二 解决方案</h2><hr>
-<p><strong>Post乱码解决方案：</strong><br>在web.xml中添加编码过滤器来解决，可以自己编写过滤器，最常用的方法是使用spring提供的编码过滤器：<br>在Web.xml中增加如下配置（要注意的是它的位置一定要是第一个执行的过滤器）</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 解决post乱码 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">filter</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CharacterEncodingFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.springframework.web.filter.CharacterEncodingFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">init-param</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">param-name</span>&gt;</span>encoding<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">param-value</span>&gt;</span>utf-8<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">filter</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CharacterEncodingFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>该过滤器要做的其实就是强制为所有请求和响应设置编码格式：<br>request.setCharacterEncoding(“utf-8”);<br>response.setCharacterEncoding(“utf-8”);</p>
-<hr>
-<p><strong>GET乱码解决方案</strong></p>
-<p>针对Get方式的乱码问题，由于参数是通过URL传递的，所以上面通过request设置的编码格式是不起作用的<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">方法①</div><div class="line">修改tomcat目录 的conf/server.xml文件，添加URIEncoding="utf-8"</div><div class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">URIEncoding</span>=<span class="string">"utf-8"</span> <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span> <span class="attr">port</span>=<span class="string">"8080"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span> <span class="attr">redirectPort</span>=<span class="string">"8443"</span>/&gt;</span></div><div class="line">只需增加 URIEncoding="UTF-8"  这一句，然后重启tomcat即可。</div><div class="line"></div><div class="line">方法②</div><div class="line">对参数进行重新编码：</div><div class="line">String userName = new String(request.getParamter("userName").getBytes("ISO8859-1"),"utf-8")</div><div class="line"></div><div class="line">ISO8859-1是tomcat默认编码，需要将tomcat编码后的内容按utf-8编码</div></pre></td></tr></table></figure></p>
-<p>通过以上对POST和GET的处理，妈妈再也不用担心我们遇到乱码了！</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">j2ee</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/02/28/SpringMVC中post、get乱码解决/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/02/28/springmvc使用hibernate-validator校验框架实现后端校验/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          springmvc使用hibernate-validator校验框架实现后端校验
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/02/28/以mybatis为例浅聊SQL注入/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">以mybatis为例浅聊SQL注入</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-
-  
-    <div class="duoshuo"></div>
+    </div></section>
   
 
-
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/2017/03/">&laquo; Prev</a><a class="page-number" href="/archives/2017/03/">1</a><span class="page-number current">2</span>
+    </nav>
+  
 
 
           </div>
@@ -334,8 +231,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
