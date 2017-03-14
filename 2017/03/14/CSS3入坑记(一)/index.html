@@ -16,11 +16,15 @@
 <meta property="og:site_name" content="Mr.Zhang">
 <meta property="og:description" content="一、给力的选择器
 1.标签选择器。类名选择器，id选择器。后代选择器，标签指定（交集）选择器 。并集选择器，子代选择器，通配符，     a)div+p：选择div后第一个兄弟p（紧跟div）还是兄弟关系哦     b)div~p：选择div后所有兄弟P大家都是兄弟，给良辰一个面子">
-<meta property="og:updated_time" content="2017-03-13T16:23:35.659Z">
+<meta property="og:image" content="http://img.blog.csdn.net/20170314103649884?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170314103951541?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170314102509175?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-03-14T02:48:14.751Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS3入坑记(一)">
 <meta name="twitter:description" content="一、给力的选择器
 1.标签选择器。类名选择器，id选择器。后代选择器，标签指定（交集）选择器 。并集选择器，子代选择器，通配符，     a)div+p：选择div后第一个兄弟p（紧跟div）还是兄弟关系哦     b)div~p：选择div后所有兄弟P大家都是兄弟，给良辰一个面子">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20170314103649884?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Zhang" type="application/atom+xml">
   
@@ -204,13 +208,14 @@
 <p>3.3状态伪类</p>
 </li>
 <li>E:empty 如果盒子是空的就会被选中</li>
+<li>E:target   通常和锚点配合使用，比如一个h2标签代表一段的标题，然后通过锚点到达该处，该h2就会显示出相应的样式</li>
 </ul>
 <p> 4.<font color="skyblue">伪元素</font></p>
 <blockquote>
-<p>伪元素只是元素，他只能修饰被修饰着内部的某一部分</p>
+<p>伪元素只是元素，他只能修饰被修饰者内部的某一部分内容，而非整个类</p>
 </blockquote>
 <ul>
-<li>1) 伪就是假的，通过css模拟出html效果，必须有content属性</li>
+<li>1) 伪就是假的，通过css模拟出html效果，<font color="red">必须有content属性</font></li>
 <li>2) 伪元素虽然可以单:，但是在CSS3规范中规定伪类用:，伪元素用双::</li>
 <li>3) ::before，在之前添加   </li>
 </ul>
@@ -221,12 +226,20 @@
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span><span class="selector-pseudo">::after</span>&#123;</div><div class="line">  <span class="attribute">content </span>: <span class="string">"在后面"</span>;</div><div class="line">  <span class="attribute">color</span>: <span class="number">#f00</span>; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
 <li>5) 产生的伪元素相当于div的子元素</li>
-<li>6) 可以使用标签的属性</li>
+<li>6) 伪元素可以使用标签的属性(啥宽、高、bgc、display之类的)，如下<br>eg:</li>
 </ul>
+<p>css:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">span</span><span class="selector-pseudo">::before</span>&#123;</div><div class="line">            <span class="attribute">content</span>: <span class="string">'今天'</span>;</div><div class="line">            <span class="attribute">background</span>: paleturquoise;</div><div class="line">            <span class="attribute">display</span>: inline-block;</div><div class="line">            <span class="attribute">width</span>: <span class="number">60px</span>;</div><div class="line">            <span class="attribute">height</span>: <span class="number">30px</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="selector-tag">span</span><span class="selector-pseudo">::after</span>&#123;</div><div class="line">            <span class="attribute">content</span>: <span class="string">'真好'</span>;</div><div class="line">            <span class="attribute">background</span>: darkseagreen;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">/*必须要写content*/</span></div></pre></td></tr></table></figure></p>
+<p>html:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>天气<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
+<p> 效果：<br> <img src="http://img.blog.csdn.net/20170314103649884?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="::before和::after"></p>
+<blockquote>
+<p>::bofore和::after可以做图标放在字体前后</p>
+</blockquote>
 <ul>
-<li>5 <font color="skyblue">伪元素选择器</font><br>在大盒子下选中某一款区域用盒子包裹起来，可以单独设置样式<br>1) ::frist-letter  选择第一个字母<br>2) ::frist-line 选择第一行<br>3) ::selection 选择区域的样式 a)一般只设置背景颜色和字体颜色<br>4) 通常用::first-letter和flaot:left以及字体加大设置首字下沉</li>
+<li>5 <font color="skyblue">伪元素选择器</font><br>在大盒子下选中某一款区域用盒子包裹起来，可以单独设置样式<br>1) ::frist-letter  选择第一个字母<br>2) ::frist-line 选择第一行<br>3) ::selection 选择区域的样式 (网页上选中一段文字一般是蓝色框和白色背景，可以自己换颜色)<br>a)一般只设置背景颜色和字体颜色<br>4) 通常用::first-letter和flaot:left以及字体加大设置首字下沉，如下：<br><img src="http://img.blog.csdn.net/20170314103951541?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>二、颜色的升级</li>
 </ul>
-<h2 id="二、颜色的升级"><a href="#二、颜色的升级" class="headerlink" title="二、颜色的升级"></a>二、颜色的升级</h2><font color="seagreen">设置透明色的话</font>
+<hr>
+<font color="seagreen">设置透明色的话</font>
 
 <ol>
 <li>传统的opcity属性会被子代继承，且子代的opacity属性不能修改，多可怕</li>
@@ -242,7 +255,7 @@
 <p>tips：有颜色的地方都可以用半透明</p>
 </blockquote>
 <h2 id="三、文本阴影的引入"><a href="#三、文本阴影的引入" class="headerlink" title="三、文本阴影的引入"></a>三、文本阴影的引入</h2><ol>
-<li>文本阴影<br>a)text-shadow：水平距离 垂直距离 模糊程度  颜色<br>b)左下为正，右上为负<br>c)一个文本可以有多个阴影，用逗号隔开</li>
+<li>文本阴影<br>a)text-shadow：水平距离 垂直距离 模糊程度  颜色<font color="pink">*（注意：文本阴影前三个值单位为px，文本可以设置3个px属性，而box-shadow可以再多一个px属性为阴影面积）</font><br>b)左下为正，右上为负<br>c)一个文本可以有多个阴影，用逗号隔开，常用一黑一白的阴影来做凹凸字(黑白阴影模拟光照)</li>
 </ol>
 <h2 id="四、CSS3盒子模型-重点"><a href="#四、CSS3盒子模型-重点" class="headerlink" title="四、CSS3盒子模型(重点)"></a>四、<font color="red">CSS3盒子模型(重点)</font></h2><ol>
 <li><p>传统盒子模型<br>传统盒子中，我们看到的：<br>a)宽度 = padding+border+width<br>b)内容区域大小不变<br>c)总体大小变化</p>
@@ -250,7 +263,8 @@
 <li><p>CSS3盒子模型<br>a) 可以给盒子设置box-sizing属性<br>属性值为：content-box/padding-box/border-box</p>
 </li>
 </ol>
-<h1 id="这里填图片！"><a href="#这里填图片！" class="headerlink" title="这里填图片！"></a>这里填图片！</h1><ul>
+<p><img src="http://img.blog.csdn.net/20170314102509175?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="CSS3盒子模型"></p>
+<ul>
 <li>设置谁，谁不变</li>
 </ul>
 <ul>
@@ -272,6 +286,9 @@
 <p>tips1：最后要加无前缀的样式<br>tips2：加私有化前缀如果也无法解决，放弃</p>
 <p>tips3：这里只是做个实例，一般线性渐变背景写法为：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">background</span>: <span class="selector-tag">linear-gradient</span>(<span class="selector-tag">to</span> <span class="selector-tag">right</span>,<span class="selector-tag">yellow</span> 0%,<span class="selector-tag">pink</span> 30%,<span class="selector-tag">blue</span> 60%,<span class="selector-tag">red</span> 100%);</div></pre></td></tr></table></figure>
+<hr>
+<p>接下来，让我们在CSS3入坑记（二）再相会！</p>
+
       
 
       
@@ -477,23 +494,15 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -502,6 +511,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
               </li>
              
               <li class="article-tag-list-item">

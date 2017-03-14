@@ -196,7 +196,7 @@ Javascript是单线程的【转】因为JS运行在浏览器中，是单线程�
 </blockquote>
 <hr>
 <h2 id="接下来，我们来聊聊JQuery的动画队列。【原】"><a href="#接下来，我们来聊聊JQuery的动画队列。【原】" class="headerlink" title="接下来，我们来聊聊JQuery的动画队列。【原】"></a>接下来，我们来聊聊JQuery的动画队列。【原】</h2><p>在用户触发动画事件时，也将会把动画方法放入队列中，以队列的方式执行。<br><img src="http://img.blog.csdn.net/20170306194048745?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>如下图，该粉色的div盒子，可以由上方的按钮触发滑入滑出动画。(最后一个停止先不看)</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">        $(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            $(<span class="string">"button:eq(0)"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                $(<span class="string">"div:eq(0)"</span>).slideDown(<span class="string">"slow"</span>);</div><div class="line">            &#125;);</div><div class="line">            $(<span class="string">"button:eq(1)"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                $(<span class="string">"div:eq(0)"</span>).slideUp(<span class="string">"slow"</span>);</div><div class="line">            &#125;);</div><div class="line">            $(<span class="string">"button:eq(2)"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </div><div class="line">                $(<span class="string">"div:eq(0)"</span>).stop(<span class="literal">true</span>,<span class="literal">true</span>);</div><div class="line">            &#125;);</div><div class="line">        &#125;);</div><div class="line">    <span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">        $(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            $(<span class="string">"button:eq(0)"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                $(<span class="string">"div:eq(0)"</span>).slideDown(<span class="string">"slow"</span>);</div><div class="line">            &#125;);</div><div class="line">            $(<span class="string">"button:eq(1)"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                $(<span class="string">"div:eq(0)"</span>).slideUp(<span class="string">"slow"</span>);</div><div class="line">            &#125;);</div><div class="line">            $(<span class="string">"button:eq(2)"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </div><div class="line">                $(<span class="string">"div:eq(0)"</span>).stop(<span class="literal">true</span>,<span class="literal">true</span>);</div><div class="line">            &#125;);</div><div class="line">        &#125;);</div><div class="line">    &lt;/script&gt;</div></pre></td></tr></table></figure>
 <p>当依次点击滑入、滑出按钮时，会将slideDown和slideUp方法依次放入事件队列中，待处理完之前的事件后，会按两个方法入队列的顺序依次执行，也就是先执行slideDown再执行slideUp方法。如果我们将动画的执行时间设置的再慢些(动画方法中的参数:fast:200ms,normal:400ms,slow:600ms)，如3000ms时，你会看到该盒子会慢慢地展开，等完全展开完毕后才会再收起，这就是按入队列顺序执行动画。<br>接下来就可以聊聊JQuery中的stop方法。该方法有三个参数(type,clearQueue, gotoEnd)，第一个type参数先不谈，方法的clearQueue, gotoEnd参数分别为什么意思呢？让我们通过实验来了解。</p>
 <hr>
 <p>stop方法的上述2个参数默认都为false。</p>
@@ -431,23 +431,15 @@ Javascript是单线程的【转】因为JS运行在浏览器中，是单线程�
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -456,6 +448,14 @@ Javascript是单线程的【转】因为JS运行在浏览器中，是单线程�
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
               </li>
              
               <li class="article-tag-list-item">
