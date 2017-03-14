@@ -6,23 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>JQuery动画之动画队列和stop方法 | Mr.Zhang</title>
+  <title>Html5入坑记 | Mr.Zhang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在介绍动画队列之前，先谈谈js的单线程和浏览器的事件驱动。
-Javascript是单线程的【转】因为JS运行在浏览器中，是单线程的，每个window一个JS线程，既然是单线程的，在某个特定的时刻只有特定的代码能够被执行，并阻塞其它的代码。而浏览器是事件驱动的（Event driven），浏览器中很多行为是异步（Asynchronized）的，会创建事件并放入执行队列中。javascript引擎是单">
+  <meta name="description" content="一、标准改变Html4.0   网页开发：       html -&amp;gt;  结构  4.0       Css -&amp;gt; 样式  2.0          Js -&amp;gt; 行为 用户交互">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JQuery动画之动画队列和stop方法">
-<meta property="og:url" content="http://yoursite.com/2017/03/06/JQuery动画之动画队列和stop方法/index.html">
+<meta property="og:title" content="Html5入坑记">
+<meta property="og:url" content="http://yoursite.com/2017/03/11/Html5入坑记（一）/index.html">
 <meta property="og:site_name" content="Mr.Zhang">
-<meta property="og:description" content="在介绍动画队列之前，先谈谈js的单线程和浏览器的事件驱动。
-Javascript是单线程的【转】因为JS运行在浏览器中，是单线程的，每个window一个JS线程，既然是单线程的，在某个特定的时刻只有特定的代码能够被执行，并阻塞其它的代码。而浏览器是事件驱动的（Event driven），浏览器中很多行为是异步（Asynchronized）的，会创建事件并放入执行队列中。javascript引擎是单">
-<meta property="og:image" content="http://img.blog.csdn.net/20170306194048745?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-03-06T12:11:28.314Z">
+<meta property="og:description" content="一、标准改变Html4.0   网页开发：       html -&amp;gt;  结构  4.0       Css -&amp;gt; 样式  2.0          Js -&amp;gt; 行为 用户交互">
+<meta property="og:image" content="http://img.blog.csdn.net/20170311170716499?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170311110151333?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170311171757148?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170311172522882?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-03-13T15:18:39.873Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JQuery动画之动画队列和stop方法">
-<meta name="twitter:description" content="在介绍动画队列之前，先谈谈js的单线程和浏览器的事件驱动。
-Javascript是单线程的【转】因为JS运行在浏览器中，是单线程的，每个window一个JS线程，既然是单线程的，在某个特定的时刻只有特定的代码能够被执行，并阻塞其它的代码。而浏览器是事件驱动的（Event driven），浏览器中很多行为是异步（Asynchronized）的，会创建事件并放入执行队列中。javascript引擎是单">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20170306194048745?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta name="twitter:title" content="Html5入坑记">
+<meta name="twitter:description" content="一、标准改变Html4.0   网页开发：       html -&amp;gt;  结构  4.0       Css -&amp;gt; 样式  2.0          Js -&amp;gt; 行为 用户交互">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20170311170716499?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Zhang" type="application/atom+xml">
   
@@ -157,61 +157,83 @@ Javascript是单线程的【转】因为JS运行在浏览器中，是单线程�
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JQuery动画之动画队列和stop方法" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Html5入坑记（一）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JQuery动画之动画队列和stop方法
+      Html5入坑记
     </h1>
   
 
         
-        <a href="/2017/03/06/JQuery动画之动画队列和stop方法/" class="archive-article-date">
-  	<time datetime="2017-03-06T12:08:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-06</time>
+        <a href="/2017/03/11/Html5入坑记（一）/" class="archive-article-date">
+  	<time datetime="2017-03-11T09:30:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在介绍动画队列之前，先谈谈js的单线程和浏览器的事件驱动。</p>
-<h2 id="Javascript是单线程的【转】"><a href="#Javascript是单线程的【转】" class="headerlink" title="Javascript是单线程的【转】"></a>Javascript是单线程的【转】</h2><p>因为JS运行在浏览器中，是单线程的，每个window一个JS线程，既然是单线程的，在某个特定的时刻只有特定的代码能够被执行，并阻塞其它的代码。而浏览器是事件驱动的（Event driven），浏览器中很多行为是异步（Asynchronized）的，会创建事件并放入执行队列中。javascript引擎是单线程处理它的任务队列，你可以理解成就是普通函数和回调函数构成的队列。当异步事件发生时，如mouse click, a timer firing, or an XMLHttpRequest completing（鼠标点击事件发生、定时器触发事件发生、XMLHttpRequest完成回调触发等），将他们放入执行队列，等待当前代码执行完成。<br><a id="more"></a></p>
-<h2 id="异步事件驱动"><a href="#异步事件驱动" class="headerlink" title="异步事件驱动"></a>异步事件驱动</h2><p>前面已经提到浏览器是事件驱动的（Event driven），浏览器中很多行为是异步（Asynchronized）的，例如：鼠标点击事件、窗口大小拖拉事件、定时器触发事件、XMLHttpRequest完成回调等。当一个异步事件发生的时候，它就进入事件队列。浏览器有一个内部大消息循环，Event Loop（事件循环），会轮询大的事件队列并处理事件。例如，浏览器当前正在忙于处理onclick事件，这时另外一个事件发生了（如：window onSize），这个异步事件就被放入事件队列等待处理，只有前面的处理完毕了，空闲了才会执行这个事件。setTimeout也是一样，当调用的时候，js引擎会启动定时器timer，大约xxms以后执行xxx，当定时器时间到，就把该事件放到主事件队列等待处理（浏览器不忙的时候才会真正执行）。每个浏览器具体实现主事件队列不尽相同，在此不赘述。</p>
-<h2 id="浏览器不是单线程的"><a href="#浏览器不是单线程的" class="headerlink" title="浏览器不是单线程的"></a>浏览器不是单线程的</h2><p>虽然JS运行在浏览器中，是单线程的，每个window一个JS线程，但浏览器不是单线程的，例如Webkit或是Gecko引擎，都可能有如下线程：</p>
-<blockquote>
-<p>javascript引擎线程<br>      界面渲染线程<br>      浏览器事件触发线程<br>      Http请求线程</p>
-</blockquote>
-<p> 很多人弄不清，如果js是单线程的，那么谁去轮询大的Event loop事件队列？答案是浏览器会有单独的线程去处理这个队列。</p>
-<h2 id="Ajax异步请求是否真的异步"><a href="#Ajax异步请求是否真的异步" class="headerlink" title="Ajax异步请求是否真的异步?"></a>Ajax异步请求是否真的异步?</h2><p>   很多人不清楚，既然说JavaScript是单线程运行的，那么XMLHttpRequest在连接后是否真的异步?<br>   其实请求确实是异步的，这请求是由浏览器新开一个线程请求（见前面的浏览器多线程）。当请求的状态变更时，如果先前已设置回调，这异步线程就产生状态变更事件放到 JavaScript引擎的事件处理队列中等待处理。当浏览器空闲的时候出队列任务被处理，JavaScript引擎始终是单线程运行回调函数。javascript引擎确实是单线程处理它的任务队列，能理解成就是普通函数和回调函数构成的队列。</p>
-<blockquote>
-<font color="#00BFFF">总结一下，Ajax请求确实是异步的，这请求是由浏览器新开一个&gt;线程请求，事件回调的时候是放入Event<br>loop单线程事件队列等候处理。</font>
+        <h2 id="一、标准改变"><a href="#一、标准改变" class="headerlink" title="一、标准改变"></a>一、标准改变</h2><p>Html4.0   网页开发：<br>       html -&gt;  结构  4.0<br>       Css -&gt; 样式  2.0<br>          Js -&gt; 行为 用户交互<br><a id="more"></a><br>HTML5.0   html4.0 升级版:<br>          Html5 -&gt; 结构 5.0<br>          css3  -&gt; 样式<br>          js -&gt; 行为  js API 有所增强  地理定位 web存储 拖拽</p>
+<font color="red">HTML5</font>并不仅仅只是做为HTML标记语言的一个最新版本，更重要的是它制定了Web应用开发的<font color="red">一系列标准</font>，成为第一个将Web做为应用开发平台的HTML语言。<br><br><font color="red">广义概念</font>：HTML5代表浏览器端技术的一个发展阶段。在这个阶段，浏览器呈现技术得到了一个飞跃发展和广泛支持，它包括：<font color="#00BFFF">HTML5，CSS3，Javascript</font>，API在内的一套<font color="red">技术组合 </font>
 
-</blockquote>
-<p>setTimeout(func, 0)为什么有时候有用？<br>      写js多的人可能发现，有时候加一个setTimeout(func, 0)非常有用，为什么？难道是模拟多线程吗？错！前面已经说过了，javascript是JS运行在浏览器中，是单线程的，每个window一个JS线程，既然是单线程的，setTimeout(func, 0)神奇在哪儿？那就是告诉js引擎，在0ms以后把func放到主事件队列中，等待当前的代码执行完毕再执行，注意：重点是改变了代码流程，把func的执行放到了等待当前的代码执行完毕再执行。这就是它的神奇之处了。它的用处有三个：</p>
-<blockquote>
-<p>①让浏览器渲染当前的变化（很多浏览器UI render和js执行是放在一个线程中，线程阻塞会导致界面无法更新渲染）<br>      ②重新评估”script is running too long”警告<br>      ③改变执行顺序</p>
-</blockquote>
-<hr>
-<h2 id="接下来，我们来聊聊JQuery的动画队列。【原】"><a href="#接下来，我们来聊聊JQuery的动画队列。【原】" class="headerlink" title="接下来，我们来聊聊JQuery的动画队列。【原】"></a>接下来，我们来聊聊JQuery的动画队列。【原】</h2><p>在用户触发动画事件时，也将会把动画方法放入队列中，以队列的方式执行。<br><img src="http://img.blog.csdn.net/20170306194048745?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>如下图，该粉色的div盒子，可以由上方的按钮触发滑入滑出动画。(最后一个停止先不看)</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">        $(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            $(<span class="string">"button:eq(0)"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                $(<span class="string">"div:eq(0)"</span>).slideDown(<span class="string">"slow"</span>);</div><div class="line">            &#125;);</div><div class="line">            $(<span class="string">"button:eq(1)"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                $(<span class="string">"div:eq(0)"</span>).slideUp(<span class="string">"slow"</span>);</div><div class="line">            &#125;);</div><div class="line">            $(<span class="string">"button:eq(2)"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </div><div class="line">                $(<span class="string">"div:eq(0)"</span>).stop(<span class="literal">true</span>,<span class="literal">true</span>);</div><div class="line">            &#125;);</div><div class="line">        &#125;);</div><div class="line">    <span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
-<p>当依次点击滑入、滑出按钮时，会将slideDown和slideUp方法依次放入事件队列中，待处理完之前的事件后，会按两个方法入队列的顺序依次执行，也就是先执行slideDown再执行slideUp方法。如果我们将动画的执行时间设置的再慢些(动画方法中的参数:fast:200ms,normal:400ms,slow:600ms)，如3000ms时，你会看到该盒子会慢慢地展开，等完全展开完毕后才会再收起，这就是按入队列顺序执行动画。<br>接下来就可以聊聊JQuery中的stop方法。该方法有三个参数(type,clearQueue, gotoEnd)，第一个type参数先不谈，方法的clearQueue, gotoEnd参数分别为什么意思呢？让我们通过实验来了解。</p>
-<hr>
-<p>stop方法的上述2个参数默认都为false。</p>
-<p>默认false,false</p>
-<font color="#6495ED">① 第一种情况:false,false </font>
+<p>H5范称<br>HTML + CSS3 + JS<br>优点：<a href="http://www.intertid.com/school/2014/595568.shtml" target="_blank" rel="external">HTML5的优点</a></p>
+<h2 id="二、Html结构-新增语义化标签"><a href="#二、Html结构-新增语义化标签" class="headerlink" title="二、Html结构 新增语义化标签"></a>二、Html结构 新增语义化标签</h2><p>①语法规范，去除冗余内容，书写规则简洁、清晰。</p>
+<p>dtd简洁、标签不用写关闭符号、双标签省略结束标签、html、head、body、colgroup、tbody可以完全省略        </p>
+<font color="red">实际开发中应规范书写，不建议太随意 ！</font><br>如图<br><img src="http://img.blog.csdn.net/20170311170716499?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><br> ②新增语义标签<br><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;nav&gt;  <span class="comment">//表示导航</span></div><div class="line">&lt;header&gt;  <span class="comment">//表示页眉</span></div><div class="line">&lt;footer&gt;  <span class="comment">//表示页脚</span></div><div class="line">&lt;section&gt;  <span class="comment">//表示区块</span></div><div class="line">&lt;article&gt;  <span class="comment">//表示文章 如文章、评论、帖子、博客</span></div><div class="line">&lt;aside&gt;  <span class="comment">//表示侧边栏 如文章的侧栏</span></div><div class="line">&lt;figure&gt;  <span class="comment">//表示媒介内容分组 与 ul &gt; li 做个比较</span></div><div class="line">&lt;mark&gt;  <span class="comment">//表示标记 (带用“UI”，不怎么用)</span></div><div class="line">&lt;progress&gt;  <span class="comment">//表示进度 (带用“UI”，不怎么用)</span></div><div class="line">&lt;time&gt;  <span class="comment">//表示日期</span></div></pre></td></tr></table></figure><br><br>本质上新语义标签与div、span没有区别，只是其具有表意性，使用时除了在HTML结构上需要注意外，其它和普通标签的使用无任何差别<br><br><br>对于传统的网页布局，采用div+css，给div给定header,nav,section,aside,article,footer等class，h5新增了该语义化标签，便于理解和网站seo<br><img src="http://img.blog.csdn.net/20170311110151333?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>H5经典网页布局<br><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 头部 --&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">header</span>&gt;</span><span class="tag">&lt;/<span class="name">header</span>&gt;</span></span></div><div class="line">&lt;nav&gt;<span class="xml"><span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span></div><div class="line">&lt;!-- 主体部分 --&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">section</span>&gt;</span></span></div><div class="line">   <span class="comment">&lt;!-- 文章 --&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">article</span>&gt;</span><span class="tag">&lt;/<span class="name">article</span>&gt;</span></div><div class="line">   <span class="comment">&lt;!-- 侧边栏 --&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">aside</span>&gt;</span><span class="tag">&lt;/<span class="name">aside</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></div><div class="line">&lt;!-- 底部 --&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">footer</span>&gt;</span><span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span></div></pre></td></tr></table></figure><br><br>h5兼容IE处理<br><br><img src="http://img.blog.csdn.net/20170311171757148?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><br><br>l less 小于<br>t than 比<br>e equal 等于<br>g great 大于<br><br><br><br><br>三、表单新特性<br>——–<br>①输入类型<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">email 输入email格式</div><div class="line">tel 手机号码  </div><div class="line">url 只能输入url格式</div><div class="line">number 只能输入数字</div><div class="line">search 搜索框</div><div class="line">range 范围 滑动条</div><div class="line">color 拾色器</div><div class="line">time	时间</div><div class="line">date 日期 不是绝对的</div><div class="line">--datetime 时间日期</div><div class="line">month 月份</div><div class="line">week 星期</div></pre></td></tr></table></figure><br><br><font color="red">部分类型是针对移动设备生效的，且具有一定的兼容性，在实际应用当中可选择性的使用。</font>
 
-<p>(后续动画不停止,当前动画不继续执行,原地停下)</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"div:eq(0)"</span>).stop(<span class="literal">false</span>,<span class="literal">false</span>);</div></pre></td></tr></table></figure>
-<p><font color="#6495ED">②第二种情况:true,false</font><br>(后续动画停止，当前动画不继续执行,原地停下) </p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"div:eq(0)"</span>).stop(<span class="literal">true</span>,<span class="literal">false</span>);</div></pre></td></tr></table></figure>
-<p><font color="#6495ED">③第三种情况:false,true</font><br>(后续动画不停止,当前动画立马执行完成)</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"div:eq(0)"</span>).stop(<span class="literal">false</span>,<span class="literal">true</span>);</div></pre></td></tr></table></figure>
-<p><font color="#6495ED">④第四种情况:true,true;</font><br> (后续动画停止,当前动画立马执行完成) </p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"div:eq(0)"</span>).stop(<span class="literal">true</span>,<span class="literal">true</span>)</div></pre></td></tr></table></figure>
-<p>看到这，应该已经明白。第一个clearQueue参数代表是否停止后续动画(true表示停止后续动画),第二个 gotoEnd代表当前动画是立即完成还是直接原地停下(true表示当前动画立马执行完成，false表示当前动画立马原地停下)</p>
+
+<p>②新的表单标签</p>
+<ul>
+<li>datalist  :  可以和input关联起来,变成特殊的select</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">list</span>=<span class="string">"car"</span> <span class="attr">title</span>=<span class="string">""</span>&gt;</span></div><div class="line"><span class="comment">&lt;!--可以用datalist和input关联起来--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">datalist</span> <span class="attr">id</span>=<span class="string">"car"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>宝马<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>宝骏<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>宝强<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>奥拓<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>奥迪<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>大众<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">datalist</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20170311172522882?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<ul>
+<li>keygen  生成加密字符串</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">keygen 元素的作用是提供一种验证用户的可靠方法。 </div><div class="line">      keygen 元素是密钥对生成器（key-pair generator）。当提交表单时，会生成两个键，一个是私钥，一个公钥。 </div><div class="line">      私钥（private key）存储于客户端，公钥（public key）则被发送到服务器。公钥可用于之后验证用户的客户端证书（client certificate）。</div><div class="line">      服务器获取客户端的私钥后可用来和公钥比较判断是否被劫持过。</div></pre></td></tr></table></figure>
+<ul>
+<li>output 仅仅在页面表单里展示数据，没啥用，还不能提交</li>
+<li>meter 表示度量器，不建议用作进度条</li>
+<li>progress</li>
+<li>Min-width</li>
+</ul>
+<h2 id="三、表单属性"><a href="#三、表单属性" class="headerlink" title="三、表单属性"></a>三、表单属性</h2><ul>
+<li>placeholder 占位符 </li>
+<li>multiple 文件上传多选或多个邮箱地址   </li>
+<li>autocomplete  自动完成，用于表单元素，也可用于表单自身(on[默认开启]/off) ‘</li>
+<li>autofocus：自动获取焦点</li>
+<li>novalidate  关闭验证，可用于form标签 required 必填项 </li>
+<li>pattern 正则表达式 验证表单  </li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">手机号:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"tel"</span> <span class="attr">name</span>=<span class="string">"tel"</span> <span class="attr">required</span>=<span class="string">"required"</span> <span class="attr">pattern</span>=<span class="string">"^(\+86)?1[3,5,8](\d&#123;9&#125;)$"</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="四、表单事件"><a href="#四、表单事件" class="headerlink" title="四、表单事件"></a>四、表单事件</h2><ul>
+<li>oninput 用户输入内容时触发，可用于移动端输入字数统计 </li>
+<li>oninvalid 验证不通过时触发</li>
+</ul>
+<h2 id="五、多媒体"><a href="#五、多媒体" class="headerlink" title="五、多媒体"></a>五、多媒体</h2><ol>
+<li>之前在网页上播放多媒体必须依赖第三方插件 mediaplay、flash插件等</li>
+<li>现在在H5里面提高了视频、音频标签，可以不求人啦</li>
+<li>audio音频标签、video视频标签 <pre><code>a)controls:播放控制条 
+b)autoplay：自动播放
+c)loop：循环播放
+d)音频支持：mp3/wav/ogg
+e)视频支持：mp4、ogg、webm
+       tips：vidio格式为行内块
+f)source引用方式来做兼容
+</code></pre></li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">controls</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span> = <span class="string">"music.mp3"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span> = <span class="string">"music.ogg"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span> = <span class="string">"music.wav"</span>&gt;</span></div><div class="line">    抱歉，你的浏览器不支持音频标签 </div><div class="line"><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="六、dom扩展"><a href="#六、dom扩展" class="headerlink" title="六、dom扩展"></a>六、dom扩展</h2><p>Tips:<br>Html5对dom进行了扩展，使得多出很多api来操作document(dom)，跟JQuery一样方便，还不用引入JQ的类库，妈妈再也不用担心我忘记带JQ类库啦!</p>
+<p>document 文档对象<br>①类操作</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span><span class="keyword">var</span> <span class="keyword">new</span> = <span class="built_in">document</span>.querySelector（“选择器”）<span class="comment">//只会选择符合条件的第一个元素</span></div><div class="line"><span class="number">2.</span><span class="keyword">var</span> newArr = <span class="built_in">document</span>.querySelectorAll(“选择器”)</div><div class="line"><span class="number">3.</span>box.classList.add(“类名”)：<span class="comment">//添加类名</span></div><div class="line"><span class="number">4.</span>box.classList.remove(“类名”):<span class="comment">//删除类名</span></div><div class="line"><span class="number">5.</span>box.classList.contains（“类名”）：<span class="comment">//是否包含某个类名</span></div><div class="line"><span class="number">6.</span>box.classList.toggle(“类名”):<span class="comment">//切换类名</span></div></pre></td></tr></table></figure>
+<p>②自定义属性（假设有一个class为box的div）<br>1.自定义属性必须以data开头（格式：data-属性名=””）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">eg:&lt;div class=&quot;box&quot; data-myData=&quot;lalala&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>2.获取标签属性<br>    a)原有属性<br>        .box.属性名<br>    b)自定义属性<br>        .box.dataset[‘data后的部分’]<br>            eg:<br>                .box.dataset[‘myData’]<br>        <font color="red">特别注意！:</font>如果自定义属性的属性名为data-my-name，那么获取的时候要<br>        .box.dataset[“myName”]</p>
 
       
 
@@ -247,10 +269,6 @@ Javascript是单线程的【转】因为JS运行在浏览器中，是单线程�
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -306,7 +324,7 @@ Javascript是单线程的【转】因为JS运行在浏览器中，是单线程�
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/03/06/JQuery动画之动画队列和stop方法/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/03/11/Html5入坑记（一）/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -320,18 +338,18 @@ Javascript是单线程的【转】因为JS运行在浏览器中，是单线程�
   
 <nav id="article-nav">
   
-    <a href="/2017/03/11/Html5入坑记（一）/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/03/14/CSS3入坑记(一)/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Html5入坑记
+          CSS3入坑记(一)
         
       </div>
     </a>
   
   
-    <a href="/2017/03/05/JQuery选择器小结/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JQuery选择器小结</div>
+    <a href="/2017/03/06/JQuery动画之动画队列和stop方法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JQuery动画之动画队列和stop方法</div>
       <i class="icon-circle-right"></i>
     </a>
   
