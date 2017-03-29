@@ -6,21 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>JVM常用参数种类 | Mr.Zhang</title>
+  <title>AtomicInteger：支持原子性操作，基于CAS实现了乐观锁 | Mr.Zhang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、配置堆区(-Xms、-Xmx、-XX:newSize、-XX:MaxnewSize、-Xmn)①-Xms：表示Java虚拟机堆区内存初始内存分配的大小，通常为操作系统可用内存的1/64大小即可，但仍需按照实际情况进行分配。
-②-Xmx：表示Java虚拟机堆区内存可被分配的最大上限，通常为操作系统可用内存的1/4大小。但是开发时，通常会将-Xms与-Xmx两个参数配置相同的值，其目的是为了能够在">
+  <meta name="description" content="AtomicInteger,一个提供原子操作的Integer的类。在java.util.concurrent.atomic包中。
+一、使用场景在多线程环境中，AtomicInteger的使用场景就是提供一些原子性的数值改变，不会出现多个线程下的数据不一致问题。例如：仓库总量的增减，ID的顺序获取等。如果不使用 AtomicInteger，要实现一个按顺序获取的 ID，就必须在每次获取时进行加锁操作">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JVM常用参数种类">
-<meta property="og:url" content="http://yoursite.com/2017/03/02/JVM常用参数种类/index.html">
+<meta property="og:title" content="AtomicInteger：支持原子性操作，基于CAS实现了乐观锁">
+<meta property="og:url" content="http://yoursite.com/2017/03/29/AtomicInteger：支持原子性操作，基于CAS实现了乐观锁/index.html">
 <meta property="og:site_name" content="Mr.Zhang">
-<meta property="og:description" content="一、配置堆区(-Xms、-Xmx、-XX:newSize、-XX:MaxnewSize、-Xmn)①-Xms：表示Java虚拟机堆区内存初始内存分配的大小，通常为操作系统可用内存的1/64大小即可，但仍需按照实际情况进行分配。
-②-Xmx：表示Java虚拟机堆区内存可被分配的最大上限，通常为操作系统可用内存的1/4大小。但是开发时，通常会将-Xms与-Xmx两个参数配置相同的值，其目的是为了能够在">
-<meta property="og:updated_time" content="2017-03-02T05:24:10.206Z">
+<meta property="og:description" content="AtomicInteger,一个提供原子操作的Integer的类。在java.util.concurrent.atomic包中。
+一、使用场景在多线程环境中，AtomicInteger的使用场景就是提供一些原子性的数值改变，不会出现多个线程下的数据不一致问题。例如：仓库总量的增减，ID的顺序获取等。如果不使用 AtomicInteger，要实现一个按顺序获取的 ID，就必须在每次获取时进行加锁操作">
+<meta property="og:image" content="http://img.blog.csdn.net/20170329165659850?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-03-29T09:32:48.601Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JVM常用参数种类">
-<meta name="twitter:description" content="一、配置堆区(-Xms、-Xmx、-XX:newSize、-XX:MaxnewSize、-Xmn)①-Xms：表示Java虚拟机堆区内存初始内存分配的大小，通常为操作系统可用内存的1/64大小即可，但仍需按照实际情况进行分配。
-②-Xmx：表示Java虚拟机堆区内存可被分配的最大上限，通常为操作系统可用内存的1/4大小。但是开发时，通常会将-Xms与-Xmx两个参数配置相同的值，其目的是为了能够在">
+<meta name="twitter:title" content="AtomicInteger：支持原子性操作，基于CAS实现了乐观锁">
+<meta name="twitter:description" content="AtomicInteger,一个提供原子操作的Integer的类。在java.util.concurrent.atomic包中。
+一、使用场景在多线程环境中，AtomicInteger的使用场景就是提供一些原子性的数值改变，不会出现多个线程下的数据不一致问题。例如：仓库总量的增减，ID的顺序获取等。如果不使用 AtomicInteger，要实现一个按顺序获取的 ID，就必须在每次获取时进行加锁操作">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20170329165659850?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Zhang" type="application/atom+xml">
   
@@ -155,37 +157,71 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JVM常用参数种类" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-AtomicInteger：支持原子性操作，基于CAS实现了乐观锁" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JVM常用参数种类
+      AtomicInteger：支持原子性操作，基于CAS实现了乐观锁
     </h1>
   
 
         
-        <a href="/2017/03/02/JVM常用参数种类/" class="archive-article-date">
-  	<time datetime="2017-03-02T05:22:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-02</time>
+        <a href="/2017/03/29/AtomicInteger：支持原子性操作，基于CAS实现了乐观锁/" class="archive-article-date">
+  	<time datetime="2017-03-29T09:28:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、配置堆区"><a href="#一、配置堆区" class="headerlink" title="一、配置堆区"></a>一、配置堆区</h2><p>(-Xms、-Xmx、-XX:newSize、-XX:MaxnewSize、-Xmn)<br>①-Xms：表示Java虚拟机堆区内存<font color="#00BFFF"><strong>初始内存</strong></font>分配的大小，通常为操作系统可用内存的1/64大小即可，但仍需按照实际情况进行分配。</p>
-<p>②-Xmx：表示Java虚拟机堆区内存<font color="#00BFFF"><strong>可被分配的最大上限</strong></font>，通常为操作系统可用内存的1/4大小。但是开发时，通常会将-Xms与-Xmx两个参数<u>配置相同的值</u>，其目的是为了能够在Java垃圾回收机制清理完堆区后不需要重新分配隔离计算堆区大小而浪费资源。<br><a id="more"></a><br>一般对<strong>堆区</strong>的内存分配只需配置上述两个参数(-Xms,-Xmx)即可，但如果想细化，可配置以下三个参数(-XX:newSize、-XX:MaxnewSize、-Xmn)  对堆区进一步细分。</p>
-<p>1)-XX:newSize：新生代内存的大小，应小于-Xms的值<br>2)-XX:MaxnewSize：由字面意思可知，新生代可被分配的最大内存，应小于-Xmx的值<br><strong>3)-Xmn：</strong><font color="#00BFFF"><strong>对上面两个参数同时配置</strong></font>，即 -Xmn = -XX:newSize = -XX:MaxnewSize</p>
-<p>在<strong>JDK1.4</strong>以后才可用-Xmn这个很厉害的参数</p>
-<h2 id="二、配置非堆区"><a href="#二、配置非堆区" class="headerlink" title="二、配置非堆区"></a>二、配置非堆区</h2><p>①-XX:PermSize：表示非堆区<font color="#00BFFF"><strong>初始内存</strong></font>分配大小.(Permanent Size)持久化内存</p>
-<p>②-XX:MaxPermSize：表示非堆区分配的<font color="#00BFFF"><strong>最大内存上限</strong></font></p>
-<font color="#F08080">注意！在配置之前要慎重考虑该非堆区内存大小，因为<u><strong>此处是不会被Java垃圾回收机制进行处理</strong></u><br>同时，最大堆内存+最大非堆内存 &lt; 操作系统可用内存</font>
-
-<p>eg示例: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">VM参数：-verbose : gc -Xms20M -Xmx20M -Xmn10M -XX:+PrintGCDetails -XX : SurvivorRatio = 8</div></pre></td></tr></table></figure>
-<p>表示为：Java堆大小为20M，不可扩展，10M给新生代，10M给老年代，新生代中Eden区： Survivor区 = 8：1<br>新生代可用总空间为: Eden区 + 1个Survivor区 即 10M * 9/10 = 9M</p>
+        <p>AtomicInteger,一个提供原子操作的Integer的类。在java.util.concurrent.atomic包中。</p>
+<h2 id="一、使用场景"><a href="#一、使用场景" class="headerlink" title="一、使用场景"></a>一、使用场景</h2><p>在多线程环境中，AtomicInteger的使用场景就是提供一些原子性的数值改变，不会出现多个线程下的数据不一致问题。<br>例如：仓库总量的增减，ID的顺序获取等。如果不使用 AtomicInteger，要实现一个按顺序获取的 ID，就必须在每次获取时进行加锁操作，以避免出现并发时获取到同样的 ID 的现象。<br>对于并发情况下，我们加锁的方式通常有两种：悲观锁和乐观锁。<br><a id="more"></a></p>
+<h2 id="二、悲观锁和乐观锁"><a href="#二、悲观锁和乐观锁" class="headerlink" title="二、悲观锁和乐观锁"></a>二、悲观锁和乐观锁</h2><ul>
+<li><p>悲观锁</p>
+<p>在并发情况下，它假设最坏的情况，在确保其它线程不会造成干扰的情况下执行，会导致其它所有需要锁的线程挂起，等待持有锁的线程释放锁。这种方式将需要事务管理的代码块一律加上同步synchronized，这种独占锁会将其他线程挂起阻塞住，直到该事务结束后才将资源放出。线程的挂起和恢复过程，开销是很大的，当线程被挂起等待时，无法做任何事，而notify()或notifyAll()重新唤醒后又将开始新的资源争用，如果某个线程”人品很差”，一直被阻塞，争用不到资源，事务的执行会等待很久，效率很低。</p>
+<blockquote>
+<p>在计算机组成原理这本书中提到，cpu是时分复用的，cpu的时间片，分配给不同的thread、process轮流执行，时间片与时间片之间，需要进行cpu切换，也就是会发生进程的切换。切换涉及到清空寄存器，缓存数据。然后重新加载新的thread所需数据。<br>当一个线程被挂起时，加入到阻塞队列，在一定的时间或条件下，在通过notify()，notifyAll()唤醒回来。在某个资源不可用的时候，就将cpu让出，把当前等待线程切换为阻塞状态。等到资源(比如一个共享数据）可用了，那么就将线程唤醒，让他进入runnable状态等待cpu调度。这就是典型的悲观锁的实现。</p>
+</blockquote>
+<p> <font color="skyblue">小栗子：</font>线程的挂起和恢复执行过程中存在着很大的开销。举个例子，如果一个线程需要某个资源，但是这个资源的占用时间很短，当线程第一次抢占这个资源时，可能这个资源被占用，如果此时挂起这个线程，可能立刻就发现资源可用，然后又需要花费很长的时间重新抢占锁，时间代价就会非常的高。</p>
+</li>
+</ul>
+<ul>
+<li>乐观锁：每次不加锁，假设没有冲突而去完成操作。他的思路是：<font color="red">每次不加锁，认为大家都很自觉，不会发生数据冲突，万一发生冲突就自我重试，重新再去获取新值再来一遍，不影响其他线程，直到成功为止，就不像悲观锁那么自私霸道。</font>对于数据库的增删改查，只有在最后提交的时候才会去检查，通常我们采用一个版本号version字段来检查该线程此时获取的数据是否被修改了，“是否还是往日的她”。每次comit时会检查该线程持有的版本号是否和实际版本号一致，如果不一致说明该数据已经被修改了，此时提交是不安全的，无法保证数据一致性，对于这种冲突，发生就无限循环重试，重新获取新的值和版本号，再在cpu争用中等到调度自己时再去尝试比对提交，直到成功为止。在上面的例子中，某个线程可以不让出cpu,而是一直while循环，如果失败就重试，直到成功为止。所以，当数据争用不严重时，乐观锁效果更好。比如CAS就是一种乐观锁思想的应用。<h2 id="三、什么是CAS"><a href="#三、什么是CAS" class="headerlink" title="三、什么是CAS"></a>三、什么是CAS</h2>CAS就是Compare and Swap的意思，比较并操作。很多的cpu直接支持CAS指令。CAS是项乐观锁技术，当多个线程尝试使用CAS同时更新同一个变量时，只有其中一个线程能更新变量的值，而其它线程都失败，失败的线程并不会被挂起，而是被告知这次竞争中失败，并可以再次尝试。CAS有3个操作数，内存值V，旧的预期值A，要修改的新值B。当且仅当预期值A和内存值V相同时，将内存值V修改为B，否则什么都不做。</li>
+</ul>
+<blockquote>
+<p>JDK1.5中引入了底层的支持，在int、long和对象的引用等类型上都公开了CAS的操作，并且JVM把它们编译为底层硬件提供的最有效的方法，在运行CAS的平台上，运行时把它们编译为相应的机器指令。在java.util.concurrent.atomic包下面的所有的原子变量类型中，比如AtomicInteger，都使用了这些底层的JVM支持为数字类型的引用类型提供一种高效的CAS操作。</p>
+</blockquote>
+<h2 id="四、-AtomicInteger实现CAS"><a href="#四、-AtomicInteger实现CAS" class="headerlink" title="四、 AtomicInteger实现CAS"></a>四、 AtomicInteger实现CAS</h2><p>AtomicInteger 是一个支持原子操作的 Integer 类，就是保证对AtomicInteger类型变量的增加和减少操作是原子性的，不会出现多个线程下的数据不一致问题。如果不使用 AtomicInteger，要实现一个按顺序获取的 ID，就必须在每次获取时进行加锁操作，以避免出现并发时获取到同样的 ID 的现象。</p>
+<p>通过两个简单的例子来看一下 AtomicInteger 的优势在哪:<br>普通线程同步:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test2</span> </span>&#123;</div><div class="line">        <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">int</span> count = <span class="number">0</span>;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">increment</span><span class="params">()</span> </span>&#123;</div><div class="line">                  count++; <span class="comment">//若要线程安全执行执行count++，需要加锁</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</div><div class="line">                  <span class="keyword">return</span> count;</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用AtomicInteger:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test2</span> </span>&#123;</div><div class="line">        <span class="keyword">private</span> AtomicInteger count = <span class="keyword">new</span> AtomicInteger();</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">increment</span><span class="params">()</span> </span>&#123;</div><div class="line">                  count.incrementAndGet();</div><div class="line">        &#125;</div><div class="line">   <span class="comment">//使用AtomicInteger之后，不需要加锁，也可以实现线程安全。</span></div><div class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> count.get();</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>从上面的例子中我们可以看出：使用AtomicInteger是非常的安全的.而且因为AtomicInteger由硬件提供原子操作指令实现的。在非激烈竞争的情况下，开销更小，速度更快。</p>
+<hr>
+<h2 id="五、-AtomicInteger源码查看"><a href="#五、-AtomicInteger源码查看" class="headerlink" title="五、 AtomicInteger源码查看"></a>五、 AtomicInteger源码查看</h2><p>接下来通过源码来看AtomicInteger具体是如何由硬件来实现原子操作的。</p>
+<p><img src="http://img.blog.csdn.net/20170329165659850?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>AtomicInteger继承了Number类并且实现了Serializable接口，支持序列化</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AtomicInteger</span> <span class="keyword">extends</span> <span class="title">Number</span> <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span> </span>&#123;...&#125;</div></pre></td></tr></table></figure>
+<p>构造函数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">int</span> value;</div><div class="line"><span class="comment">/**</span></div><div class="line">   * Creates a new AtomicInteger with the given initial value.</div><div class="line">   *</div><div class="line">   * <span class="doctag">@param</span> initialValue the initial value</div><div class="line">   */</div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="title">AtomicInteger</span><span class="params">(<span class="keyword">int</span> initialValue)</span> </span>&#123;</div><div class="line">        value = initialValue;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">   * Creates a new AtomicInteger with initial value &#123;<span class="doctag">@code</span> 0&#125;.</div><div class="line">   */</div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="title">AtomicInteger</span><span class="params">()</span> </span>&#123;&#125;</div></pre></td></tr></table></figure>
+<p>可以看出，AtomicInteger提供了空构造函数和赋值构造，对与空构造函数(AtomicInteger count = new AtomicInteger();)，其默认值为0。<br>而赋值构造，其value值是被volatile修饰的int值</p>
+<blockquote>
+<p>volatile 变量可以被看作是一种 “程度较轻的 synchronized” 锁提供了两种主要特性：互斥（mutual exclusion）和可见性（visibility）。<br>① 互斥即一次只允许一个线程持有某个特定的锁，因此可使用该特性实现对共享数据的协调访问协议，这样，一次就只有一个线程能够使用该共享数据。<br>② 可见性要更加复杂一些，它必须确保释放锁之前对共享数据做出的更改对于随后获得该锁的另一个线程是可见的</p>
+<p>—— 如果没有同步机制提供的这种可见性保证，线程看到的共享变量可能是修改前的值或不一致的值，这将引发许多严重问题。 Volatile变量具有 synchronized 的可见性特性，但是不具备原子特性。<font color="red">也就是说线程能够自动发现 volatile 变量的最新值。</font></p>
+</blockquote>
+<hr>
+<p>下面是他的一些方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取当前的值</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">get</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line"><span class="comment">//取当前的值，并设置新的值</span></div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">getAndSet</span><span class="params">(<span class="keyword">int</span> newValue)</span></span>;</div><div class="line"></div><div class="line"><span class="comment">//获取当前的值，并自增</span></div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">getAndIncrement</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line"><span class="comment">//获取当前的值，并自减</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">getAndDecrement</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line"><span class="comment">//获取当前的值，并加上预期的值</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">getAndAdd</span><span class="params">(<span class="keyword">int</span> delta)</span></span>;</div></pre></td></tr></table></figure></p>
+<p>同理，还有一些与之相反的incrementAndGet、decrementAndGet、addAndGet等，从名称可知， 分别是自增后返回新值，自减后返回新值，加上预期值后返回新值。<br>他们的实现大致一样，<font color="lightskyblue">只是返回值前者为return current;而后者为return next;</font></p>
+<p>来看看incrementAndGet() 方法，下面是具体的代码。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">     * Atomically increments by one the current value.</div><div class="line">     *</div><div class="line">     * <span class="doctag">@return</span> the updated value</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">incrementAndGet</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">for</span> (;;) &#123;</div><div class="line">            <span class="keyword">int</span> current = get();</div><div class="line">            <span class="keyword">int</span> next = current + <span class="number">1</span>;</div><div class="line">            <span class="keyword">if</span> (compareAndSet(current, next))</div><div class="line">                <span class="keyword">return</span> next;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>通过源码，可以知道，这个方法的做法为先获取到当前的 value 属性值，然后将 value 加 1，赋值给一个局部的 next 变量，然而，这两步都是非线程安全的，但是内部有一个死循环，不断去做compareAndSet操作，直到成功为止，也就是修改的根本在compareAndSet方法里面，compareAndSet()方法的代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">compareAndSet</span><span class="params">(<span class="keyword">int</span> expect, <span class="keyword">int</span> update)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> unsafe.compareAndSwapInt(<span class="keyword">this</span>, valueOffset, expect, update);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>我们继续跟踪到compareAndSet()方法调用的compareAndSwapInt()方法，<br>他是一个native方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">publicfinal native boolean compareAndSwapInt(Object var1, long var2, int var4, intvar5);</div></pre></td></tr></table></figure>
+<p>compareAndSet 传入的为执行方法时获取到的 value 属性值，next 为加 1 后的值， compareAndSet所做的为调用 sun.misc.Unsafe的 compareAndSwapInt 方法来完成，此方法为 native 方法，compareAndSwapInt 基于的是CPU 的 CAS指令来实现的。所以基于 CAS 的操作可认为是无阻塞的，一个线程的失败或挂起不会引起其它线程也失败或挂起。并且由于 CAS 操作是 CPU 原语，所以性能比较好。</p>
+<p>类似的，还有decrementAndGet()方法。它和incrementAndGet()的区别是将 value 减 1，赋值给next 变量。</p>
 
       
 
@@ -220,11 +256,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">读书笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JVM</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">高并发与多线程</a>
         		</li>
       		
 		</ul>
@@ -280,7 +312,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/03/02/JVM常用参数种类/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/03/29/AtomicInteger：支持原子性操作，基于CAS实现了乐观锁/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -294,18 +326,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/03/02/第二章-Java内存区域与内存溢出异常/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          第二章 Java内存区域与内存溢出异常
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/01/正则表达式小结/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">正则表达式小结 </div>
+    <a href="/2017/03/19/JQuery插件总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JQuery插件总结</div>
       <i class="icon-circle-right"></i>
     </a>
   

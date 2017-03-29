@@ -26,7 +26,7 @@
 <meta property="og:image" content="http://img.blog.csdn.net/20170314131447645?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170314131357428?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170314133238450?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-03-14T05:39:31.696Z">
+<meta property="og:updated_time" content="2017-03-29T09:33:40.627Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS3入坑记（二）">
 <meta name="twitter:description" content="一、边框
@@ -69,7 +69,7 @@
 		
 		<p class="header-subtitle">全栈学习者，小菜鸟  mail:XiangNickMonster@163.com</p>
 		
-		<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=22688472&auto=1&height=32" style="margin:0 0 -32px -35px;"></iframe>
+		
 		<nav class="header-menu">
 			<ul>
 			
@@ -287,7 +287,7 @@ c)单位：百分比(相对于自身宽高)和像素<br>d)最好使用%<br>e)img
 <p>  d)transition-delay：过渡延迟</p>
 <ul>
 <li><p>2.如果需要所有属性都过渡</p>
-<p>a)transition-property：all <font color="#f26075">【一般都写all】</font></p>
+<p>a)transition-property：all <font color="#f26075">【写all性能不好】</font><br>  可以写成这样:transition:transform 2s;意思为，只有transform(rotate,translate,scale)变换给他过渡,其他的宽高背景色之类的不给过渡。</p>
 </li>
 </ul>
 <p>最后：简写方法：</p>
@@ -336,6 +336,17 @@ c)单位：百分比(相对于自身宽高)和像素<br>d)最好使用%<br>e)img
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -399,6 +410,15 @@ c)单位：百分比(相对于自身宽高)和像素<br>d)最好使用%<br>e)img
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/03/19/JQuery插件总结/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          JQuery插件总结
+        
+      </div>
+    </a>
   
   
     <a href="/2017/03/14/CSS3入坑记(一)/" id="article-nav-older" class="article-nav-link-wrap">
@@ -502,11 +522,27 @@ c)单位：百分比(相对于自身宽高)和像素<br>d)最好使用%<br>e)img
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">高并发与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -518,19 +554,7 @@ c)单位：百分比(相对于自身宽高)和像素<br>d)最好使用%<br>e)img
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">《深入理解Java虚拟机》</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
               </li>
             
             <div class="clearfix"></div>
