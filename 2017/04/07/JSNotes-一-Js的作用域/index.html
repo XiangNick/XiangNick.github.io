@@ -18,12 +18,14 @@
 <meta property="og:description" content="作用域 作用：起作用
  域：范围
  变量起作用的范围就是变量的作用域">
-<meta property="og:updated_time" content="2017-04-07T15:49:54.216Z">
+<meta property="og:image" content="http://yoursite.com/\img\js1.jpg">
+<meta property="og:updated_time" content="2017-04-09T02:02:52.961Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JSNotes(一)Js的作用域">
 <meta name="twitter:description" content="作用域 作用：起作用
  域：范围
  变量起作用的范围就是变量的作用域">
+<meta name="twitter:image" content="http://yoursite.com/\img\js1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Zhang" type="application/atom+xml">
   
@@ -178,12 +180,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p> 作用：起作用</p>
+        <p><img src="\img\js1.jpg" alt=""></p>
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p> 作用：起作用</p>
 <p> 域：范围</p>
 <p> 变量起作用的范围就是变量的作用域</p>
-<hr>
-<a id="more"></a>
-<h3 id="1-块级作用域"><a href="#1-块级作用域" class="headerlink" title="1.块级作用域"></a>1.块级作用域</h3><p> JavaScript中没有块级作用域</p>
+<h2 id=""><a href="#" class="headerlink" title=" "></a> <a id="more"></a></h2><h3 id="1-块级作用域"><a href="#1-块级作用域" class="headerlink" title="1.块级作用域"></a>1.块级作用域</h3><p> JavaScript中没有块级作用域</p>
 <p> <strong>如果有</strong>块级作用域下面的代码的显示结果为 undefined undefined</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="number">10</span>;i++)&#123;</div><div class="line">   <span class="keyword">var</span> num = i;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(i);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(num);</div></pre></td></tr></table></figure>
 <p><strong>但是Js没有块级作用域</strong>，所以结果为:10  9</p>
@@ -211,7 +212,7 @@
 <hr>
 <h3 id="3-函数级作用域"><a href="#3-函数级作用域" class="headerlink" title="3.函数级作用域"></a>3.函数级作用域</h3><p>在JavaScript中<strong>唯一</strong>能产生作用域的东西是 函数！</p>
 <p>也就是在function(){}内才能有他的作用域，访问权限，o(︶︿︶)o 唉~</p>
-<p><strong>这点要牢记，JavaScript中只有函数作用域！</strong></p>
+<p><strong>这点要牢记，JavaScript中只有函数和全局作用域！除去默认的全局作用域，也就只有函数能产生作用域了！！</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line"> <span class="keyword">var</span> b = <span class="number">10</span>;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p> 这里就有着函数的作用域，导致变量提升只能在作用域内，为<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a;</div><div class="line">a = <span class="number">1</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> b;</div><div class="line">    b = <span class="number">10</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
@@ -433,15 +434,15 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">高并发与多线程</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
               </li>
              
               <li class="article-tag-list-item">
