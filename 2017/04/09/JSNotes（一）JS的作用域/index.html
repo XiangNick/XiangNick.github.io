@@ -6,17 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/3 | Mr.Zhang</title>
+  <title>JSNotes（一）JS的作用域 | Mr.Zhang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="全栈学习者，小菜鸟     mail:XiangNickMonster@163.com">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mr.Zhang">
-<meta property="og:url" content="http://yoursite.com/archives/2017/03/page/3/index.html">
+  <meta name="description" content="作用域 作用：起作用
+ 域：范围
+ 变量起作用的范围就是变量的作用域">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JSNotes（一）JS的作用域">
+<meta property="og:url" content="http://yoursite.com/2017/04/09/JSNotes（一）JS的作用域/index.html">
 <meta property="og:site_name" content="Mr.Zhang">
-<meta property="og:description" content="全栈学习者，小菜鸟     mail:XiangNickMonster@163.com">
+<meta property="og:description" content="作用域 作用：起作用
+ 域：范围
+ 变量起作用的范围就是变量的作用域">
+<meta property="og:image" content="http://yoursite.com/\img\js1.jpg">
+<meta property="og:updated_time" content="2017-04-09T09:37:18.402Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mr.Zhang">
-<meta name="twitter:description" content="全栈学习者，小菜鸟     mail:XiangNickMonster@163.com">
+<meta name="twitter:title" content="JSNotes（一）JS的作用域">
+<meta name="twitter:description" content="作用域 作用：起作用
+ 域：范围
+ 变量起作用的范围就是变量的作用域">
+<meta name="twitter:image" content="http://yoursite.com/\img\js1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Zhang" type="application/atom+xml">
   
@@ -151,36 +160,90 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-JSNotes（一）JS的作用域" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/01/正则表达式小结/" class="archive-article-date">
-  	<time datetime="2017-03-01T15:04:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-01</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/01/正则表达式小结/">正则表达式小结 </a>
+    <h1 class="article-title" itemprop="name">
+      JSNotes（一）JS的作用域
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/04/09/JSNotes（一）JS的作用域/" class="archive-article-date">
+  	<time datetime="2017-04-09T09:36:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="\img\js1.jpg" alt=""></p>
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p> 作用：起作用</p>
+<p> 域：范围</p>
+<p> 变量起作用的范围就是变量的作用域</p>
+<h2 id=""><a href="#" class="headerlink" title=" "></a> <a id="more"></a></h2><h3 id="1-块级作用域"><a href="#1-块级作用域" class="headerlink" title="1.块级作用域"></a>1.块级作用域</h3><p> JavaScript中没有块级作用域</p>
+<p> <strong>如果有</strong>块级作用域下面的代码的显示结果为 undefined undefined</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="number">10</span>;i++)&#123;</div><div class="line">   <span class="keyword">var</span> num = i;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(i);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(num);</div></pre></td></tr></table></figure>
+<p><strong>但是Js没有块级作用域</strong>，所以结果为:10  9</p>
+<hr>
+<h3 id="2-词法作用域"><a href="#2-词法作用域" class="headerlink" title="2.词法作用域"></a>2.词法作用域</h3><p><strong>什么是词法作用域？</strong></p>
+<p>词法( 代码 )作用域, 就是代码在编写过程中体现出来的作用范围. 代码一旦写好, 不用执行, 作用范围就已经确定好了. 这个就是所谓词法作用域.</p>
+<p><strong>在 js 中词法作用域规则:</strong></p>
+<ul>
+<li>函数允许访问函数外的数据.</li>
+</ul>
+<ul>
+<li>整个代码结构中只有函数可以限定作用域.</li>
+</ul>
+<ul>
+<li>作用域规则首先使用提升规则分析</li>
+</ul>
+<ul>
+<li>如果当前作用规则中有名字了, 就不考虑外面的名字</li>
+</ul>
+<h4 id="例子1："><a href="#例子1：" class="headerlink" title="例子1："></a>例子1：</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">123</span>;</div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(a);</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> a = <span class="number">456</span>;</div><div class="line">    f1();</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> f2(); <span class="comment">//123</span></div></pre></td></tr></table></figure>
+<p>词法作用域就是在代码写好的那一刻，变量的作用域就确定了。所以调用f2(),f2内部再调用f1时，f1()打印的a就是f1()函数写好时确定的a，也就是全局的var a=123</p>
+<h4 id="例子2："><a href="#例子2：" class="headerlink" title="例子2："></a>例子2：</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> ( <span class="literal">false</span> ) &#123;</div><div class="line"> <span class="keyword">var</span> num = <span class="number">123</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log( num ); <span class="comment">// undefiend</span></div></pre></td></tr></table></figure>
+<p>这里的if(){}块不具备作用域，所以num声明可以提升出来<br>为：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num;</div><div class="line"></div><div class="line"><span class="keyword">if</span> ( <span class="literal">false</span> ) &#123;</div><div class="line"></div><div class="line"> num = <span class="number">123</span>;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log( num ); <span class="comment">// undefiend</span></div></pre></td></tr></table></figure></p>
+<h4 id="例子3："><a href="#例子3：" class="headerlink" title="例子3："></a>例子3：</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> num = <span class="number">123</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> num = <span class="number">456</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</div><div class="line">         <span class="built_in">console</span>.log( num );</div><div class="line">        &#125;</div><div class="line">     func();</div><div class="line">&#125;</div><div class="line"></div><div class="line">foo();</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="3-函数级作用域"><a href="#3-函数级作用域" class="headerlink" title="3.函数级作用域"></a>3.函数级作用域</h3><p>在JavaScript中<strong>唯一</strong>能产生作用域的东西是 函数！</p>
+<p>也就是在function(){}内才能有他的作用域，访问权限，o(︶︿︶)o 唉~</p>
+<p><strong>这点要牢记，JavaScript中只有函数和全局作用域！除去默认的全局作用域，也就只有函数能产生作用域了！！</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line"> <span class="keyword">var</span> b = <span class="number">10</span>;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> 这里就有着函数的作用域，导致变量提升只能在作用域内，为<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a;</div><div class="line">a = <span class="number">1</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> b;</div><div class="line">    b = <span class="number">10</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -188,27 +251,105 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
+        		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/04/09/JSNotes（一）JS的作用域/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/04/09/JSNotes（二）JS的变量声明提升/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          JSNotes（二）JS的变量声明提升
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/03/29/AtomicInteger：支持原子性操作，基于CAS实现了乐观锁/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">AtomicInteger：支持原子性操作，基于CAS实现了乐观锁</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2017/03/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/2017/03/">1</a><a class="page-number" href="/archives/2017/03/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
-  
+
 
 
           </div>
@@ -231,8 +372,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
@@ -317,15 +458,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JVM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DB</a>
               </li>
              
               <li class="article-tag-list-item">

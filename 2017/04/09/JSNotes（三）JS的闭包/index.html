@@ -6,23 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Html5入坑记 | Mr.Zhang</title>
+  <title>JSNotes（三）JS的闭包 | Mr.Zhang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、标准改变Html4.0   网页开发：       html -&amp;gt;  结构  4.0       Css -&amp;gt; 样式  2.0          Js -&amp;gt; 行为 用户交互">
+  <meta name="description" content="闭包闭包的概念闭包从字面意思理解就是闭合, 包起来.
+简单的来说闭包就是,一个具有封闭的对外不公开的, 包裹结构, 或空间.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Html5入坑记">
-<meta property="og:url" content="http://yoursite.com/2017/03/11/Html5入坑记/index.html">
+<meta property="og:title" content="JSNotes（三）JS的闭包">
+<meta property="og:url" content="http://yoursite.com/2017/04/09/JSNotes（三）JS的闭包/index.html">
 <meta property="og:site_name" content="Mr.Zhang">
-<meta property="og:description" content="一、标准改变Html4.0   网页开发：       html -&amp;gt;  结构  4.0       Css -&amp;gt; 样式  2.0          Js -&amp;gt; 行为 用户交互">
-<meta property="og:image" content="http://img.blog.csdn.net/20170311170716499?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170311110151333?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170311171757148?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170311172522882?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-03-18T07:13:29.070Z">
+<meta property="og:description" content="闭包闭包的概念闭包从字面意思理解就是闭合, 包起来.
+简单的来说闭包就是,一个具有封闭的对外不公开的, 包裹结构, 或空间.">
+<meta property="og:updated_time" content="2017-04-09T09:39:29.518Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Html5入坑记">
-<meta name="twitter:description" content="一、标准改变Html4.0   网页开发：       html -&amp;gt;  结构  4.0       Css -&amp;gt; 样式  2.0          Js -&amp;gt; 行为 用户交互">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20170311170716499?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta name="twitter:title" content="JSNotes（三）JS的闭包">
+<meta name="twitter:description" content="闭包闭包的概念闭包从字面意思理解就是闭合, 包起来.
+简单的来说闭包就是,一个具有封闭的对外不公开的, 包裹结构, 或空间.">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Zhang" type="application/atom+xml">
   
@@ -157,83 +155,82 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Html5入坑记" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-JSNotes（三）JS的闭包" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Html5入坑记
+      JSNotes（三）JS的闭包
     </h1>
   
 
         
-        <a href="/2017/03/11/Html5入坑记/" class="archive-article-date">
-  	<time datetime="2017-03-11T09:30:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-11</time>
+        <a href="/2017/04/09/JSNotes（三）JS的闭包/" class="archive-article-date">
+  	<time datetime="2017-04-09T09:39:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、标准改变"><a href="#一、标准改变" class="headerlink" title="一、标准改变"></a>一、标准改变</h2><p>Html4.0   网页开发：<br>       html -&gt;  结构  4.0<br>       Css -&gt; 样式  2.0<br>          Js -&gt; 行为 用户交互<br><a id="more"></a><br>HTML5.0   html4.0 升级版:<br>          Html5 -&gt; 结构 5.0<br>          css3  -&gt; 样式<br>          js -&gt; 行为  js API 有所增强  地理定位 web存储 拖拽</p>
-<font color="red">HTML5</font>并不仅仅只是做为HTML标记语言的一个最新版本，更重要的是它制定了Web应用开发的<font color="red">一系列标准</font>，成为第一个将Web做为应用开发平台的HTML语言。<br><br><font color="red">广义概念</font>：HTML5代表浏览器端技术的一个发展阶段。在这个阶段，浏览器呈现技术得到了一个飞跃发展和广泛支持，它包括：<font color="#00BFFF">HTML5，CSS3，Javascript</font>，API在内的一套<font color="red">技术组合 </font>
-
-<p>H5范称<br>HTML + CSS3 + JS<br>优点：<a href="http://www.intertid.com/school/2014/595568.shtml" target="_blank" rel="external">HTML5的优点</a></p>
-<h2 id="二、Html结构-新增语义化标签"><a href="#二、Html结构-新增语义化标签" class="headerlink" title="二、Html结构 新增语义化标签"></a>二、Html结构 新增语义化标签</h2><p>①语法规范，去除冗余内容，书写规则简洁、清晰。</p>
-<p>dtd简洁、标签不用写关闭符号、双标签省略结束标签、html、head、body、colgroup、tbody可以完全省略        </p>
-<font color="red">实际开发中应规范书写，不建议太随意 ！</font><br>如图<br><img src="http://img.blog.csdn.net/20170311170716499?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><br> ②新增语义标签<br><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;nav&gt;  <span class="comment">//表示导航</span></div><div class="line">&lt;header&gt;  <span class="comment">//表示页眉</span></div><div class="line">&lt;footer&gt;  <span class="comment">//表示页脚</span></div><div class="line">&lt;section&gt;  <span class="comment">//表示区块</span></div><div class="line">&lt;article&gt;  <span class="comment">//表示文章 如文章、评论、帖子、博客</span></div><div class="line">&lt;aside&gt;  <span class="comment">//表示侧边栏 如文章的侧栏</span></div><div class="line">&lt;figure&gt;  <span class="comment">//表示媒介内容分组 与 ul &gt; li 做个比较</span></div><div class="line">&lt;mark&gt;  <span class="comment">//表示标记 (带用“UI”，不怎么用)</span></div><div class="line">&lt;progress&gt;  <span class="comment">//表示进度 (带用“UI”，不怎么用)</span></div><div class="line">&lt;time&gt;  <span class="comment">//表示日期</span></div></pre></td></tr></table></figure><br><br>本质上新语义标签与div、span没有区别，只是其具有表意性，使用时除了在HTML结构上需要注意外，其它和普通标签的使用无任何差别<br><br><br>对于传统的网页布局，采用div+css，给div给定header,nav,section,aside,article,footer等class，h5新增了该语义化标签，便于理解和网站seo<br><img src="http://img.blog.csdn.net/20170311110151333?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>H5经典网页布局<br><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 头部 --&gt;</div><div class="line">&lt;header&gt;&lt;/header&gt;</div><div class="line">&lt;nav&gt;&lt;/nav&gt;</div><div class="line">&lt;!-- 主体部分 --&gt;</div><div class="line">&lt;section&gt;</div><div class="line">   &lt;!-- 文章 --&gt;</div><div class="line">   &lt;article&gt;&lt;/article&gt;</div><div class="line">   &lt;!-- 侧边栏 --&gt;</div><div class="line">   &lt;aside&gt;&lt;/aside&gt;</div><div class="line">&lt;/section&gt;</div><div class="line">&lt;!-- 底部 --&gt;</div><div class="line">&lt;footer&gt;&lt;/footer&gt;</div></pre></td></tr></table></figure><br><br>h5兼容IE处理<br><br><img src="http://img.blog.csdn.net/20170311171757148?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><br><br>l less 小于<br>t than 比<br>e equal 等于<br>g great 大于<br><br><br><br><br>三、表单新特性<br>——–<br>①输入类型<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">email 输入email格式</div><div class="line">tel 手机号码  </div><div class="line">url 只能输入url格式</div><div class="line">number 只能输入数字</div><div class="line">search 搜索框</div><div class="line">range 范围 滑动条</div><div class="line">color 拾色器</div><div class="line">time	时间</div><div class="line">date 日期 不是绝对的</div><div class="line">--datetime 时间日期</div><div class="line">month 月份</div><div class="line">week 星期</div></pre></td></tr></table></figure><br><br><font color="red">部分类型是针对移动设备生效的，且具有一定的兼容性，在实际应用当中可选择性的使用。</font>
-
-
-<p>②新的表单标签</p>
-<ul>
-<li>datalist  :  可以和input关联起来,变成特殊的select</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">list</span>=<span class="string">"car"</span> <span class="attr">title</span>=<span class="string">""</span>&gt;</span></div><div class="line"><span class="comment">&lt;!--可以用datalist和input关联起来--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">datalist</span> <span class="attr">id</span>=<span class="string">"car"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>宝马<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>宝骏<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>宝强<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>奥拓<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>奥迪<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>大众<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">datalist</span>&gt;</span></div></pre></td></tr></table></figure>
-<p><img src="http://img.blog.csdn.net/20170311172522882?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<ul>
-<li>keygen  生成加密字符串</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">keygen 元素的作用是提供一种验证用户的可靠方法。 </div><div class="line">      keygen 元素是密钥对生成器（key-pair generator）。当提交表单时，会生成两个键，一个是私钥，一个公钥。 </div><div class="line">      私钥（private key）存储于客户端，公钥（public key）则被发送到服务器。公钥可用于之后验证用户的客户端证书（client certificate）。</div><div class="line">      服务器获取客户端的私钥后可用来和公钥比较判断是否被劫持过。</div></pre></td></tr></table></figure>
-<ul>
-<li>output 仅仅在页面表单里展示数据，没啥用，还不能提交</li>
-<li>meter 表示度量器，不建议用作进度条</li>
-<li>progress</li>
-<li>Min-width</li>
-</ul>
-<h2 id="三、表单属性"><a href="#三、表单属性" class="headerlink" title="三、表单属性"></a>三、表单属性</h2><ul>
-<li>placeholder 占位符 </li>
-<li>multiple 文件上传多选或多个邮箱地址   </li>
-<li>autocomplete  自动完成，用于表单元素，也可用于表单自身(on[默认开启]/off) ‘</li>
-<li>autofocus：自动获取焦点</li>
-<li>novalidate  关闭验证，可用于form标签 required 必填项 </li>
-<li>pattern 正则表达式 验证表单  </li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">手机号:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"tel"</span> <span class="attr">name</span>=<span class="string">"tel"</span> <span class="attr">required</span>=<span class="string">"required"</span> <span class="attr">pattern</span>=<span class="string">"^(\+86)?1[3,5,8](\d&#123;9&#125;)$"</span>&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="四、表单事件"><a href="#四、表单事件" class="headerlink" title="四、表单事件"></a>四、表单事件</h2><ul>
-<li>oninput 用户输入内容时触发，可用于移动端输入字数统计 </li>
-<li>oninvalid 验证不通过时触发</li>
-</ul>
-<h2 id="五、多媒体"><a href="#五、多媒体" class="headerlink" title="五、多媒体"></a>五、多媒体</h2><ol>
-<li>之前在网页上播放多媒体必须依赖第三方插件 mediaplay、flash插件等</li>
-<li>现在在H5里面提高了视频、音频标签，可以不求人啦</li>
-<li>audio音频标签、video视频标签 <pre><code>a)controls:播放控制条 
-b)autoplay：自动播放
-c)loop：循环播放
-d)音频支持：mp3/wav/ogg
-e)视频支持：mp4、ogg、webm
-       tips：vidio格式为行内块
-f)source引用方式来做兼容
-</code></pre></li>
+        <h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><h3 id="闭包的概念"><a href="#闭包的概念" class="headerlink" title="闭包的概念"></a>闭包的概念</h3><p>闭包从字面意思理解就是闭合, 包起来.</p>
+<p>简单的来说闭包就是,<strong><em>一个具有封闭的对外不公开的, 包裹结构, 或空间.</em></strong><br><a id="more"></a><br>在JavaScript中函数可以构成闭包. 一般函数是一个代码结构的封闭结构, 即包裹的特性, 同时根据作用域规则, 只允许函数访问外部的数据, 外部无法访问函数内部的数据, 即封闭的对外不公开的特性. 因此说函数可以构成闭包.</p>
+<h3 id="闭包要解决什么问题？"><a href="#闭包要解决什么问题？" class="headerlink" title="闭包要解决什么问题？"></a>闭包要解决什么问题？</h3><ol>
+<li><p>闭包内的数据不允许外界访问</p>
+</li>
+<li><p>要解决的问题就是间接访问该数据</p>
+</li>
 </ol>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">controls</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span> = <span class="string">"music.mp3"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span> = <span class="string">"music.ogg"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span> = <span class="string">"music.wav"</span>&gt;</span></div><div class="line">    抱歉，你的浏览器不支持音频标签 </div><div class="line"><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="六、dom扩展"><a href="#六、dom扩展" class="headerlink" title="六、dom扩展"></a>六、dom扩展</h2><p>Tips:<br>Html5对dom进行了扩展，使得多出很多api来操作document(dom)，跟JQuery一样方便，还不用引入JQ的类库，妈妈再也不用担心我忘记带JQ类库啦!</p>
-<p>document 文档对象<br>①类操作</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span><span class="keyword">var</span> <span class="keyword">new</span> = <span class="built_in">document</span>.querySelector（“选择器”）<span class="comment">//只会选择符合条件的第一个元素</span></div><div class="line"><span class="number">2.</span><span class="keyword">var</span> newArr = <span class="built_in">document</span>.querySelectorAll(“选择器”)</div><div class="line"><span class="number">3.</span>box.classList.add(“类名”)：<span class="comment">//添加类名</span></div><div class="line"><span class="number">4.</span>box.classList.remove(“类名”):<span class="comment">//删除类名</span></div><div class="line"><span class="number">5.</span>box.classList.contains（“类名”）：<span class="comment">//是否包含某个类名</span></div><div class="line"><span class="number">6.</span>box.classList.toggle(“类名”):<span class="comment">//切换类名</span></div></pre></td></tr></table></figure>
-<p>②自定义属性（假设有一个class为box的div）<br>1.自定义属性必须以data开头（格式：data-属性名=””）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">eg:&lt;div class=&quot;box&quot; data-myData=&quot;lalala&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
-<p>2.获取标签属性<br>    a)原有属性<br>        .box.属性名<br>    b)自定义属性<br>        .box.dataset[‘data后的部分’]<br>            eg:<br>                .box.dataset[‘myData’]<br>        <font color="red">特别注意！:</font>如果自定义属性的属性名为data-my-name，那么获取的时候要<br>        .box.dataset[“myName”]</p>
+<p><strong>函数就可以构成闭包, 要解决的问题就是访问到函数内部的数据</strong></p>
+<p>我们观察下面的函数<code>foo</code>，在<code>foo</code>内部有一个变量<code>num</code>，能否在函数外部访问到这个变量<code>num</code>呢？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">function foo () &#123;</div><div class="line"></div><div class="line"> var num = 123;</div><div class="line"></div><div class="line"> return num;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">var res = foo();</div><div class="line"></div><div class="line">console.log( res ); // =&gt; 123</div></pre></td></tr></table></figure>
+<p>分析：</p>
+<p>在上面的代码中，确实可以访问到<code>num</code>这个函数内部的变量。但是能不能多次访问呢？</p>
+<p>不能，因为每次访问都得重新调用一次<code>foo</code>函数，每次调用都会重新创建一个<code>num = 123</code>，然后返回。</p>
+<h4 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h4><p>函数内的数据不能直接在函数外被访问，是因为作用域的关系，上级作用域不能直接访问下级作用域中的数据。</p>
+<p>但是如果反过来，下级作用域可以直接访问上级作用域中的数据。那么如果在函数<code>foo</code>内定义一个函数，那么在这个内部函数中是可以直接访问<code>foo</code>中的<code>num</code>的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line"> <span class="keyword">var</span> num = <span class="built_in">Math</span>.random();</div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line"> <span class="keyword">return</span> num;</div><div class="line"></div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="keyword">return</span> func;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> f = foo();</div><div class="line"></div><div class="line"><span class="comment">// f可以直接访问num，而且多次访问，访问的也是同一个，并不会返回新的num</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> res1 = f();</div><div class="line"></div><div class="line"><span class="keyword">var</span> res2 = f();</div></pre></td></tr></table></figure>
+<h3 id="如何获得超过一个数据"><a href="#如何获得超过一个数据" class="headerlink" title="如何获得超过一个数据"></a>如何获得超过一个数据</h3><p>函数的返回值只能有一个，那按照上面的方法，我们只能对函数内部的一个数据进行操作。怎么操作函数内的多个数据呢？</p>
+<p>可以使用对象，代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span> (<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line"> <span class="keyword">var</span> num1 = <span class="built_in">Math</span>.random();</div><div class="line"></div><div class="line"> <span class="keyword">var</span> num2 = <span class="built_in">Math</span>.random();</div><div class="line"></div><div class="line"> <span class="comment">//可以将多个函数包含在一个对象内进行返回，这样就能在函数外部操作当前函数内的多个变量</span></div><div class="line"></div><div class="line"> <span class="keyword">return</span> &#123;</div><div class="line"></div><div class="line"> <span class="attr">num1</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line"> <span class="keyword">return</span> num1;</div><div class="line"></div><div class="line"> &#125;,</div><div class="line"></div><div class="line"> <span class="attr">num2</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line"> <span class="keyword">return</span> num2;</div><div class="line"></div><div class="line"> &#125;</div><div class="line"></div><div class="line"> &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="如何完成读取一个数据和修改这个数据"><a href="#如何完成读取一个数据和修改这个数据" class="headerlink" title="如何完成读取一个数据和修改这个数据"></a>如何完成读取一个数据和修改这个数据</h3><p>前面讲的都是如何去获取函数内部的数据，接下来我们考虑如何修改函数内部的数据。</p>
+<p>同样，也是使用内部的函数进行操作。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line"> <span class="keyword">var</span> num = <span class="built_in">Math</span>.random();</div><div class="line"></div><div class="line"> <span class="comment">//分别定义get和set函数，使用对象进行返回</span></div><div class="line"></div><div class="line"> <span class="keyword">return</span> &#123;</div><div class="line"></div><div class="line"> <span class="comment">//get_num负责获取数据</span></div><div class="line"></div><div class="line"> get_num: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line"> <span class="keyword">return</span> num;</div><div class="line"></div><div class="line"> &#125;,</div><div class="line"></div><div class="line"> <span class="comment">//set_num负责设置数据</span></div><div class="line"></div><div class="line"> set_num: <span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</div><div class="line"></div><div class="line"> num = value;</div><div class="line"></div><div class="line"> &#125;</div><div class="line"></div><div class="line"> &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们还可以模仿JQ的方法思路，fun()是获取数据,fun(val)是修改数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line"> <span class="keyword">var</span> fname = <span class="string">"nick"</span>;</div><div class="line"></div><div class="line"> <span class="keyword">var</span> fage = <span class="number">23</span>;</div><div class="line"></div><div class="line">     <span class="keyword">return</span> &#123;</div><div class="line"></div><div class="line">         <span class="attr">name</span>:<span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123;</div><div class="line"></div><div class="line">         <span class="keyword">if</span>(value === <span class="literal">undefined</span>)&#123;</div><div class="line"></div><div class="line">         &#125;<span class="keyword">else</span>&#123;</div><div class="line"></div><div class="line">         fname = value;</div><div class="line"></div><div class="line">         &#125;</div><div class="line"></div><div class="line">         <span class="keyword">return</span> fname;</div><div class="line"></div><div class="line">     &#125;,</div><div class="line"></div><div class="line">         <span class="attr">age</span>:<span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123;</div><div class="line"></div><div class="line">         <span class="keyword">if</span>(value === <span class="literal">undefined</span>)&#123;</div><div class="line"></div><div class="line">         &#125;<span class="keyword">else</span>&#123;</div><div class="line"></div><div class="line">         fage = value;</div><div class="line"></div><div class="line">         &#125;</div><div class="line"></div><div class="line">         <span class="keyword">return</span> fage;</div><div class="line"></div><div class="line">     &#125;</div><div class="line"></div><div class="line">  &#125;;</div><div class="line"></div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="keyword">var</span> obj = foo();</div><div class="line"></div><div class="line"> <span class="built_in">console</span>.log(obj.name());</div><div class="line"></div><div class="line"> <span class="built_in">console</span>.log(obj.age());</div><div class="line"></div><div class="line"> <span class="built_in">console</span>.log(obj.age(<span class="number">24</span>));</div></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h2 id="闭包的作用："><a href="#闭包的作用：" class="headerlink" title="闭包的作用："></a>闭包的作用：</h2><p>根据作用域规则, 只允许函数访问外部的数据, 外部无法访问函数内部的数据, 即封闭的对外不公开的特性. Js中函数可以产生作用域，因此说函数可以构成闭包。</p>
+<p>1.可以读取函数内部的变量</p>
+<p>2.让这些变量的值始终保持在内存中。</p>
+<h3 id="好处："><a href="#好处：" class="headerlink" title="好处："></a>好处：</h3><p>闭包更像是面向对象语言中的封装，函数内部的数据被封装起来私有化，外部无法直接修改，只能依靠我们提供的方法来修改和获取我们私有化的内部数据，Java中的get、set方法。同时，由于是我们提供方法给外部访问我们内部私有化的数据，所以：</p>
+<p>1.在函数外部想要修改数据，只能通过函数内部的方法</p>
+<p>2.我们可以在函数内部定义的这个方法里设置安全措施，校验之类的操作不合法可以throw异常</p>
+<p>3.可以保证系统的安全性和稳定性</p>
+<h3 id="坏处"><a href="#坏处" class="headerlink" title="坏处:"></a>坏处:</h3><p>上面说到，闭包的作用之一还有一个将函数内部的私有变量始终保存在内存中，这既是好处(操作的一直是同一个数据)，也有坏处（由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能导致内存泄露。解决方法是，在退出函数之前，将不使用的局部变量全部删除）</p>
+<p>如何理解呢？</p>
+<p>下面摘自偶像阮一峰大神博客的一段内容：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">     <span class="keyword">var</span> n=<span class="number">999</span>;</div><div class="line"></div><div class="line">     nAdd=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;n+=<span class="number">1</span>&#125;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">         alert(n);</div><div class="line"></div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="keyword">return</span> f2;</div><div class="line"></div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="keyword">var</span> result=f1();</div><div class="line"></div><div class="line"> result(); <span class="comment">// 999</span></div><div class="line"></div><div class="line"> nAdd();</div><div class="line"></div><div class="line"> result(); <span class="comment">// 1000</span></div></pre></td></tr></table></figure>
+<p>在这段代码中，result实际上就是闭包f2函数。它一共运行了两次，第一次的值是999，第二次的值是1000。这证明了，函数f1中的局部变量n一直保存在内存中，并没有在f1调用后被自动清除。</p>
+<p>为什么会这样呢？原因就在于f1是f2的父函数，而f2被赋给了一个全局变量，这导致f2始终在内存中，而f2的存在依赖于f1，因此f1也始终在内存中，不会在调用结束后，被垃圾回收机制（garbage collection）回收。</p>
+<p>这段代码中另一个值得注意的地方，就是”nAdd=function(){n+=1}”这一行，首先在nAdd前面没有使用var关键字，因此nAdd是一个全局变量，而不是局部变量。其次，nAdd的值是一个匿名函数（anonymous function），而这个匿名函数本身也是一个闭包，所以nAdd相当于是一个setter，可以在函数外部对函数内部的局部变量进行操作。</p>
+<p>阮大神在博客结尾留下了两个闭包的思考题：</p>
+<p>题一：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> name = <span class="string">"The Window"</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> object = &#123; </div><div class="line"></div><div class="line">    <span class="attr">name</span> : <span class="string">"My Object"</span>,</div><div class="line"></div><div class="line">    <span class="attr">getNameFunc</span> : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </div><div class="line"></div><div class="line">       <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </div><div class="line"></div><div class="line">           <span class="keyword">return</span> <span class="keyword">this</span>.name; </div><div class="line"></div><div class="line">    &#125;;</div><div class="line"></div><div class="line">  &#125;</div><div class="line"></div><div class="line">&#125;;</div><div class="line"></div><div class="line">alert(object.getNameFunc()());<span class="comment">//The Window</span></div></pre></td></tr></table></figure>
+<p>题二：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> name = <span class="string">"The Window"</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> object = &#123;</div><div class="line"></div><div class="line">    <span class="attr">name</span> : <span class="string">"My Object"</span>,</div><div class="line"></div><div class="line">    <span class="attr">getNameFunc</span> : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> that.name;</div><div class="line"></div><div class="line">    &#125;;</div><div class="line"></div><div class="line"> &#125;</div><div class="line"></div><div class="line">&#125;;</div><div class="line"></div><div class="line">alert(object.getNameFunc()());<span class="comment">//My Object</span></div></pre></td></tr></table></figure>
+<p>###解析：</p>
+<p>对于题一：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">object.getNameFunc()()</div></pre></td></tr></table></figure>
+<p>也就是</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">　　 <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;　</div><div class="line"></div><div class="line">　　     <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line"></div><div class="line">　　  &#125;)();</div></pre></td></tr></table></figure>
+<p>是不是就是在全局调用这个函数,这是闭包没闭上</p>
+<p>由于this是动态的，在调用语句的那一刻来获取上下文，这两题中就看在什么时候才能逐句解释运行到this关键字，来动态获取上下文。</p>
+<p>在题一中，在最后调用时this才开始获取上下文，是window</p>
+<p>，于是在全局找到了var name = “The Window”; 弹出The Window</p>
+<p>对于题二：</p>
+<p>由于用了var that = this;这时候，this就是开始获取上下文了！发现是在object内，所以this指向object并赋值给了that，所以这时候that就指向object了！自然弹出作用域里的My Object!</p>
+<p>这是包上了，在外部来操作内部变量。</p>
 
       
 
@@ -269,6 +266,10 @@ f)source引用方式来做兼容
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
         		</li>
       		
 		</ul>
@@ -324,7 +325,7 @@ f)source引用方式来做兼容
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/03/11/Html5入坑记/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/04/09/JSNotes（三）JS的闭包/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -338,18 +339,9 @@ f)source引用方式来做兼容
   
 <nav id="article-nav">
   
-    <a href="/2017/03/11/Html5入坑记（一）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Html5入坑记
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/06/JQuery动画之动画队列和stop方法/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JQuery动画之动画队列和stop方法</div>
+    <a href="/2017/04/09/JSNotes（二）JS的变量声明提升/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JSNotes（二）JS的变量声明提升</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -473,15 +465,15 @@ f)source引用方式来做兼容
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JVM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DB</a>
               </li>
              
               <li class="article-tag-list-item">
