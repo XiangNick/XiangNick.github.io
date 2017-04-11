@@ -193,11 +193,11 @@
 <ul>
 <li>先在body中声明一个table</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">   	&lt;table id="grid"&gt;&lt;/table&gt;</div><div class="line">&lt;<span class="regexp">/div&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">   	<span class="xml"><span class="tag">&lt;<span class="name">table</span> <span class="attr">id</span>=<span class="string">"grid"</span>&gt;</span><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span></div><div class="line">&lt;<span class="regexp">/div&gt;</span></div></pre></td></tr></table></figure>
 <ul>
 <li>再去head中通过JQuery代码将table渲染为datagrid对象</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">	$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		$(<span class="string">'#grid'</span>).datagrid( &#123;</div><div class="line">		<span class="attr">border</span> : <span class="literal">false</span>,</div><div class="line">	        <span class="attr">rownumbers</span> : <span class="literal">true</span>,</div><div class="line">	        <span class="attr">pageList</span>: [<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>],<span class="comment">//选择一页显示多少数据		        </span></div><div class="line">	        pagination : <span class="literal">true</span>,<span class="comment">//在DataGrid控件底部显示分页工具栏。</span></div><div class="line">	        columns :[ [ &#123;</div><div class="line">	    		<span class="attr">field</span> : <span class="string">'name'</span>,<span class="comment">//简单的测试字段		    		</span></div><div class="line">	    		title : <span class="string">'姓名'</span>,</div><div class="line">	    		<span class="attr">width</span> : <span class="number">120</span>,		    		</div><div class="line">	    		<span class="attr">align</span> : <span class="string">'center'</span></div><div class="line">		    &#125;, &#123;</div><div class="line">		   		<span class="attr">field</span> : <span class="string">'telephone'</span>,</div><div class="line">		   		<span class="attr">title</span> : <span class="string">'手机号'</span>,</div><div class="line">		   		<span class="attr">width</span> : <span class="number">120</span>,</div><div class="line">		   		<span class="attr">align</span> : <span class="string">'center'</span></div><div class="line">	    	&#125;</div><div class="line">	    	 ] ],</div><div class="line">	       <span class="attr">url</span> :<span class="string">"$&#123;pageContext.request.contextPath&#125;/staffAction_pageQuery"</span>,          <span class="comment">//提交的url地址</span></div><div class="line">		        idField : <span class="string">'id'</span></div><div class="line">		   &#125;);</div><div class="line">	&#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">	$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		$(<span class="string">'#grid'</span>).datagrid( &#123;</div><div class="line">		<span class="attr">border</span> : <span class="literal">false</span>,</div><div class="line">	        <span class="attr">rownumbers</span> : <span class="literal">true</span>,</div><div class="line">	        <span class="attr">pageList</span>: [<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>],<span class="comment">//选择一页显示多少数据		        </span></div><div class="line">	        pagination : <span class="literal">true</span>,<span class="comment">//在DataGrid控件底部显示分页工具栏。</span></div><div class="line">	        columns :[ [ &#123;</div><div class="line">	    		<span class="attr">field</span> : <span class="string">'name'</span>,<span class="comment">//简单的测试字段		    		</span></div><div class="line">	    		title : <span class="string">'姓名'</span>,</div><div class="line">	    		<span class="attr">width</span> : <span class="number">120</span>,		    		</div><div class="line">	    		<span class="attr">align</span> : <span class="string">'center'</span></div><div class="line">		    &#125;, &#123;</div><div class="line">		   		<span class="attr">field</span> : <span class="string">'telephone'</span>,</div><div class="line">		   		<span class="attr">title</span> : <span class="string">'手机号'</span>,</div><div class="line">		   		<span class="attr">width</span> : <span class="number">120</span>,</div><div class="line">		   		<span class="attr">align</span> : <span class="string">'center'</span></div><div class="line">	    	&#125;</div><div class="line">	    	 ] ],</div><div class="line">	       <span class="attr">url</span> :<span class="string">"$&#123;pageContext.request.contextPath&#125;/staffAction_pageQuery"</span>,          <span class="comment">//提交的url地址</span></div><div class="line">		        idField : <span class="string">'id'</span></div><div class="line">		   &#125;);</div><div class="line">	&#125;);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
 <ul>
 <li>此时你的页面应该是<br><img src="http://img.blog.csdn.net/20161108132228688" alt="页面效果"><br>(因为没有在后台提供数据，所以现在页面为空表格)</li>
 </ul>
@@ -434,7 +434,7 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
+                <a href="javascript:void(0)" class="js-tag color3">高并发与多线程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -442,7 +442,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">高并发与多线程</a>
+                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -451,10 +455,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">JS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">

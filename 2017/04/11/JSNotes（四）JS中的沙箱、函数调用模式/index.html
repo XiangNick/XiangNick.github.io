@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/11/JSNotes（四）JS中的沙箱、函数调用模式/index.html">
 <meta property="og:site_name" content="Mr.Zhang">
 <meta property="og:description" content="沙箱与外界隔绝的一个环境，外界无法修改该环境内任何信息，沙箱内的东西单独属于一个世界">
-<meta property="og:updated_time" content="2017-04-11T01:53:55.082Z">
+<meta property="og:updated_time" content="2017-04-11T02:18:09.354Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JSNotes（四）JS中的沙箱、函数调用模式">
 <meta name="twitter:description" content="沙箱与外界隔绝的一个环境，外界无法修改该环境内任何信息，沙箱内的东西单独属于一个世界">
@@ -216,8 +216,14 @@
 <p> apply是使用数组进行传参的，这个数组在调用的时候，会被意义拆解，当做函数的每一个采参数</p>
 <p> call在函数的形参个数确定的情况下使用</p>
 <p> apply在函数的形参个数不确定的情况下使用</p>
-<p>###上下文模式小应用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">test.apply(<span class="number">1</span>);<span class="comment">//Number</span></div><div class="line"></div><div class="line">test.apply(<span class="string">"abc"</span>);<span class="comment">//String</span></div><div class="line"></div><div class="line">test.apply(<span class="literal">true</span>)<span class="comment">//Boolean</span></div><div class="line"></div><div class="line">test.apply(<span class="literal">null</span>)<span class="comment">//Window</span></div><div class="line"></div><div class="line">test.apply(<span class="literal">undefined</span>)<span class="comment">//Window</span></div></pre></td></tr></table></figure>
 <ol>
+<li><p>当用call和apply传入的第一个参数为值类型的时候,会将值类型转换成对应的对象（引用类型） 然后赋值给this</p>
+</li>
+<li><p>当传入的第一个参数为 null或者undefined的时候，会把this赋值为 window</p>
+</li>
+</ol>
+<h3 id="上下文模式小应用"><a href="#上下文模式小应用" class="headerlink" title="上下文模式小应用"></a>上下文模式小应用</h3><ol>
 <li>求数组最大值。</li>
 </ol>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> arr = [<span class="number">12</span>,<span class="number">312</span>,<span class="number">53</span>,<span class="number">34</span>,<span class="number">23</span>,<span class="number">12</span>,<span class="number">111</span>];</div><div class="line"></div><div class="line"> <span class="keyword">var</span> max = <span class="built_in">Math</span>.max.apply(<span class="literal">null</span>,arr);</div><div class="line"></div><div class="line"> <span class="built_in">console</span>.log(max);</div></pre></td></tr></table></figure>
@@ -554,7 +560,7 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
+                <a href="javascript:void(0)" class="js-tag color3">高并发与多线程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -562,7 +568,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">高并发与多线程</a>
+                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -571,10 +581,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">JS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
