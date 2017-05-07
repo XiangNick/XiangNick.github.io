@@ -16,7 +16,7 @@
 <meta property="og:description" content="HTTP 协议是以 ASCII 码传输，建立在 TCP/IP 协议之上的应用层规范。规范把 HTTP 请求分为三个部分：状态行、请求头、消息主体。">
 <meta property="og:image" content="http://yoursite.com/\img\c1.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\c2.jpg">
-<meta property="og:updated_time" content="2017-05-07T07:55:51.402Z">
+<meta property="og:updated_time" content="2017-05-07T08:04:43.875Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Content-Type决定服务端数据提取方式">
 <meta name="twitter:description" content="HTTP 协议是以 ASCII 码传输，建立在 TCP/IP 协议之上的应用层规范。规范把 HTTP 请求分为三个部分：状态行、请求头、消息主体。">
@@ -204,7 +204,8 @@
 <li><p>如果数据是复杂的嵌套关系，有多层数据，那么使用json会简化数据的处理，从而更高效。</p>
 </li>
 </ol>
-<p>总结： 一般<font color="red">发送数据给服务端</font>用application/x-www-form-urlencoded,方便服务端读取接收，但是如果是结构复杂或者数组对象，那就选择application/json,再传JSON.stringify后的json对象字符串，类似于springmvc后台对json有很好支持的可以直接@RequestBody绑定对象或者List，如果后台对Json数据读取支持不好，可以选择用application/x-www-form-urlencoded，再将stringify后的json字符串对象作为val存入键值对，后台可以很方便的根据key得到json字符串再解析。不建议直接传未序列化过的json对象，这样后台还得从request里去获取原始输入流，转成String后再转成JsonObject对象再读取，效率太低。<br> <font color="red">服务端返回数据</font>使用application/json ，便于前台解析展示。</p>
+<p> </p><h4> 总结：</h4><br>  一般<font color="red">发送数据给服务端</font>用application/x-www-form-urlencoded,方便服务端读取接收，但是如果是结构复杂或者数组对象，那就选择application/json,再传JSON.stringify后的json对象字符串，类似于springmvc后台对json有很好支持的可以直接@RequestBody绑定对象或者List，如果后台对Json数据读取支持不好，可以选择用application/x-www-form-urlencoded，再将stringify后的json字符串对象作为val存入键值对，后台可以很方便的根据key得到json字符串再解析。不建议直接传未序列化过的json对象，这样后台还得从request里去获取原始输入流，转成String后再转成JsonObject对象再读取，效率太低。<br> <font color="red">服务端返回数据</font>使用application/json ，便于前台解析展示。<p></p>
+<p> </p><h4>误区解释：</h4><br> 之前JQuery发送Ajax的application/x-www-form-urlencoded请求，用的都是data:json格式来传递数据，其实这是JQuery的一个封装，为了我们书写方便阅读性强。虽然我们给的是json格式，可是他底层将其遍历解析转换成了key=val&amp;key=val的格式来传递<p></p>
 <h3 id="4-text-plain"><a href="#4-text-plain" class="headerlink" title="4. text/plain"></a>4. text/plain</h3><p>数据以纯文本形式进行编码，其中不含任何控件或格式字符。一般通过request.InputStream或者request.getReader，从流中提取出数据</p>
 <h3 id="5-text-xml"><a href="#5-text-xml" class="headerlink" title="5. text/xml"></a>5. text/xml</h3><p>它是一种使用 HTTP 作为传输协议，XML 作为编码方式的远程调用规范。不过个人觉得 XML 结构还是过于臃肿，一般场景用 JSON 和键值对会更灵活方便。</p>
 
@@ -425,19 +426,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
