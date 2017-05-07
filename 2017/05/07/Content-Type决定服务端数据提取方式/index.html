@@ -8,16 +8,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Content-Type决定服务端数据提取方式 | Mr.Zhang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="全栈学习者，小菜鸟     mail:XiangNickMonster@163.com">
+  <meta name="description" content="HTTP 协议是以 ASCII 码传输，建立在 TCP/IP 协议之上的应用层规范。规范把 HTTP 请求分为三个部分：状态行、请求头、消息主体。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Content-Type决定服务端数据提取方式">
 <meta property="og:url" content="http://yoursite.com/2017/05/07/Content-Type决定服务端数据提取方式/index.html">
 <meta property="og:site_name" content="Mr.Zhang">
-<meta property="og:description" content="全栈学习者，小菜鸟     mail:XiangNickMonster@163.com">
-<meta property="og:updated_time" content="2017-05-07T03:17:41.002Z">
+<meta property="og:description" content="HTTP 协议是以 ASCII 码传输，建立在 TCP/IP 协议之上的应用层规范。规范把 HTTP 请求分为三个部分：状态行、请求头、消息主体。">
+<meta property="og:image" content="http://yoursite.com/\img\c1.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\c2.jpg">
+<meta property="og:updated_time" content="2017-05-07T07:55:51.402Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Content-Type决定服务端数据提取方式">
-<meta name="twitter:description" content="全栈学习者，小菜鸟     mail:XiangNickMonster@163.com">
+<meta name="twitter:description" content="HTTP 协议是以 ASCII 码传输，建立在 TCP/IP 协议之上的应用层规范。规范把 HTTP 请求分为三个部分：状态行、请求头、消息主体。">
+<meta name="twitter:image" content="http://yoursite.com/\img\c1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Zhang" type="application/atom+xml">
   
@@ -172,7 +175,39 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>HTTP 协议是以 ASCII 码传输，建立在 TCP/IP 协议之上的应用层规范。规范把 HTTP 请求分为三个部分：状态行、请求头、消息主体。<br><a id="more"></a><br>协议规定 POST 提交的数据必须放在消息主体（entity-body）中,而消息主体的格式可以自行定义。<br>而服务端通常是根据请求头（headers）中的 Content-Type 字段来获知请求中的消息主体是用何种方式编码，再对主体进行解析。</p>
+<h3 id="1-application-x-www-form-urlencoded"><a href="#1-application-x-www-form-urlencoded" class="headerlink" title="1. application/x-www-form-urlencoded"></a>1. application/x-www-form-urlencoded</h3><p>这是<font color="red">最常见的</font> POST 提交数据的方式。浏览器的原生 form 表单，如果不设置 enctype 属性，默认以 application/x-www-form-urlencoded 方式提交数据。请求类似于<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">POST http://www.example.com HTTP/1.1</div><div class="line">Content-Type: application/x-www-form-urlencoded;charset=utf-8</div><div class="line">title=test&amp;sub%5B%5D=1&amp;sub%5B%5D=2&amp;sub%5B%5D=3</div></pre></td></tr></table></figure></p>
+<p>提交的数据按照 key1=val1&amp;key2=val2 的方式进行编码，key 和 val 都进行了 URL 转码。<br>大部分服务端语言都对这种方式有很好的支持。</p>
+<p>jQuery的Ajax，Content-Type默认值是application/x-www-form-urlencoded;charset=utf-8</p>
+<h3 id="2-multipart-form-data"><a href="#2-multipart-form-data" class="headerlink" title="2. multipart/form-data"></a>2. multipart/form-data</h3><p>使用表单上传文件时，必须设定form的enctype为该值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">POST http://www.example.com HTTP/1.1</div><div class="line">Content-Type:multipart/form-data; boundary=----WebKitFormBoundaryrGKCBY7qhFd3TrwA</div><div class="line"></div><div class="line">------WebKitFormBoundaryrGKCBY7qhFd3TrwA</div><div class="line">Content-Disposition: form-data; name=&quot;text&quot;</div><div class="line"></div><div class="line">title</div><div class="line">------WebKitFormBoundaryrGKCBY7qhFd3TrwA</div><div class="line">Content-Disposition: form-data; name=&quot;file&quot;; filename=&quot;chrome.png&quot;</div><div class="line">Content-Type: image/png</div><div class="line"></div><div class="line">PNG ... content of chrome.png ...</div><div class="line">------WebKitFormBoundaryrGKCBY7qhFd3TrwA--</div><div class="line"></div><div class="line">content-ty</div></pre></td></tr></table></figure>
+<p>生成了一个 boundary 用于分割不同的字段，为了避免与正文内容重复，boundary 很长很复杂。然后 Content-Type 里指明了数据是以 mutipart/form-data 来编码，本次请求的 boundary 是什么内容。消息主体里按照字段个数又分为多个结构类似的部分，每部分都是以 –boundary 开始，紧接着内容描述信息，然后是回车，最后是字段具体内容（文本或二进制）。如果传输的是文件，还要包含文件名和文件类型信息。消息主体最后以 –boundary– 标示结束。<br>这种方式一般用来上传文件，各大服务端语言对它也有着良好的支持。</p>
+<h3 id="3-application-json"><a href="#3-application-json" class="headerlink" title="3. application/json"></a>3. application/json</h3><p>现在该请求头越发流行，用来告诉服务端消息主体是<font color="red">序列化后的 JSON 字符串</font>。由于 JSON 规范的流行，除了低版本 IE 之外的各大浏览器都原生支持 JSON.stringify，服务端语言也都有处理 JSON 的函数。</p>
+<p>Json 格式支持比键值对复杂得多的结构化数据，当然也可以把数据先 JSON 序列化之后，然后再将序列化后的字符串作为 val，仍然放在键值对里，以 x-www-form-urlencoded 方式提交。这样传输的文本节省流量，服务器接收了可以后台解析。</p>
+<p>在AngularJS 中的<code>$http服务</code>，默认提交的数据格式就是 JSON 字符串。<br> <img src="\img\c1.jpg" alt=""><br>最终发送的请求是：</p>
+<p>POST <a href="http://localhost:8000/exmple.php" target="_blank" rel="external">http://localhost:8000/exmple.php</a> HTTP/1.1<br>Content-Type: application/json;charset=utf-8<br> <img src="\img\c2.jpg" alt=""></p>
+<p>这种方案，可以方便的提交复杂的结构化数据，很适合 RESTful 的接口。各大抓包工具如 Chrome 自带的开发者工具、Firebug、Fiddler，都会以树形结构展示 JSON 数据，非常友好。但是这种方式有些服务器语言接收不是很方便，比如Java需要request.getReader();得到BufferedReader，然后再读取流存入String，利用jackson、json-lib等进行解析成jsonObject对象读取数据。php 也无法通过 <code>$_POST</code>对象从上面的请求中获得内容。这时候，需要自己动手处理下：在请求头中 Content-Type 为 application/json 时，从 php://input 里获得原始输入流，再 json_decode 成对象。</p>
+<p>解决方式：<br>服务端接收的是一个Json对象的字符串而不是直接的Json对象，可以在传输数据时选择<code>JSON.stringify(jsonData);</code><br>先将json对象转成字符串，指定dataType:”json”,contentType:”application/json” ,如果是springmvc后台可以直接</p>
+<pre><code class="java"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saveUser</span><span class="params">(@RequestBody List&lt;User&gt; users)</span> </span>{ 
+    userService.batchSave(users); 
+}
+</code></pre>
+<p>来绑定对象或者List</p>
+<p>当然 AngularJS 也可以配置为使用 x-www-form-urlencoded 方式提交数据。</p>
+<p>###注意：<br>json一般更多用来返回数据而不是在提交数据的时候使用，通常Restful服务都会支持json/xml格式的返回数据。</p>
+<blockquote>
+<p>对于application/x-www-form-urlencoded和application/json;charset=utf-8的选择</p>
+</blockquote>
+<ol>
+<li><p>如果数据是简单、平面的key-value数值对，那么使用www-form-urlencoded简单实用，后台直接根据key取值，不需要额外的编解码；</p>
+</li>
+<li><p>如果数据是复杂的嵌套关系，有多层数据，那么使用json会简化数据的处理，从而更高效。</p>
+</li>
+</ol>
+<p>总结： 一般<font color="red">发送数据给服务端</font>用application/x-www-form-urlencoded,方便服务端读取接收，但是如果是结构复杂或者数组对象，那就选择application/json,再传JSON.stringify后的json对象字符串，类似于springmvc后台对json有很好支持的可以直接@RequestBody绑定对象或者List，如果后台对Json数据读取支持不好，可以选择用application/x-www-form-urlencoded，再将stringify后的json字符串对象作为val存入键值对，后台可以很方便的根据key得到json字符串再解析。不建议直接传未序列化过的json对象，这样后台还得从request里去获取原始输入流，转成String后再转成JsonObject对象再读取，效率太低。<br> <font color="red">服务端返回数据</font>使用application/json ，便于前台解析展示。</p>
+<h3 id="4-text-plain"><a href="#4-text-plain" class="headerlink" title="4. text/plain"></a>4. text/plain</h3><p>数据以纯文本形式进行编码，其中不含任何控件或格式字符。一般通过request.InputStream或者request.getReader，从流中提取出数据</p>
+<h3 id="5-text-xml"><a href="#5-text-xml" class="headerlink" title="5. text/xml"></a>5. text/xml</h3><p>它是一种使用 HTTP 作为传输协议，XML 作为编码方式的远程调用规范。不过个人觉得 XML 结构还是过于臃肿，一般场景用 JSON 和键值对会更灵活方便。</p>
+
       
 
       
@@ -386,6 +421,22 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">高并发与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
               </li>
              
@@ -394,27 +445,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">高并发与多线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JVM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
               </li>
              
               <li class="article-tag-list-item">
