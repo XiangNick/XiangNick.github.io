@@ -35,7 +35,9 @@
 <meta property="og:image" content="http://yoursite.com/\img\a9.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\a10.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\a11.jpg">
-<meta property="og:updated_time" content="2017-05-07T03:57:05.915Z">
+<meta property="og:image" content="http://yoursite.com/\img\b11.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\b12.jpg">
+<meta property="og:updated_time" content="2017-05-07T09:30:57.647Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AngularJS学习">
 <meta name="twitter:description" content="一、特点&amp;emsp;&amp;emsp;AngularJS与jQuery是有一定的区别的，jQuery更准确来说只一个类库（类库指的是一系列函数的集合）以DOM做为驱动（核心），而AngularJS则一个框架（诸多类库的集合）以数据和逻辑做为驱动（核心）。">
@@ -274,6 +276,13 @@
 <p>在这里有一个误区，之前JQuery发送Ajax的application/x-www-form-urlencoded请求，用的都是data:json格式来传递数据，其实这是JQuery的一个封装，为了我们书写方便阅读性强。虽然我们给的是json格式，可是他底层将其遍历解析转换成了key=val&amp;key=val的格式来传递，而AngularJS默认传json数据，不提供这种转换，他会直接把json数据当成key，val值为空传递，导致服务端报错，所以我们还是直接写key=val字符串直接传，省去转换的麻烦了吧</p>
 </blockquote>
 <p>$http服务同时还支持多种快捷方式如<code>$http.get()、$http.post()、$http.jsonp</code></p>
+<p>6、<code>$http的jsonp传输</code><br><img src="\img\b11.jpg" alt=""></p>
+<ul>
+<li><p>需要指定method为jsonp，同时，在params里定义{ callback: ‘JSON_CALLBACK’ }。<br>对于callback的定义可以在params里，也可以在请求的url后<br>callback可以任意命名，但是后面的<br>JSON_CALLBACK不可以改变。这个名称在AngularJS发出请求时，会自动将<br>JSON_CALLBACK替换成一个唯一的函数名，比如：<br>“callback=angular.callbacks._0”，这个可以通过浏览器debug模式查看.<br><img src="\img\b12.jpg" alt=""></p>
+</li>
+<li><p>返回数据必须放在JSON_CALLBACK (json数据)里面。<br>注意：JSON_CALLBACK 必须是angularjs把你的JSON_CALLBACK 替换后的值，如：angular.callbacks._0，假设你请求到后台，你可以先获取到callback这个参数的值，然后把组装你要返回的json数据。<br>eg:  假设是SpringMVC<br>String callback = request.getParameter(“callback”);<br>JSONObject json =new JSONObject();<br>json.put(“id”, “123456”);<br>json.put(“username”, “hhaip”);<br>json.put(“age”, 25);<br>json.put(“sex”, “男”);<br>return callback+”(“+json+”)”;   </p>
+</li>
+</ul>
 
       
 
@@ -509,7 +518,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -517,11 +526,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color3">JS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JS</a>
+                <a href="javascript:void(0)" class="js-tag color3">DB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -533,11 +542,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DB</a>
+                <a href="javascript:void(0)" class="js-tag color3">源码</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">源码</a>
+                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
               </li>
              
               <li class="article-tag-list-item">
