@@ -14,8 +14,18 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/07/AngularJS学习/index.html">
 <meta property="og:site_name" content="Mr.Zhang">
 <meta property="og:description" content="一、特点&amp;emsp;&amp;emsp;AngularJS与jQuery是有一定的区别的，jQuery更准确来说只一个类库（类库指的是一系列函数的集合）以DOM做为驱动（核心），而AngularJS则一个框架（诸多类库的集合）以数据和逻辑做为驱动（核心）。">
+<meta property="og:image" content="http://yoursite.com/\img\b1.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\b2.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\a1.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\b3.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\b4.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\b5.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\b6.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\b7.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\b8.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\b9.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\a2.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\b10.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\a3.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\a4.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\a5.jpg">
@@ -25,11 +35,11 @@
 <meta property="og:image" content="http://yoursite.com/\img\a9.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\a10.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\a11.jpg">
-<meta property="og:updated_time" content="2017-05-07T03:34:11.755Z">
+<meta property="og:updated_time" content="2017-05-07T03:57:05.915Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AngularJS学习">
 <meta name="twitter:description" content="一、特点&amp;emsp;&amp;emsp;AngularJS与jQuery是有一定的区别的，jQuery更准确来说只一个类库（类库指的是一系列函数的集合）以DOM做为驱动（核心），而AngularJS则一个框架（诸多类库的集合）以数据和逻辑做为驱动（核心）。">
-<meta name="twitter:image" content="http://yoursite.com/\img\a1.jpg">
+<meta name="twitter:image" content="http://yoursite.com/\img\b1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Zhang" type="application/atom+xml">
   
@@ -186,15 +196,13 @@
       
         <h2 id="一、特点"><a href="#一、特点" class="headerlink" title="一、特点"></a>一、特点</h2><p>&emsp;&emsp;AngularJS与jQuery是有一定的区别的，jQuery更准确来说只一个类库（类库指的是一系列函数的集合）以DOM做为驱动（核心），而AngularJS则一个框架（诸多类库的集合）以数据和逻辑做为驱动（核心）。<br><a id="more"></a><br>框架对开发的流程和模式做了约束，开发者遵照约束进行开发，更注重的实际的业务逻辑。<br>AngularJS有着诸多特性，最为核心的是：模块化、双向数据绑定、语义化标签、依赖注入等。<br>与之类似的框架还有BackBone、KnockoutJS、Vue、React等。</p>
 <h2 id="二、模块化"><a href="#二、模块化" class="headerlink" title="二、模块化"></a>二、模块化</h2><ol>
-<li><p>控制器、模型</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 引入框架 --&gt;</div><div class="line">	&lt;script src="./libs/angular.min.js"&gt;&lt;/script&gt;</div><div class="line">	&lt;script&gt;</div><div class="line">		<span class="comment">// 提供一个全局对象angular，在此对象下有N多方法</span></div><div class="line">		<span class="comment">// 其中module方法可以帮我们创建一个模块</span></div><div class="line">		<span class="keyword">var</span> App = angular.module(<span class="string">'App'</span>, []);<span class="comment">//参数1: 模块名 参数2:所需依赖</span></div><div class="line"></div><div class="line">		<span class="comment">// App就是新创建的模块，这个模块又是一个对象</span></div><div class="line">		<span class="comment">// 在此对象下又有N多方法，可以实现具体业务逻辑</span></div><div class="line"></div><div class="line">		<span class="comment">// 其它controller可以创建一个控制器</span></div><div class="line">		App.controller(<span class="string">'DemoContoller'</span>, [<span class="string">'$scope'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">$scope</span>) </span>&#123;</div><div class="line">			<span class="comment">// $scope 是一个空对象&#123;&#125;，此对象就是Model</span></div><div class="line"></div><div class="line">			$scope.name = <span class="string">'XiangNick'</span>;</div><div class="line">			$scope.age = <span class="number">22</span>; </div><div class="line"></div><div class="line">			$scope.courses = [</div><div class="line">				<span class="string">'MVC'</span>,</div><div class="line">				<span class="string">'指令'</span>,</div><div class="line">				<span class="string">'模块化'</span></div><div class="line">			]</div><div class="line"></div><div class="line">		&#125;]);</div><div class="line"></div><div class="line">	&lt;/script&gt;</div></pre></td></tr></table></figure>
+<li><p>控制器、模型<br><img src="\img\b1.jpg" alt=""></p>
 </li>
-<li><p>页面视图</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="comment">&lt;!-- 指定模块 --&gt;</span></div><div class="line">	<span class="comment">&lt;!-- 一个页可以有多个模块，但是不能互相嵌套 --&gt;</span></div><div class="line">	<span class="comment">&lt;!-- 一般只会有一个 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span> <span class="attr">ng-app</span>=<span class="string">"App"</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!-- 指定控制器 --&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-controller</span>=<span class="string">"DemoContoller"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">h1</span>&gt;</span>&amp;#123;&amp;#123;name&amp;#125;&amp;#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">h1</span>&gt;</span>&amp;#123;&amp;#123;age&amp;#125;&amp;#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">li</span> <span class="attr">ng-repeat</span>=<span class="string">"(key, course) in courses"</span>&gt;</span>&amp;#123;&amp;#123;key+1&amp;#125;&amp;#125;：&amp;#123;&amp;#123;course&amp;#125;&amp;#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span><span class="comment">&lt;!-- 遍历数组 --&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
-</li>
-</ol>
+<li><p>页面视图<br><img src="\img\b2.jpg" alt=""></p>
 <h2 id="三、指令"><a href="#三、指令" class="headerlink" title="三、指令"></a>三、指令</h2><p>&emsp;&emsp;传统的HTML书写页面(应用)存在诸多不足之处，比如没有循环、if判断、switch等结构，之前一般会使用JSP的jstl标签库或者导入页面模版js来强化html结构。AngularJS也可以通过扩展一系列的HTML属性或标签来弥补这些缺陷，所谓指令就是AngularJS自定义的HTML属性或标签，这些指令都是以ng-做为前缀的，例如ng-app、ng-controller、ng-repeat等。</p>
 <h3 id="3-1-内置指令"><a href="#3-1-内置指令" class="headerlink" title="3.1 内置指令"></a>3.1 内置指令</h3><p>为AngularJS定义好的指令，可以直接使用，这里整理了部分常用内置指令</p>
+</li>
+</ol>
 <ul>
 <li>ng-app 指定应用根元素，至少有一个元素指定了此属性。</li>
 <li>ng-controller 指定控制器</li>
@@ -221,30 +229,22 @@
 <h3 id="4-2-双向绑定"><a href="#4-2-双向绑定" class="headerlink" title="4.2 双向绑定"></a>4.2 双向绑定</h3><p>&emsp;&emsp;双向绑定则可以实现模型（Model）数据和视图（View）模板的双向传递，模型数据的改变会使视图的数据也改变，视图数据的改变也会让模型数据改变。</p>
 <h3 id="4-3-相关指令"><a href="#4-3-相关指令" class="headerlink" title="4.3 相关指令"></a>4.3 相关指令</h3><p>1.数据绑定指令</p>
 <ul>
-<li>模型（Model）数据向视图模板（View）的绑定<br>&#123;&#123; &#125;&#125;<br>ng-bind指令</li>
+<li>模型（Model）数据向视图模板（View）的绑定<br>&#123;&#123; &#125;&#125;<br>ng-bind指令<br><img src="\img\b3.jpg" alt=""><br><img src="\img\b4.jpg" alt=""></li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"> &lt;script&gt;</div><div class="line">  <span class="keyword">var</span> App = angular.module(<span class="string">'App'</span>, []);</div><div class="line">  App.controller(<span class="string">'DemoController'</span>, [<span class="string">'$scope'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">$scope</span>) </span>&#123;</div><div class="line">	  <span class="comment">// $scope 就是Model</span></div><div class="line">	  $scope.name = <span class="string">'itcast'</span>;</div><div class="line">	  $scope.age = <span class="number">10</span>;</div><div class="line">&#125;]);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">ng-bind</span>=<span class="string">"name"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">ng-cloak</span>&gt;</span>&amp;#123;&amp;#123;name&amp;#125;&amp;#125;&amp;#123;&amp;#123;age&amp;#125;&amp;#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">ng-bind-template</span>=<span class="string">"&amp;#123;&amp;#123;name&amp;#125;&amp;#125;&amp;#123;&amp;#123;age&amp;#125;&amp;#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div></pre></td></tr></table></figure>
 <p><code>模型数据通过一个内置服务$scope来提供，这个$scope是一个空对象，通过为这个对象添加属性或者方法便可以在相应的视图（View）模板里被访问。</code></p>
 <p>注：“&#123;&#123;&#125;&#125;”是ng-bind的简写形式，其区别在于通过“&#123;&#123;&#125;&#125;”绑定数据时会有“闪烁”现象，添加ng-cloak也可以解决“闪烁”现象，通过<font color="red">ng-bind-template</font>可以绑定多个数据。</p>
 <ul>
 <li><p>表单元素添加ng-model指令<br>视图（View）模板向模型（Model）数据的绑定。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">ng-model</span>=<span class="string">"name"</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>ng-init  为控制器初始化一个模型,注意格式为key=val;key=val</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-controller</span>=<span class="string">"DemoController"</span> <span class="attr">ng-init</span>=<span class="string">"name='itcast';age=10"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">h1</span>&gt;</span>&amp;#123;&amp;#123;name&amp;#125;&amp;#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">h2</span>&gt;</span>&amp;#123;&amp;#123;age&amp;#125;&amp;#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<li><p>ng-init  为控制器初始化一个模型,注意格式为key=val;key=val<br><img src="\img\b5.jpg" alt=""><br>2.事件绑定指令<br><img src="\img\b6.jpg" alt=""><br><img src="\img\b7.jpg" alt=""><br>对于js中大部分事件进行了增强，只需要再前部加上ng-即可，这些事件也可以传参，如</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ng-click=<span class="string">"check('M')"</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>2.事件绑定指令<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">button</span> <span class="attr">ng-dblclick</span>=<span class="string">"double()"</span>&gt;</span>双击<span class="tag">&lt;/<span class="name">button</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">App.controller(<span class="string">'DemoController'</span>, [<span class="string">'$scope'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">$scope</span>) </span>&#123;</div><div class="line">			$scope.double = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">				alert(<span class="string">'我被双击了'</span>);</div><div class="line">			&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>对于js中大部分事件进行了增强，只需要再前部加上ng-即可，这些事件也可以传参，如<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ng-click=<span class="string">"check('M')"</span></div></pre></td></tr></table></figure></p>
 <p>3.ng-repeat、ng-switch</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$scope.heros = [</div><div class="line">    			&#123;<span class="string">'name'</span>:<span class="string">'敌法'</span>,<span class="string">'type'</span>:<span class="string">'敏捷'</span>&#125;,</div><div class="line">    			&#123;<span class="string">'name'</span>:<span class="string">'幽鬼'</span>,<span class="string">'type'</span>:<span class="string">'敏捷'</span>&#125;,</div><div class="line">    			&#123;<span class="string">'name'</span>:<span class="string">'火女'</span>,<span class="string">'type'</span>:<span class="string">'智力'</span>&#125;,</div><div class="line">    			&#123;<span class="string">'name'</span>:<span class="string">'屠夫'</span>,<span class="string">'type'</span>:<span class="string">'力量'</span>&#125;</div><div class="line">    		];</div></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">ng-repeat</span>=<span class="string">"(key,val) in heros"</span> <span class="attr">ng-switch</span> <span class="attr">on</span>=<span class="string">"val.type"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">span</span> <span class="attr">ng-switch-when</span>=<span class="string">"敏捷"</span>&gt;</span>&amp;#123;&amp;#123;val.name&amp;#125;&amp;#125;&amp;#123;&amp;#123;val.type&amp;#125;&amp;#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>理解：与传统的switch when比较<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">switch</span> ()  -这里是ng-<span class="keyword">switch</span> on</div><div class="line">	<span class="keyword">case</span> <span class="string">''</span>: -这里是when</div><div class="line">	...</div><div class="line">	case <span class="string">''</span>:</div><div class="line">	...</div></pre></td></tr></table></figure></p>
+<p><img src="\img\b8.jpg" alt=""><br><img src="\img\b9.jpg" alt=""><br>理解：与传统的switch when比较<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">switch</span> ()  -这里是ng-<span class="keyword">switch</span> on</div><div class="line">	<span class="keyword">case</span> <span class="string">''</span>: -这里是when</div><div class="line">	...</div><div class="line">	case <span class="string">''</span>:</div><div class="line">	...</div></pre></td></tr></table></figure></p>
 <h2 id="五、作用域"><a href="#五、作用域" class="headerlink" title="五、作用域"></a>五、作用域</h2><h3 id="5-1-根作用域"><a href="#5-1-根作用域" class="headerlink" title="5.1 根作用域"></a>5.1 根作用域</h3><p>ng-app指令的标签内就是根作用域，ng-app上的模型全局都能访问到<br><img src="\img\a2.jpg" alt=""></p>
-<h3 id="5-2-子作用域"><a href="#5-2-子作用域" class="headerlink" title="5.2 子作用域"></a>5.2 子作用域</h3><p>通过ng-controller指令可以创建一个子作用域，新建的作用域可以访问其父作用域的数据<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent"</span> <span class="attr">ng-controller</span>=<span class="string">"ParentController"</span>&gt;</span></div><div class="line">		</div><div class="line">	<span class="tag">&lt;<span class="name">h1</span>&gt;</span>&amp;#123;&amp;#123;name&amp;#125;&amp;#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"child"</span> <span class="attr">ng-controller</span>=<span class="string">"ChildController"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">h2</span>&gt;</span>&amp;#123;&amp;#123;name&amp;#125;&amp;#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>访问规则同JavaScript等，父作用域不能访问子作用域内容，子作用域可以访问父作用域内容，如果子作用域有数据优先使用自己的，没有就去父级查找</p>
+<h3 id="5-2-子作用域"><a href="#5-2-子作用域" class="headerlink" title="5.2 子作用域"></a>5.2 子作用域</h3><p>通过ng-controller指令可以创建一个子作用域，新建的作用域可以访问其父作用域的数据<br><img src="\img\b10.jpg" alt=""><br>访问规则同JavaScript等，父作用域不能访问子作用域内容，子作用域可以访问父作用域内容，如果子作用域有数据优先使用自己的，没有就去父级查找</p>
 <h2 id="六、过滤器"><a href="#六、过滤器" class="headerlink" title="六、过滤器"></a>六、过滤器</h2><p>AngularJS中使用过滤器格式化展示数据，在“&#123;&#123;&#125;&#125;”中使用“|”来调用过滤器，使用“:”传递参数。</p>
 <h3 id="6-1-内置过滤器"><a href="#6-1-内置过滤器" class="headerlink" title="6.1 内置过滤器"></a>6.1 内置过滤器</h3><ul>
 <li>1、currency将数值格式化为货币格式 ： ￥</li>
@@ -501,11 +501,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">高并发与多线程</a>
+                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
+                <a href="javascript:void(0)" class="js-tag color3">JS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -517,11 +517,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JS</a>
+                <a href="javascript:void(0)" class="js-tag color3">高并发与多线程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -530,6 +526,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
               </li>
              
               <li class="article-tag-list-item">
