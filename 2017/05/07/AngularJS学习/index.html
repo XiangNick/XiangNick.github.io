@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://yoursite.com">
+  <title>AngularJS学习 | Mr.Zhang</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、特点&amp;emsp;&amp;emsp;AngularJS与jQuery是有一定的区别的，jQuery更准确来说只一个类库（类库指的是一系列函数的集合）以DOM做为驱动（核心），而AngularJS则一个框架（诸多类库的集合）以数据和逻辑做为驱动（核心）。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AngularJS学习">
+<meta property="og:url" content="http://yoursite.com/2017/05/07/AngularJS学习/index.html">
+<meta property="og:site_name" content="Mr.Zhang">
+<meta property="og:description" content="一、特点&amp;emsp;&amp;emsp;AngularJS与jQuery是有一定的区别的，jQuery更准确来说只一个类库（类库指的是一系列函数的集合）以DOM做为驱动（核心），而AngularJS则一个框架（诸多类库的集合）以数据和逻辑做为驱动（核心）。">
+<meta property="og:image" content="http://yoursite.com/\img\a1.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\a2.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\a3.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\a4.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\a5.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\a6.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\a7.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\a8.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\a9.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\a10.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\a11.jpg">
+<meta property="og:updated_time" content="2017-05-07T03:34:11.755Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AngularJS学习">
+<meta name="twitter:description" content="一、特点&amp;emsp;&amp;emsp;AngularJS与jQuery是有一定的区别的，jQuery更准确来说只一个类库（类库指的是一系列函数的集合）以DOM做为驱动（核心），而AngularJS则一个框架（诸多类库的集合）以数据和逻辑做为驱动（核心）。">
+<meta name="twitter:image" content="http://yoursite.com/\img\a1.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="Mr.Zhang" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="\img\1.jpg">
+  
+  <link rel="stylesheet" type="text/css" href="/./main.2d7529.css">
+  <style type="text/css">
+  
+    #container.show {
+      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+    }
+  </style>
+  
+
+  
+
+</head>
+
+<body>
+  <div id="container" q-class="show:isCtnShow">
+    <canvas id="anm-canvas" class="anm-canvas"></canvas>
+    <div class="left-col" q-class="show:isShow">
+      
+<div class="overlay" style="background: #E1F0E1"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="\img\1.jpg" class="js-avatar">
+		</a>
+		<hgroup>
+		  <h1 class="header-author"><a href="/">XiangNick</a></h1>
+		</hgroup>
+		
+		
+		<p class="header-subtitle">全栈学习者，小菜鸟  mail:XiangNickMonster@163.com</p>
+		
+		
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/archives/">所有文章</a></li>
+	        
+			</ul>
+		</nav>
+
+		<nav class="header-smart-menu">
+    		
+    			
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			
+            
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/XiangNick" title="github"><i class="icon-github"></i></a>
+		        
+					<a class="weibo" target="_blank" href="http://weibo.com/5411951678/profile?topnav=1&wvr=6&is_all=1" title="weibo"><i class="icon-weibo"></i></a>
+		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/xiangnick" title="zhihu"><i class="icon-zhihu"></i></a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
+      
+<nav id="mobile-nav">
+  	<div class="overlay js-overlay" style="background: #E1F0E1"></div>
+	<div class="btnctn js-mobile-btnctn">
+  		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
+	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="\img\1.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author js-header-author">XiangNick</h1>
+			</hgroup>
+			
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>全栈学习者，小菜鸟  mail:XiangNickMonster@163.com<i class="icon icon-quo-right"></i></p>
+			
+			
+			
+				
+			
+				
+			
+			
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/XiangNick" title="github"><i class="icon-github"></i></a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/5411951678/profile?topnav=1&wvr=6&is_all=1" title="weibo"><i class="icon-weibo"></i></a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/xiangnick" title="zhihu"><i class="icon-zhihu"></i></a>
+			        
+				</div>
+			</nav>
+
+			<nav class="header-menu js-header-menu">
+				<ul style="width: 50%">
+				
+				
+					<li style="width: 50%"><a href="/">主页</a></li>
+		        
+					<li style="width: 50%"><a href="/archives/">所有文章</a></li>
+		        
+				</ul>
+			</nav>
+		</header>				
+	</div>
+	<div class="mobile-mask" style="display:none" q-show="isShow"></div>
+</nav>
+
+      <div id="wrapper" class="body-wrap">
+        <div class="menu-l">
+          <div class="canvas-wrap">
+            <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
+          </div>
+          <div id="js-content" class="content-ll">
+            <article id="post-AngularJS学习" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      AngularJS学习
+    </h1>
+  
+
+        
+        <a href="/2017/05/07/AngularJS学习/" class="archive-article-date">
+  	<time datetime="2017-05-07T03:16:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、特点"><a href="#一、特点" class="headerlink" title="一、特点"></a>一、特点</h2><p>&emsp;&emsp;AngularJS与jQuery是有一定的区别的，jQuery更准确来说只一个类库（类库指的是一系列函数的集合）以DOM做为驱动（核心），而AngularJS则一个框架（诸多类库的集合）以数据和逻辑做为驱动（核心）。<br><a id="more"></a><br>框架对开发的流程和模式做了约束，开发者遵照约束进行开发，更注重的实际的业务逻辑。<br>AngularJS有着诸多特性，最为核心的是：模块化、双向数据绑定、语义化标签、依赖注入等。<br>与之类似的框架还有BackBone、KnockoutJS、Vue、React等。</p>
+<h2 id="二、模块化"><a href="#二、模块化" class="headerlink" title="二、模块化"></a>二、模块化</h2><ol>
+<li><p>控制器、模型</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 引入框架 --&gt;</div><div class="line">	&lt;script src="./libs/angular.min.js"&gt;&lt;/script&gt;</div><div class="line">	&lt;script&gt;</div><div class="line">		<span class="comment">// 提供一个全局对象angular，在此对象下有N多方法</span></div><div class="line">		<span class="comment">// 其中module方法可以帮我们创建一个模块</span></div><div class="line">		<span class="keyword">var</span> App = angular.module(<span class="string">'App'</span>, []);<span class="comment">//参数1: 模块名 参数2:所需依赖</span></div><div class="line"></div><div class="line">		<span class="comment">// App就是新创建的模块，这个模块又是一个对象</span></div><div class="line">		<span class="comment">// 在此对象下又有N多方法，可以实现具体业务逻辑</span></div><div class="line"></div><div class="line">		<span class="comment">// 其它controller可以创建一个控制器</span></div><div class="line">		App.controller(<span class="string">'DemoContoller'</span>, [<span class="string">'$scope'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">$scope</span>) </span>&#123;</div><div class="line">			<span class="comment">// $scope 是一个空对象&#123;&#125;，此对象就是Model</span></div><div class="line"></div><div class="line">			$scope.name = <span class="string">'XiangNick'</span>;</div><div class="line">			$scope.age = <span class="number">22</span>; </div><div class="line"></div><div class="line">			$scope.courses = [</div><div class="line">				<span class="string">'MVC'</span>,</div><div class="line">				<span class="string">'指令'</span>,</div><div class="line">				<span class="string">'模块化'</span></div><div class="line">			]</div><div class="line"></div><div class="line">		&#125;]);</div><div class="line"></div><div class="line">	&lt;/script&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>页面视图</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="comment">&lt;!-- 指定模块 --&gt;</span></div><div class="line">	<span class="comment">&lt;!-- 一个页可以有多个模块，但是不能互相嵌套 --&gt;</span></div><div class="line">	<span class="comment">&lt;!-- 一般只会有一个 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span> <span class="attr">ng-app</span>=<span class="string">"App"</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!-- 指定控制器 --&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-controller</span>=<span class="string">"DemoContoller"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">h1</span>&gt;</span>&amp;#123;&amp;#123;name&amp;#125;&amp;#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">h1</span>&gt;</span>&amp;#123;&amp;#123;age&amp;#125;&amp;#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">li</span> <span class="attr">ng-repeat</span>=<span class="string">"(key, course) in courses"</span>&gt;</span>&amp;#123;&amp;#123;key+1&amp;#125;&amp;#125;：&amp;#123;&amp;#123;course&amp;#125;&amp;#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span><span class="comment">&lt;!-- 遍历数组 --&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="三、指令"><a href="#三、指令" class="headerlink" title="三、指令"></a>三、指令</h2><p>&emsp;&emsp;传统的HTML书写页面(应用)存在诸多不足之处，比如没有循环、if判断、switch等结构，之前一般会使用JSP的jstl标签库或者导入页面模版js来强化html结构。AngularJS也可以通过扩展一系列的HTML属性或标签来弥补这些缺陷，所谓指令就是AngularJS自定义的HTML属性或标签，这些指令都是以ng-做为前缀的，例如ng-app、ng-controller、ng-repeat等。</p>
+<h3 id="3-1-内置指令"><a href="#3-1-内置指令" class="headerlink" title="3.1 内置指令"></a>3.1 内置指令</h3><p>为AngularJS定义好的指令，可以直接使用，这里整理了部分常用内置指令</p>
+<ul>
+<li>ng-app 指定应用根元素，至少有一个元素指定了此属性。</li>
+<li>ng-controller 指定控制器</li>
+<li>ng-show控制元素是否显示，true显示、false不显示</li>
+<li>ng-hide控制元素是否隐藏，true隐藏、false不隐藏</li>
+<li>ng-if控制元素是否“存在”，true存在、false不存在</li>
+<li>ng-src增强图片路径  防止加载dom结构时未加载到Angular不识别&#123;&#123;&#125;&#125;导致不好看</li>
+<li>ng-href增强地址  同上</li>
+<li>ng-class控制类名    ‘{类名 : true / false}’  来控制该class样式是否使用</li>
+<li>ng-include引入模板  就是相当于 jsp:include标签，直接引用一个页面</li>
+<li>ng-disabled ‘true/false’ 表单禁用</li>
+<li>ng-readonly ‘true/false’ 表单只读</li>
+<li>ng-checked ‘true/false’ 单/复选框表单选中</li>
+<li>ng-selected ‘true/false’ 下拉框表单选中</li>
+</ul>
+<p>注意：<br>① ng-src、ng-href 等都是对该原标签的加强。因为先加载dom结构，此时AngularJS还未加载，不识别&#123;&#123;&#125;&#125;里的元素，导致src和href之类无法加载，图片会出现未加载的样式，很丑。所以使用ng-src等，在加载dom结构时因为不识别ng-src和ng-href之类，就不会去服务器加载该路径文件，等到AngularJS加载完毕后，他底层会把ng-src里的内容解析成真正的内容同时给该标签添加一个html识别的src属性填充进去，然后再次渲染。</p>
+<p>② ng-include 直接浏览器运行会报错，因为js不能加载本地文件！只有后端语言才可以读取本地文件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">XMLHttpRequest cannot load file:<span class="comment">///C:/Users/Administrator/Desktop/SublimeWorkSpace/AngularJS/header.html. Cross origin requests are only supported for protocol schemes: http, data, chrome, chrome-extension, https</span></div></pre></td></tr></table></figure></p>
+<p>但是放在服务器环境运行，可以完成导入页面。因为<br>ng-include的原理就是ajax异步请求页面资源，服务器返回html文件，再拼装 </p>
+<p><code>要和iframe区分开，iframe独立成页，单独执行；而ng-include是服务器将两个页面合并成一个页面解释后发送到客户端,对于浏览器来说他见到的就是一个页面而已，所以类include指令都要加载本地文件!</code></p>
+<p>③ ng-class还可以写表达式，如ng-class=”{active:type===’M’}”，当model的type为M的时候为true，active的样式就显示</p>
+<h3 id="3-2-自定义指令"><a href="#3-2-自定义指令" class="headerlink" title="3.2 自定义指令"></a>3.2 自定义指令</h3><p>AngularJS允许根据实际业务需要自定义指令，通过angular全局对象下的directive方法实现。<br><img src="\img\a1.jpg" alt=""></p>
+<h2 id="四、数据绑定"><a href="#四、数据绑定" class="headerlink" title="四、数据绑定"></a>四、数据绑定</h2><p>&emsp;&emsp;AngularJS是以数据做为驱动的MVC框架，所有模型（Model）里的数据经由控制器（Controller）展示到视图（View）中。<br>所谓数据绑定指的就是将模型（Model）中的数据与相应的视图（View）进行关联，分为单向绑定和双向绑定两种方式。</p>
+<h3 id="4-1-单向绑定"><a href="#4-1-单向绑定" class="headerlink" title="4.1 单向绑定"></a>4.1 单向绑定</h3><p>&emsp;&emsp;单向数据绑定是指将模型（Model）数据，按着写好的视图（View）模板生成HTML标签，然后追加到DOM中显示，如之前所学的artTemplate 模板引擎和JSP页面的工作方式，只能模型（Model）数据向视图（View）传递。</p>
+<h3 id="4-2-双向绑定"><a href="#4-2-双向绑定" class="headerlink" title="4.2 双向绑定"></a>4.2 双向绑定</h3><p>&emsp;&emsp;双向绑定则可以实现模型（Model）数据和视图（View）模板的双向传递，模型数据的改变会使视图的数据也改变，视图数据的改变也会让模型数据改变。</p>
+<h3 id="4-3-相关指令"><a href="#4-3-相关指令" class="headerlink" title="4.3 相关指令"></a>4.3 相关指令</h3><p>1.数据绑定指令</p>
+<ul>
+<li>模型（Model）数据向视图模板（View）的绑定<br>&#123;&#123; &#125;&#125;<br>ng-bind指令</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"> &lt;script&gt;</div><div class="line">  <span class="keyword">var</span> App = angular.module(<span class="string">'App'</span>, []);</div><div class="line">  App.controller(<span class="string">'DemoController'</span>, [<span class="string">'$scope'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">$scope</span>) </span>&#123;</div><div class="line">	  <span class="comment">// $scope 就是Model</span></div><div class="line">	  $scope.name = <span class="string">'itcast'</span>;</div><div class="line">	  $scope.age = <span class="number">10</span>;</div><div class="line">&#125;]);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">ng-bind</span>=<span class="string">"name"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">ng-cloak</span>&gt;</span>&amp;#123;&amp;#123;name&amp;#125;&amp;#125;&amp;#123;&amp;#123;age&amp;#125;&amp;#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">ng-bind-template</span>=<span class="string">"&amp;#123;&amp;#123;name&amp;#125;&amp;#125;&amp;#123;&amp;#123;age&amp;#125;&amp;#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><code>模型数据通过一个内置服务$scope来提供，这个$scope是一个空对象，通过为这个对象添加属性或者方法便可以在相应的视图（View）模板里被访问。</code></p>
+<p>注：“&#123;&#123;&#125;&#125;”是ng-bind的简写形式，其区别在于通过“&#123;&#123;&#125;&#125;”绑定数据时会有“闪烁”现象，添加ng-cloak也可以解决“闪烁”现象，通过<font color="red">ng-bind-template</font>可以绑定多个数据。</p>
+<ul>
+<li><p>表单元素添加ng-model指令<br>视图（View）模板向模型（Model）数据的绑定。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">ng-model</span>=<span class="string">"name"</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>ng-init  为控制器初始化一个模型,注意格式为key=val;key=val</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-controller</span>=<span class="string">"DemoController"</span> <span class="attr">ng-init</span>=<span class="string">"name='itcast';age=10"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">h1</span>&gt;</span>&amp;#123;&amp;#123;name&amp;#125;&amp;#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">h2</span>&gt;</span>&amp;#123;&amp;#123;age&amp;#125;&amp;#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>2.事件绑定指令<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">button</span> <span class="attr">ng-dblclick</span>=<span class="string">"double()"</span>&gt;</span>双击<span class="tag">&lt;/<span class="name">button</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">App.controller(<span class="string">'DemoController'</span>, [<span class="string">'$scope'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">$scope</span>) </span>&#123;</div><div class="line">			$scope.double = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">				alert(<span class="string">'我被双击了'</span>);</div><div class="line">			&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>对于js中大部分事件进行了增强，只需要再前部加上ng-即可，这些事件也可以传参，如<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ng-click=<span class="string">"check('M')"</span></div></pre></td></tr></table></figure></p>
+<p>3.ng-repeat、ng-switch</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$scope.heros = [</div><div class="line">    			&#123;<span class="string">'name'</span>:<span class="string">'敌法'</span>,<span class="string">'type'</span>:<span class="string">'敏捷'</span>&#125;,</div><div class="line">    			&#123;<span class="string">'name'</span>:<span class="string">'幽鬼'</span>,<span class="string">'type'</span>:<span class="string">'敏捷'</span>&#125;,</div><div class="line">    			&#123;<span class="string">'name'</span>:<span class="string">'火女'</span>,<span class="string">'type'</span>:<span class="string">'智力'</span>&#125;,</div><div class="line">    			&#123;<span class="string">'name'</span>:<span class="string">'屠夫'</span>,<span class="string">'type'</span>:<span class="string">'力量'</span>&#125;</div><div class="line">    		];</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">ng-repeat</span>=<span class="string">"(key,val) in heros"</span> <span class="attr">ng-switch</span> <span class="attr">on</span>=<span class="string">"val.type"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">span</span> <span class="attr">ng-switch-when</span>=<span class="string">"敏捷"</span>&gt;</span>&amp;#123;&amp;#123;val.name&amp;#125;&amp;#125;&amp;#123;&amp;#123;val.type&amp;#125;&amp;#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>理解：与传统的switch when比较<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">switch</span> ()  -这里是ng-<span class="keyword">switch</span> on</div><div class="line">	<span class="keyword">case</span> <span class="string">''</span>: -这里是when</div><div class="line">	...</div><div class="line">	case <span class="string">''</span>:</div><div class="line">	...</div></pre></td></tr></table></figure></p>
+<h2 id="五、作用域"><a href="#五、作用域" class="headerlink" title="五、作用域"></a>五、作用域</h2><h3 id="5-1-根作用域"><a href="#5-1-根作用域" class="headerlink" title="5.1 根作用域"></a>5.1 根作用域</h3><p>ng-app指令的标签内就是根作用域，ng-app上的模型全局都能访问到<br><img src="\img\a2.jpg" alt=""></p>
+<h3 id="5-2-子作用域"><a href="#5-2-子作用域" class="headerlink" title="5.2 子作用域"></a>5.2 子作用域</h3><p>通过ng-controller指令可以创建一个子作用域，新建的作用域可以访问其父作用域的数据<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent"</span> <span class="attr">ng-controller</span>=<span class="string">"ParentController"</span>&gt;</span></div><div class="line">		</div><div class="line">	<span class="tag">&lt;<span class="name">h1</span>&gt;</span>&amp;#123;&amp;#123;name&amp;#125;&amp;#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"child"</span> <span class="attr">ng-controller</span>=<span class="string">"ChildController"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">h2</span>&gt;</span>&amp;#123;&amp;#123;name&amp;#125;&amp;#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>访问规则同JavaScript等，父作用域不能访问子作用域内容，子作用域可以访问父作用域内容，如果子作用域有数据优先使用自己的，没有就去父级查找</p>
+<h2 id="六、过滤器"><a href="#六、过滤器" class="headerlink" title="六、过滤器"></a>六、过滤器</h2><p>AngularJS中使用过滤器格式化展示数据，在“&#123;&#123;&#125;&#125;”中使用“|”来调用过滤器，使用“:”传递参数。</p>
+<h3 id="6-1-内置过滤器"><a href="#6-1-内置过滤器" class="headerlink" title="6.1 内置过滤器"></a>6.1 内置过滤器</h3><ul>
+<li>1、currency将数值格式化为货币格式 ： ￥</li>
+<li>2、date日期格式化，年（y）、月（M）、日（d）、星期（EEEE/EEE）、时（H/h）、分（m）、秒（s）、毫秒（.sss），也可以组合到一起使用。</li>
+<li>3、filter在给定数组中选择满足条件的一个子集，并返回一个新数组，其条件可以是一个字符串、对象、函数,如果是对象要和最后的｝加一个空格间隔</li>
+<li>4、json将Javascrip对象转成JSON字符串。</li>
+<li>5、limitTo取出字符串或数组的前（正数）几位或后（负数）几位 : 位数</li>
+<li>6、lowercase将文本转换成小写格式</li>
+<li>7、uppercase将文本转换成大写格式</li>
+<li>8、number数字格式化，可控制小位位数 : 位数</li>
+<li>9、orderBy对数组进行排序 ： 排序字段 true/false </li>
+</ul>
+<h3 id="6-2-自定义过滤器"><a href="#6-2-自定义过滤器" class="headerlink" title="6.2 自定义过滤器"></a>6.2 自定义过滤器</h3><p>除了使用AngularJS内建过滤器外，还可以根据业务需要自定义过滤器，通过模块对象实例提供的filter方法自定义过滤器。<br><img src="\img\a3.jpg" alt=""></p>
+<h2 id="七、依赖注入"><a href="#七、依赖注入" class="headerlink" title="七、依赖注入"></a>七、依赖注入</h2><p>依赖注入是指在运行时自动查找依赖关系，然后将查找到依赖传递给使用者的一种机制。<br><code>常见的AngularJS内置服务有$http、$location、$timeout、$rootScope等</code></p>
+<h3 id="7-1-推断式注入"><a href="#7-1-推断式注入" class="headerlink" title="7.1 推断式注入"></a>7.1 推断式注入</h3><p>没有明确声明依赖，AngularJS会将函数参数名称当成是依赖的名称。<br><img src="\img\a4.jpg" alt=""><br>这种方式会带来一个问题，当代码经过压缩后函数的参数被压缩，这样便会造成依赖无法找到。</p>
+<h3 id="7-2-行内注入"><a href="#7-2-行内注入" class="headerlink" title="7.2 行内注入"></a>7.2 行内注入</h3><p>以数组形式明确声明依赖，数组元素都是包含依赖名称的字符串，数组最后一个元素是依赖注入的目标函数。<br><img src="\img\a5.jpg" alt=""></p>
+<p><font color="deepskyblue">推荐使用这种方式声明依赖</font></p>
+<h2 id="八、服务"><a href="#八、服务" class="headerlink" title="八、服务"></a>八、服务</h2><p>服务是一个对象或函数，对外提供特定的功能。</p>
+<h3 id="8-1-内置服务"><a href="#8-1-内置服务" class="headerlink" title="8.1 内置服务"></a>8.1 内置服务</h3><p>1、<code>$location</code>是对原生Javascript中location对象属性和方法的封装。<br><img src="\img\a6.jpg" alt=""><br>2、<code>$timeout&amp;$interval</code>对原生Javascript中的setTimeout和setInterval进行了封装。<br><img src="\img\a7.jpg" alt=""><br>3、<code>$filter</code>格式化数据。<br><img src="\img\a8.jpg" alt=""><br>4、<code>$log</code>打印调试信息<br><img src="\img\a9.jpg" alt=""><br>5、<code>$http</code>用于向服务端发起异步请求。</p>
+<p><font color="deepskyblue">AngularJS不设置的话默认Content-Type为application/json;charset=utf-8，为了方便的提交复杂的结构化数据，特别适合 RESTful 的接口</font><br> get方式请求<br><img src="\img\a10.jpg" alt=""><br>post方式请求<br><img src="\img\a11.jpg" alt=""></p>
+<blockquote>
+<p>注意：<br>1.get方式用params传递数据,post方式用data传递数据。</p>
+<p>2.post方式需要声明headers的content-type为application/x-www-form-urlencoded，即经过编码为key=val&amp;key=val的格式</p>
+<p>3.application/x-www-form-urlencoded即告诉服务器，传递数据格式为key=val&amp;key=val，所以在AngularJS中post传递数据用的data值不能为json对象格式，而应该为key=val的字符串</p>
+<p>4.为什么post时data值需要用字符串呢？因为get请求默认content-type就是application/x-www-form-urlencoded，他将key=val&amp;key=val拼接在了url后</p>
+<p>而post请求默认是text/plain格式，如果需要传数据要手动转成application/x-www-form-urlencoded，他将key=val&amp;key=val拼接在了请求体里即Form data里</p>
+<p>在这里有一个误区，之前JQuery发送Ajax的application/x-www-form-urlencoded请求，用的都是data:json格式来传递数据，其实这是JQuery的一个封装，为了我们书写方便阅读性强。虽然我们给的是json格式，可是他底层将其遍历解析转换成了key=val&amp;key=val的格式来传递，而AngularJS默认传json数据，不提供这种转换，他会直接把json数据当成key，val值为空传递，导致服务端报错，所以我们还是直接写key=val字符串直接传，省去转换的麻烦了吧</p>
+</blockquote>
+<p>$http服务同时还支持多种快捷方式如<code>$http.get()、$http.post()、$http.jsonp</code></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AngularJS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/07/AngularJS学习/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/05/07/Content-Type决定服务端数据提取方式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Content-Type决定服务端数据提取方式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/05/03/Git笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Git笔记</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
+  
+
+
+
+
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		♪ 2017 ♥ XiangNick ♫
+    	</div>
+      	<div class="footer-right">
+      		  Blog by XiangNick
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		mathjax: false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true,
+		showTags: true
+	}
+</script>
+
+<script>!function(t){function n(r){if(e[r])return e[r].exports;var o=e[r]={exports:{},id:r,loaded:!1};return t[r].call(o.exports,o,o.exports,n),o.loaded=!0,o.exports}var e={};return n.m=t,n.c=e,n.p="./",n(0)}([function(t,n,e){"use strict";function r(t){return t&&t.__esModule?t:{default:t}}function o(t,n){var e=/\/|index.html/g;return t.replace(e,"")===n.replace(e,"")}function i(){for(var t=document.querySelectorAll(".js-header-menu li a"),n=window.location.pathname,e=0,r=t.length;e<r;e++){var i=t[e];o(n,i.getAttribute("href"))&&(0,d.default)(i,"active")}}function u(t){for(var n=t.offsetLeft,e=t.offsetParent;null!==e;)n+=e.offsetLeft,e=e.offsetParent;return n}function f(t){for(var n=t.offsetTop,e=t.offsetParent;null!==e;)n+=e.offsetTop,e=e.offsetParent;return n}function c(t,n,e,r,o){var i=u(t),c=f(t)-n;if(c-e<=o){var a=t.$newDom;a||(a=t.cloneNode(!0),(0,h.default)(t,a),t.$newDom=a,a.style.position="fixed",a.style.top=(e||c)+"px",a.style.left=i+"px",a.style.zIndex=r||2,a.style.width="100%",a.style.color="#fff"),a.style.visibility="visible",t.style.visibility="hidden"}else{t.style.visibility="visible";var s=t.$newDom;s&&(s.style.visibility="hidden")}}function a(){var t=document.querySelector(".js-overlay"),n=document.querySelector(".js-header-menu");c(t,document.body.scrollTop,-63,2,0),c(n,document.body.scrollTop,1,3,0)}function s(){document.querySelector("#container").addEventListener("scroll",function(t){a()}),window.addEventListener("scroll",function(t){a()}),a()}function l(){x.default.versions.mobile&&window.screen.width<800&&(i(),s())}var p=e(71),d=r(p),v=e(72),y=(r(v),e(84)),h=r(y),b=e(69),x=r(b),m=e(75),g=r(m),w=e(70);l(),(0,w.addLoadEvent)(function(){g.default.init()}),t.exports={}},function(t,n){var e=t.exports="undefined"!=typeof window&&window.Math==Math?window:"undefined"!=typeof self&&self.Math==Math?self:Function("return this")();"number"==typeof __g&&(__g=e)},function(t,n){var e={}.hasOwnProperty;t.exports=function(t,n){return e.call(t,n)}},function(t,n,e){var r=e(49),o=e(15);t.exports=function(t){return r(o(t))}},function(t,n,e){t.exports=!e(8)(function(){return 7!=Object.defineProperty({},"a",{get:function(){return 7}}).a})},function(t,n,e){var r=e(6),o=e(12);t.exports=e(4)?function(t,n,e){return r.f(t,n,o(1,e))}:function(t,n,e){return t[n]=e,t}},function(t,n,e){var r=e(10),o=e(30),i=e(24),u=Object.defineProperty;n.f=e(4)?Object.defineProperty:function(t,n,e){if(r(t),n=i(n,!0),r(e),o)try{return u(t,n,e)}catch(t){}if("get"in e||"set"in e)throw TypeError("Accessors not supported!");return"value"in e&&(t[n]=e.value),t}},function(t,n,e){var r=e(22)("wks"),o=e(13),i=e(1).Symbol,u="function"==typeof i,f=t.exports=function(t){return r[t]||(r[t]=u&&i[t]||(u?i:o)("Symbol."+t))};f.store=r},function(t,n){t.exports=function(t){try{return!!t()}catch(t){return!0}}},function(t,n,e){var r=e(35),o=e(16);t.exports=Object.keys||function(t){return r(t,o)}},function(t,n,e){var r=e(11);t.exports=function(t){if(!r(t))throw TypeError(t+" is not an object!");return t}},function(t,n){t.exports=function(t){return"object"==typeof t?null!==t:"function"==typeof t}},function(t,n){t.exports=function(t,n){return{enumerable:!(1&t),configurable:!(2&t),writable:!(4&t),value:n}}},function(t,n){var e=0,r=Math.random();t.exports=function(t){return"Symbol(".concat(void 0===t?"":t,")_",(++e+r).toString(36))}},function(t,n){var e=t.exports={version:"2.4.0"};"number"==typeof __e&&(__e=e)},function(t,n){t.exports=function(t){if(void 0==t)throw TypeError("Can't call method on  "+t);return t}},function(t,n){t.exports="constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf".split(",")},function(t,n){t.exports={}},function(t,n){t.exports=!0},function(t,n){n.f={}.propertyIsEnumerable},function(t,n,e){var r=e(6).f,o=e(2),i=e(7)("toStringTag");t.exports=function(t,n,e){t&&!o(t=e?t:t.prototype,i)&&r(t,i,{configurable:!0,value:n})}},function(t,n,e){var r=e(22)("keys"),o=e(13);t.exports=function(t){return r[t]||(r[t]=o(t))}},function(t,n,e){var r=e(1),o="__core-js_shared__",i=r[o]||(r[o]={});t.exports=function(t){return i[t]||(i[t]={})}},function(t,n){var e=Math.ceil,r=Math.floor;t.exports=function(t){return isNaN(t=+t)?0:(t>0?r:e)(t)}},function(t,n,e){var r=e(11);t.exports=function(t,n){if(!r(t))return t;var e,o;if(n&&"function"==typeof(e=t.toString)&&!r(o=e.call(t)))return o;if("function"==typeof(e=t.valueOf)&&!r(o=e.call(t)))return o;if(!n&&"function"==typeof(e=t.toString)&&!r(o=e.call(t)))return o;throw TypeError("Can't convert object to primitive value")}},function(t,n,e){var r=e(1),o=e(14),i=e(18),u=e(26),f=e(6).f;t.exports=function(t){var n=o.Symbol||(o.Symbol=i?{}:r.Symbol||{});"_"==t.charAt(0)||t in n||f(n,t,{value:u.f(t)})}},function(t,n,e){n.f=e(7)},function(t,n,e){var r=e(1),o=e(14),i=e(46),u=e(5),f="prototype",c=function(t,n,e){var a,s,l,p=t&c.F,d=t&c.G,v=t&c.S,y=t&c.P,h=t&c.B,b=t&c.W,x=d?o:o[n]||(o[n]={}),m=x[f],g=d?r:v?r[n]:(r[n]||{})[f];d&&(e=n);for(a in e)s=!p&&g&&void 0!==g[a],s&&a in x||(l=s?g[a]:e[a],x[a]=d&&"function"!=typeof g[a]?e[a]:h&&s?i(l,r):b&&g[a]==l?function(t){var n=function(n,e,r){if(this instanceof t){switch(arguments.length){case 0:return new t;case 1:return new t(n);case 2:return new t(n,e)}return new t(n,e,r)}return t.apply(this,arguments)};return n[f]=t[f],n}(l):y&&"function"==typeof l?i(Function.call,l):l,y&&((x.virtual||(x.virtual={}))[a]=l,t&c.R&&m&&!m[a]&&u(m,a,l)))};c.F=1,c.G=2,c.S=4,c.P=8,c.B=16,c.W=32,c.U=64,c.R=128,t.exports=c},function(t,n){var e={}.toString;t.exports=function(t){return e.call(t).slice(8,-1)}},function(t,n,e){var r=e(11),o=e(1).document,i=r(o)&&r(o.createElement);t.exports=function(t){return i?o.createElement(t):{}}},function(t,n,e){t.exports=!e(4)&&!e(8)(function(){return 7!=Object.defineProperty(e(29)("div"),"a",{get:function(){return 7}}).a})},function(t,n,e){"use strict";var r=e(18),o=e(27),i=e(36),u=e(5),f=e(2),c=e(17),a=e(51),s=e(20),l=e(58),p=e(7)("iterator"),d=!([].keys&&"next"in[].keys()),v="@@iterator",y="keys",h="values",b=function(){return this};t.exports=function(t,n,e,x,m,g,w){a(e,n,x);var O,S,_,j=function(t){if(!d&&t in A)return A[t];switch(t){case y:return function(){return new e(this,t)};case h:return function(){return new e(this,t)}}return function(){return new e(this,t)}},P=n+" Iterator",E=m==h,M=!1,A=t.prototype,T=A[p]||A[v]||m&&A[m],L=T||j(m),N=m?E?j("entries"):L:void 0,C="Array"==n?A.entries||T:T;if(C&&(_=l(C.call(new t)),_!==Object.prototype&&(s(_,P,!0),r||f(_,p)||u(_,p,b))),E&&T&&T.name!==h&&(M=!0,L=function(){return T.call(this)}),r&&!w||!d&&!M&&A[p]||u(A,p,L),c[n]=L,c[P]=b,m)if(O={values:E?L:j(h),keys:g?L:j(y),entries:N},w)for(S in O)S in A||i(A,S,O[S]);else o(o.P+o.F*(d||M),n,O);return O}},function(t,n,e){var r=e(10),o=e(55),i=e(16),u=e(21)("IE_PROTO"),f=function(){},c="prototype",a=function(){var t,n=e(29)("iframe"),r=i.length,o="<",u=">";for(n.style.display="none",e(48).appendChild(n),n.src="javascript:",t=n.contentWindow.document,t.open(),t.write(o+"script"+u+"document.F=Object"+o+"/script"+u),t.close(),a=t.F;r--;)delete a[c][i[r]];return a()};t.exports=Object.create||function(t,n){var e;return null!==t?(f[c]=r(t),e=new f,f[c]=null,e[u]=t):e=a(),void 0===n?e:o(e,n)}},function(t,n,e){var r=e(35),o=e(16).concat("length","prototype");n.f=Object.getOwnPropertyNames||function(t){return r(t,o)}},function(t,n){n.f=Object.getOwnPropertySymbols},function(t,n,e){var r=e(2),o=e(3),i=e(45)(!1),u=e(21)("IE_PROTO");t.exports=function(t,n){var e,f=o(t),c=0,a=[];for(e in f)e!=u&&r(f,e)&&a.push(e);for(;n.length>c;)r(f,e=n[c++])&&(~i(a,e)||a.push(e));return a}},function(t,n,e){t.exports=e(5)},function(t,n,e){var r=e(15);t.exports=function(t){return Object(r(t))}},function(t,n,e){t.exports={default:e(41),__esModule:!0}},function(t,n,e){t.exports={default:e(42),__esModule:!0}},function(t,n,e){"use strict";function r(t){return t&&t.__esModule?t:{default:t}}n.__esModule=!0;var o=e(39),i=r(o),u=e(38),f=r(u),c="function"==typeof f.default&&"symbol"==typeof i.default?function(t){return typeof t}:function(t){return t&&"function"==typeof f.default&&t.constructor===f.default&&t!==f.default.prototype?"symbol":typeof t};n.default="function"==typeof f.default&&"symbol"===c(i.default)?function(t){return"undefined"==typeof t?"undefined":c(t)}:function(t){return t&&"function"==typeof f.default&&t.constructor===f.default&&t!==f.default.prototype?"symbol":"undefined"==typeof t?"undefined":c(t)}},function(t,n,e){e(65),e(63),e(66),e(67),t.exports=e(14).Symbol},function(t,n,e){e(64),e(68),t.exports=e(26).f("iterator")},function(t,n){t.exports=function(t){if("function"!=typeof t)throw TypeError(t+" is not a function!");return t}},function(t,n){t.exports=function(){}},function(t,n,e){var r=e(3),o=e(61),i=e(60);t.exports=function(t){return function(n,e,u){var f,c=r(n),a=o(c.length),s=i(u,a);if(t&&e!=e){for(;a>s;)if(f=c[s++],f!=f)return!0}else for(;a>s;s++)if((t||s in c)&&c[s]===e)return t||s||0;return!t&&-1}}},function(t,n,e){var r=e(43);t.exports=function(t,n,e){if(r(t),void 0===n)return t;switch(e){case 1:return function(e){return t.call(n,e)};case 2:return function(e,r){return t.call(n,e,r)};case 3:return function(e,r,o){return t.call(n,e,r,o)}}return function(){return t.apply(n,arguments)}}},function(t,n,e){var r=e(9),o=e(34),i=e(19);t.exports=function(t){var n=r(t),e=o.f;if(e)for(var u,f=e(t),c=i.f,a=0;f.length>a;)c.call(t,u=f[a++])&&n.push(u);return n}},function(t,n,e){t.exports=e(1).document&&document.documentElement},function(t,n,e){var r=e(28);t.exports=Object("z").propertyIsEnumerable(0)?Object:function(t){return"String"==r(t)?t.split(""):Object(t)}},function(t,n,e){var r=e(28);t.exports=Array.isArray||function(t){return"Array"==r(t)}},function(t,n,e){"use strict";var r=e(32),o=e(12),i=e(20),u={};e(5)(u,e(7)("iterator"),function(){return this}),t.exports=function(t,n,e){t.prototype=r(u,{next:o(1,e)}),i(t,n+" Iterator")}},function(t,n){t.exports=function(t,n){return{value:n,done:!!t}}},function(t,n,e){var r=e(9),o=e(3);t.exports=function(t,n){for(var e,i=o(t),u=r(i),f=u.length,c=0;f>c;)if(i[e=u[c++]]===n)return e}},function(t,n,e){var r=e(13)("meta"),o=e(11),i=e(2),u=e(6).f,f=0,c=Object.isExtensible||function(){return!0},a=!e(8)(function(){return c(Object.preventExtensions({}))}),s=function(t){u(t,r,{value:{i:"O"+ ++f,w:{}}})},l=function(t,n){if(!o(t))return"symbol"==typeof t?t:("string"==typeof t?"S":"P")+t;if(!i(t,r)){if(!c(t))return"F";if(!n)return"E";s(t)}return t[r].i},p=function(t,n){if(!i(t,r)){if(!c(t))return!0;if(!n)return!1;s(t)}return t[r].w},d=function(t){return a&&v.NEED&&c(t)&&!i(t,r)&&s(t),t},v=t.exports={KEY:r,NEED:!1,fastKey:l,getWeak:p,onFreeze:d}},function(t,n,e){var r=e(6),o=e(10),i=e(9);t.exports=e(4)?Object.defineProperties:function(t,n){o(t);for(var e,u=i(n),f=u.length,c=0;f>c;)r.f(t,e=u[c++],n[e]);return t}},function(t,n,e){var r=e(19),o=e(12),i=e(3),u=e(24),f=e(2),c=e(30),a=Object.getOwnPropertyDescriptor;n.f=e(4)?a:function(t,n){if(t=i(t),n=u(n,!0),c)try{return a(t,n)}catch(t){}if(f(t,n))return o(!r.f.call(t,n),t[n])}},function(t,n,e){var r=e(3),o=e(33).f,i={}.toString,u="object"==typeof window&&window&&Object.getOwnPropertyNames?Object.getOwnPropertyNames(window):[],f=function(t){try{return o(t)}catch(t){return u.slice()}};t.exports.f=function(t){return u&&"[object Window]"==i.call(t)?f(t):o(r(t))}},function(t,n,e){var r=e(2),o=e(37),i=e(21)("IE_PROTO"),u=Object.prototype;t.exports=Object.getPrototypeOf||function(t){return t=o(t),r(t,i)?t[i]:"function"==typeof t.constructor&&t instanceof t.constructor?t.constructor.prototype:t instanceof Object?u:null}},function(t,n,e){var r=e(23),o=e(15);t.exports=function(t){return function(n,e){var i,u,f=String(o(n)),c=r(e),a=f.length;return c<0||c>=a?t?"":void 0:(i=f.charCodeAt(c),i<55296||i>56319||c+1===a||(u=f.charCodeAt(c+1))<56320||u>57343?t?f.charAt(c):i:t?f.slice(c,c+2):(i-55296<<10)+(u-56320)+65536)}}},function(t,n,e){var r=e(23),o=Math.max,i=Math.min;t.exports=function(t,n){return t=r(t),t<0?o(t+n,0):i(t,n)}},function(t,n,e){var r=e(23),o=Math.min;t.exports=function(t){return t>0?o(r(t),9007199254740991):0}},function(t,n,e){"use strict";var r=e(44),o=e(52),i=e(17),u=e(3);t.exports=e(31)(Array,"Array",function(t,n){this._t=u(t),this._i=0,this._k=n},function(){var t=this._t,n=this._k,e=this._i++;return!t||e>=t.length?(this._t=void 0,o(1)):"keys"==n?o(0,e):"values"==n?o(0,t[e]):o(0,[e,t[e]])},"values"),i.Arguments=i.Array,r("keys"),r("values"),r("entries")},function(t,n){},function(t,n,e){"use strict";var r=e(59)(!0);e(31)(String,"String",function(t){this._t=String(t),this._i=0},function(){var t,n=this._t,e=this._i;return e>=n.length?{value:void 0,done:!0}:(t=r(n,e),this._i+=t.length,{value:t,done:!1})})},function(t,n,e){"use strict";var r=e(1),o=e(2),i=e(4),u=e(27),f=e(36),c=e(54).KEY,a=e(8),s=e(22),l=e(20),p=e(13),d=e(7),v=e(26),y=e(25),h=e(53),b=e(47),x=e(50),m=e(10),g=e(3),w=e(24),O=e(12),S=e(32),_=e(57),j=e(56),P=e(6),E=e(9),M=j.f,A=P.f,T=_.f,L=r.Symbol,N=r.JSON,C=N&&N.stringify,k="prototype",F=d("_hidden"),q=d("toPrimitive"),I={}.propertyIsEnumerable,B=s("symbol-registry"),D=s("symbols"),W=s("op-symbols"),H=Object[k],K="function"==typeof L,R=r.QObject,J=!R||!R[k]||!R[k].findChild,U=i&&a(function(){return 7!=S(A({},"a",{get:function(){return A(this,"a",{value:7}).a}})).a})?function(t,n,e){var r=M(H,n);r&&delete H[n],A(t,n,e),r&&t!==H&&A(H,n,r)}:A,G=function(t){var n=D[t]=S(L[k]);return n._k=t,n},$=K&&"symbol"==typeof L.iterator?function(t){return"symbol"==typeof t}:function(t){return t instanceof L},z=function(t,n,e){return t===H&&z(W,n,e),m(t),n=w(n,!0),m(e),o(D,n)?(e.enumerable?(o(t,F)&&t[F][n]&&(t[F][n]=!1),e=S(e,{enumerable:O(0,!1)})):(o(t,F)||A(t,F,O(1,{})),t[F][n]=!0),U(t,n,e)):A(t,n,e)},Y=function(t,n){m(t);for(var e,r=b(n=g(n)),o=0,i=r.length;i>o;)z(t,e=r[o++],n[e]);return t},Q=function(t,n){return void 0===n?S(t):Y(S(t),n)},X=function(t){var n=I.call(this,t=w(t,!0));return!(this===H&&o(D,t)&&!o(W,t))&&(!(n||!o(this,t)||!o(D,t)||o(this,F)&&this[F][t])||n)},V=function(t,n){if(t=g(t),n=w(n,!0),t!==H||!o(D,n)||o(W,n)){var e=M(t,n);return!e||!o(D,n)||o(t,F)&&t[F][n]||(e.enumerable=!0),e}},Z=function(t){for(var n,e=T(g(t)),r=[],i=0;e.length>i;)o(D,n=e[i++])||n==F||n==c||r.push(n);return r},tt=function(t){for(var n,e=t===H,r=T(e?W:g(t)),i=[],u=0;r.length>u;)!o(D,n=r[u++])||e&&!o(H,n)||i.push(D[n]);return i};K||(L=function(){if(this instanceof L)throw TypeError("Symbol is not a constructor!");var t=p(arguments.length>0?arguments[0]:void 0),n=function(e){this===H&&n.call(W,e),o(this,F)&&o(this[F],t)&&(this[F][t]=!1),U(this,t,O(1,e))};return i&&J&&U(H,t,{configurable:!0,set:n}),G(t)},f(L[k],"toString",function(){return this._k}),j.f=V,P.f=z,e(33).f=_.f=Z,e(19).f=X,e(34).f=tt,i&&!e(18)&&f(H,"propertyIsEnumerable",X,!0),v.f=function(t){return G(d(t))}),u(u.G+u.W+u.F*!K,{Symbol:L});for(var nt="hasInstance,isConcatSpreadable,iterator,match,replace,search,species,split,toPrimitive,toStringTag,unscopables".split(","),et=0;nt.length>et;)d(nt[et++]);for(var nt=E(d.store),et=0;nt.length>et;)y(nt[et++]);u(u.S+u.F*!K,"Symbol",{for:function(t){return o(B,t+="")?B[t]:B[t]=L(t)},keyFor:function(t){if($(t))return h(B,t);throw TypeError(t+" is not a symbol!")},useSetter:function(){J=!0},useSimple:function(){J=!1}}),u(u.S+u.F*!K,"Object",{create:Q,defineProperty:z,defineProperties:Y,getOwnPropertyDescriptor:V,getOwnPropertyNames:Z,getOwnPropertySymbols:tt}),N&&u(u.S+u.F*(!K||a(function(){var t=L();return"[null]"!=C([t])||"{}"!=C({a:t})||"{}"!=C(Object(t))})),"JSON",{stringify:function(t){if(void 0!==t&&!$(t)){for(var n,e,r=[t],o=1;arguments.length>o;)r.push(arguments[o++]);return n=r[1],"function"==typeof n&&(e=n),!e&&x(n)||(n=function(t,n){if(e&&(n=e.call(this,t,n)),!$(n))return n}),r[1]=n,C.apply(N,r)}}}),L[k][q]||e(5)(L[k],q,L[k].valueOf),l(L,"Symbol"),l(Math,"Math",!0),l(r.JSON,"JSON",!0)},function(t,n,e){e(25)("asyncIterator")},function(t,n,e){e(25)("observable")},function(t,n,e){e(62);for(var r=e(1),o=e(5),i=e(17),u=e(7)("toStringTag"),f=["NodeList","DOMTokenList","MediaList","StyleSheetList","CSSRuleList"],c=0;c<5;c++){var a=f[c],s=r[a],l=s&&s.prototype;l&&!l[u]&&o(l,u,a),i[a]=i.Array}},function(t,n){"use strict";var e={versions:function(){var t=window.navigator.userAgent;return{trident:t.indexOf("Trident")>-1,presto:t.indexOf("Presto")>-1,webKit:t.indexOf("AppleWebKit")>-1,gecko:t.indexOf("Gecko")>-1&&t.indexOf("KHTML")==-1,mobile:!!t.match(/AppleWebKit.*Mobile.*/),ios:!!t.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),android:t.indexOf("Android")>-1||t.indexOf("Linux")>-1,iPhone:t.indexOf("iPhone")>-1||t.indexOf("Mac")>-1,iPad:t.indexOf("iPad")>-1,webApp:t.indexOf("Safari")==-1,weixin:t.indexOf("MicroMessenger")==-1}}()};t.exports=e},function(t,n,e){"use strict";function r(t){return t&&t.__esModule?t:{default:t}}var o=e(40),i=r(o),u=function(){function t(t,n,e){return n||e?String.fromCharCode(n||e):o[t]||t}function n(t){return l[t]}var e=/&quot;|&lt;|&gt;|&amp;|&nbsp;|&apos;|&#(\d+);|&#(\d+)/g,r=/['<> "&]/g,o={"&quot;":'"',"&lt;":"<","&gt;":">","&amp;":"&","&nbsp;":" "},f=/\u00a0/g,c=/<br\s*\/?>/gi,a=/\r?\n/g,s=/\s/g,l={};for(var p in o)l[o[p]]=p;return o["&apos;"]="'",l["'"]="&#39;",{encode:function(t){return t?(""+t).replace(r,n).replace(a,"<br/>").replace(s,"&nbsp;"):""},decode:function(n){return n?(""+n).replace(c,"\n").replace(e,t).replace(f," "):""},encodeBase16:function(t){if(!t)return t;t+="";for(var n=[],e=0,r=t.length;r>e;e++)n.push(t.charCodeAt(e).toString(16).toUpperCase());return n.join("")},encodeBase16forJSON:function(t){if(!t)return t;t=t.replace(/[\u4E00-\u9FBF]/gi,function(t){return escape(t).replace("%u","\\u")});for(var n=[],e=0,r=t.length;r>e;e++)n.push(t.charCodeAt(e).toString(16).toUpperCase());return n.join("")},decodeBase16:function(t){if(!t)return t;t+="";for(var n=[],e=0,r=t.length;r>e;e+=2)n.push(String.fromCharCode("0x"+t.slice(e,e+2)));return n.join("")},encodeObject:function(t){if(t instanceof Array)for(var n=0,e=t.length;e>n;n++)t[n]=u.encodeObject(t[n]);else if("object"==("undefined"==typeof t?"undefined":(0,i.default)(t)))for(var r in t)t[r]=u.encodeObject(t[r]);else if("string"==typeof t)return u.encode(t);return t},loadScript:function(t){var n=document.createElement("script");document.getElementsByTagName("body")[0].appendChild(n),n.setAttribute("src",t)},addLoadEvent:function(t){var n=window.onload;"function"!=typeof window.onload?window.onload=t:window.onload=function(){n(),t()}}}}();t.exports=u},function(t,n){function e(t,n){t.classList?t.classList.add(n):t.className+=" "+n}t.exports=e},function(t,n){function e(t,n){if(t.classList)t.classList.remove(n);else{var e=new RegExp("(^|\\b)"+n.split(" ").join("|")+"(\\b|$)","gi");t.className=t.className.replace(e," ")}}t.exports=e},,,function(t,n){"use strict";function e(){var t=document.querySelector("#page-nav");if(t&&!document.querySelector("#page-nav .extend.prev")&&(t.innerHTML='<a class="extend prev disabled" rel="prev">&laquo; Prev</a>'+t.innerHTML),t&&!document.querySelector("#page-nav .extend.next")&&(t.innerHTML=t.innerHTML+'<a class="extend next disabled" rel="next">Next &raquo;</a>'),yiliaConfig&&yiliaConfig.open_in_new){var n=document.querySelectorAll(".article-entry a:not(.article-more-a)");n.forEach(function(t){t.setAttribute("target","_blank")})}var e=document.querySelector("#js-aboutme");e&&0!==e.length&&(e.innerHTML=e.innerText)}t.exports={init:e}},,,,,,,,,function(t,n){function e(t,n){if("string"==typeof n)return t.insertAdjacentHTML("afterend",n);var e=t.nextSibling;return e?t.parentNode.insertBefore(n,e):t.parentNode.appendChild(n)}t.exports=e}])</script><script src="/./main.2d7529.js"></script><script>!function(){var e=function(e){var t=document.createElement("script");document.getElementsByTagName("body")[0].appendChild(t),t.setAttribute("src",e)};e("/slider.885efe.js")}()</script>
+
+
+    
+<div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
+  <div class="tools-nav header-menu">
+    
+    
+      
+      
+      
+    
+      
+    
+      
+      
+      
+    
+    
+
+    <ul style="width: 70%">
+    
+    
+      
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      
+        
+      
+        
+      
+      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      
+        
+    </ul>
+  </div>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all" q-show="innerArchive">
+        <div class="search-wrap">
+          <input class="search-ipt" q-model="search" type="text" placeholder="find something…">
+          <i class="icon-search icon" q-show="search|isEmptyStr"></i>
+          <i class="icon-close icon" q-show="search|isNotEmptyStr" q-on="click:clearChose(e)"></i>
+        </div>
+        <div class="widget tagcloud search-tag">
+          <p class="search-tag-wording">tag:</p>
+          <label class="search-switch">
+            <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
+          </label>
+          <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AngularJS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">高并发与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">源码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">《深入理解Java虚拟机》</a>
+              </li>
+            
+            <div class="clearfix"></div>
+          </ul>
+        </div>
+        <ul class="search-ul">
+          <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
+            缺失模块。<br/>1、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            2、在根目录_config.yml里添加配置：
+<pre style="font-size: 12px;" q-show="jsonFail">
+  jsonContent:
+    meta: false
+    pages: false
+    posts:
+      title: true
+      date: true
+      path: true
+      text: true
+      raw: false
+      content: false
+      slug: false
+      updated: false
+      comments: false
+      link: false
+      permalink: false
+      excerpt: false
+      categories: false
+      tags: true
+</pre>
+          </p>
+          <li class="search-li" q-repeat="items" q-show="isShow">
+            <a q-attr="href:path|urlformat" class="search-title"><i class="icon-quo-left icon"></i><span q-text="title"></span></a>
+            <p class="search-time">
+              <i class="icon-calendar icon"></i>
+              <span q-text="date|dateformat"></span>
+            </p>
+            <p class="search-tag">
+              <i class="icon-price-tags icon"></i>
+              <span q-repeat="tags" q-on="click:choseTag(e, name)" q-text="name|tagformat"></span>
+            </p>
+          </li>
+        </ul>
+    	</section>
+    
+
+    
+
+    
+    	<section class="tools-section tools-section-me" q-show="aboutme">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;span style=&quot;text-indent:2em&quot;&gt;&quot;本科大三，自学编程，全栈学习者，挚爱技术，目前小菜鸟一只。梦想进入教育业、医疗业、交通业的软件开发，利用微薄的技术去造福大家。&quot;&lt;/span&gt;</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
