@@ -6,20 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>JQuery选择器小结 | Mr.Zhang</title>
+  <title>package.json文件解析 | Mr.Zhang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="先贴张图">
+  <meta name="description" content="概述每个项目的根目录下面，一般都有一个package.json文件，定义了这个项目所需要的各种模块，以及项目的配置信息（比如名称、版本、许可证等元数据）。npm install命令根据这个配置文件，自动下载所需的模块，也就是配置项目所需的运行和开发环境。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JQuery选择器小结">
-<meta property="og:url" content="http://yoursite.com/2017/03/05/JQuery选择器小结/index.html">
+<meta property="og:title" content="package.json文件解析">
+<meta property="og:url" content="http://yoursite.com/2017/05/16/package-json文件解析/index.html">
 <meta property="og:site_name" content="Mr.Zhang">
-<meta property="og:description" content="先贴张图">
-<meta property="og:image" content="http://img.blog.csdn.net/20170305144008182?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-03-05T07:48:55.517Z">
+<meta property="og:description" content="概述每个项目的根目录下面，一般都有一个package.json文件，定义了这个项目所需要的各种模块，以及项目的配置信息（比如名称、版本、许可证等元数据）。npm install命令根据这个配置文件，自动下载所需的模块，也就是配置项目所需的运行和开发环境。">
+<meta property="og:updated_time" content="2017-05-15T16:09:48.905Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JQuery选择器小结">
-<meta name="twitter:description" content="先贴张图">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20170305144008182?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta name="twitter:title" content="package.json文件解析">
+<meta name="twitter:description" content="概述每个项目的根目录下面，一般都有一个package.json文件，定义了这个项目所需要的各种模块，以及项目的配置信息（比如名称、版本、许可证等元数据）。npm install命令根据这个配置文件，自动下载所需的模块，也就是配置项目所需的运行和开发环境。">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Zhang" type="application/atom+xml">
   
@@ -154,57 +152,78 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JQuery选择器小结" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-package-json文件解析" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JQuery选择器小结
+      package.json文件解析
     </h1>
   
 
         
-        <a href="/2017/03/05/JQuery选择器小结/" class="archive-article-date">
-  	<time datetime="2017-03-05T07:45:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-05</time>
+        <a href="/2017/05/16/package-json文件解析/" class="archive-article-date">
+  	<time datetime="2017-05-15T16:07:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p><strong>先贴张图</strong></p>
+        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>每个项目的根目录下面，一般都有一个<code>package.json</code>文件，定义了这个项目所需要的各种模块，以及项目的配置信息（比如名称、版本、许可证等元数据）。<code>npm install</code>命令根据这个配置文件，自动下载所需的模块，也就是配置项目所需的运行和开发环境。<br><a id="more"></a><br>下面是一个最简单的package.json文件，只定义两项元数据：项目名称和项目版本。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"name"</span> : <span class="string">"xxx"</span>,</div><div class="line">  <span class="string">"version"</span> : <span class="string">"0.0.0"</span>,</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上面代码说明，<code>package.json</code>文件内部就是一个JSON对象，该对象的每一个成员就是当前项目的一项设置。比如<code>name</code>就是项目名称，<code>version</code>是版本（遵守“大版本.次要版本.小版本”的格式）。</p>
+<p>下面是一个更完整的package.json文件。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="string">"name"</span>: <span class="string">"Hello World"</span>,</div><div class="line">    <span class="string">"version"</span>: <span class="string">"0.0.1"</span>,</div><div class="line">    <span class="string">"author"</span>: <span class="string">"张三"</span>,</div><div class="line">    <span class="string">"description"</span>: <span class="string">"第一个node.js程序"</span>,</div><div class="line">    <span class="string">"keywords"</span>:[<span class="string">"node.js"</span>,<span class="string">"javascript"</span>],</div><div class="line">    <span class="string">"repository"</span>: &#123;</div><div class="line">        <span class="string">"type"</span>: <span class="string">"git"</span>,</div><div class="line">        <span class="string">"url"</span>: <span class="string">"https://path/to/url"</span></div><div class="line">    &#125;,</div><div class="line">    <span class="string">"license"</span>:<span class="string">"MIT"</span>,</div><div class="line">    <span class="string">"engines"</span>: &#123;<span class="string">"node"</span>: <span class="string">"0.10.x"</span>&#125;,</div><div class="line">    <span class="string">"bugs"</span>:&#123;<span class="string">"url"</span>:<span class="string">"http://path/to/bug"</span>,<span class="string">"email"</span>:<span class="string">"bug@example.com"</span>&#125;,</div><div class="line">    <span class="string">"contributors"</span>:[&#123;<span class="string">"name"</span>:<span class="string">"李四"</span>,<span class="string">"email"</span>:<span class="string">"lisi@example.com"</span>&#125;],</div><div class="line">    <span class="string">"scripts"</span>: &#123;</div><div class="line">        <span class="string">"start"</span>: <span class="string">"node index.js"</span></div><div class="line">    &#125;,</div><div class="line">    <span class="string">"dependencies"</span>: &#123;</div><div class="line">        <span class="string">"express"</span>: <span class="string">"latest"</span>,</div><div class="line">        <span class="string">"mongoose"</span>: <span class="string">"~3.8.3"</span>,</div><div class="line">        <span class="string">"handlebars-runtime"</span>: <span class="string">"~1.0.12"</span>,</div><div class="line">        <span class="string">"express3-handlebars"</span>: <span class="string">"~0.5.0"</span>,</div><div class="line">        <span class="string">"MD5"</span>: <span class="string">"~1.2.0"</span></div><div class="line">    &#125;,</div><div class="line">    <span class="string">"devDependencies"</span>: &#123;</div><div class="line">        <span class="string">"bower"</span>: <span class="string">"~1.2.8"</span>,</div><div class="line">        <span class="string">"grunt"</span>: <span class="string">"~0.4.1"</span>,</div><div class="line">        <span class="string">"grunt-contrib-concat"</span>: <span class="string">"~0.3.0"</span>,</div><div class="line">        <span class="string">"grunt-contrib-jshint"</span>: <span class="string">"~0.7.2"</span>,</div><div class="line">        <span class="string">"grunt-contrib-uglify"</span>: <span class="string">"~0.2.7"</span>,</div><div class="line">        <span class="string">"grunt-contrib-clean"</span>: <span class="string">"~0.5.0"</span>,</div><div class="line">        <span class="string">"browserify"</span>: <span class="string">"2.36.1"</span>,</div><div class="line">        <span class="string">"grunt-browserify"</span>: <span class="string">"~1.3.0"</span>,</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>下面详细解释package.json文件的各个字段。</p>
+<h3 id="scripts字段"><a href="#scripts字段" class="headerlink" title="scripts字段"></a>scripts字段</h3><p><code>scripts</code>指定了运行脚本命令的npm命令行缩写，比如start指定了运行<code>npm run start</code>时，所要执行的命令。</p>
+<p>下面的设置指定了<code>npm run preinstall</code>、<code>npm run postinstall</code>、<code>npm run start</code>、<code>npm run test</code>时，所要执行的命令。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="string">"scripts"</span>: &#123;</div><div class="line">    <span class="string">"preinstall"</span>: <span class="string">"echo here it comes!"</span>,</div><div class="line">    <span class="string">"postinstall"</span>: <span class="string">"echo there it goes!"</span>,</div><div class="line">    <span class="string">"start"</span>: <span class="string">"node index.js"</span>,</div><div class="line">    <span class="string">"test"</span>: <span class="string">"tap test/*.js"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="dependencies字段，devDependencies字段"><a href="#dependencies字段，devDependencies字段" class="headerlink" title="dependencies字段，devDependencies字段"></a>dependencies字段，devDependencies字段</h3><p><code>dependencies</code>字段指定了项目运行所依赖的模块，<code>devDependencies</code>指定项目开发所需要的模块。</p>
+<p>它们都指向一个对象。该对象的各个成员，分别由模块名和对应的版本要求组成，表示依赖的模块及其版本范围。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"devDependencies"</span>: &#123;</div><div class="line">    <span class="string">"browserify"</span>: <span class="string">"~13.0.0"</span>,</div><div class="line">    <span class="string">"karma-browserify"</span>: <span class="string">"~5.0.1"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>对应的版本可以加上各种限定，主要有以下几种：</p>
+<ul>
+<li><p>指定版本：比如<code>1.2.2</code>，遵循“大版本.次要版本.小版本”的格式规定，安装时只安装指定版本。</p>
+</li>
+<li><p>波浪号（tilde）+指定版本：比如<code>~1.2.2</code>，表示安装1.2.x的最新版本（不低于1.2.2），但是不安装1.3.x，也就是说安装时不改变大版本号和次要版本号。</p>
+</li>
+<li><p>插入号（caret）+指定版本：比如<code>ˆ1.2.2</code>，表示安装1.x.x的最新版本（不低于1.2.2），但是不安装2.x.x，也就是说安装时不改变大版本号。需要注意的是，如果大版本号为0，则插入号的行为与波浪号相同，这是因为此时处于开发阶段，即使是次要版本号变动，也可能带来程序的不兼容。</p>
+</li>
+<li>latest：安装最新版本。</li>
+</ul>
+<p>package.json文件可以手工编写，也可以使用<code>npm init</code>命令自动生成。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm init</div></pre></td></tr></table></figure>
+<p>这个命令采用互动方式，要求用户回答一些问题，然后在当前目录生成一个基本的package.json文件。所有问题之中，只有项目名称（name）和项目版本（version）是<font color="deepskyblue">必填</font>的，其他都是选填的。</p>
+<p>有了<code>package.json</code>文件，直接使用<code>npm install</code>命令，就会在当前目录中安装所需要的模块。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install</div></pre></td></tr></table></figure></p>
+<p>如果一个模块不在<code>package.json</code>文件之中，可以单独安装这个模块，并使用相应的参数，将其写入<code>package.json</code>文件之中。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ npm install express --save</div><div class="line">$ npm install express --save-dev</div></pre></td></tr></table></figure></p>
+<p>上面代码表示单独安装express模块，<code>--save</code>参数表示将该模块写入<code>dependencies</code>属性，<code>--save-dev</code>表示将该模块写入<code>devDependencies</code>属性。</p>
+<p>简写方式：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ npm i -S express</div><div class="line">$ npm i -D express</div></pre></td></tr></table></figure></p>
+<p>建议用这种方式。<br>–save-dev表示是开发时需要的依赖，比如gulp、test等，而–save是生产环境所需的依赖。针对不同的环境使用-S或-D去package.json存相应的依赖。</p>
+<h3 id="peerDependencies"><a href="#peerDependencies" class="headerlink" title="peerDependencies"></a>peerDependencies</h3><p>有时，你的项目和所依赖的模块，都会同时依赖另一个模块，但是所依赖的版本不一样。比如，你的项目依赖A模块和B模块的1.0版，而A模块本身又依赖B模块的2.0版。</p>
+<p>大多数情况下，这不构成问题，B模块的两个版本可以并存，同时运行。但是，有一种情况，会出现问题，就是这种依赖关系将暴露给用户。</p>
+<p>最典型的场景就是插件，比如A模块是B模块的插件。用户安装的B模块是1.0版本，但是A插件只能和2.0版本的B模块一起使用。这时，用户要是将1.0版本的B的实例传给A，就会出现问题。因此，需要一种机制，在模板安装的时候提醒用户，如果A和B一起安装，那么B必须是2.0模块。</p>
+<p><code>peerDependencies</code>字段，就是用来供插件指定其所需要的主工具的版本。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"name"</span>: <span class="string">"chai-as-promised"</span>,</div><div class="line">  <span class="string">"peerDependencies"</span>: &#123;</div><div class="line">    <span class="string">"chai"</span>: <span class="string">"1.x"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面代码指定，安装<code>chai-as-promised</code>模块时，主程序<code>chai</code>必须一起安装，而且<code>chai</code>的版本必须是<code>1.x</code>。如果你的项目指定的依赖是<code>chai</code>的2.0版本，就会报错。</p>
+<font color="red">注意，从npm 3.0版开始，<code>peerDependencies</code>不再会默认安装了。</font>
+
+<h3 id="bin字段"><a href="#bin字段" class="headerlink" title="bin字段"></a>bin字段</h3><p>bin项用来指定各个内部命令对应的可执行文件的位置。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">"bin"</span>: &#123;</div><div class="line">  <span class="string">"someTool"</span>: <span class="string">"./bin/someTool.js"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上面代码指定，someTool 命令对应的可执行文件为 bin 子目录下的 someTool.js。Npm会寻找这个文件，在<code>node_modules/.bin/</code>目录下建立符号链接。在上面的例子中，someTool.js会建立符号链接<code>npm_modules/.bin/someTool</code>。由于<code>node_modules/.bin/</code>目录会在运行时加入系统的PATH变量，因此在运行npm时，就可以不带路径，直接通过命令来调用这些脚本。</p>
+<p>因此，像下面这样的写法可以采用简写。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">scripts: &#123;  </div><div class="line">  <span class="attr">start</span>: <span class="string">'./node_modules/someTool/someTool.js build'</span></div><div class="line">&#125;</div><div class="line"><span class="comment">// 简写为</span></div><div class="line">scripts: &#123;  </div><div class="line">  <span class="attr">start</span>: <span class="string">'someTool build'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>所有<code>node_modules/.bin/</code>目录下的命令，都可以用<code>npm run [命令]</code>的格式运行。在命令行下，键入<code>npm run</code>，然后按<code>tab</code>键，就会显示所有可以使用的命令。</p>
+<h3 id="main字段"><a href="#main字段" class="headerlink" title="main字段"></a>main字段</h3><p><code>main</code>字段指定了加载该模块时的入门文件，默认是模块根目录下面的<code>index.js</code>。</p>
+<h3 id="config字段"><a href="#config字段" class="headerlink" title="config字段"></a>config字段</h3><p>config字段用于向环境变量输出值。</p>
+<p>下面是一个package.json文件。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"name"</span> : <span class="string">"foo"</span>,</div><div class="line">  <span class="string">"config"</span> : &#123; <span class="string">"port"</span> : <span class="string">"8080"</span> &#125;,</div><div class="line">  <span class="string">"scripts"</span> : &#123; <span class="string">"start"</span> : <span class="string">"node server.js"</span> &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>然后，在<code>server.js</code>脚本就可以引用config字段的值。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http.createServer(...).listen(process.env.npm_package_config_port)</div></pre></td></tr></table></figure></p>
+<p>用户可以改变这个值。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm config set foo:port <span class="number">80</span></div></pre></td></tr></table></figure></p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><h3 id="browser字段"><a href="#browser字段" class="headerlink" title="browser字段"></a>browser字段</h3><p>browser指定该模板供浏览器使用的版本。Browserify这样的浏览器打包工具，通过它就知道该打包那个文件。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">"browser"</span>: &#123;</div><div class="line">  <span class="string">"tipso"</span>: <span class="string">"./node_modules/tipso/src/tipso.js"</span></div><div class="line">&#125;,</div></pre></td></tr></table></figure></p>
+<h3 id="engines字段"><a href="#engines字段" class="headerlink" title="engines字段"></a>engines字段</h3><p>engines指明了该项目所需要的node.js版本。</p>
+<h3 id="man字段"><a href="#man字段" class="headerlink" title="man字段"></a>man字段</h3><p>man用来指定当前模块的man文档的位置。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"man"</span> :[ <span class="string">"./doc/calc.1"</span> ]</div></pre></td></tr></table></figure></p>
+<h3 id="preferGlobal字段"><a href="#preferGlobal字段" class="headerlink" title="preferGlobal字段"></a>preferGlobal字段</h3><p>preferGlobal的值是布尔值，表示当用户不将该模块安装为全局模块时（即不用–global参数），要不要显示警告，表示该模块的本意就是安装为全局模块。</p>
+<h3 id="style字段"><a href="#style字段" class="headerlink" title="style字段"></a>style字段</h3><p>style指定供浏览器使用时，样式文件所在的位置。样式文件打包工具parcelify，通过它知道样式文件的打包位置。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">"style"</span>: [</div><div class="line">  <span class="string">"./node_modules/tipso/src/tipso.css"</span></div><div class="line">]</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>整理自<a href="https://github.com/ruanyf/jstutorial/tree/gh-pages/nodejs" target="_blank" rel="external">阮一峰GitHub</a></p>
 </blockquote>
-<p><img src="http://img.blog.csdn.net/20170305144008182?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhbnNoZW4wOTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><a id="more"></a></p>
-<hr>
-<h2 id="“引号内选择器”"><a href="#“引号内选择器”" class="headerlink" title="“引号内选择器”"></a>“引号内选择器”</h2><font color="#8470FF">以下选择器，都在$(“”)的双引号内写</font>
 
-
-<p>一丶基本选择器</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#top"</span>) <span class="comment">//id选择器，返回单个</span></div><div class="line">$(<span class="string">"div"</span>) <span class="comment">//标签选择器，返回数组 </span></div><div class="line">$(<span class="string">".box"</span>) <span class="comment">//类选择器，返回数组 </span></div><div class="line">$(<span class="string">"*"</span>) <span class="comment">// 选择文档中所有元素，返回数组</span></div></pre></td></tr></table></figure>
-<p>二丶层级选择器</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"form input"</span>) <span class="comment">//选择所有的后代 </span></div><div class="line">$(<span class="string">"div &gt; .box"</span>) <span class="comment">//选择子代(亲儿子)</span></div><div class="line">$(<span class="string">"label + input"</span>) <span class="comment">//[返回]label标签后面直接跟一个input标签的所有[input标签] </span></div><div class="line">$(<span class="string">"#prev ~ div"</span>) <span class="comment">//同胞选择器，[返回]id为prev的所有同父[div同胞]</span></div></pre></td></tr></table></figure>
-<p>三丶基本过滤选择器</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"tr:even"</span>) <span class="comment">//返回偶数tr（注意：返回数组，序号从0开始,0,2,4..） </span></div><div class="line">$(<span class="string">"tr:odd"</span>) <span class="comment">//返回奇数tr </span></div><div class="line">$(<span class="string">"td:eq(2)"</span>) <span class="comment">//索引等于2的td </span></div><div class="line">$(<span class="string">"td:gt(4)"</span>) <span class="comment">//索引大于4</span></div><div class="line">$(<span class="string">"td:ll(4)"</span>) <span class="comment">//索引小于4 </span></div><div class="line"></div><div class="line">$(<span class="string">"tr:first"</span>) <span class="comment">//所有tr元素的第一个 </span></div><div class="line">$(<span class="string">"tr:last"</span>) <span class="comment">//所有tr元素的最后一个 </span></div><div class="line">$(<span class="string">"input:checked"</span>) <span class="comment">//所有被选中的input</span></div><div class="line">$(<span class="string">"input:not(:checked)"</span>) <span class="comment">//所有没被选中的input</span></div><div class="line">$(<span class="string">":header"</span>)  <span class="comment">//所有的标题元素(h1-h6)</span></div><div class="line">$(<span class="string">"div:animated"</span>) <span class="comment">//所有正在运动的div</span></div></pre></td></tr></table></figure>
-<p>四丶内容过滤选择器 <font color="#8470FF">(根据内容来选择)</font></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"div:contains('github')"</span>) <span class="comment">//选择所有div中含有github文本的[div]</span></div><div class="line">$(<span class="string">"td:empty"</span>) <span class="comment">//选择所有内容为空（也不包括文本节点）的[td]</span></div><div class="line">$(<span class="string">"div:has(p)"</span>) <span class="comment">//选择所有含有p标签的[div元素] </span></div><div class="line">$(<span class="string">"td:parent"</span>) <span class="comment">//选择已为人父的[td](有子标签或文本都算为人父)</span></div></pre></td></tr></table></figure>
-<p>五丶可视化过滤选择器</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"div:hidden"</span>) <span class="comment">//被hidden的div元素 </span></div><div class="line">$(<span class="string">"div:visible"</span>) <span class="comment">//可视化的div元素</span></div></pre></td></tr></table></figure>
-<p>六丶属性过滤选择器 <font color="#8470FF">(根据属性来选择)</font></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"div[id]"</span>) <span class="comment">//选择所有含有id属性的div元素 </span></div><div class="line">$(<span class="string">"input[name='news']"</span>) <span class="comment">//选择name属性为'news'的input元素</span></div><div class="line">$(<span class="string">"input[name!='newsletter']"</span>) <span class="comment">//选择name属性不为'news'的input元素</span></div><div class="line">$(<span class="string">"input[name^='news']"</span>) <span class="comment">//选择name属性以'news'开头的input元素 </span></div><div class="line">$(<span class="string">"input[name$='news']"</span>) <span class="comment">//选择name属性以'news'结尾的input元素 </span></div><div class="line">$(<span class="string">"input[name*='color']"</span>) <span class="comment">//选择name属性包含'color'的input元素</span></div><div class="line">$(<span class="string">"input[id][name$='color']"</span>) <span class="comment">//多个属性联合选择</span></div></pre></td></tr></table></figure>
-<p>七丶子元素过滤选择器 </p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"div span:first-child"</span>) <span class="comment">//返回所有的div元素的第一个子节点的数组 </span></div><div class="line">$(<span class="string">"div span:last-child"</span>) <span class="comment">//返回所有的div元素的最后一个节点的数组 </span></div><div class="line">$(<span class="string">"div button:only-child"</span>) <span class="comment">//只有唯一一个子节点的所有子节点的数组</span></div></pre></td></tr></table></figure>
-<p>八丶表单元素选择器： </p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">":input"</span>) <span class="comment">//所有的表单元素，input, textarea, select等 </span></div><div class="line">$(<span class="string">":text"</span>) <span class="comment">//所有的text input元素 </span></div><div class="line">$(<span class="string">":password"</span>) <span class="comment">//所有的password input元素 </span></div><div class="line">$(<span class="string">":radio"</span>) <span class="comment">//所有的radio input元素 </span></div><div class="line">$(<span class="string">":checkbox"</span>) <span class="comment">//所有的checkbox input元素 </span></div><div class="line">$(<span class="string">":submit"</span>) <span class="comment">//所有的submit input元素 </span></div><div class="line">$(<span class="string">":image"</span>) <span class="comment">//所有的image input元素 </span></div><div class="line">$(<span class="string">":reset"</span>) <span class="comment">//所有的reset input元素 </span></div><div class="line">$(<span class="string">":button"</span>) <span class="comment">//所有的button input元素 </span></div><div class="line">$(<span class="string">":file"</span>) <span class="comment">//所有的file input元素 </span></div><div class="line">$(<span class="string">":hidden"</span>)<span class="comment">//所有hidden input元素</span></div></pre></td></tr></table></figure>
-<p>九丶表单元素过滤选择器 </p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">":enabled"</span>) <span class="comment">//选择所有的可操作的表单元素 </span></div><div class="line">$(<span class="string">":disabled"</span>) <span class="comment">//所有的不可操作的表单元素 </span></div><div class="line">$(<span class="string">":checked"</span>) <span class="comment">//所有的被checked的表单元素 </span></div><div class="line">$(<span class="string">"select option:selected"</span>) <span class="comment">//所有的select的子元素option中被selected的option</span></div></pre></td></tr></table></figure>
-<hr>
-<h2 id="“方法调用选择器”"><a href="#“方法调用选择器”" class="headerlink" title="“方法调用选择器”"></a>“方法调用选择器”</h2><font color="#8470FF">以下都为【方法】，需要在$(“”)外.方法()</font>
-
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.find(selector) <span class="comment">//后代查找</span></div><div class="line">.children(selector) <span class="comment">//子代查找</span></div><div class="line">.parent(selector) <span class="comment">//查找亲父亲</span></div><div class="line">.siblings(selector) <span class="comment">//查找所有兄弟</span></div><div class="line">.eq(index) <span class="comment">//相等查找</span></div><div class="line">.prev(selector) <span class="comment">//查找前一个兄弟</span></div><div class="line">.next(selector) <span class="comment">//查找后一个兄弟</span></div></pre></td></tr></table></figure>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">注：方法中有selector，为选择器的意思，如果方法不加参数，默认选择，加了参数就多了一层筛选，比如$(".box").find()为查找class为box的所有后代，而$(".box").find("ul")为查找它的所有ul后代而非全部后代</div></pre></td></tr></table></figure>
       
 
       
@@ -239,10 +258,6 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">JQuery</a>
         		</li>
       		
 		</ul>
@@ -298,7 +313,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/03/05/JQuery选择器小结/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/16/package-json文件解析/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -312,18 +327,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/03/06/JQuery动画之动画队列和stop方法/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          JQuery动画之动画队列和stop方法
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/02/第二章-Java内存区域与内存溢出异常/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">第二章 Java内存区域与内存溢出异常</div>
+    <a href="/2017/05/12/移动端web开发技能总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">移动端web开发技能总结</div>
       <i class="icon-circle-right"></i>
     </a>
   
