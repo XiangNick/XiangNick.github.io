@@ -6,17 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 前端 | Mr.Zhang</title>
+  <title>H5的&lt;picture&gt;响应式处理图片 | Mr.Zhang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="全栈学习者，小菜鸟     mail:XiangNickMonster@163.com">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mr.Zhang">
-<meta property="og:url" content="http://yoursite.com/tags/前端/page/4/index.html">
+  <meta name="description" content="响应式设计所谓的响应式设计，是指在不同的屏幕分辨率，不同的像素密度比，不同宽度的终端设备中，网页布局可以自适应的调整。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="H5的<picture>响应式处理图片">
+<meta property="og:url" content="http://yoursite.com/2017/05/19/H5的-picture-响应式处理图片/index.html">
 <meta property="og:site_name" content="Mr.Zhang">
-<meta property="og:description" content="全栈学习者，小菜鸟     mail:XiangNickMonster@163.com">
+<meta property="og:description" content="响应式设计所谓的响应式设计，是指在不同的屏幕分辨率，不同的像素密度比，不同宽度的终端设备中，网页布局可以自适应的调整。">
+<meta property="og:image" content="http://yoursite.com/\img\h1.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\h2.jpg">
+<meta property="og:updated_time" content="2017-05-19T08:01:07.067Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mr.Zhang">
-<meta name="twitter:description" content="全栈学习者，小菜鸟     mail:XiangNickMonster@163.com">
+<meta name="twitter:title" content="H5的<picture>响应式处理图片">
+<meta name="twitter:description" content="响应式设计所谓的响应式设计，是指在不同的屏幕分辨率，不同的像素密度比，不同宽度的终端设备中，网页布局可以自适应的调整。">
+<meta name="twitter:image" content="http://yoursite.com/\img\h1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Zhang" type="application/atom+xml">
   
@@ -151,36 +155,90 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-H5的-picture-响应式处理图片" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      H5的&lt;picture&gt;响应式处理图片
+    </h1>
+  
+
+        
+        <a href="/2017/05/19/H5的-picture-响应式处理图片/" class="archive-article-date">
+  	<time datetime="2017-05-19T07:55:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-19</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="响应式设计"><a href="#响应式设计" class="headerlink" title="响应式设计"></a>响应式设计</h3><p>所谓的响应式设计，是指在不同的屏幕分辨率，不同的像素密度比，不同宽度的终端设备中，网页布局可以自适应的调整。<br><a id="more"></a><br>响应式设计的本意是使原本PC上的网站兼容移动终端，大部分响应式网页是通过媒体查询，加载不同样式的CSS文件实现的。这样的弹性化布局使网站在不同的设备终端布局都比较合理。<br>虽然响应式设计的好处多多，但是也有诸多缺陷。由于PC端和移动终端访问的是同一个网站，PC端可以不计较流量限制，但是移动端不可能不计较。<br><img src="\img\h1.jpg" alt=""><br>响应式布局示意图 </p>
+<p>为适配不同终端机型的屏幕宽度和像素密度，我们一般会使用如下方法设置图片的CSS样式：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">    img&#123;</div><div class="line">        max-width:100%;</div><div class="line">        height:auto;</div><div class="line">    &#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<p>将图片的最大宽度设置为100%，以确保图像不会超出其父级元素的宽度，如果父级元素的宽度发生改变，图片的宽度也随之改变，height：auto 可以确保图片的宽度发生改变时，图片的高度会依据自身的宽高比例进行缩放。<br>这样当我们在移动设备上访问响应式网页里的图片时，只是把图片的分辨率做了缩放，下载的还是PC端的那张大图，这样不仅浪费流量，而且浪费带宽，而且会拖慢网页的打开速度，严重影响用户的使用体验。</p>
+<h3 id="新的解决方案：-lt-picture-gt"><a href="#新的解决方案：-lt-picture-gt" class="headerlink" title="新的解决方案：&lt;picture&gt;"></a>新的解决方案：<code>&lt;picture&gt;</code></h3><p><code>&lt;picture&gt;</code>是HTML5的一个新元素；<br>如果<code>&lt;picture&gt;</code>元素与当前的<code>&lt;audio&gt;</code>,<code>&lt;video&gt;</code>元素协同合作将增强响应式图像工作的进程，它允许在其内部设置多个<code>&lt;source&gt;</code>标签，以指定不同的图像文件名，根据不同的条件进行加载；<br><code>&lt;picture&gt;</code>可以根据不同的条件加载不同的图像，这些条件可以是视窗当前的高度<code>（viewport）</code>，宽度<code>（width）</code>，<font color="red">方向<code>（orientation）</code></font>，像素密度<code>（dpr）</code>等；</p>
+<h3 id="举几个栗子"><a href="#举几个栗子" class="headerlink" title="举几个栗子"></a>举几个栗子</h3><p>1.如下栗子中针对不同屏幕宽度加载不同的图片；当页面宽度 在320px到640px之间时加载minpic.png；当页面宽度大于640px时加载middle.png</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;picture&gt;</div><div class="line">    &lt;source media="(min-width: 320px) and (max-width: 640px)" srcset="img/minpic.png"&gt;</div><div class="line">    &lt;source media="(min-width: 640px)" srcset="img/middle.png"&gt;</div><div class="line">    &lt;img src="img/picture.png" alt="this is a picture"&gt;</div><div class="line">&lt;/picture&gt;</div></pre></td></tr></table></figure>
+<p>2.如下栗子中添加了屏幕的方向作为条件；当屏幕方向为横屏方向时加载_landscape.png结尾的图片；当屏幕方向为竖屏方向时加载 _portrait.png结尾的图片；<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;picture&gt;</div><div class="line">    &lt;source media="(min-width: 320px) and (max-width: 640px) and (orientation: landscape)" srcset="img/minpic_landscape.png"&gt;</div><div class="line">    &lt;source media="(min-width: 320px) and (max-width: 640px) and (orientation: portrait)" srcset="img/minpic_portrait.png"&gt;</div><div class="line">    &lt;source media="(min-width: 640px) and (orientation: landscape)" srcset="img/middlepic_landscape.png"&gt;</div><div class="line">    &lt;source media="(min-width: 640px) and (orientation: portrait)" srcset="img/middlepic_portrait.png"&gt;</div><div class="line">    &lt;img src="img/picture.png" alt="this is a picture"&gt;</div><div class="line">&lt;/picture&gt;</div></pre></td></tr></table></figure></p>
+<p>3.如下栗子中添加了屏幕像素密度作为条件；当像素密度为2x时加载_retina.png 2x 的图片，当像素密度为1x时加载无retina后缀的图片；<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;picture&gt;</div><div class="line">    &lt;source media="(min-width: 320px) and (max-width: 640px)" srcset="img/minpic.png,img/minpic_retina.png 2x"&gt;</div><div class="line">    &lt;source media="(min-width: 640px)" srcset="img/middle.png,img/middle_retina.png 2x"&gt;</div><div class="line">    &lt;img src="img/picture.png,img/picture_retina.png 2x" alt="this is a picture"&gt;</div><div class="line">&lt;/picture&gt;</div></pre></td></tr></table></figure></p>
+<p>4.如下栗子中添加图片文件格式作为条件,当支持webp格式图片时加载webp格式图片，当不支持时加载png格式图片；<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;picture&gt;</div><div class="line">    &lt;source type="image/webp" srcset="img/picture.webp"&gt;</div><div class="line">    &lt;img src="img/picture.png" alt="this is a picture"&gt;</div><div class="line">&lt;/picture&gt;</div></pre></td></tr></table></figure></p>
+<p>5.如下例子中添加宽度描述；页面会根据当前尺寸选择加载不大于当前宽度的最大的图片；<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;img src="picture-160.png" alt="this is a picture"</div><div class="line">     sizes="90vw" </div><div class="line">     srcset="picture-160.png 160w,</div><div class="line">             picture-320.png 320w,</div><div class="line">             picture-640.png 640w,</div><div class="line">             picture-1280.png 1280w"&gt;</div></pre></td></tr></table></figure></p>
+<p>6.如下例子中添加sizes属性；当窗口宽度大于等于800px时加载对应版本的图片；<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;source media="(min-width: 800px)"</div><div class="line">        sizes="90vw" </div><div class="line">        srcset="picture-landscape-640.png 640w,</div><div class="line">                picture-landscape-1280.png 1280w,</div><div class="line">                picture-landscape-2560.png 2560w"&gt;</div><div class="line">&lt;img src="picture-160.png" alt="this is a picture"</div><div class="line">     sizes="90vw" </div><div class="line">     srcset="picture-160.png 160w,</div><div class="line">             picture-320.png 320w,</div><div class="line">             picture-640.png 640w,</div><div class="line">             picture-1280.png 1280w"&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="兼容性："><a href="#兼容性：" class="headerlink" title="兼容性："></a>兼容性：</h3><p>目前只有Chrome ， Firefox ， Opera 对其兼容性较好，具体兼容性如图：<br>兼容性示意图<br><img src="\img\h2.jpg" alt=""></p>
+<h3 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h3><ol>
+<li>加载适当大小的图像文件，使可用带宽得到充分利用；</li>
+<li>加载不同剪裁并具有不同横纵比的图像，以适应不同宽度的布局变化；</li>
+<li>加载更高的像素密度，显示更高分辨率的图像；</li>
+</ol>
+<h3 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h3><ol>
+<li>创建<picture></picture>标签；</li>
+<li>在这些标签内创建一个你想用来执行任何一个特性的<source>标签；</li>
+<li>添加一个media属性，用来包含你想要的特性，如宽度（max-width，min-width），方向（orientation）等；</li>
+<li>添加一个srcset属性，属性值为相应的图像文件名称，进行加载。如果你想提供不同的像素密度，例如Retina显示屏，可以添加额外的文件名到srcset属性中；</li>
+<li>添加一个回退的<img>标签；<h3 id="lt-picture-gt-的工作原理"><a href="#lt-picture-gt-的工作原理" class="headerlink" title="&lt;picture&gt;的工作原理"></a><code>&lt;picture&gt;</code>的工作原理</h3></li>
+</ol>
+<p><code>&lt;picture&gt;</code>语法<br>由上面的示例代码可知，在没有引入js和第三方库，CSS中没有包含media queries的情况下，<code>&lt;picture&gt;</code>元素可以实现只用HTML来声明响应式图片；</p>
+<p><code>&lt;source&gt;</code>元素<br><code>&lt;picture&gt;</code>标签它本身没有属性。神奇的地方是<code>&lt;picture&gt;</code>被用来当做<code>&lt;source&gt;</code>的容器。<br><code>&lt;source&gt;</code>元素，是用来加载多媒体的比如视频和音频，已经被更新用到图片的加载并且一些新的属性已经被添加：</p>
+<p>srcset (必需)<br>接受单一的图片文件路径(如：srcset=”img/minpic.png”).<br>或者是逗号分隔的用像素密度描述的图片路径(如：srcset=”img/minpic.png,img/minpic_retina.png 2x”),1x 的描述是默认不使用的。</p>
+<p>media (可选)<br>接受任何验证的media query,你可以看到在CSS @media选择器(如：media=”(min-width: 320px)”).<br>在之前的<code>&lt;picture&gt;</code>语法的例子里已经用到了。</p>
+<p>sizes（可选）<br>接收单一的宽度描述(如：sizes=”100vw”)或者单一的media query宽度描述(如：sizes=”(min-width: 320px) 100vw”).</p>
+<p>或者逗号分隔的media query对宽度的描述(如：sizes=”(min-width: 320px) 100vw, (min-width: 640px) 50vw, calc(33vw - 100px)”) 最后的一个被当做默认的。</p>
+<p>type(可选)<br>接受支持的MIME类型(如: type=”image/webp” or type=”image/vnd.ms-photo”)</p>
+<p>浏览器会根据这些提示和属性来加载确切的图片资源。根据标签的列表顺序。浏览器会使用第一个合适的<code>&lt;source&gt;</code>元素并忽略掉后面的<code>&lt;source&gt;</code>标签。</p>
+<p>添加最后的<code>&lt;img&gt;</code>元素<br><code>&lt;img&gt;</code>元素在<code>&lt;picture&gt;</code>内部用来当浏览器不支持时或者没有源标签匹配时的显示。在<code>&lt;picture&gt;</code>内使用<code>&lt;img&gt;</code>标签是必须得，如果你忘记了，将不会有图片显示出来。</p>
+<p>用<code>&lt;img&gt;</code>来声明默认的图片显示。将<code>&lt;img&gt;</code>标签放到<code>&lt;picture&gt;</code>内的最后，浏览器在找到<code>&lt;img&gt;</code>标签之前会忽略<code>&lt;source&gt;</code>的声明。这个图片标签也需要你写上它的alt属性。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/14/CSS3入坑记(一)/" class="archive-article-date">
-  	<time datetime="2017-03-13T16:22:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/14/CSS3入坑记(一)/">CSS3入坑记(一)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -192,183 +250,88 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/19/H5的-picture-响应式处理图片/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/11/Html5入坑记（一）/" class="archive-article-date">
-  	<time datetime="2017-03-11T09:30:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-11</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/11/Html5入坑记（一）/">Html5入坑记</a>
-    </h1>
+  
+    <a href="/2017/05/16/package-json文件解析/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">package.json文件解析</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/06/JQuery动画之动画队列和stop方法/" class="archive-article-date">
-  	<time datetime="2017-03-06T12:08:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/06/JQuery动画之动画队列和stop方法/">JQuery动画之动画队列和stop方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/05/JQuery选择器小结/" class="archive-article-date">
-  	<time datetime="2017-03-05T07:45:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/05/JQuery选择器小结/">JQuery选择器小结</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">JQuery</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/01/正则表达式小结/" class="archive-article-date">
-  	<time datetime="2017-03-01T15:04:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/01/正则表达式小结/">正则表达式小结 </a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/tags/前端/page/3/">&laquo; Prev</a><a class="page-number" href="/tags/前端/">1</a><a class="page-number" href="/tags/前端/page/2/">2</a><a class="page-number" href="/tags/前端/page/3/">3</a><span class="page-number current">4</span>
-    </nav>
-  
 
 
           </div>
@@ -391,9 +354,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
