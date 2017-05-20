@@ -6,24 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>OCUpload、pinyin4j、poi简单入门 | Mr.Zhang</title>
+  <title>Tag: 前端 | Mr.Zhang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="通过几个小demo完成以上三项的简单入门，通过此篇博客，您可以对它们有初步的认识，编写日常简单的应用。具体深入可以查询相关api。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="OCUpload、pinyin4j、poi简单入门">
-<meta property="og:url" content="http://yoursite.com/2017/02/28/OCUpload、pinyin4j、poi简单入门/index.html">
+  <meta name="description" content="全栈学习者，小菜鸟     mail:XiangNickMonster@163.com">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mr.Zhang">
+<meta property="og:url" content="http://yoursite.com/tags/前端/page/5/index.html">
 <meta property="og:site_name" content="Mr.Zhang">
-<meta property="og:description" content="通过几个小demo完成以上三项的简单入门，通过此篇博客，您可以对它们有初步的认识，编写日常简单的应用。具体深入可以查询相关api。">
-<meta property="og:image" content="http://img.blog.csdn.net/20161110210416096">
-<meta property="og:image" content="http://img.blog.csdn.net/20161110212603216">
-<meta property="og:image" content="http://img.blog.csdn.net/20161110212849329">
-<meta property="og:image" content="http://img.blog.csdn.net/20161110213017940">
-<meta property="og:image" content="http://img.blog.csdn.net/20161110213736155">
-<meta property="og:updated_time" content="2017-02-28T05:34:16.361Z">
+<meta property="og:description" content="全栈学习者，小菜鸟     mail:XiangNickMonster@163.com">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OCUpload、pinyin4j、poi简单入门">
-<meta name="twitter:description" content="通过几个小demo完成以上三项的简单入门，通过此篇博客，您可以对它们有初步的认识，编写日常简单的应用。具体深入可以查询相关api。">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20161110210416096">
+<meta name="twitter:title" content="Mr.Zhang">
+<meta name="twitter:description" content="全栈学习者，小菜鸟     mail:XiangNickMonster@163.com">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Zhang" type="application/atom+xml">
   
@@ -158,192 +151,64 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-OCUpload、pinyin4j、poi简单入门" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      OCUpload、pinyin4j、poi简单入门
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/03/01/正则表达式小结/" class="archive-article-date">
+  	<time datetime="2017-03-01T15:04:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-01</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/03/01/正则表达式小结/">正则表达式小结 </a>
     </h1>
   
 
-        
-        <a href="/2017/02/28/OCUpload、pinyin4j、poi简单入门/" class="archive-article-date">
-  	<time datetime="2017-02-28T04:50:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>通过几个小demo完成以上三项的简单入门，通过此篇博客，您可以对它们有初步的认识，编写日常简单的应用。具体深入可以查询相关api。<a id="more"></a>
-<strong>OCUpload</strong></li>
-</ul>
-<hr>
-<p> OCUpload为JQuery的插件(One Click Upload)，意思为一键上传，封装了对于文件上传的一些方法，只需几行代码，文件上传优雅而简洁。</p>
-<ul>
-<li>对于传统的文件上传，只是通过input标签，通过设置enctype为multipart/form-data，选中文件后还需点击按钮，提交表单，才能在后台进行相关字段解析，通过流来进行文件上传，上传成功后，页面多半要刷新，无法给用户良好的体验。</li>
-<li>OCUpload实现了页面“不刷新”，选择文件后直接上传，不需要选中文件后再点击按钮上传表单。简单实现为：</li>
-</ul>
-<hr>
-<p>在页面的head里引入JQuery的类库，由于这里使用了easyUI使按钮和提示相对美观些，所以也导入了easyUI的核心类库，当然别忘了导入我们的OCUpload的库，本篇博客使用的版本为jquery.ocupload-1.1.2.js.<br>首先在body中使用一个元素来“占位子”，任何标签元素都可以，不过上传文件一般点击按钮，所以我们使用easyUI的linkbutton，给按钮设置id为import.<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">id</span>=<span class="string">"import"</span> <span class="attr">class</span>=<span class="string">"easyui-linkbutton"</span> <span class="attr">data-options</span>=<span class="string">"iconCls:'icon-redo'"</span>&gt;</span>上传文档<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>在head中给id为import的按钮添加upload事件，这是OCUpload的上传方法，参数为json对象，由于是简单入门，在这里即使用三个主要的属性：action(处理上传文件的后台action路径)，name(给文件设置name，便于后台通过name获取)，onComplete(参数为function，执行上传完毕的回调函数)。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">	$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		$(<span class="string">"#import"</span>).upload(&#123;</div><div class="line">		<span class="attr">action</span>:<span class="string">'$&#123;pageContext.request.contextPath&#125;/regionAction_importXls'</span>,</div><div class="line">		<span class="attr">name</span>:<span class="string">'upload'</span>,</div><div class="line">		<span class="attr">onComplete</span>: <span class="function"><span class="keyword">function</span> (<span class="params">data, self, element</span>) </span>&#123; </div><div class="line">		 <span class="keyword">if</span>(data==<span class="string">'1'</span>)&#123;</div><div class="line">				$.messager.alert(<span class="string">"提示信息"</span>,<span class="string">"数据导入成功!"</span>,<span class="string">"info"</span>);</div><div class="line">			&#125;<span class="keyword">else</span>&#123;</div><div class="line">				$.messager.alert(<span class="string">"提示信息"</span>,<span class="string">"数据导入失败!"</span>,<span class="string">"info"</span>);</div><div class="line">			&#125;</div><div class="line">				location.reload();</div><div class="line">		&#125;</div><div class="line">	&#125;);</div><div class="line">&#125;);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
-<p>到此便完成一键上传的前台代码，只需要后台对上传文件进行解析处理即可完成文件上传。</p>
-<p>让我们来看看这些代码做了些什么。访问页面，打开F12调试。<br><img src="http://img.blog.csdn.net/20161110210416096" alt="这里写图片描述"><br>可以看到，OCUpload将我们的linkbutton底部添加了一个带有文件input的form和一个display:none 不可见的iframe。</p>
-<ul>
-<li><strong>选择文件后form中的input触发onChange事件，直接提交表单，实现了选择文件后直接上传</strong></li>
-<li><strong>文件上传后，本来页面是要刷新的，但是OCUpload将target指向底部隐藏的iframe，使得隐藏的iframe刷新，从而达到我们的页面“不刷新”的效果</strong></li>
-<li></li>
-</ul>
-<hr>
-<h2 id="poi"><a href="#poi" class="headerlink" title="poi"></a><strong>poi</strong></h2><h2 id="xls文件解析"><a href="#xls文件解析" class="headerlink" title="xls文件解析"></a>xls文件解析</h2><p>   在后台使用poi对上传的xls文件进行解析，将文件中的一行(row)解析成javabean，通过hibernate存入数据库。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RegionAction</span> <span class="keyword">extends</span> <span class="title">BaseAction</span>&lt;<span class="title">Region</span>&gt; </span>&#123;</div><div class="line"></div><div class="line">	<span class="keyword">private</span> File upload;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">importXls</span><span class="params">()</span> <span class="keyword">throws</span> FileNotFoundException, IOException </span>&#123;</div><div class="line">		HSSFWorkbook workbook = <span class="keyword">new</span> HSSFWorkbook(<span class="keyword">new</span> FileInputStream(upload));<span class="comment">//此为poi的核心对象，通过构造方法中的InputStream生成HSSWorkbook对象。</span></div><div class="line">		HSSFSheet sheetAt = workbook.getSheetAt(<span class="number">0</span>);<span class="comment">//这里得到第一张表格(sheet)</span></div><div class="line">		List&lt;Region&gt; regions = <span class="keyword">new</span> ArrayList&lt;Region&gt;();</div><div class="line">		<span class="keyword">for</span> (Row row : sheetAt) &#123;</div><div class="line">		<span class="comment">//通过遍历sheetAt获取每一行(row),再通过每一行获取每一个值</span></div><div class="line">			String value1 = row.getCell(<span class="number">0</span>).getStringCellValue();<span class="comment">//id</span></div><div class="line">			String value2 = row.getCell(<span class="number">1</span>).getStringCellValue();<span class="comment">//province</span></div><div class="line">			String value3 = row.getCell(<span class="number">2</span>).getStringCellValue();<span class="comment">//city</span></div><div class="line">			String value4 = row.getCell(<span class="number">3</span>).getStringCellValue();<span class="comment">//district</span></div><div class="line">			String value5 = row.getCell(<span class="number">4</span>).getStringCellValue();<span class="comment">//postcode</span></div><div class="line">			Region region = <span class="keyword">new</span> Region(value1, value2, value3, value4, value5);</div><div class="line">			region.setShortcode(StringUtils.join(PinYin4jUtils.getHeadByString(value2+value3), <span class="string">""</span>));<span class="comment">//此处利用PinYin4jUtils将表格中的字段转成拼音封装到javabean，暂且不提</span></div><div class="line">			region.setCitycode(PinYin4jUtils.hanziToPinyin(value3));</div><div class="line">			regions.add(region);</div><div class="line">		&#125;</div><div class="line">		String flag = <span class="string">"1"</span>;</div><div class="line">		<span class="keyword">try</span>&#123;</div><div class="line">		regionService.saveBatch(regions);<span class="comment">//批处理保存到数据库中，如果抛异常返回标志字符串回前台，做出相应友好提示</span></div><div class="line">		&#125;<span class="keyword">catch</span>(Exception e)&#123;</div><div class="line">			flag = <span class="string">"0"</span>;</div><div class="line">		&#125;</div><div class="line">		ServletActionContext.getResponse().setContentType(<span class="string">"text/html;charset=UTF-8"</span>);</div><div class="line">		ServletActionContext.getResponse().getWriter().print(flag);</div><div class="line">		<span class="keyword">return</span> NONE;<span class="comment">//上传文件，不需要配视图</span></div><div class="line">	&#125;</div><div class="line">	｝</div></pre></td></tr></table></figure>
-<p>那么在poi中，sheet、row、cell分别是什么呢？</p>
-<ul>
-<li>sheet:   xls中的工作表<br><img src="http://img.blog.csdn.net/20161110212603216" alt="这里写图片描述"></li>
-</ul>
-<ul>
-<li>row:   xls中的行<br><img src="http://img.blog.csdn.net/20161110212849329" alt="这里写图片描述"></li>
-<li>cell: xls中的每一个数据<br><img src="http://img.blog.csdn.net/20161110213017940" alt="这里写图片描述"></li>
-</ul>
-<h2 id="xls文件生成"><a href="#xls文件生成" class="headerlink" title="xls文件生成"></a>xls文件生成</h2><p>   在后台查询出数据list，封装进HSSFWorkbook对象生成xls文件,提供一个输出流，告知浏览器文件名和文件类型，在前台提供按钮或链接，指向此action，实现xls文件导出。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">exportXls</span><span class="params">()</span> <span class="keyword">throws</span> IOException</span>&#123;</div><div class="line">		List&lt;Subarea&gt; list = subareaService.findAll();</div><div class="line">		HSSFWorkbook workbook = <span class="keyword">new</span> HSSFWorkbook();</div><div class="line">		HSSFSheet sheet = workbook.createSheet(<span class="string">"分区数据"</span>);</div><div class="line">		HSSFRow headRow = sheet.createRow(<span class="number">0</span>);<span class="comment">//标题行</span></div><div class="line">		headRow.createCell(<span class="number">0</span>).setCellValue(<span class="string">"分区编号"</span>);</div><div class="line">		headRow.createCell(<span class="number">1</span>).setCellValue(<span class="string">"省"</span>);</div><div class="line">		headRow.createCell(<span class="number">2</span>).setCellValue(<span class="string">"市"</span>);</div><div class="line">		headRow.createCell(<span class="number">3</span>).setCellValue(<span class="string">"区"</span>);</div><div class="line">		headRow.createCell(<span class="number">4</span>).setCellValue(<span class="string">"信息"</span>);</div><div class="line">		headRow.createCell(<span class="number">5</span>).setCellValue(<span class="string">"城市编码"</span>);</div><div class="line">		</div><div class="line">		<span class="keyword">if</span>(list!=<span class="keyword">null</span> &amp;&amp; list.size()&gt;<span class="number">0</span>)&#123;</div><div class="line">			<span class="keyword">for</span> (Subarea subarea : list) &#123;</div><div class="line">				HSSFRow dataRow = sheet.createRow(sheet.getLastRowNum()+ <span class="number">1</span>);</div><div class="line">				dataRow.createCell(<span class="number">0</span>).setCellValue(subarea.getId());</div><div class="line">				dataRow.createCell(<span class="number">1</span>).setCellValue(subarea.getRegion().getProvince());</div><div class="line">				dataRow.createCell(<span class="number">2</span>).setCellValue(subarea.getRegion().getCity());</div><div class="line">				dataRow.createCell(<span class="number">3</span>).setCellValue(subarea.getRegion().getDistrict());</div><div class="line">				dataRow.createCell(<span class="number">4</span>).setCellValue(subarea.getRegion().getInfo());</div><div class="line">				dataRow.createCell(<span class="number">5</span>).setCellValue(subarea.getRegion().getCitycode());</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		String filename = URLEncoder.encode(<span class="string">"分区数据.xls"</span>, <span class="string">"UTF-8"</span>);</div><div class="line">		ServletActionContext.getResponse().setContentType(ServletActionContext.getServletContext().getMimeType(filename));<span class="comment">//完成文件下载不要忘了"一个流，两个头"</span></div><div class="line">		ServletActionContext.getResponse().setHeader(<span class="string">"content-disposition"</span>, <span class="string">"attachment;filename="</span>+filename);<span class="comment">//完成文件下载不要忘了"一个流，两个头"</span></div><div class="line">		ServletOutputStream out = ServletActionContext.getResponse().getOutputStream();</div><div class="line">		</div><div class="line">		workbook.write(out);<span class="comment">//通过HSSFWorkbook的write方法，关联一个输出流</span></div><div class="line">		<span class="keyword">return</span> NONE;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
-<hr>
-<h2 id="pinyin4j"><a href="#pinyin4j" class="headerlink" title="pinyin4j"></a><strong>pinyin4j</strong></h2><p>主要利用PinYin4jUtils的相关方法进行汉字转拼音。<br><img src="http://img.blog.csdn.net/20161110213736155" alt="这里写图片描述"></p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">j2ee</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/02/28/OCUpload、pinyin4j、poi简单入门/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/02/28/MySQL和Oracle分页的区别/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          MySQL和Oracle分页的区别
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/02/28/EasyUI的datagrid组件实现分页/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"> EasyUI的datagrid组件实现分页</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-
-  
-    <div class="duoshuo"></div>
+    </div></section>
   
 
-
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/tags/前端/page/4/">&laquo; Prev</a><a class="page-number" href="/tags/前端/">1</a><span class="space">&hellip;</span><a class="page-number" href="/tags/前端/page/3/">3</a><a class="page-number" href="/tags/前端/page/4/">4</a><span class="page-number current">5</span>
+    </nav>
+  
 
 
           </div>
@@ -366,9 +231,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",

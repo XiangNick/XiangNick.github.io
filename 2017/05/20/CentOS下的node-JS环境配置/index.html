@@ -6,24 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>OCUpload、pinyin4j、poi简单入门 | Mr.Zhang</title>
+  <title>CentOS下的node.JS环境配置 | Mr.Zhang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="通过几个小demo完成以上三项的简单入门，通过此篇博客，您可以对它们有初步的认识，编写日常简单的应用。具体深入可以查询相关api。">
+  <meta name="description" content="三M安装法：nvm nrm npm1.安装nvmNVM（Node version manager），是Node.js的版本管理软件，可以轻松的在node.js各个版本间切换，项目源码在GitHub；">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OCUpload、pinyin4j、poi简单入门">
-<meta property="og:url" content="http://yoursite.com/2017/02/28/OCUpload、pinyin4j、poi简单入门/index.html">
+<meta property="og:title" content="CentOS下的node.JS环境配置">
+<meta property="og:url" content="http://yoursite.com/2017/05/20/CentOS下的node-JS环境配置/index.html">
 <meta property="og:site_name" content="Mr.Zhang">
-<meta property="og:description" content="通过几个小demo完成以上三项的简单入门，通过此篇博客，您可以对它们有初步的认识，编写日常简单的应用。具体深入可以查询相关api。">
-<meta property="og:image" content="http://img.blog.csdn.net/20161110210416096">
-<meta property="og:image" content="http://img.blog.csdn.net/20161110212603216">
-<meta property="og:image" content="http://img.blog.csdn.net/20161110212849329">
-<meta property="og:image" content="http://img.blog.csdn.net/20161110213017940">
-<meta property="og:image" content="http://img.blog.csdn.net/20161110213736155">
-<meta property="og:updated_time" content="2017-02-28T05:34:16.361Z">
+<meta property="og:description" content="三M安装法：nvm nrm npm1.安装nvmNVM（Node version manager），是Node.js的版本管理软件，可以轻松的在node.js各个版本间切换，项目源码在GitHub；">
+<meta property="og:updated_time" content="2017-05-20T12:35:17.343Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OCUpload、pinyin4j、poi简单入门">
-<meta name="twitter:description" content="通过几个小demo完成以上三项的简单入门，通过此篇博客，您可以对它们有初步的认识，编写日常简单的应用。具体深入可以查询相关api。">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20161110210416096">
+<meta name="twitter:title" content="CentOS下的node.JS环境配置">
+<meta name="twitter:description" content="三M安装法：nvm nrm npm1.安装nvmNVM（Node version manager），是Node.js的版本管理软件，可以轻松的在node.js各个版本间切换，项目源码在GitHub；">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Zhang" type="application/atom+xml">
   
@@ -158,61 +152,57 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-OCUpload、pinyin4j、poi简单入门" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-CentOS下的node-JS环境配置" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      OCUpload、pinyin4j、poi简单入门
+      CentOS下的node.JS环境配置
     </h1>
   
 
         
-        <a href="/2017/02/28/OCUpload、pinyin4j、poi简单入门/" class="archive-article-date">
-  	<time datetime="2017-02-28T04:50:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-28</time>
+        <a href="/2017/05/20/CentOS下的node-JS环境配置/" class="archive-article-date">
+  	<time datetime="2017-05-20T12:29:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li>通过几个小demo完成以上三项的简单入门，通过此篇博客，您可以对它们有初步的认识，编写日常简单的应用。具体深入可以查询相关api。<a id="more"></a>
-<strong>OCUpload</strong></li>
-</ul>
-<hr>
-<p> OCUpload为JQuery的插件(One Click Upload)，意思为一键上传，封装了对于文件上传的一些方法，只需几行代码，文件上传优雅而简洁。</p>
-<ul>
-<li>对于传统的文件上传，只是通过input标签，通过设置enctype为multipart/form-data，选中文件后还需点击按钮，提交表单，才能在后台进行相关字段解析，通过流来进行文件上传，上传成功后，页面多半要刷新，无法给用户良好的体验。</li>
-<li>OCUpload实现了页面“不刷新”，选择文件后直接上传，不需要选中文件后再点击按钮上传表单。简单实现为：</li>
-</ul>
-<hr>
-<p>在页面的head里引入JQuery的类库，由于这里使用了easyUI使按钮和提示相对美观些，所以也导入了easyUI的核心类库，当然别忘了导入我们的OCUpload的库，本篇博客使用的版本为jquery.ocupload-1.1.2.js.<br>首先在body中使用一个元素来“占位子”，任何标签元素都可以，不过上传文件一般点击按钮，所以我们使用easyUI的linkbutton，给按钮设置id为import.<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">id</span>=<span class="string">"import"</span> <span class="attr">class</span>=<span class="string">"easyui-linkbutton"</span> <span class="attr">data-options</span>=<span class="string">"iconCls:'icon-redo'"</span>&gt;</span>上传文档<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>在head中给id为import的按钮添加upload事件，这是OCUpload的上传方法，参数为json对象，由于是简单入门，在这里即使用三个主要的属性：action(处理上传文件的后台action路径)，name(给文件设置name，便于后台通过name获取)，onComplete(参数为function，执行上传完毕的回调函数)。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">	$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		$(<span class="string">"#import"</span>).upload(&#123;</div><div class="line">		<span class="attr">action</span>:<span class="string">'$&#123;pageContext.request.contextPath&#125;/regionAction_importXls'</span>,</div><div class="line">		<span class="attr">name</span>:<span class="string">'upload'</span>,</div><div class="line">		<span class="attr">onComplete</span>: <span class="function"><span class="keyword">function</span> (<span class="params">data, self, element</span>) </span>&#123; </div><div class="line">		 <span class="keyword">if</span>(data==<span class="string">'1'</span>)&#123;</div><div class="line">				$.messager.alert(<span class="string">"提示信息"</span>,<span class="string">"数据导入成功!"</span>,<span class="string">"info"</span>);</div><div class="line">			&#125;<span class="keyword">else</span>&#123;</div><div class="line">				$.messager.alert(<span class="string">"提示信息"</span>,<span class="string">"数据导入失败!"</span>,<span class="string">"info"</span>);</div><div class="line">			&#125;</div><div class="line">				location.reload();</div><div class="line">		&#125;</div><div class="line">	&#125;);</div><div class="line">&#125;);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
-<p>到此便完成一键上传的前台代码，只需要后台对上传文件进行解析处理即可完成文件上传。</p>
-<p>让我们来看看这些代码做了些什么。访问页面，打开F12调试。<br><img src="http://img.blog.csdn.net/20161110210416096" alt="这里写图片描述"><br>可以看到，OCUpload将我们的linkbutton底部添加了一个带有文件input的form和一个display:none 不可见的iframe。</p>
-<ul>
-<li><strong>选择文件后form中的input触发onChange事件，直接提交表单，实现了选择文件后直接上传</strong></li>
-<li><strong>文件上传后，本来页面是要刷新的，但是OCUpload将target指向底部隐藏的iframe，使得隐藏的iframe刷新，从而达到我们的页面“不刷新”的效果</strong></li>
-<li></li>
-</ul>
-<hr>
-<h2 id="poi"><a href="#poi" class="headerlink" title="poi"></a><strong>poi</strong></h2><h2 id="xls文件解析"><a href="#xls文件解析" class="headerlink" title="xls文件解析"></a>xls文件解析</h2><p>   在后台使用poi对上传的xls文件进行解析，将文件中的一行(row)解析成javabean，通过hibernate存入数据库。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RegionAction</span> <span class="keyword">extends</span> <span class="title">BaseAction</span>&lt;<span class="title">Region</span>&gt; </span>&#123;</div><div class="line"></div><div class="line">	<span class="keyword">private</span> File upload;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">importXls</span><span class="params">()</span> <span class="keyword">throws</span> FileNotFoundException, IOException </span>&#123;</div><div class="line">		HSSFWorkbook workbook = <span class="keyword">new</span> HSSFWorkbook(<span class="keyword">new</span> FileInputStream(upload));<span class="comment">//此为poi的核心对象，通过构造方法中的InputStream生成HSSWorkbook对象。</span></div><div class="line">		HSSFSheet sheetAt = workbook.getSheetAt(<span class="number">0</span>);<span class="comment">//这里得到第一张表格(sheet)</span></div><div class="line">		List&lt;Region&gt; regions = <span class="keyword">new</span> ArrayList&lt;Region&gt;();</div><div class="line">		<span class="keyword">for</span> (Row row : sheetAt) &#123;</div><div class="line">		<span class="comment">//通过遍历sheetAt获取每一行(row),再通过每一行获取每一个值</span></div><div class="line">			String value1 = row.getCell(<span class="number">0</span>).getStringCellValue();<span class="comment">//id</span></div><div class="line">			String value2 = row.getCell(<span class="number">1</span>).getStringCellValue();<span class="comment">//province</span></div><div class="line">			String value3 = row.getCell(<span class="number">2</span>).getStringCellValue();<span class="comment">//city</span></div><div class="line">			String value4 = row.getCell(<span class="number">3</span>).getStringCellValue();<span class="comment">//district</span></div><div class="line">			String value5 = row.getCell(<span class="number">4</span>).getStringCellValue();<span class="comment">//postcode</span></div><div class="line">			Region region = <span class="keyword">new</span> Region(value1, value2, value3, value4, value5);</div><div class="line">			region.setShortcode(StringUtils.join(PinYin4jUtils.getHeadByString(value2+value3), <span class="string">""</span>));<span class="comment">//此处利用PinYin4jUtils将表格中的字段转成拼音封装到javabean，暂且不提</span></div><div class="line">			region.setCitycode(PinYin4jUtils.hanziToPinyin(value3));</div><div class="line">			regions.add(region);</div><div class="line">		&#125;</div><div class="line">		String flag = <span class="string">"1"</span>;</div><div class="line">		<span class="keyword">try</span>&#123;</div><div class="line">		regionService.saveBatch(regions);<span class="comment">//批处理保存到数据库中，如果抛异常返回标志字符串回前台，做出相应友好提示</span></div><div class="line">		&#125;<span class="keyword">catch</span>(Exception e)&#123;</div><div class="line">			flag = <span class="string">"0"</span>;</div><div class="line">		&#125;</div><div class="line">		ServletActionContext.getResponse().setContentType(<span class="string">"text/html;charset=UTF-8"</span>);</div><div class="line">		ServletActionContext.getResponse().getWriter().print(flag);</div><div class="line">		<span class="keyword">return</span> NONE;<span class="comment">//上传文件，不需要配视图</span></div><div class="line">	&#125;</div><div class="line">	｝</div></pre></td></tr></table></figure>
-<p>那么在poi中，sheet、row、cell分别是什么呢？</p>
-<ul>
-<li>sheet:   xls中的工作表<br><img src="http://img.blog.csdn.net/20161110212603216" alt="这里写图片描述"></li>
-</ul>
-<ul>
-<li>row:   xls中的行<br><img src="http://img.blog.csdn.net/20161110212849329" alt="这里写图片描述"></li>
-<li>cell: xls中的每一个数据<br><img src="http://img.blog.csdn.net/20161110213017940" alt="这里写图片描述"></li>
-</ul>
-<h2 id="xls文件生成"><a href="#xls文件生成" class="headerlink" title="xls文件生成"></a>xls文件生成</h2><p>   在后台查询出数据list，封装进HSSFWorkbook对象生成xls文件,提供一个输出流，告知浏览器文件名和文件类型，在前台提供按钮或链接，指向此action，实现xls文件导出。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">exportXls</span><span class="params">()</span> <span class="keyword">throws</span> IOException</span>&#123;</div><div class="line">		List&lt;Subarea&gt; list = subareaService.findAll();</div><div class="line">		HSSFWorkbook workbook = <span class="keyword">new</span> HSSFWorkbook();</div><div class="line">		HSSFSheet sheet = workbook.createSheet(<span class="string">"分区数据"</span>);</div><div class="line">		HSSFRow headRow = sheet.createRow(<span class="number">0</span>);<span class="comment">//标题行</span></div><div class="line">		headRow.createCell(<span class="number">0</span>).setCellValue(<span class="string">"分区编号"</span>);</div><div class="line">		headRow.createCell(<span class="number">1</span>).setCellValue(<span class="string">"省"</span>);</div><div class="line">		headRow.createCell(<span class="number">2</span>).setCellValue(<span class="string">"市"</span>);</div><div class="line">		headRow.createCell(<span class="number">3</span>).setCellValue(<span class="string">"区"</span>);</div><div class="line">		headRow.createCell(<span class="number">4</span>).setCellValue(<span class="string">"信息"</span>);</div><div class="line">		headRow.createCell(<span class="number">5</span>).setCellValue(<span class="string">"城市编码"</span>);</div><div class="line">		</div><div class="line">		<span class="keyword">if</span>(list!=<span class="keyword">null</span> &amp;&amp; list.size()&gt;<span class="number">0</span>)&#123;</div><div class="line">			<span class="keyword">for</span> (Subarea subarea : list) &#123;</div><div class="line">				HSSFRow dataRow = sheet.createRow(sheet.getLastRowNum()+ <span class="number">1</span>);</div><div class="line">				dataRow.createCell(<span class="number">0</span>).setCellValue(subarea.getId());</div><div class="line">				dataRow.createCell(<span class="number">1</span>).setCellValue(subarea.getRegion().getProvince());</div><div class="line">				dataRow.createCell(<span class="number">2</span>).setCellValue(subarea.getRegion().getCity());</div><div class="line">				dataRow.createCell(<span class="number">3</span>).setCellValue(subarea.getRegion().getDistrict());</div><div class="line">				dataRow.createCell(<span class="number">4</span>).setCellValue(subarea.getRegion().getInfo());</div><div class="line">				dataRow.createCell(<span class="number">5</span>).setCellValue(subarea.getRegion().getCitycode());</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		String filename = URLEncoder.encode(<span class="string">"分区数据.xls"</span>, <span class="string">"UTF-8"</span>);</div><div class="line">		ServletActionContext.getResponse().setContentType(ServletActionContext.getServletContext().getMimeType(filename));<span class="comment">//完成文件下载不要忘了"一个流，两个头"</span></div><div class="line">		ServletActionContext.getResponse().setHeader(<span class="string">"content-disposition"</span>, <span class="string">"attachment;filename="</span>+filename);<span class="comment">//完成文件下载不要忘了"一个流，两个头"</span></div><div class="line">		ServletOutputStream out = ServletActionContext.getResponse().getOutputStream();</div><div class="line">		</div><div class="line">		workbook.write(out);<span class="comment">//通过HSSFWorkbook的write方法，关联一个输出流</span></div><div class="line">		<span class="keyword">return</span> NONE;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
-<hr>
-<h2 id="pinyin4j"><a href="#pinyin4j" class="headerlink" title="pinyin4j"></a><strong>pinyin4j</strong></h2><p>主要利用PinYin4jUtils的相关方法进行汉字转拼音。<br><img src="http://img.blog.csdn.net/20161110213736155" alt="这里写图片描述"></p>
+        <h3 id="三M安装法：nvm-nrm-npm"><a href="#三M安装法：nvm-nrm-npm" class="headerlink" title="三M安装法：nvm nrm npm"></a>三M安装法：nvm nrm npm</h3><h3 id="1-安装nvm"><a href="#1-安装nvm" class="headerlink" title="1.安装nvm"></a>1.安装nvm</h3><p>NVM（Node version manager），是Node.js的版本管理软件，可以轻松的在node.js各个版本间切换，项目源码在GitHub；<br><a id="more"></a><br>在开发环境中，避免不了经常需要更换node版本的情况，nvm只需几行命令即可完成node版本的下载，使用。在非 Windows(如 os x, Linux) 环境下, 可以使用 nvm 来配置 node 开发环境, 保持系统的干净，在Windows 环境下, 可以使用nvm，也可以用 nvmw 来替代 nvm；</p>
+<h3 id="1-1-具体步骤"><a href="#1-1-具体步骤" class="headerlink" title="1.1 具体步骤"></a>1.1 具体步骤</h3><h4 id="获取nvm源码"><a href="#获取nvm源码" class="headerlink" title="获取nvm源码"></a>获取nvm源码</h4><p>方法一 ：直接从 github 找到最新版本通过wget下载到本地<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget https://github.com/cnpm/nvm/archive/v0.23.0.tar.gz</div></pre></td></tr></table></figure></p>
+<p>完毕后需要解压</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -zxvf v0.23.0.tar.gz -C 解压目录</div></pre></td></tr></table></figure>
+<p>方法二 ：直接git clone 克隆项目源码到本地</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Git clone https://github.com/cnpm/nvm.git</div></pre></td></tr></table></figure>
+<h4 id="安装nvm"><a href="#安装nvm" class="headerlink" title="安装nvm"></a>安装nvm</h4><p>安装nvm非常简单，只要进入nvm的源码目录然后执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./install.sh</div></pre></td></tr></table></figure>
+<p>然后添加环境变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source ~/.bash_profile</div></pre></td></tr></table></figure>
+<p>如果想终端启动时自动执行 source ~/git/nvm/nvm.sh,<br>需要在 ~/.bashrc, ~/.bash_profile, ~/.profile, 或者 ~/.zshrc 文件添加以下命令:（.profile一般在/etc下）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source ~/nvm的路径/nvm.sh</div></pre></td></tr></table></figure>
+<p>这样就会在机器启动时自动执行以上命令了。<br>此时，nvm已经安装完毕。<br>可以通过<code>nvm --version</code>命令来查看是否安装完成。</p>
+<h4 id="nvm相关命令"><a href="#nvm相关命令" class="headerlink" title="nvm相关命令"></a>nvm相关命令</h4><ol>
+<li>列出所有可安装的版本nvm list-remote</li>
+<li>安装某版本 nvm install 版本号 </li>
+<li>使用某版本 nvm use 版本号</li>
+<li>查看本地已经下载过可供切换的版本 nvm ls</li>
+</ol>
+<h3 id="2-安装npm"><a href="#2-安装npm" class="headerlink" title="2.安装npm"></a>2.安装npm</h3><p>npm通过以上步骤已经随node一同安装完毕，可以直接使用</p>
+<h3 id="3-安装nrm"><a href="#3-安装nrm" class="headerlink" title="3.安装nrm"></a>3.安装nrm</h3><p>通常，npm的包下载路径是从国外下载的，速度很慢，我们可以在命令最后添加<br><code>--registry=https://registry.npm.taobao.org</code> 来指定镜像，加速下载。如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install gulp -g --registry=https://registry.npm.taobao.org</div></pre></td></tr></table></figure>
+<p>我们可以安装nrm来管理npm镜像环境，不需要每次都指定镜像了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g nrm</div></pre></td></tr></table></figure>
+<h4 id="nrm相关命令"><a href="#nrm相关命令" class="headerlink" title="nrm相关命令"></a>nrm相关命令</h4><ol>
+<li>列出可选的源<code>nrm ls</code></li>
+<li>切换源 <code>nrm use 名称</code></li>
+<li>增加源 可以增加定制的源，特别适用于添加企业内部的私有源。私有源可以使用cnpmjs架设。<br><code>nrm add    [home]</code></li>
+<li>删除源 <code>nrm del 名称</code></li>
+<li>测试速度<code>nrm test 名称</code> 测试指定源的响应时间<br><code>nrm test</code>测试全部源的时间，为了取得较准确的结果，可以考虑多次测试取平均值</li>
+</ol>
 
       
 
@@ -247,7 +237,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">j2ee</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
         		</li>
       		
 		</ul>
@@ -303,7 +293,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/02/28/OCUpload、pinyin4j、poi简单入门/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/20/CentOS下的node-JS环境配置/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -317,18 +307,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/02/28/MySQL和Oracle分页的区别/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          MySQL和Oracle分页的区别
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/02/28/EasyUI的datagrid组件实现分页/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"> EasyUI的datagrid组件实现分页</div>
+    <a href="/2017/05/19/H5的-picture-响应式处理图片/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">H5的&lt;picture&gt;响应式处理图片</div>
       <i class="icon-circle-right"></i>
     </a>
   
