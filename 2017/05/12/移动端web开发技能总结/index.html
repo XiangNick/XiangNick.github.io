@@ -26,7 +26,7 @@
 <meta property="og:image" content="http://yoursite.com/\img\g11.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\g12.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\g13.jpg">
-<meta property="og:updated_time" content="2017-05-12T15:24:14.506Z">
+<meta property="og:updated_time" content="2017-05-23T03:00:14.790Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动端web开发技能总结">
 <meta name="twitter:description" content="一、rem布局对于移动设备的适配，传统模式使用宽度设置百分比，高度设置px，利用百分比来完成不同设备的适配，但是布局起来比较麻烦，也有一定的局限性，目前比较完善的是rem布局。">
@@ -206,6 +206,10 @@
 </ul>
 <p>假如我们通过640px的psd图设计稿得出某span其字号为28px<br>那么我们可以这么布局<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">span</span>&#123;</div><div class="line">    <span class="attribute">font-size</span>:<span class="number">28</span> / <span class="number">32rem</span>;<span class="comment">/*rem与数字之间不能有空格*/</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>（因为该在640px图中为28px，分成20份之后一份为32px，算其在640px中占几份，再乘上rem单位）<br>同理，如果某div宽度为220px(640px设计稿环境下)，那么其宽度为<code>220 / 32rem</code><br>这样rem+媒体查询的布局就已经完成了。rem布局还可以通过js动态查询clientwidth来进行html根节点的font-size赋值，由于js在老机型上有滞后性，个人比较喜欢通过<code>@media</code>的 媒体查询方式来进行rem布局。</p>
+<p>tips:<br>在移动端页面头部引入<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"</span>/&gt;</span></div></pre></td></tr></table></figure></p>
+<p>后，再引入以下js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">doc, win</span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> docEl = doc.documentElement,</div><div class="line">                    resizeEvt = <span class="string">'orientationchange'</span> <span class="keyword">in</span> <span class="built_in">window</span> ? <span class="string">'orientationchange'</span> : <span class="string">'resize'</span>,</div><div class="line">                    recalc = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                        <span class="keyword">var</span> clientWidth = docEl.clientWidth;</div><div class="line">                        <span class="keyword">if</span> (!clientWidth) <span class="keyword">return</span>;</div><div class="line">                        docEl.style.fontSize = <span class="number">100</span> * (clientWidth / <span class="number">640</span>) + <span class="string">'px'</span>;</div><div class="line">                        <span class="comment">//这里的640 是根据设计稿的宽度来订的，设计稿宽度如果是750，64就改成750，很简单</span></div><div class="line">                    &#125;;</div><div class="line">            <span class="keyword">if</span> (!doc.addEventListener) <span class="keyword">return</span>;</div><div class="line">            win.addEventListener(resizeEvt, recalc, <span class="literal">false</span>);</div><div class="line">            doc.addEventListener(<span class="string">'DOMContentLoaded'</span>, recalc, <span class="literal">false</span>);</div><div class="line">        &#125;)(<span class="built_in">document</span>, <span class="built_in">window</span>);</div></pre></td></tr></table></figure>
+<p>就无须再担心不同屏幕的适配问题了!~</p>
 <h3 id="二、psd切图"><a href="#二、psd切图" class="headerlink" title="二、psd切图"></a>二、psd切图</h3><p>方式有很多，个人常用的方式为基于参考线的切片</p>
 <ol>
 <li>首先在ps中： 视图-&gt;标尺  勾上</li>
@@ -442,10 +446,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">AngularJS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
               </li>
              
@@ -454,15 +454,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">JS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -474,15 +478,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">源码</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">《深入理解Java虚拟机》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AngularJS</a>
               </li>
             
             <div class="clearfix"></div>
