@@ -22,7 +22,7 @@
 导出模块 export default
 引入模块 import
 定义默认porps">
-<meta property="og:updated_time" content="2017-05-28T08:54:13.445Z">
+<meta property="og:updated_time" content="2017-05-28T09:42:37.510Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React的ES6写法">
 <meta name="twitter:description" content="语法规定
@@ -201,6 +201,9 @@
 <p>（1）生命周期的方法<br>在class里定义，方法间不需要加逗号,<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">componentWillMount()&#123;</div><div class="line">   <span class="built_in">console</span>.log(<span class="string">"componentWillMount"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p> (2)自定义的方法<br> 在class里定义，推荐使用箭头函数(es6里class的this指向需要通过.bind(this)来指定，但是使用箭头函数则不需要手动指定了)<br> <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">click1=<span class="function"><span class="params">()</span>=&gt;</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"点击了单击事件"</span>);</div><div class="line">    <span class="keyword">this</span>.setState(&#123;</div><div class="line">        <span class="attr">props1</span>:<span class="string">"改变state的值"</span></div><div class="line">    &#125;)</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"点击了单击事件结束"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>然后在render里可以直接<code>&lt;h1 onClick = {this.click1}&gt;</code>来调用<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">render() &#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">"render"</span>);</div><div class="line">      <span class="keyword">return</span> (</div><div class="line">          <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></div><div class="line">              <span class="tag">&lt;<span class="name">h1</span> <span class="attr">onClick</span>=<span class="string">&#123;this.click1&#125;</span>&gt;</span>&#123;this.state.props1&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">      )</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
+<p>如果需要调用的带参数的方法，需要这种写法<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">handleClick=<span class="function">(<span class="params">args1,args2,fn,e</span>)=&gt;</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(args1);</div><div class="line">        <span class="built_in">console</span>.log(args2);</div><div class="line">        fn();</div><div class="line">        <span class="built_in">console</span>.log(e);</div><div class="line">    &#125;</div><div class="line">render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">        <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></div><div class="line">            <span class="tag">&lt;<span class="name">h1</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span>=&gt;</span>this.handleClick('a','b',()=&gt;&#123;alert('c')&#125;,event)&#125;&gt;Name:&#123;this.props.name&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">h2</span>&gt;</span>Age:&#123;this.props.age&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">h3</span>&gt;</span>Hobby:&#123;this.state.hobby&#125;<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    )</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>即在标签中，在事件调用，不要用<code>&lt;h1 onClick={this.handleClick(参数)}&gt;</code>,这样还没点击，就随着页面加载自动执行了。</p>
+<p>正确方式为：需要使用箭头函数包一下，即<code>&lt;h1 onClick={()=&gt;{this.handleClick(参数)}&gt;</code><br>意思是点击了再执行该方法</p>
 
       
 
@@ -411,19 +414,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">高并发与多线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">AngularJS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
+                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
+                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -436,6 +435,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">JS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">高并发与多线程</a>
               </li>
              
               <li class="article-tag-list-item">
