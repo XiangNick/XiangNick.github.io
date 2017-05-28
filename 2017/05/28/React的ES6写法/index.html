@@ -6,21 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>以mybatis为例浅聊SQL注入 | Mr.Zhang</title>
+  <title>React的ES6写法 | Mr.Zhang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="以用户登录为例，传统代码为一个form表单，输入username和password去数据库发送sql检索，用的是字符串拼接${}。
-select * from t_user where password = &apos;${password}&apos;and username = &apos;${username}&apos;">
+  <meta name="description" content="语法规定
+定义模块 class Life extends Component
+导出模块 export default
+引入模块 import
+定义默认porps">
 <meta property="og:type" content="article">
-<meta property="og:title" content="以mybatis为例浅聊SQL注入">
-<meta property="og:url" content="http://yoursite.com/2017/02/28/以mybatis为例浅聊SQL注入/index.html">
+<meta property="og:title" content="React的ES6写法">
+<meta property="og:url" content="http://yoursite.com/2017/05/28/React的ES6写法/index.html">
 <meta property="og:site_name" content="Mr.Zhang">
-<meta property="og:description" content="以用户登录为例，传统代码为一个form表单，输入username和password去数据库发送sql检索，用的是字符串拼接${}。
-select * from t_user where password = &apos;${password}&apos;and username = &apos;${username}&apos;">
-<meta property="og:updated_time" content="2017-02-28T13:34:16.496Z">
+<meta property="og:description" content="语法规定
+定义模块 class Life extends Component
+导出模块 export default
+引入模块 import
+定义默认porps">
+<meta property="og:updated_time" content="2017-05-28T08:54:13.445Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="以mybatis为例浅聊SQL注入">
-<meta name="twitter:description" content="以用户登录为例，传统代码为一个form表单，输入username和password去数据库发送sql检索，用的是字符串拼接${}。
-select * from t_user where password = &apos;${password}&apos;and username = &apos;${username}&apos;">
+<meta name="twitter:title" content="React的ES6写法">
+<meta name="twitter:description" content="语法规定
+定义模块 class Life extends Component
+导出模块 export default
+引入模块 import
+定义默认porps">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Zhang" type="application/atom+xml">
   
@@ -155,60 +164,43 @@ select * from t_user where password = &apos;${password}&apos;and username = &apo
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-以mybatis为例浅聊SQL注入" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-React的ES6写法" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      以mybatis为例浅聊SQL注入
+      React的ES6写法
     </h1>
   
 
         
-        <a href="/2017/02/28/以mybatis为例浅聊SQL注入/" class="archive-article-date">
-  	<time datetime="2017-02-28T05:03:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-28</time>
+        <a href="/2017/05/28/React的ES6写法/" class="archive-article-date">
+  	<time datetime="2017-05-28T08:42:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-28</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>以用户登录为例，传统代码为一个form表单，输入username和password去数据库发送sql检索，用的是字符串拼接${}。</p>
-<pre><code class="sql"><span class="keyword">select</span> * <span class="keyword">from</span> t_user <span class="keyword">where</span> <span class="keyword">password</span> = <span class="string">'${password}'</span><span class="keyword">and</span> username = <span class="string">'${username}'</span>
-</code></pre>
+        <h2 id="语法规定"><a href="#语法规定" class="headerlink" title="语法规定"></a>语法规定</h2><ol>
+<li>定义模块 class Life extends Component</li>
+<li>导出模块 export default</li>
+<li>引入模块 import</li>
+<li><p>定义默认porps</p>
 <a id="more"></a>
-<p>如果页面输入</p>
-<pre><code class="sql">zhangsan
-1111&#39; or &#39;1 = 1
-</code></pre>
-<p>则sql语句为</p>
-<pre><code class="sql"><span class="keyword">select</span> * <span class="keyword">from</span> t_user <span class="keyword">where</span> <span class="keyword">password</span> = <span class="string">'1111'</span> <span class="keyword">or</span> <span class="string">'1 = 1'</span><span class="keyword">and</span> username = <span class="string">'zhangsan'</span>
-</code></pre>
-<p>此时无论用户名为zhangsan的该用户密码为何值，均能查询出一条记录。</p>
-<hr>
-<p>而用了预编译的#{}占位符后<br>代码为</p>
-<pre><code class="sql"><span class="keyword">select</span> * <span class="keyword">from</span> t_user <span class="keyword">where</span> <span class="keyword">password</span> = #{<span class="keyword">password</span>} <span class="keyword">and</span> username = #{username}
-</code></pre>
-<p>即mybatis发送给数据库的sql为</p>
-<pre><code class="sql"><span class="keyword">select</span> * <span class="keyword">from</span> t_user <span class="keyword">where</span> <span class="keyword">password</span> = ? <span class="keyword">and</span> username = ?
-</code></pre>
-<p>在数据库端便会对该sql进行编译，如果下次有该查询时，mabatis会发送</p>
-<pre><code class="sql"><span class="keyword">select</span> * <span class="keyword">from</span> t_user <span class="keyword">where</span> <span class="keyword">password</span> = #{<span class="keyword">password</span>} <span class="keyword">and</span> username = #{username}
-</code></pre>
-<p>作为“KEY”，页面传入的参数作为“VALUE”<br>去数据库查询，预编译的方式使得发送至数据库的值为sql “KEY” 和 参数 “VALUE”，<br>数据库根据KEY找到编译好的sql，将参数注入进行查询<br>如果页面输入</p>
-<pre><code class="sql">zhangsan
-1111&#39; or &#39;1 = 1
-</code></pre>
-<p>则sql语句为</p>
-<pre><code class="sql"><span class="keyword">select</span> * <span class="keyword">from</span> t_user <span class="keyword">where</span> <span class="keyword">password</span> = <span class="string">'1111'</span> <span class="keyword">or</span> <span class="string">'1 = 1'</span><span class="keyword">and</span> username = <span class="string">'zhangsan'</span>
-</code></pre>
-<hr>
-<p>看到这也许会有疑问，这和传统的字符串拼接，得到的sql还是一样的啊？<br>其实并不是，sql只是数据库端给我们看的一段字符串，真正的查询方式，<br>传统字符串拼接查询，传入数据库的是一个参数，为在程序端拼接好的sql，直接去数据库执行。<br>而预编译方式，传入数据库的是两个参数，一个是</p>
-<pre><code class="sql"><span class="keyword">select</span> * <span class="keyword">from</span> t_user <span class="keyword">where</span> <span class="keyword">password</span> = ? <span class="keyword">and</span> username = ?
-</code></pre>
-<p>语句，一个是值。如果数据库里没该条SQL就会编译好缓存，如果缓存有的话，直接类似“函数接收参数”的方式去执行sql<br>，那么，数据库里是不会有任何一条记录的密码为1111’ or ‘1 = 1，就不会返回记录。从某种意义上来说防止了SQL注入。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> defaultProps = &#123;</div><div class="line"><span class="attr">autoPlay</span>: <span class="literal">false</span>,</div><div class="line">    <span class="attr">maxLoops</span>: <span class="number">10</span>,</div><div class="line">&#125;;  <span class="comment">// 注意这里有分号</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>定义默认state</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">constructor</span>(props)&#123;</div><div class="line">    <span class="keyword">super</span>(props);</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"构造函数"</span>);</div><div class="line">    <span class="comment">// 初始化了我们的state，这是被推荐的写法，构造函数里可以</span></div><div class="line">    <span class="comment">//this.state直接=&#123;&#125;，其他的地方修改state需要this.setState(&#123;&#125;)</span></div><div class="line">    <span class="keyword">this</span>.state = &#123;</div><div class="line">       <span class="attr">props1</span>:<span class="string">"初始化state"</span></div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>定义方法</p>
+</li>
+</ol>
+<p>（1）生命周期的方法<br>在class里定义，方法间不需要加逗号,<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">componentWillMount()&#123;</div><div class="line">   <span class="built_in">console</span>.log(<span class="string">"componentWillMount"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p> (2)自定义的方法<br> 在class里定义，推荐使用箭头函数(es6里class的this指向需要通过.bind(this)来指定，但是使用箭头函数则不需要手动指定了)<br> <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">click1=<span class="function"><span class="params">()</span>=&gt;</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"点击了单击事件"</span>);</div><div class="line">    <span class="keyword">this</span>.setState(&#123;</div><div class="line">        <span class="attr">props1</span>:<span class="string">"改变state的值"</span></div><div class="line">    &#125;)</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"点击了单击事件结束"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>然后在render里可以直接<code>&lt;h1 onClick = {this.click1}&gt;</code>来调用<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">render() &#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">"render"</span>);</div><div class="line">      <span class="keyword">return</span> (</div><div class="line">          <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></div><div class="line">              <span class="tag">&lt;<span class="name">h1</span> <span class="attr">onClick</span>=<span class="string">&#123;this.click1&#125;</span>&gt;</span>&#123;this.state.props1&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">      )</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
 
       
 
@@ -243,7 +235,7 @@ select * from t_user where password = &apos;${password}&apos;and username = &apo
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DB</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">前端，React</a>
         		</li>
       		
 		</ul>
@@ -299,7 +291,7 @@ select * from t_user where password = &apos;${password}&apos;and username = &apo
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/02/28/以mybatis为例浅聊SQL注入/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/28/React的ES6写法/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -313,18 +305,9 @@ select * from t_user where password = &apos;${password}&apos;and username = &apo
   
 <nav id="article-nav">
   
-    <a href="/2017/02/28/SpringMVC中post、get乱码解决/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          SpringMVC中post、get乱码解决
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/02/28/MySQL和Oracle分页的区别/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">MySQL和Oracle分页的区别</div>
+    <a href="/2017/05/23/全国城市JSON列表/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">全国城市JSON列表</div>
       <i class="icon-circle-right"></i>
     </a>
   
