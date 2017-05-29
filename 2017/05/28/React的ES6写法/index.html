@@ -22,7 +22,7 @@
 导出模块 export default
 引入模块 import
 定义默认porps">
-<meta property="og:updated_time" content="2017-05-28T15:20:58.632Z">
+<meta property="og:updated_time" content="2017-05-29T08:18:02.203Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React的ES6写法">
 <meta name="twitter:description" content="语法规定
@@ -188,22 +188,44 @@
 <li>定义模块 class Life extends Component</li>
 <li>导出模块 export default</li>
 <li>引入模块 import</li>
-<li><p>定义默认porps</p>
-<a id="more"></a>
+<li>定义默认porps<a id="more"></a>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> defaultProps = &#123;</div><div class="line"><span class="attr">autoPlay</span>: <span class="literal">false</span>,</div><div class="line">    <span class="attr">maxLoops</span>: <span class="number">10</span>,</div><div class="line">&#125;;  <span class="comment">// 注意这里有分号</span></div></pre></td></tr></table></figure>
 </li>
+</ol>
+<p>衍生：定义class中的静态属性，如：<code>contextTypes</code>，<code>childContextTypes</code>，<code>propTypes</code>，可以采用2种写法</p>
+<p>写法一：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//直接在class里定义静态变量(对象)</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo1</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</div><div class="line">    <span class="keyword">static</span> propTypes = &#123;</div><div class="line">        <span class="attr">autoPlay</span> : PropTypes.bool.isRequired,</div><div class="line">        <span class="attr">maxLoop</span> : PropTypes.number.isRequired</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>写法二：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//在class外通过.的方式绑定静态变量</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo2</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line">Demo2.propTypes = &#123;</div><div class="line">    <span class="attr">autoPlay</span> : PropTypes.bool.isRequired,</div><div class="line">    <span class="attr">maxLoop</span> : PropTypes.number.isRequired</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>ps：</p>
+<p><code>propTypes</code>：给标签的prop属性定义类型校验  eg:<code>&lt;MyVedio autoPlay={true}/&gt;</code> autoPlay就是自己添加的prop</p>
+<p><code>contextTypes</code>：自己的context类型校验</p>
+<p><code>childContextTypes</code>：后代的context类型校验</p>
+</blockquote>
+<ol>
 <li><p>定义默认state</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">constructor</span>(props)&#123;</div><div class="line">    <span class="keyword">super</span>(props);</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"构造函数"</span>);</div><div class="line">    <span class="comment">// 初始化了我们的state，这是被推荐的写法，构造函数里可以</span></div><div class="line">    <span class="comment">//this.state直接=&#123;&#125;，其他的地方修改state需要this.setState(&#123;&#125;)</span></div><div class="line">    <span class="keyword">this</span>.state = &#123;</div><div class="line">       <span class="attr">props1</span>:<span class="string">"初始化state"</span></div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 <li><p>定义方法</p>
 </li>
 </ol>
-<p>（1）生命周期的方法<br>在class里定义，方法间不需要加逗号,<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">componentWillMount()&#123;</div><div class="line">   <span class="built_in">console</span>.log(<span class="string">"componentWillMount"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>（1）生命周期的方法 (覆写)</p>
+<p>在class里定义，方法间不需要加逗号</p>
+<p><code>格式为 ： 方法名(){方法体}  同Java写法</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">componentWillMount()&#123;</div><div class="line">   <span class="built_in">console</span>.log(<span class="string">"componentWillMount"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p> (2)自定义的方法<br> 在class里定义，推荐使用箭头函数(es6里class的this指向需要通过.bind(this)来指定，但是使用箭头函数则不需要手动指定了)<br> <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">click1=<span class="function"><span class="params">()</span>=&gt;</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"点击了单击事件"</span>);</div><div class="line">    <span class="keyword">this</span>.setState(&#123;</div><div class="line">        <span class="attr">props1</span>:<span class="string">"改变state的值"</span></div><div class="line">    &#125;)</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"点击了单击事件结束"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>然后在render里可以直接<code>&lt;h1 onClick = {this.click1}&gt;</code>来调用<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">render() &#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">"render"</span>);</div><div class="line">      <span class="keyword">return</span> (</div><div class="line">          <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></div><div class="line">              <span class="tag">&lt;<span class="name">h1</span> <span class="attr">onClick</span>=<span class="string">&#123;this.click1&#125;</span>&gt;</span>&#123;this.state.props1&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">      )</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
 <p>如果需要调用的带参数的方法，需要这种写法<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">handleClick=<span class="function">(<span class="params">args1,args2,fn,e</span>)=&gt;</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(args1);</div><div class="line">        <span class="built_in">console</span>.log(args2);</div><div class="line">        fn();</div><div class="line">        <span class="built_in">console</span>.log(e);</div><div class="line">    &#125;</div><div class="line">render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">        <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></div><div class="line">            <span class="tag">&lt;<span class="name">h1</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span>=&gt;</span>this.handleClick('a','b',()=&gt;&#123;alert('c')&#125;,event)&#125;&gt;Name:&#123;this.props.name&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">h2</span>&gt;</span>Age:&#123;this.props.age&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">h3</span>&gt;</span>Hobby:&#123;this.state.hobby&#125;<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    )</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>即在标签中，在事件调用，不要用<code>&lt;h1 onClick={this.handleClick(参数)}&gt;</code>,这样还没点击，就随着页面加载自动执行了。</p>
 <p>正确方式为：需要使用箭头函数包一下，即<code>&lt;h1 onClick={()=&gt;{this.handleClick(参数)}&gt;</code><br>意思是点击了再执行该方法</p>
+<ol>
+<li>向子代传递数据</li>
+</ol>
+<p>父代：</p>
+<p>(1) 覆写<code>getChildContext</code>方法，返回数据<code>对象</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">getChildContext() &#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="attr">color</span>: <span class="string">'skyblue'</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>(2) 覆写 <code>childContextTypes</code> 静态属性，给需要给后代传的数据对象 定义类型校验<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> childContextTypes = &#123;</div><div class="line">    <span class="attr">color</span> : PropTypes.string</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>子代：</p>
+<p>(1) 覆写自己的 <code>contextTypes</code> 静态属性， 以对其从父代传递，自己继承来的context属性进行类型校验<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> contextTypes = &#123;</div><div class="line">    <span class="attr">color</span> : PropTypes.string</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>(2) 在子代中可以直接通过 <code>this.context.属性名</code> 获得父代传递的属性</p>
+<p>案例：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React , &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span></div><div class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">'prop-types'</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Son</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</div><div class="line">    <span class="comment">// (3) 对自己继承来的context值类型校验</span></div><div class="line">    <span class="keyword">static</span> contextTypes = &#123;</div><div class="line">        <span class="attr">color</span> : PropTypes.string</div><div class="line">    &#125;</div><div class="line">    render()&#123;</div><div class="line">        <span class="comment">// (4) 直接this.context.属性名获取传递来的值</span></div><div class="line">        <span class="keyword">return</span> (</div><div class="line">            <span class="xml"><span class="tag">&lt;<span class="name">button</span> </span></span></div><div class="line">            <span class="attr">style</span>=<span class="string">&#123;&#123;backgroundColor:this.context.color&#125;&#125;</span>&gt;</div><div class="line">            &#123;this.props.children&#125;</div><div class="line">            <span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">        )</div><div class="line">        <span class="comment">//this.props.children可以获取到&lt;Son&gt;之间的文本值&lt;/Son&gt;</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Father</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</div><div class="line">    <span class="comment">//(2) 定义子代Context的类型校验</span></div><div class="line">    <span class="keyword">static</span> childContextTypes = &#123;</div><div class="line">        <span class="attr">color</span> : PropTypes.string</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//(1) 覆写该方法，返回值是给子代传递的值对象</span></div><div class="line">    getChildContext()&#123;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            <span class="attr">color</span> : <span class="string">'skyblue'</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    render()&#123;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">            <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></div><div class="line">              <span class="tag">&lt;<span class="name">Son</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">Son</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//对外暴露Father</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> Father;</div></pre></td></tr></table></figure></p>
 
       
 
@@ -422,10 +444,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
               </li>
              
@@ -434,7 +452,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JS</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -442,11 +460,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
+                <a href="javascript:void(0)" class="js-tag color3">JS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
+                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -459,6 +477,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">DB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
              
               <li class="article-tag-list-item">
