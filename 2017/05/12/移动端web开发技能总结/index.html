@@ -26,7 +26,7 @@
 <meta property="og:image" content="http://yoursite.com/\img\g11.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\g12.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\g13.jpg">
-<meta property="og:updated_time" content="2017-05-23T03:00:14.790Z">
+<meta property="og:updated_time" content="2017-06-01T01:23:33.509Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动端web开发技能总结">
 <meta name="twitter:description" content="一、rem布局对于移动设备的适配，传统模式使用宽度设置百分比，高度设置px，利用百分比来完成不同设备的适配，但是布局起来比较麻烦，也有一定的局限性，目前比较完善的是rem布局。">
@@ -196,7 +196,7 @@
 <p>2、为了在不同的设备上都有相同百分比的布局，一般根据UI给的设计稿将其均分，比如UI给的设计稿是在640px环境下的，我们就将其均分为20份，那么一份为32px，html的font-size就为32px，接下来通过媒体查询或者js给html根元素设置了font-size之后，剩下的其他的均为(UI图中实际px/UI图中一份的px)rem。</p>
 <ul>
 <li>2.1 rem+媒体查询实践<br><img src="\img\g1.png" alt=""></li>
-<li>① rem单位设置<br>假如UI给了这张设计图，其宽度大小为640px，那么我们将其分为20份，得到一份为32px。<br>接着去less中编写媒体查询语句为html根节点赋font-size、<br>一般命名为adapter.less<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">media</span> only screen and (width:<span class="number">320px</span>)&#123;</div><div class="line">    <span class="selector-tag">html</span>&#123;</div><div class="line">        <span class="attribute">font-size</span>: <span class="number">16px</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@<span class="keyword">media</span> only screen and (width:<span class="number">360px</span>)&#123;</div><div class="line">    <span class="selector-tag">html</span>&#123;</div><div class="line">        <span class="attribute">font-size</span>: <span class="number">18px</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@<span class="keyword">media</span> only screen and (width:<span class="number">375px</span>)&#123;</div><div class="line">    <span class="selector-tag">html</span>&#123;</div><div class="line">        <span class="attribute">font-size</span>: <span class="number">18.75px</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@<span class="keyword">media</span> only screen and (width:<span class="number">400px</span>)&#123;</div><div class="line">    <span class="selector-tag">html</span>&#123;</div><div class="line">        <span class="attribute">font-size</span>: <span class="number">20px</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@<span class="keyword">media</span> only screen and (width:<span class="number">414px</span>)&#123;</div><div class="line">    <span class="selector-tag">html</span>&#123;</div><div class="line">        <span class="attribute">font-size</span>: <span class="number">20.7px</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@<span class="keyword">media</span> only screen and (width:<span class="number">640px</span>)&#123;</div><div class="line">    <span class="selector-tag">html</span>&#123;</div><div class="line">        <span class="attribute">font-size</span>: <span class="number">32px</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li>① rem单位设置<br>假如UI给了这张设计图，其宽度大小为640px，那么我们将其分为20份，得到一份为32px。<br>接着去less中编写媒体查询语句为html根节点赋font-size、<br>一般命名为adapter.less<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">media</span> only screen and (width:<span class="number">320px</span>)&#123;</div><div class="line">    <span class="selector-tag">html</span>&#123;</div><div class="line">        <span class="attribute">font-size</span>: <span class="number">16px</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@<span class="keyword">media</span> only screen and (width:<span class="number">360px</span>)&#123;</div><div class="line">    <span class="selector-tag">html</span>&#123;</div><div class="line">        <span class="attribute">font-size</span>: <span class="number">18px</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@<span class="keyword">media</span> only screen and (width:<span class="number">375px</span>)&#123;</div><div class="line">    <span class="selector-tag">html</span>&#123;</div><div class="line">        <span class="attribute">font-size</span>: <span class="number">18.75px</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@<span class="keyword">media</span> only screen and (width:<span class="number">400px</span>)&#123;</div><div class="line">    <span class="selector-tag">html</span>&#123;</div><div class="line">        <span class="attribute">font-size</span>: <span class="number">20px</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@<span class="keyword">media</span> only screen and (width:<span class="number">414px</span>)&#123;</div><div class="line">    <span class="selector-tag">html</span>&#123;</div><div class="line">        <span class="attribute">font-size</span>: <span class="number">20.7px</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@<span class="keyword">media</span> only screen and (width:<span class="number">640px</span>)&#123;</div><div class="line">    <span class="selector-tag">html</span>&#123;</div><div class="line">        <span class="attribute">font-size</span>: <span class="number">32px</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;!<span class="selector-tag">--</span>宽度大于640的情况<span class="selector-tag">--</span>&gt;</div><div class="line">@<span class="keyword">media</span> only screen and (min-width:<span class="number">640</span>)&#123;</div><div class="line">    <span class="selector-tag">html</span>&#123;</div><div class="line">        <span class="attribute">font-size</span>: <span class="number">32px</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>这样大部分的手机移动设备都设置了rem的1单位的大小。（本例以20份为例）</p>
@@ -442,7 +442,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">高并发与多线程</a>
+                <a href="javascript:void(0)" class="js-tag color5">AngularJS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -450,15 +450,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">高并发与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">AngularJS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -466,7 +466,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Java高并发程序设计</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -478,11 +486,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DB</a>
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
+                <a href="javascript:void(0)" class="js-tag color3">DB</a>
               </li>
              
               <li class="article-tag-list-item">
