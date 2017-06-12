@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>CentOS下的node.JS环境配置 | Mr.Zhang</title>
+  <title>ES6语法学习 | Mr.Zhang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="三M安装法：nvm nrm npm1.安装nvmNVM（Node version manager），是Node.js的版本管理软件，可以轻松的在node.js各个版本间切换，项目源码在GitHub；">
+  <meta name="description" content="环境搭建环境可以去我的GitHub使用gulp,babel搭建即时编译es6语法的环境直接使用。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CentOS下的node.JS环境配置">
-<meta property="og:url" content="http://yoursite.com/2017/05/20/CentOS下的node-JS环境配置/index.html">
+<meta property="og:title" content="ES6语法学习">
+<meta property="og:url" content="http://yoursite.com/2017/06/12/ES6语法学习/index.html">
 <meta property="og:site_name" content="Mr.Zhang">
-<meta property="og:description" content="三M安装法：nvm nrm npm1.安装nvmNVM（Node version manager），是Node.js的版本管理软件，可以轻松的在node.js各个版本间切换，项目源码在GitHub；">
-<meta property="og:updated_time" content="2017-05-20T12:35:17.343Z">
+<meta property="og:description" content="环境搭建环境可以去我的GitHub使用gulp,babel搭建即时编译es6语法的环境直接使用。">
+<meta property="og:updated_time" content="2017-06-12T09:39:43.551Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CentOS下的node.JS环境配置">
-<meta name="twitter:description" content="三M安装法：nvm nrm npm1.安装nvmNVM（Node version manager），是Node.js的版本管理软件，可以轻松的在node.js各个版本间切换，项目源码在GitHub；">
+<meta name="twitter:title" content="ES6语法学习">
+<meta name="twitter:description" content="环境搭建环境可以去我的GitHub使用gulp,babel搭建即时编译es6语法的环境直接使用。">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Zhang" type="application/atom+xml">
   
@@ -152,57 +152,50 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-CentOS下的node-JS环境配置" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-ES6语法学习" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      CentOS下的node.JS环境配置
+      ES6语法学习
     </h1>
   
 
         
-        <a href="/2017/05/20/CentOS下的node-JS环境配置/" class="archive-article-date">
-  	<time datetime="2017-05-20T12:29:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-20</time>
+        <a href="/2017/06/12/ES6语法学习/" class="archive-article-date">
+  	<time datetime="2017-06-12T08:55:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="三M安装法：nvm-nrm-npm"><a href="#三M安装法：nvm-nrm-npm" class="headerlink" title="三M安装法：nvm nrm npm"></a>三M安装法：nvm nrm npm</h3><h3 id="1-安装nvm"><a href="#1-安装nvm" class="headerlink" title="1.安装nvm"></a>1.安装nvm</h3><p>NVM（Node version manager），是Node.js的版本管理软件，可以轻松的在node.js各个版本间切换，项目源码在GitHub；<br><a id="more"></a><br>在开发环境中，避免不了经常需要更换node版本的情况，nvm只需几行命令即可完成node版本的下载，使用。在非 Windows(如 os x, Linux) 环境下, 可以使用 nvm 来配置 node 开发环境, 保持系统的干净，在Windows 环境下, 可以使用nvm，也可以用 nvmw 来替代 nvm；</p>
-<h3 id="1-1-具体步骤"><a href="#1-1-具体步骤" class="headerlink" title="1.1 具体步骤"></a>1.1 具体步骤</h3><h4 id="获取nvm源码"><a href="#获取nvm源码" class="headerlink" title="获取nvm源码"></a>获取nvm源码</h4><p>方法一 ：直接从 github 找到最新版本通过wget下载到本地<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget https://github.com/cnpm/nvm/archive/v0.23.0.tar.gz</div></pre></td></tr></table></figure></p>
-<p>完毕后需要解压</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -zxvf v0.23.0.tar.gz -C 解压目录</div></pre></td></tr></table></figure>
-<p>方法二 ：直接git clone 克隆项目源码到本地</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Git clone https://github.com/cnpm/nvm.git</div></pre></td></tr></table></figure>
-<h4 id="安装nvm"><a href="#安装nvm" class="headerlink" title="安装nvm"></a>安装nvm</h4><p>安装nvm非常简单，只要进入nvm的源码目录然后执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./install.sh</div></pre></td></tr></table></figure>
-<p>然后添加环境变量</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source ~/.bash_profile</div></pre></td></tr></table></figure>
-<p>如果想终端启动时自动执行 source ~/git/nvm/nvm.sh,<br>需要在 ~/.bashrc, ~/.bash_profile, ~/.profile, 或者 ~/.zshrc 文件添加以下命令:（.profile一般在/etc下）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source ~/nvm的路径/nvm.sh</div></pre></td></tr></table></figure>
-<p>这样就会在机器启动时自动执行以上命令了。<br>此时，nvm已经安装完毕。<br>可以通过<code>nvm --version</code>命令来查看是否安装完成。</p>
-<h4 id="nvm相关命令"><a href="#nvm相关命令" class="headerlink" title="nvm相关命令"></a>nvm相关命令</h4><ol>
-<li>列出所有可安装的版本nvm list-remote</li>
-<li>安装某版本 nvm install 版本号 </li>
-<li>使用某版本 nvm use 版本号</li>
-<li>查看本地已经下载过可供切换的版本 nvm ls</li>
-</ol>
-<h3 id="2-安装npm"><a href="#2-安装npm" class="headerlink" title="2.安装npm"></a>2.安装npm</h3><p>npm通过以上步骤已经随node一同安装完毕，可以直接使用</p>
-<h3 id="3-安装nrm"><a href="#3-安装nrm" class="headerlink" title="3.安装nrm"></a>3.安装nrm</h3><p>通常，npm的包下载路径是从国外下载的，速度很慢，我们可以在命令最后添加<br><code>--registry=https://registry.npm.taobao.org</code> 来指定镜像，加速下载。如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install gulp -g --registry=https://registry.npm.taobao.org</div></pre></td></tr></table></figure>
-<p>我们可以安装nrm来管理npm镜像环境，不需要每次都指定镜像了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g nrm</div></pre></td></tr></table></figure>
-<h4 id="nrm相关命令"><a href="#nrm相关命令" class="headerlink" title="nrm相关命令"></a>nrm相关命令</h4><ol>
-<li>列出可选的源<code>nrm ls</code></li>
-<li>切换源 <code>nrm use 名称</code></li>
-<li>增加源 可以增加定制的源，特别适用于添加企业内部的私有源。私有源可以使用cnpmjs架设。<br><code>nrm add    [home]</code></li>
-<li>删除源 <code>nrm del 名称</code></li>
-<li>测试速度<code>nrm test 名称</code> 测试指定源的响应时间<br><code>nrm test</code>测试全部源的时间，为了取得较准确的结果，可以考虑多次测试取平均值</li>
-</ol>
+        <h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>环境可以去我的GitHub<a href="https://github.com/XiangNick/es6Study" target="_blank" rel="external">使用gulp,babel搭建即时编译es6语法的环境</a>直接使用。<br><a id="more"></a></p>
+<h2 id="语法学习"><a href="#语法学习" class="headerlink" title="语法学习"></a>语法学习</h2><h3 id="1-let-和-const"><a href="#1-let-和-const" class="headerlink" title="1.let 和 const"></a>1.let 和 const</h3><p>在es6以前，js只有<code>function(){}</code>才能定义作用域<br>现在可以使用let和const来定义拥有自己块级作用域的变量和常量。</p>
+<p>let用来定义变量，const用来定义常量，const定义的常量无法被重新赋值。</p>
+<h3 id="2-解构数组"><a href="#2-解构数组" class="headerlink" title="2.解构数组"></a>2.解构数组</h3><p>es6中的新语法，意思为分解一个东西的结构。<br>在以前的写法中，如果我们得到了一个数组，希望把数组的值赋值给其他变量，需要一个个得将数组项赋值，如下<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">breakfast</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> [<span class="string">'cake'</span>,<span class="string">'hamburger'</span>,<span class="string">'noodle'</span>];</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> temp = breakfast();</div><div class="line"><span class="keyword">var</span> food1 = temp[<span class="number">0</span>],</div><div class="line">    food2 = temp[<span class="number">1</span>],</div><div class="line">    food3 = temp[<span class="number">2</span>];</div></pre></td></tr></table></figure></p>
+<p>很麻烦。<br>在es6中，我们可以直接使用解构语法来赋值。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">breakfast</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> [<span class="string">'cake'</span>,<span class="string">'hamburger'</span>,<span class="string">'noodle'</span>];</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> [food1,food2,food3] = breakfast();</div></pre></td></tr></table></figure></p>
+<p>这样，三个变量就直接得到返回的数组值了。</p>
+<h3 id="3-模版字符串"><a href="#3-模版字符串" class="headerlink" title="3.模版字符串"></a>3.模版字符串</h3><p>传统的字符串拼接为<code>var str = &#39;今天是&#39;+day+&#39;天气为&#39;+weather</code>，字符串拼接变量。</p>
+<p>es6中使用模版字符串，用`来包裹字符串，${}来包裹变量即可。</p>
+<p>var str = `今天是${day}天气为${weather}`</p>
+<h3 id="4-带标签的模版字符串"><a href="#4-带标签的模版字符串" class="headerlink" title="4.带标签的模版字符串"></a>4.带标签的模版字符串</h3><p>可以在模版字符串前放置一个标签，然后定义该标签(为一个function)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> skills = [<span class="string">'Java'</span>,<span class="string">'nodeJS'</span>,<span class="string">'React Native'</span>]</div><div class="line"></div><div class="line"><span class="keyword">let</span> str = myTag<span class="string">`我会的技能有</span></div><div class="line">    <span class="subst">$&#123;skills[<span class="number">0</span>]&#125;</span> 和 <span class="subst">$&#123;skills[<span class="number">1</span>]&#125;</span> 以及 <span class="subst">$&#123;skills[<span class="number">2</span>]&#125;</span></div><div class="line">`</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">myTag</span>(<span class="params">strings,...values</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(strings);</div><div class="line">    <span class="built_in">console</span>.log(values);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>从打印结果可以看出，strings为模版字符串的所有字符数组，values为模版字符串中的变量数组。</p>
+<h3 id="5-判断字符串中是否包含其他字符串"><a href="#5-判断字符串中是否包含其他字符串" class="headerlink" title="5.判断字符串中是否包含其他字符串"></a>5.判断字符串中是否包含其他字符串</h3><p>es6中新增了字符串的api。</p>
+<ul>
+<li>startsWith(str)  <code>boolean</code>  </li>
+<li>endsWith(str)  <code>boolean</code></li>
+<li>includes(str) <code>boolean</code></li>
+</ul>
+<p>记得方法名后都有一个<code>s</code></p>
+<h3 id="6-默认参数"><a href="#6-默认参数" class="headerlink" title="6.默认参数"></a>6.默认参数</h3><p>对于方法中的形参，可以使用<code>=</code>来给定默认参数，如果该方法不传值，就用默认参数，传值了就用新参数。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">breakfast</span>(<span class="params">dessert=<span class="string">'cake'</span>,drink=<span class="string">'milk'</span></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;dessert&#125;</span>,<span class="subst">$&#123;drink&#125;</span>`</span>;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(breakfast());<span class="comment">//cake,milk</span></div><div class="line"><span class="built_in">console</span>.log(breakfast(<span class="string">'hamburger'</span>,<span class="string">'juice'</span>));<span class="comment">//hamburger,juice</span></div></pre></td></tr></table></figure></p>
+<h3 id="7-展开操作符-剩余操作符"><a href="#7-展开操作符-剩余操作符" class="headerlink" title="7.展开操作符/剩余操作符"></a>7.展开操作符/剩余操作符</h3><p>使用方法一：<br>展开一个数组<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> fruits = [<span class="string">'apple'</span>,<span class="string">'banana'</span>];</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(fruits);<span class="comment">//["apple", "banana"]</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(...fruits);<span class="comment">//apple banana</span></div></pre></td></tr></table></figure></p>
+<p>使用方法二：将一个数组展开，放入一个新数组，和concat有点像哦<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> fruits = [<span class="string">'apple'</span>,<span class="string">'banana'</span>];</div><div class="line"><span class="keyword">let</span> foods = [<span class="string">'cake'</span>,...fruits];</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(foods);<span class="comment">//["cake", "apple", "banana"]</span></div></pre></td></tr></table></figure></p>
+<p>使用方法三：作为方法的形参，接收不限数量的参数，存入该形参的数组里。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">breakfast</span>(<span class="params">dessert,drink,...foods</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(dessert,drink,foods);</div><div class="line">    <span class="comment">//cake milk ["noodle", "hamburger"]</span></div><div class="line">&#125;</div><div class="line">breakfast(<span class="string">'cake'</span>,<span class="string">'milk'</span>,<span class="string">'noodle'</span>,<span class="string">'hamburger'</span>);</div></pre></td></tr></table></figure></p>
+<p>可以看到，foods接收了更多的参数，存入了以它命名的数组里。</p>
 
       
 
@@ -293,7 +286,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/20/CentOS下的node-JS环境配置/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/06/12/ES6语法学习/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -307,18 +300,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/05/21/使用node和commander-js构建命令行工具/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          使用node和commander.js构建命令行工具
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/05/19/H5的-picture-响应式处理图片/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">H5的&lt;picture&gt;响应式处理图片</div>
+    <a href="/2017/06/10/VSCode提供react-native提示/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">VSCode提供react-native提示</div>
       <i class="icon-circle-right"></i>
     </a>
   
