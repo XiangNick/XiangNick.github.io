@@ -15,8 +15,9 @@
 <meta property="og:site_name" content="Mr.Zhang">
 <meta property="og:description" content="一、快速开始1.全局安装webpack">
 <meta property="og:image" content="http://yoursite.com/\img\p3.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\p5.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\p4.jpg">
-<meta property="og:updated_time" content="2017-06-13T01:37:50.423Z">
+<meta property="og:updated_time" content="2017-06-13T01:41:16.803Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack学习">
 <meta name="twitter:description" content="一、快速开始1.全局安装webpack">
@@ -184,6 +185,7 @@
 <p>app.js<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">'container'</span>).innerHTML </div><div class="line">= <span class="string">"&lt;h1&gt;Hello WebPack!&lt;/h1&gt;"</span></div></pre></td></tr></table></figure></p>
 <h3 id="5-编写webpack配置文件"><a href="#5-编写webpack配置文件" class="headerlink" title="5.编写webpack配置文件"></a>5.编写webpack配置文件</h3><p>我们先编写<code>webpack.develop.config.js</code>开发配置文件。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);<span class="comment">//引入path模块，方便我们</span></div><div class="line"><span class="comment">//处理文件路径</span></div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="comment">//要处理的js入口文件</span></div><div class="line">    entry : path.resolve(__dirname,<span class="string">'src/js/app.js'</span>),</div><div class="line">    <span class="comment">//导出的文件</span></div><div class="line">    output : &#123;</div><div class="line">        <span class="attr">path</span> : path.resolve(__dirname,<span class="string">'dist'</span>),</div><div class="line">        <span class="attr">filename</span> : <span class="string">'bundle.js'</span>,</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h3 id="6-在根目录命令行打包"><a href="#6-在根目录命令行打包" class="headerlink" title="6.在根目录命令行打包"></a>6.在根目录命令行打包</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">webpack --config webpack.develop.config.js</div><div class="line"><span class="comment">//--config 指定配置文件名</span></div></pre></td></tr></table></figure>
+<p><img src="\img\p5.jpg" alt=""></p>
 <h3 id="7-效果查看"><a href="#7-效果查看" class="headerlink" title="7.效果查看"></a>7.效果查看</h3><p>此时可以看到在根目录生成了一个<code>dist目录</code>,里面有打包好的<code>bundle.js文件</code><br>将我们的index.html拷入dist目录 ( 因为index.html引入js的路径就是src=’bundle.js’ ) ，打开查看。</p>
 <p><img src="\img\p4.jpg" alt=""></p>
 
@@ -392,19 +394,7 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">高并发与多线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -412,11 +402,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JS</a>
+                <a href="javascript:void(0)" class="js-tag color3">高并发与多线程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
+                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -424,11 +414,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java高并发程序设计</a>
+                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -440,7 +434,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Java高并发程序设计</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -448,7 +446,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">源码</a>
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -457,6 +455,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">RN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">源码</a>
               </li>
              
               <li class="article-tag-list-item">
