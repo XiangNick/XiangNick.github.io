@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://yoursite.com/\img\p5.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\p4.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\p6.jpg">
-<meta property="og:updated_time" content="2017-06-14T15:05:27.735Z">
+<meta property="og:updated_time" content="2017-06-14T16:51:41.655Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack学习">
 <meta name="twitter:description" content="一、快速开始1.全局安装webpack">
@@ -255,7 +255,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm i babel-loader -D</div><div class="line">npm i babel-core   babel-preset-es2015   babel-preset-react  -D</div></pre></td></tr></table></figure>
 </li>
 <li><p>修改webpcak.develop.config.js这个配置文件</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>: &#123;</div><div class="line">       <span class="attr">loaders</span>: [</div><div class="line">           <span class="comment">// babel来处理jsx语法和ES6语法</span></div><div class="line">           &#123;</div><div class="line">               <span class="attr">test</span>: <span class="regexp">/\.jsx?$/</span>, <span class="comment">// 用正则来匹配文件路径，这段意思是匹配 js 或者 jsx</span></div><div class="line">               loader: <span class="string">'babel'</span>,<span class="comment">// 加载模块 "babel" 是 "babel-loader" 的缩写</span></div><div class="line">               query: &#123;</div><div class="line">                   <span class="comment">//babel的一些preset，可以处理es6和react代码为原生js代码</span></div><div class="line">                   presets: [<span class="string">'es2015'</span>, <span class="string">'react'</span>]</div><div class="line">                   <span class="comment">//需要提前npm install,格式为:babel-preset-xx名</span></div><div class="line">               &#125;</div><div class="line">           &#125;]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>: &#123;</div><div class="line">       <span class="attr">loaders</span>: [</div><div class="line">           <span class="comment">// babel来处理jsx语法和ES6语法</span></div><div class="line">           &#123;</div><div class="line">               <span class="attr">test</span>: <span class="regexp">/\.jsx?$/</span>, <span class="comment">// 用正则来匹配文件路径，这段意思是匹配 js 或者 jsx</span></div><div class="line">               loader: <span class="string">'babel-loader'</span>,<span class="comment">// 加载模块 "babel-loader"，现在不再支持省略"-loader"这个缩写的写法了</span></div><div class="line">               query: &#123;</div><div class="line">                   <span class="comment">//babel的一些preset，可以处理es6和react代码为原生js代码</span></div><div class="line">                   presets: [<span class="string">'es2015'</span>, <span class="string">'react'</span>]</div><div class="line">                   <span class="comment">//需要提前npm install,格式为:babel-preset-xx名</span></div><div class="line">               &#125;</div><div class="line">           &#125;]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>babel常见的presets选项有：</p>
@@ -542,7 +542,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
+                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -554,6 +554,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
               </li>
              
@@ -562,19 +566,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Java高并发程序设计</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DB</a>
               </li>
              
               <li class="article-tag-list-item">

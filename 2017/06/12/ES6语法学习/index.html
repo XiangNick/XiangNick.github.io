@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/06/12/ES6语法学习/index.html">
 <meta property="og:site_name" content="Mr.Zhang">
 <meta property="og:description" content="环境搭建环境可以去我的GitHub使用gulp,babel搭建即时编译es6语法的环境直接使用。">
-<meta property="og:updated_time" content="2017-06-12T14:52:55.668Z">
+<meta property="og:updated_time" content="2017-06-14T17:00:00.995Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6语法学习">
 <meta name="twitter:description" content="环境搭建环境可以去我的GitHub使用gulp,babel搭建即时编译es6语法的环境直接使用。">
@@ -224,21 +224,23 @@
 <p>由此，根据需求，我们可以手工实现一个迭代器。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> factory = <span class="function"><span class="keyword">function</span>(<span class="params">cars</span>)</span>&#123;</div><div class="line">    <span class="keyword">let</span> i = <span class="number">0</span>;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        next()&#123;</div><div class="line">            <span class="keyword">let</span> done = (i&gt;=cars.length); <span class="comment">//注意done和value的定义顺序         </span></div><div class="line">            <span class="keyword">let</span> value = !done ? cars[i++] : <span class="literal">undefined</span>;</div><div class="line">            <span class="keyword">return</span> &#123;</div><div class="line">                <span class="attr">value</span>:value,</div><div class="line">                <span class="attr">done</span>:done</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> cars = factory([<span class="string">'劳斯莱斯'</span>,<span class="string">'法拉利'</span>,<span class="string">'保时捷'</span>]);</div><div class="line"><span class="built_in">console</span>.log(cars.next());<span class="comment">//Object &#123;value: "劳斯莱斯", done: false&#125;</span></div><div class="line"><span class="built_in">console</span>.log(cars.next());<span class="comment">//Object &#123;value: "法拉利", done: false&#125;</span></div><div class="line"><span class="built_in">console</span>.log(cars.next());<span class="comment">//Object &#123;value: "保时捷", done: false&#125;</span></div><div class="line"><span class="built_in">console</span>.log(cars.next());<span class="comment">//Object &#123;value: undefined, done: true&#125;</span></div></pre></td></tr></table></figure></p>
 <h3 id="17-Generators"><a href="#17-Generators" class="headerlink" title="17. Generators"></a>17. Generators</h3><p>手工写迭代器有些麻烦，我们可以利用Generators(生成器)来创建一个迭代器<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="string">"babel-polyfill"</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span>* <span class="title">factory</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">yield</span>  <span class="string">'劳斯莱斯'</span>;</div><div class="line">    <span class="keyword">yield</span>  <span class="string">'法拉利'</span>;</div><div class="line">    <span class="keyword">yield</span>  <span class="string">'保时捷'</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> cars = factory();</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(cars.next());</div><div class="line"><span class="comment">//Object &#123;value: "劳斯莱斯", done: false&#125;</span></div><div class="line"><span class="built_in">console</span>.log(cars.next());</div><div class="line"><span class="comment">//Object &#123;value: "法拉利", done: false&#125;</span></div><div class="line"><span class="built_in">console</span>.log(cars.next());</div><div class="line"><span class="comment">//Object &#123;value: "保时捷", done: false&#125;</span></div><div class="line"><span class="built_in">console</span>.log(cars.next());</div><div class="line"><span class="comment">//Object &#123;value: undefined, done: true&#125;</span></div></pre></td></tr></table></figure></p>
 <blockquote>
-<p>tips1:在浏览器端使用Generators会报错，<code>regeneratorruntime is not defined</code>,我们要引入babel的拓展包(Polyfill)</p>
+<p>tips1:在浏览器端使用Generators会报错，<code>regeneratorruntime is not defined</code></p>
 </blockquote>
+<p>解决问题的前提：使用webpack或者其他构建工具来构建项目，因为我们需要添加ES6的<code>regenerator</code>模块，肯定涉及到import或者require该模块，虽然我们可以通过babel将ES6代码转成ES5的，但是浏览器端依旧不支持import或者require语法。我们得利用webpack之类的工具来构建，使得浏览器也支持模块加载import或者require语法。</p>
+<p>解决方法一：<br>引入babel的拓展包(Polyfill) <font color="deepskyblue">[ 不推荐 ]</font></p>
 <p>1.先在命令行 安装polyfill<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev babel-polyfill</div></pre></td></tr></table></figure></p>
 <p>2.在js头部引入 <code>import &quot;babel-polyfill&quot;</code></p>
 <p>但是依然会报错<code>require is not defined</code>,因为我们虽然引入了扩展包Polyfill,babel也帮我们转换成了es5语法，但是<br>浏览器端依旧不认识import或者require这样的AMD规范的语法。想要在浏览器端也引入其他模块，需要利用webpack或者browserify的包装转换。</p>
 <p>3.在webpack.config.js中最上面写上var babelpolyfill = require(“babel-polyfill”);</p>
 <p>再在需要拓展的js文件的头部引入 <code>import &quot;babel-polyfill&quot;</code></p>
 <p>这样就既引入了扩展包，也让浏览器支持了import、require之类的AMD规范语法，就不会报错了。</p>
+<p>解决方法二：<br>使用transform-runtime来扩展 <font color="deepskyblue">[ 推荐 ]</font></p>
 <blockquote>
 <p>tips2:babel-polyfill是可以的，但是他太大了<br>现在6.0版本的babel改成了插件的形式，现在推荐的是transform-runtime</p>
 </blockquote>
 <p>babel-polyfill是一股脑把全部都添加到js文件中，而现在的transform-runtime将会判断你哪些需要加载的，有选择性的进行加载，并且后者也不会污染全局变量。</p>
-<p>使用方法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i --save-dev babel-plugin-transform-runtime</div></pre></td></tr></table></figure></p>
-<p>在 .babelrc 文件中添加：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="string">"plugins"</span>: [[</div><div class="line">    <span class="string">"transform-runtime"</span>,</div><div class="line">    &#123;</div><div class="line">      <span class="string">"helpers"</span>: <span class="literal">false</span>,</div><div class="line">      <span class="string">"polyfill"</span>: <span class="literal">false</span>,</div><div class="line">      <span class="string">"regenerator"</span>: <span class="literal">true</span>,</div><div class="line">      <span class="string">"moduleName"</span>: <span class="string">"babel-runtime"</span></div><div class="line">    &#125;</div><div class="line">  ]]</div></pre></td></tr></table></figure></p>
-<p>  同样是为我们增加了es6的扩展，但是浏览器端不支持import或者require.我们还是得靠webpack来生成浏览器端支持的import或者require语法的js代码。</p>
+<p>使用方法：<br>1.安装babel-plugin-transform-runtime<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i --save-dev babel-plugin-transform-runtime</div></pre></td></tr></table></figure></p>
+<p>2.在 .babelrc 文件中添加：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="string">"plugins"</span>: [[</div><div class="line">    <span class="string">"transform-runtime"</span>,</div><div class="line">    &#123;</div><div class="line">      <span class="string">"helpers"</span>: <span class="literal">false</span>,</div><div class="line">      <span class="string">"polyfill"</span>: <span class="literal">false</span>,</div><div class="line">      <span class="string">"regenerator"</span>: <span class="literal">true</span>,</div><div class="line">      <span class="string">"moduleName"</span>: <span class="string">"babel-runtime"</span></div><div class="line">    &#125;</div><div class="line">  ]]</div></pre></td></tr></table></figure></p>
 
       
 
@@ -470,7 +472,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
+                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -482,6 +484,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
               </li>
              
@@ -490,19 +496,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Java高并发程序设计</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DB</a>
               </li>
              
               <li class="article-tag-list-item">
