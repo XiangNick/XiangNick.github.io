@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/06/09/Java中的高并发-一/index.html">
 <meta property="og:site_name" content="Mr.Zhang">
 <meta property="og:description" content="一、并发知识基础1.1 临界区表示一种公共资源或者共享数据，可以被多个线程使用。但是每一次只能有一个线程使用他，一旦临界资源被占用，其他线程想要使用这个资源的只能挂起等待。如果有多个线程同时修改临界资源，就会出现线程不安全现象。">
-<meta property="og:updated_time" content="2017-06-09T02:52:46.855Z">
+<meta property="og:updated_time" content="2017-06-13T17:45:50.200Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java中的高并发(一)">
 <meta name="twitter:description" content="一、并发知识基础1.1 临界区表示一种公共资源或者共享数据，可以被多个线程使用。但是每一次只能有一个线程使用他，一旦临界资源被占用，其他线程想要使用这个资源的只能挂起等待。如果有多个线程同时修改临界资源，就会出现线程不安全现象。">
@@ -205,7 +205,80 @@
 <h3 id="无等待"><a href="#无等待" class="headerlink" title="无等待"></a>无等待</h3><p>定义：在无锁的基础上扩展，无锁等级要求必然有一个线程能够在有限步内完成操作离开临界区,而无等待要求<code>所有的线程都必须在有限步内完成</code>。如果限制这个步数上限，可以分为：有界无等待和线程数无关无等待。</p>
 <p>实现：<code>RCU(Read-Copy Update)</code>读-拷贝修改<br>对读无限制，所有<code>读线程</code>都是无等待的，写数据的时候，先取得原始数据副本，修改副本数据，再利用回调机制，在合适时机写回。</p>
 <p>缺点：写开销大，延迟数据结构释放，复制被修改数据结构有开销。</p>
+<h2 id="1-3-Java内存模型-JMM"><a href="#1-3-Java内存模型-JMM" class="headerlink" title="1.3 Java内存模型(JMM)"></a>1.3 Java内存模型(JMM)</h2><p>定义一种规则，保证多个线程间可以有效地、正确地协同工作。</p>
+<ul>
+<li><font color="deepskyblue">原子性</font>
 
+</li>
+</ul>
+<p>指一个操作是不可中断的，在多线程一起执行的时候，一旦该操作开始，就不会被其他线程干扰。<br>比如对静态全局变量 int i , 两个线程同时对它赋值，一个赋值1，一个赋值-1，那么int i的值要么为1，要么-1，是不可分割的。</p>
+<blockquote>
+<p>但是在32位系统中，long型数据的读写不是原子性的 ( 因为long有64位 )，如果想要在32位系统保证long型数据的多线程下的安全性，可以用volatile关键字来修饰，虚拟机就会格外小心地处理该变量，以保证其多线程下的安全性。</p>
+</blockquote>
+<ul>
+<li><font color="deepskyblue">可见性</font>
+
+</li>
+</ul>
+<p>当一个线程修改了某一个共享变量的值，其他线程是否能够立即知道这个修改。</p>
+<p>对于串行程序来说，可见性问题是不存在的，因为在任何一个步骤修改了某个变量，后面的步骤读取的都是修改后的值。</p>
+<p>而在多线程中，如果一个线程修改了某个全局变量，其他线程未必可以马上知道这个改动。</p>
+<p>什么会引起可见性问题：</p>
+<ol>
+<li><p>缓存优化：<br>由于编译器优化或者硬件优化的缘故，可能会将共享变量缓存在cache或者寄存器里，那么其他线程修改了这个共享变量，当前线程可能使用的仍然是cache或者寄存器里的值。</p>
+</li>
+<li><p>硬件优化<br>有些内存读写可能不会立即触发，而是会先进入一个硬件等待队列。</p>
+</li>
+<li><p>指令重排</p>
+</li>
+<li><p>编辑器优化</p>
+</li>
+</ol>
+<p>这些都有可能导致线程出现可见性问题，即一个线程的修改不会立即被其他线程<code>察觉</code></p>
+<ul>
+<li><font color="deepskyblue">有序性</font>
+
+<ol>
+<li>一条指令的执行需要分很多步 ( 取指，译码，取寄存器操作数等… ) ，每一个步骤涉及的硬件也不同 ( PC寄存器，存储器，指令寄存器组等… ) ，多条指令执行间使用了<code>指令流水线技术(多条指令交错地执行，有节拍)</code>提升指令执行性能，但是指令中断(比如某操作要等待某一步的结果，就会阻塞，导致指令中断)会影响后面指令慢节拍，为了减少中断，cpu会采用指令重排( 代码顺序换个个 )，重排后的代码不会影响串行语义的一致，还能减少甚至消除指令中断，以提高性能。</li>
+<li>指令重排能减少指令中断，提升cpu性能，对单线程，虽然代码执行顺序改变了，但是不会影响单线程串行语义一致。但是在多线程中，这种指令重排优化使得线程A的指令执行顺序在线程B中是没有保证的。</li>
+<li>指令重排后的指令与原指令未必一致，多线程协作完成任务时，程序执行可能会出现乱序，在我们希望多线程拆分一个任务共同完成时可能会因为指令重排而出现有序性问题。</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>tips：</p>
+<ol>
+<li>指令重排可以保证串行语义一致，但是没有义务保证多线程间的语义也一致。</li>
+<li>指令重排是有原则的，Happen-Before原则。</li>
+</ol>
+</blockquote>
+<p> Happen-Before原则：</p>
+<ul>
+<li>程序顺序原则： 一个线程内保证语义的串行性</li>
+<li>volatile规则：volatile变量的写，先发生于读，保证了volatile变量的可见性</li>
+<li>锁规则：解锁 ( unlock ) 必然发生在随后的加锁 ( lock ) 前</li>
+<li>传递性：A先于B，B先于C，A必然先于C</li>
+<li>线程的start()方法先于它的每一个动作</li>
+<li>线程的所有操作先于线程的终结 ( Thread.join() )</li>
+<li>线程的中断 ( interrupt() ) 先于被中断线程的代码</li>
+<li>对象的构造函数执行、结束先于finalize()方法</li>
+</ul>
+<h2 id="二、Java并行程序基础"><a href="#二、Java并行程序基础" class="headerlink" title="二、Java并行程序基础"></a>二、Java并行程序基础</h2><h2 id="2-1-线程的状态"><a href="#2-1-线程的状态" class="headerlink" title="2.1 线程的状态"></a>2.1 线程的状态</h2> <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">public enum State &#123;</div><div class="line">    NEW,  //刚刚new创建的线程</div><div class="line">    RUNNABLE, // 运行的线程 ( 回不去 NEW 状态 )</div><div class="line">    BLOCKED,// 遇到synchronized同步块，直到等到获得请求的锁</div><div class="line">    WAITING, // 无限时间的等待，等待结束事件，</div><div class="line">    //通过wait()等待的，等待notify(),通过join()等待的，等待目标线程中止</div><div class="line">    TIMED_WAITING,//有限时间等待</div><div class="line">    TERMINATED//终止，( 回不去 runnable 状态 )</div><div class="line">&#125;</div><div class="line">``` </div><div class="line"></div><div class="line"> ## 2.2 初始线程</div><div class="line"></div><div class="line"> ### 2.2.1 新建线程</div><div class="line"></div><div class="line"> 1. 继承Thread类，覆写run()方法，或者直接new Thread的匿名内部类</div><div class="line"> 2. 实现Runnable接口,实现run()方法，丢入Thread &lt;font color=skyblue&gt;[合理]&lt;/font&gt;</div><div class="line"></div><div class="line"> ### 2.2.2 终止线程  &lt;font color=skyblue&gt;[暴力地停止线程]&lt;/font&gt;</div><div class="line"> 如何手工关闭线程？</div><div class="line"> </div><div class="line"> stop()方法 &lt;font color=skyblue&gt;[弃用]&lt;/font&gt;</div><div class="line"> </div><div class="line"> 因为stop方法太暴力，强行把执行到一半的线程终止，可能会引起数据不一致的问题。stop()方法在结束线程时，会直接终止线程，并且立即释放这个线程所持有的锁。而这些锁恰恰是用来维持对象一致性的。</div><div class="line"></div><div class="line"> &lt;font color=red&gt;不要随便使用stop()方法来终止一个线程( stop()方法已经弃用了 )&lt;/font&gt;</div><div class="line"></div><div class="line"> 对stop()方法的改进。</div><div class="line"></div><div class="line"> 可以定义一个flag变量stopme,和将该flag变量置为true的方法stopMe,在线程run()方法中，找一个安全的，不会把对象"写坏"的地方，不断判断flag，如果为true，就让线程的run()方法执行完毕，如在while循环中break。这样，我们在外部可以找一个合适的时机调用stopme方法将该线程的stopMe这个flag置为true，温和地让run()方法执行完毕，线程自然停止了。</div><div class="line"></div><div class="line"> 代码实现:</div><div class="line"> ```java</div><div class="line"> public static class ChangeObjectThread extends Thread&#123;</div><div class="line">     volatile boolean stopme = false;</div><div class="line"></div><div class="line">     public void stopMe()&#123;</div><div class="line">         stopme = true;</div><div class="line">     &#125;</div><div class="line">     @override</div><div class="line">     public void run()&#123;</div><div class="line">         while(true)&#123;</div><div class="line">             if(stopme)&#123;</div><div class="line">                 System.out.println("exit by stop me.");</div><div class="line">                 break;</div><div class="line">             &#125;</div><div class="line">             synchronized(锁)&#123;</div><div class="line">                 同步代码...,比如写对象</div><div class="line">             &#125; </div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>  这样当stopMe()方法被调用，run()方法中就会检测到stopme这个flag的改变，直接break了，run()方法执行完毕，线程终止，不会写坏对象。很温和。</p>
+<h3 id="2-2-3-线程中断-温柔地停止线程"><a href="#2-2-3-线程中断-温柔地停止线程" class="headerlink" title="2.2.3 线程中断  [温柔地停止线程]"></a>2.2.3 线程中断  <font color="skyblue">[温柔地停止线程]</font></h3><p>为了完善线程退出的功能，JDK提供了线程中断机制。</p>
+<p>严格来说，线程中断并不会使线程立刻退出，而是给线程发送一个通知，告知目标线程，有人希望你退出，结束啦！至于线程接受到通知后如何处理，完全由目标线程自行决定。这点使得线程中断不会出现之前线程终止(stop方法)的数据一致性问题。</p>
+<p>与线程中断有关的三个方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">void</span> Thread.interrupt()   <span class="comment">//--实例方法 中断线程  </span></div><div class="line"><span class="keyword">public</span> <span class="keyword">boolean</span> Thread.isInterrupted()   <span class="comment">//--实例方法 判断是否被中断</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> Thread.interrupted()   </div><div class="line"><span class="comment">//--静态方法 判断是否被中断，并清除当前中断状态</span></div></pre></td></tr></table></figure></p>
+<ul>
+<li>Thread.interrupt()是一个实例方法，通知目标线程中断，即设置<code>中断标志位</code><br><code>中断标志位</code>表示当前线程已经被中断了。</li>
+<li>Thread.isInterrupted()也是实例方法，判断当前线程是否有被中断 <code>( 判断中断标志位 )</code></li>
+<li>Thread.interrupted()静态方法也是判断当前线程中断状态，但他还能清除当前线程的中断标志位状态。</li>
+</ul>
+<font color="red">在线程中没有预先写好中断处理的逻辑，调用t1.interrupt()方法来中断t1线程是无效的。所以想要t1在被置上中断标志位后能退出，还得自己在合适的地方写上中断处理逻辑代码。</font>
+
+<p>举例：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">Thread t1 = <span class="keyword">new</span> Thread()&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</div><div class="line">            <span class="keyword">if</span>(Thread.currentThread().isInterrupted())&#123;</div><div class="line">                System.out.println(<span class="string">'Interrupted!'</span>);</div><div class="line">                <span class="keyword">break</span>; </div><div class="line">                <span class="comment">//如果监测到t1被置上中断标志位，就break掉while循环，</span></div><div class="line">                <span class="comment">//线程执行完毕，中断了。</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>和之前的stopMe示例很像，对吧。这三个方法是官方API实现。</p>
+<p>Thread.sleep(long millis)方法。<br>让当前线程休眠若干时间,会抛出InterruptedException,<br>该方法由于中断而抛出异常，sleep方法会清除中断标记，下一次循环时就无法捕获这个中断了，所以在catch处理块中，还要手动设置中断标志位(Thread.currentThread().interrupt()).</p>
+<h3 id="2-2-4-等待-wait-和通知-notify"><a href="#2-2-4-等待-wait-和通知-notify" class="headerlink" title="2.2.4 等待 ( wait ) 和通知 ( notify )"></a>2.2.4 等待 ( wait ) 和通知 ( notify )</h3>
       
 
       
@@ -432,23 +505,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">AngularJS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">高并发与多线程</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AngularJS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -457,6 +522,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">JS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
