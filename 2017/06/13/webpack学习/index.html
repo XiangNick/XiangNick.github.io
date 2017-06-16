@@ -21,6 +21,11 @@
 <meta property="og:image" content="http://yoursite.com/\img\p7.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\p8.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\p9.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\p18.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\p19.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\p19.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\p21.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\p22.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\p10.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\p12.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\p11.jpg">
@@ -29,7 +34,7 @@
 <meta property="og:image" content="http://yoursite.com/\img\p15.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\p16.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\p17.jpg">
-<meta property="og:updated_time" content="2017-06-15T16:41:28.786Z">
+<meta property="og:updated_time" content="2017-06-16T10:18:25.981Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack学习">
 <meta name="twitter:description" content="一、快速开始1.全局安装webpack">
@@ -421,6 +426,49 @@
 <p>再删除原来的dist目录，重新构建<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run publish</div></pre></td></tr></table></figure></p>
 <p>  <img src="\img\p9.jpg" alt=""></p>
 <p>  可以看到，我们自己写的代码，<code>bundle.js</code>现在只有7.47kb了，第三方库全分离出去，合并为<code>vendors.js</code>文件，有151kb</p>
+<h3 id="4-分割代码，模块按需加载"><a href="#4-分割代码，模块按需加载" class="headerlink" title="4. 分割代码，模块按需加载"></a>4. 分割代码，模块按需加载</h3><p> 在我们之前写的代码中，引入某模块或者依赖使用require或者import会导致所有我们的代码都打包在一个bundle.js文件中，很臃肿，如果可以实现点击某按钮或者通过某路由再去加载js、css之类的，这样就可以把bundle.js给抽离出来，用户首屏加载快，需要的代码再按需加载。</p>
+<p> 对于分割代码，分割多了会导致http请求多，加大服务器负担。分割少了导致js过于庞大，首屏加载慢，用户体验差。这个平衡需要掌握好。一般都是首页的资源同步加载。后面的模块采用异步加载。通过webpack实现的<code>require.ensure</code>可以轻松实现。</p>
+<ol>
+<li>配置</li>
+</ol>
+<ul>
+<li>修改webpack.publish.config.js<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">output : &#123;</div><div class="line">      <span class="attr">path</span> : path.resolve(__dirname,<span class="string">"dist"</span>),</div><div class="line">      <span class="attr">filename</span> : <span class="string">"js/bundle.js"</span>,<span class="comment">//把bundle.js放到dist/js/目录下</span></div><div class="line">       <span class="comment">// 为了做代码的异步加载</span></div><div class="line">      publicPath:<span class="string">"./"</span>, <span class="comment">// 设置require.ensure路径</span></div><div class="line">      chunkFilename: <span class="string">"js/chunk/[name]_[chunkhash:8]_chunk.js"</span><span class="comment">// 设置require.ensure 文件</span></div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>对于平常写的普通代码。<br>我们将之前写的import和require之类的同步引入代码改为<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>.ensure([依赖的模块],<span class="function"><span class="keyword">function</span>(<span class="params">require</span>)</span>&#123;</div><div class="line">    <span class="comment">//回调函数</span></div><div class="line">    <span class="built_in">require</span>(<span class="string">'引入的其他模块'</span>);<span class="comment">//引入他就是执行他</span></div><div class="line">    <span class="comment">//这样就可以异步地加载再执行其他模块的代码了。</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>如果其他模块使用<code>export default</code>的方式，ensure的回调里的require(‘引入其他模块’)要改为<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>.ensure([依赖的模块],<span class="function"><span class="keyword">function</span>(<span class="params">require</span>)</span>&#123;</div><div class="line">     <span class="built_in">require</span>(<span class="string">'引入的其他模块'</span>).default;</div><div class="line">     <span class="comment">//这样就能获取他export出来的接口，我们再处理</span></div><div class="line"> &#125;)</div></pre></td></tr></table></figure></p>
+<p>如果是<code>react-router</code>里的路由，我们也可以采用异步加载<br>以前在<code>Router.js</code>文件里，我们写的通常是：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> MovieContainer <span class="keyword">from</span> <span class="string">'../containers/MovieContainer.js'</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">        <span class="comment">//...之前的省略</span></div><div class="line">        &lt;Route path=<span class="string">"movie"</span> component=&#123;MovieContainer&#125;&gt;</div><div class="line">        <span class="comment">//...之后的省略</span></div><div class="line">    )</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样的格式，但是这样都是同步引入模块的，都会被构建进bundle.js</p>
+<p>我们可以修改。</p>
+<p>删除<code>Router.js</code>顶部的<code>非首页的组件的import代码</code>  (首页同步加载，其他的异步) </p>
+<p>然后将<code>Router.js</code>的render里的component用getComponent方法代替<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">        <span class="comment">//...之前的省略</span></div><div class="line">        &lt;Route path=<span class="string">"movie"</span> </div><div class="line">            getComponent=&#123;</div><div class="line">            (nextState, callback)=&gt; &#123;</div><div class="line">                <span class="built_in">require</span>.ensure([], (<span class="built_in">require</span>)=&gt; &#123;</div><div class="line">                    callback(<span class="literal">null</span>, <span class="built_in">require</span>(<span class="string">"../containers/MovieContainer.js"</span>).default)</div><div class="line">                &#125;, <span class="string">"movie"</span>)</div><div class="line">            &#125;</div><div class="line">        &#125;&gt;</div><div class="line">        <span class="comment">//...之后的省略</span></div><div class="line">    )</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这样可以在React中实现路由的异步加载。</p>
+<p>完整的React路由异步加载实例如下：<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React, &#123;Component&#125; <span class="keyword">from</span> <span class="string">'react'</span></div><div class="line"><span class="keyword">import</span> &#123; Router, Route, IndexRoute,Redirect,browserHistory,hashHistory&#125; <span class="keyword">from</span> <span class="string">'react-router'</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> AppContainer <span class="keyword">from</span> <span class="string">'../containers/AppContainer.js'</span></div><div class="line"><span class="keyword">import</span> HomeContainer <span class="keyword">from</span> <span class="string">'../containers/HomeContainer.js'</span></div><div class="line"><span class="comment">//以上首页需要的都采用同步加载</span></div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Routers</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">    render() &#123;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">            &lt;Router history=&#123;browserHistory&#125;&gt;</div><div class="line">                &lt;Route path="/" component=&#123;AppContainer&#125;&gt;</div><div class="line">                    &lt;IndexRoute component=&#123;HomeContainer&#125; /&gt;</div><div class="line">                    &lt;Route path="home" component=&#123;HomeContainer&#125; /&gt;</div><div class="line">                    &lt;Route path="movie"</div><div class="line">                           // 权限或者日志记录可以用这两个方法</div><div class="line">                           onEnter=&#123;()=&gt;null&#125;</div><div class="line">                           onLeave=&#123;()=&gt;null&#125;</div><div class="line">                           getComponent=&#123;</div><div class="line">                               (nextState, callback)=&gt; &#123;</div><div class="line">                                   require.ensure([], (require)=&gt; &#123;</div><div class="line">                                       callback(null, require("../containers/MovieContainer.js").default)</div><div class="line">                                   &#125;, "movie")</div><div class="line">                               &#125;</div><div class="line">                           &#125;</div><div class="line">                    &gt;</div><div class="line">                        &lt;IndexRoute</div><div class="line">                            getComponent=&#123;</div><div class="line">                                (nextState, callback)=&gt; &#123;</div><div class="line">                                    require.ensure([], (require)=&gt; &#123;</div><div class="line">                                        callback(null, require("../containers/MovieListContainer.js").default)</div><div class="line">                                    &#125;, "movie")</div><div class="line">                                &#125;</div><div class="line">                            &#125;</div><div class="line">                        /&gt;</div><div class="line">                        &lt;Route path="movieList/:movieType"</div><div class="line">                               getComponent=&#123;</div><div class="line">                                   (nextState, callback)=&gt; &#123;</div><div class="line">                                       require.ensure([], (require)=&gt; &#123;</div><div class="line">                                           callback(null, require("../containers/MovieListContainer.js").default)</div><div class="line">                                       &#125;, "movieList")</div><div class="line">                                   &#125;</div><div class="line">                               &#125;</div><div class="line">                        /&gt;</div><div class="line">                        &lt;Route path="movieDetail/:id"</div><div class="line">                               getComponent=&#123;</div><div class="line">                                   (nextState, callback)=&gt; &#123;</div><div class="line">                                       require.ensure([], (require)=&gt; &#123;</div><div class="line">                                           callback(null, require("../containers/MovieDetailContainer.js").default)</div><div class="line">                                       &#125;, "movieDetail")</div><div class="line">                                   &#125;</div><div class="line">                               &#125;</div><div class="line">                        /&gt;</div><div class="line">                        &lt;Route path="movieSearch/:keyWord"</div><div class="line">                               getComponent=&#123;</div><div class="line">                                   (nextState, callback)=&gt; &#123;</div><div class="line">                                       require.ensure([], (require)=&gt; &#123;</div><div class="line">                                           callback(null, require("../containers/MovieSearchContainer.js").default)</div><div class="line">                                       &#125;, "movieSearch")</div><div class="line">                                   &#125;</div><div class="line">                               &#125;</div><div class="line">                        /&gt;</div><div class="line">                    &lt;/Route&gt;</div><div class="line">                    &lt;Route path="call"</div><div class="line">                           getComponent=&#123;</div><div class="line">                               (nextState, callback)=&gt; &#123;</div><div class="line">                                   require.ensure([], (require)=&gt; &#123;</div><div class="line">                                       callback(null, require("../containers/CallContainer.js").default)</div><div class="line">                                   &#125;, "call")</div><div class="line">                               &#125;</div><div class="line">                           &#125;</div><div class="line">                    /&gt;</div><div class="line">                &lt;/Route&gt;</div><div class="line">            &lt;/Router&gt;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<ol>
+<li><p>举例：</p>
+<p><code>Project1.less</code>随便写的样式。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">button</span>&#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>Project1.js</code>，引入了<code>Project1.less</code>,暴露出一个Person对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="string">'../css/Project1.less'</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(name,age)&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">        <span class="keyword">this</span>.age = age;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    sayHi()&#123;</div><div class="line">        alert(<span class="string">`Hi!`</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> Person;</div></pre></td></tr></table></figure>
+<p><code>IndexComponent.js</code>需要导入<code>Project1.js</code>的内容</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">import</span> React,&#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span></div><div class="line"> <span class="keyword">import</span> Person <span class="keyword">from</span> <span class="string">'./Project1.js'</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">IndexComponent</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</div><div class="line">    </div><div class="line">    <span class="keyword">constructor</span>(props,context)&#123;</div><div class="line">        <span class="keyword">super</span>(props,context);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    handleClick()&#123;</div><div class="line">        <span class="keyword">let</span> p = <span class="keyword">new</span> Person();</div><div class="line">        p.sayHi();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    render()&#123;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">            <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></div><div class="line">                <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;this.handleClick&#125;</span>&gt;</span>clickMe<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> IndexComponent;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>最终通过ReactDOM，在app.js中render到id为container的idv里。<br>我们构建这段代码。</p>
+<p>  <img src="\img\p18.jpg" alt=""><br>可以看到，因为我们写的是同步加载其他js文件，所以webpack帮我们把他们都一起打入<code>bundle.js</code>文件中了，</p>
+<p> <img src="\img\p19.jpg" alt=""></p>
+<p>用户需要一口气把bundle.js都请求过来。</p>
+<p>然后，我们采用webpack的异步加载策略。使用<code>require.ensure</code>在<code>IndexComponent.js</code>中来导入<code>Project1.js</code></p>
+<p>修改<code>IndexComponent.js</code>代码。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React,&#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">IndexComponent</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</div><div class="line">    </div><div class="line">    <span class="keyword">constructor</span>(props,context)&#123;</div><div class="line">        <span class="keyword">super</span>(props,context);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    handleClick()&#123;</div><div class="line">        <span class="built_in">require</span>.ensure([],(<span class="built_in">require</span>)=&gt;&#123;</div><div class="line">            <span class="keyword">let</span> Person = <span class="built_in">require</span>(<span class="string">'./Project1.js'</span>).default;<span class="comment">//因为Project1.js里export的就是default</span></div><div class="line">            <span class="keyword">let</span> p = <span class="keyword">new</span> Person();</div><div class="line">            p.sayHi();</div><div class="line">        &#125;,<span class="string">'project1'</span>)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    render()&#123;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">            <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></div><div class="line">                <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;this.handleClick&#125;</span>&gt;</span>clickMe<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> IndexComponent;</div></pre></td></tr></table></figure></p>
+<p>即删除原先的<code>import Person from &#39;./Project1.js&#39;</code>语句，改为在click方法中来require.ensure Project1.js</p>
+<p>再次构建。</p>
+<p> <img src="\img\p19.jpg" alt=""></p>
+<p> 可以看出，我们划分出了chunk文件，他会按需加载。</p>
+<p> 用户第一次请求</p>
+<p> <img src="\img\p21.jpg" alt=""></p>
+<p> 点击了按钮后，异步加载chunk代码。</p>
+<p> <img src="\img\p22.jpg" alt=""></p>
 <h2 id="五、常用插件"><a href="#五、常用插件" class="headerlink" title="五、常用插件"></a>五、常用插件</h2><p>  之前介绍的加载器loader是在构建代码之前进行的预处理操作。那么插件就是在构建代码之后的扫尾操作。<br>  要区分开来。</p>
 <h3 id="1-压缩插件-–-UglifyJsPlugin"><a href="#1-压缩插件-–-UglifyJsPlugin" class="headerlink" title="1. 压缩插件  – UglifyJsPlugin"></a>1. 压缩插件  – UglifyJsPlugin</h3><p> UglifyJsPlugin压缩插件也是webpack自带的，所以先在顶部引入webpack<br> <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</div></pre></td></tr></table></figure></p>
 <p> 然后在plugins里新增他<br> <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">plugins :[</div><div class="line">    <span class="keyword">new</span> webpack.optimize.UglifyJsPlugin(&#123;</div><div class="line">        <span class="attr">compress</span> : &#123;</div><div class="line">            <span class="comment">//忽略代码中的警告</span></div><div class="line">            warnings : <span class="literal">false</span></div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">]</div></pre></td></tr></table></figure></p>
@@ -754,15 +802,7 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">高并发与多线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -770,7 +810,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color3">高并发与多线程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -782,15 +822,23 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">JS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java高并发程序设计</a>
+                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -802,6 +850,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">源码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IDE</a>
               </li>
              
@@ -810,19 +862,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">源码</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">《深入理解Java虚拟机》</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Java高并发程序设计</a>
               </li>
             
             <div class="clearfix"></div>
