@@ -21,7 +21,15 @@
 <meta property="og:image" content="http://yoursite.com/\img\p7.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\p8.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\p9.jpg">
-<meta property="og:updated_time" content="2017-06-15T10:16:41.307Z">
+<meta property="og:image" content="http://yoursite.com/\img\p10.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\p12.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\p11.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\p13.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\p14.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\p15.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\p16.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\p17.jpg">
+<meta property="og:updated_time" content="2017-06-15T16:41:28.786Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack学习">
 <meta name="twitter:description" content="一、快速开始1.全局安装webpack">
@@ -375,7 +383,7 @@
 <p>这样也能加载字体文件了。</p>
 <h3 id="3-5-特殊模块的loader-–expose-loader-了解"><a href="#3-5-特殊模块的loader-–expose-loader-了解" class="headerlink" title="3.5 特殊模块的loader –expose-loader  [ 了解 ]"></a>3.5 特殊模块的loader –expose-loader <font color="deepskyblue"> [ 了解 ]</font></h3><p>比如我们的项目要依赖一些外部的库，如jquery，想在全局都能挂载使用window.jQuery, 需要从 npm 模块中将 jquery 挂载到全局</p>
 <p>举例：比如我们用到 Pen 这个模块,<br>这个模块对依赖一个 window.jQuery, 可手头的 jQuery 是 CommonJS 语法的<br>而 Pen 对象又是生成好了绑在全局的, 可又需要通过 require(‘pen’) 获取变量</p>
-<p>最终的写法就是做 Shim 处理直接提供支持:<br>先安装expose-loader依赖进部署依赖<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i -S expose-loader</div></pre></td></tr></table></figure></p>
+<p>最终的写法就是做 Shim 处理直接提供支持:<br>先安装expose-loader依赖进开发依赖<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i -D expose-loader</div></pre></td></tr></table></figure></p>
 <p>修改webpack.publish.config.js里的loaders</p>
 <p>分别增加Pen和jquery模块<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">test</span>: <span class="built_in">require</span>.resolve(<span class="string">'jquery'</span>), </div><div class="line">    <span class="attr">loader</span>: <span class="string">'expose-loader?jQuery'</span></div><div class="line">&#125;,</div><div class="line">&#123;</div><div class="line">    <span class="attr">test</span>: <span class="built_in">require</span>.resolve(<span class="string">'pen'</span>), </div><div class="line">    <span class="attr">loader</span>: <span class="string">'exports-loader?window.Pen'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h2 id="四、部署策略"><a href="#四、部署策略" class="headerlink" title="四、部署策略"></a>四、部署策略</h2><h3 id="1-修改npm的package-json文件"><a href="#1-修改npm的package-json文件" class="headerlink" title="1. 修改npm的package.json文件"></a>1. 修改npm的package.json文件</h3><p>“scripts”里新增一个publish脚本<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"publish"</span>: <span class="string">" webpack --config webpack.publish.config.js  -p"</span></div></pre></td></tr></table></figure></p>
@@ -410,8 +418,136 @@
 <li>修改index.html</li>
 </ol>
 <p>在引入bundle.js之前引入vendors.js<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"vendors.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script src=<span class="string">"bundle.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
-<p>再次<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run publish</div></pre></td></tr></table></figure></p>
-<p>  <img src="\img\p9.jpg" alt=""><br>  可以看到，我们自己写的代码，<code>bundle.js</code>现在只有7.47kb了，第三方库全分离出去，合并为<code>vendors.js</code>文件，有151kb</p>
+<p>再删除原来的dist目录，重新构建<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run publish</div></pre></td></tr></table></figure></p>
+<p>  <img src="\img\p9.jpg" alt=""></p>
+<p>  可以看到，我们自己写的代码，<code>bundle.js</code>现在只有7.47kb了，第三方库全分离出去，合并为<code>vendors.js</code>文件，有151kb</p>
+<h2 id="五、常用插件"><a href="#五、常用插件" class="headerlink" title="五、常用插件"></a>五、常用插件</h2><p>  之前介绍的加载器loader是在构建代码之前进行的预处理操作。那么插件就是在构建代码之后的扫尾操作。<br>  要区分开来。</p>
+<h3 id="1-压缩插件-–-UglifyJsPlugin"><a href="#1-压缩插件-–-UglifyJsPlugin" class="headerlink" title="1. 压缩插件  – UglifyJsPlugin"></a>1. 压缩插件  – UglifyJsPlugin</h3><p> UglifyJsPlugin压缩插件也是webpack自带的，所以先在顶部引入webpack<br> <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</div></pre></td></tr></table></figure></p>
+<p> 然后在plugins里新增他<br> <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">plugins :[</div><div class="line">    <span class="keyword">new</span> webpack.optimize.UglifyJsPlugin(&#123;</div><div class="line">        <span class="attr">compress</span> : &#123;</div><div class="line">            <span class="comment">//忽略代码中的警告</span></div><div class="line">            warnings : <span class="literal">false</span></div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<p>再删除原来的dist目录，重新构建</p>
+<h3 id="2-抽取css插件-–-extract-text-webpack-plugin"><a href="#2-抽取css插件-–-extract-text-webpack-plugin" class="headerlink" title="2. 抽取css插件  – extract-text-webpack-plugin"></a>2. 抽取css插件  – extract-text-webpack-plugin</h3><p>  在webpack中编写js文件时，可以通过require的方式引入其他的静态资源，可通过loader对文件自动解析并打包文件。通常会将js 文件打包合并，css文件会在页面的header中嵌入style的方式载入页面。但开发过程中我们并不想将样式打在脚本中，最好可以独立生成css文 件，以外链的形式加载。这时extract-text-webpack-plugin插件可以帮我们达到想要的效果。需要使用npm的方式加载插件，然后 参见下面的配置，就可以将js中的css文件提取，并以指定的文件名来进行加载。</p>
+<ol>
+<li><p>安装该插件入开发依赖 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i -D extract-text-webpack-plugin</div></pre></td></tr></table></figure>
+</li>
+<li><p>在webpack.publish.config.js头部引入</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ExtractTextPlugin = <span class="built_in">require</span>(<span class="string">"extract-text-webpack-plugin"</span>)</div></pre></td></tr></table></figure>
+</li>
+<li><p>在plugins里new一下他</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//取的名称</span></div><div class="line"><span class="keyword">new</span> ExtractTextPlugin(<span class="string">"app.css)</span></div></pre></td></tr></table></figure>
+<p>这里给的名称是从js中抽取出来的css的文件名，同样可以写成<code>[name].[hash].css&quot;</code>这样的格式。</p>
+</li>
+<li><p>修改处理css的loader的配置，</p>
+<p>从</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> &#123;</div><div class="line">   <span class="attr">test</span>: <span class="regexp">/\.css$/</span>, </div><div class="line">   <span class="attr">loader</span>: <span class="string">'style-loader!css-loader'</span> </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>改为<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">test</span>:<span class="regexp">/\.css$/</span>,</div><div class="line">    <span class="attr">loader</span>:ExtractTextPlugin.extract(&#123;<span class="attr">fallback</span>:<span class="string">"style-loader"</span>,<span class="attr">use</span>:<span class="string">"css-loader"</span>&#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这样就可以从各个js文件中抽取出css再合并了。<br>但是如果我们js文件中引用的是less文件，则我们还要把处理less的那个loader改为如下格式：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//less</span></div><div class="line">&#123;</div><div class="line">    <span class="attr">test</span>: <span class="regexp">/\.less$/</span>,</div><div class="line">    <span class="attr">loader</span>:ExtractTextPlugin.extract(&#123;<span class="attr">fallback</span>:<span class="string">"style-loader"</span>,<span class="attr">use</span>:<span class="string">"css-loader!less-loader"</span>&#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样也可以从各个js中抽取出less文件再合并了</p>
+<p>再删除原来的dist目录，重新构建</p>
+<p>  <img src="\img\p10.jpg" alt=""></p>
+<p>  可以看到各个js中的css或者less都被抽取出来合并成一个css了。</p>
+<p>  把index.html粘贴到dist目录下，<br>  别忘了在<code>index.html</code>中再引入下该css<br>  <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"app.css"</span>/&gt;</span></div></pre></td></tr></table></figure></p>
+<h3 id="3-创建index-html页面插件-–-html-webpack-plugin"><a href="#3-创建index-html页面插件-–-html-webpack-plugin" class="headerlink" title="3. 创建index.html页面插件  – html-webpack-plugin"></a>3. 创建index.html页面插件  – html-webpack-plugin</h3><p>  之前构建完毕后，还要把src下的index.html文件手动粘贴到dist目录下，再修改下，才能看到效果，这个插件可以自动帮我们创建index.html在dist目录下</p>
+<ol>
+<li><p>安装html-webpack-plugin到开发依赖</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i -D html-webpack-plugin</div></pre></td></tr></table></figure>
+</li>
+<li><p>在webpack.publish.config.js头部引入</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">"html-webpack-plugin"</span>)</div></pre></td></tr></table></figure>
+<ol>
+<li>在底部plugins里new一下<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> HtmlWebpackPlugin(&#123;</div><div class="line">        <span class="attr">template</span>: <span class="string">'./src/template.html'</span>,</div><div class="line">        <span class="attr">htmlWebpackPlugin</span>: &#123;</div><div class="line">            <span class="string">"files"</span>: &#123;</div><div class="line">                <span class="string">"css"</span>: [<span class="string">"app.css"</span>],</div><div class="line">                <span class="string">"js"</span>: [<span class="string">"vendors.js"</span>,<span class="string">"bundle.js"</span>]</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        <span class="comment">// 效果不大，情怀至上</span></div><div class="line">        minify: &#123;</div><div class="line">            <span class="attr">removeComments</span>: <span class="literal">true</span>,<span class="comment">//删除注释</span></div><div class="line">            collapseWhitespace: <span class="literal">true</span>,<span class="comment">//删除空格</span></div><div class="line">            removeAttributeQuotes: <span class="literal">true</span><span class="comment">//删除属性引号</span></div><div class="line">        &#125;</div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>插件里的属性：</p>
+<ul>
+<li>template: 选取该路径的html文件作为入口html的模版，只需要有js入口的<code>&lt;div id=&quot;container&quot;&gt;&lt;/div&gt;</code>即可。还可以添加meta:vp视口，meta:keyword之类的作为模版即可。<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"> <span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"container"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>htmlWebpackPlugin</li>
+</ul>
+<p>该属性里有个”files”属性，里面包含的文件名会自动注入。</p>
+<p>删除dist目录，重新<code>npm run publish</code>构建</p>
+<p>  <img src="\img\p12.jpg" alt=""></p>
+<p>  可以看到新生成了一个index.html文件</p>
+<h3 id="4-自动删除构建目录插件-–-clean-webpack-plugin"><a href="#4-自动删除构建目录插件-–-clean-webpack-plugin" class="headerlink" title="4. 自动删除构建目录插件  – clean-webpack-plugin"></a>4. 自动删除构建目录插件  – clean-webpack-plugin</h3><p>  每次重新构建都需要先删除构建目录dist，很麻烦，这个插件可以自动帮我们在每次构建之前先删除dist目录</p>
+<blockquote>
+<p>tips:记得将他new在所有的插件之前，先删dist目录再构建</p>
+</blockquote>
+<ol>
+<li><p>先安装该插件进开发依赖</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i -D clean-webpack-plugin</div></pre></td></tr></table></figure>
+<ol>
+<li><p>在webpack.publish.config.js头部引入</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> CleanPlugin = <span class="built_in">require</span>(<span class="string">"clean-webpack-plugin"</span>)</div></pre></td></tr></table></figure>
+</li>
+<li><p>在plugins的<code>首位</code>处，new一下它</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> CleanPlugin([<span class="string">"dist"</span>])</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>此时不需要手动删除dist目录了，直接<code>npm run publish</code>查看效果</p>
+<h3 id="5-设置生产环境的插件-–-DefinePlugin"><a href="#5-设置生产环境的插件-–-DefinePlugin" class="headerlink" title="5. 设置生产环境的插件  – DefinePlugin"></a>5. 设置生产环境的插件  – DefinePlugin</h3><p>这是webpack自带的插件，因为webpack其实是基于node的，这个插件将node的环境设置为生产环境，会更加优化我们的代码。</p>
+</li>
+<li><p>在webpack.publish.config.js头部引入webpack</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">"webpack"</span>)</div></pre></td></tr></table></figure>
+</li>
+<li><p>在plugins里new一下</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> webpack.DefinePlugin(&#123;</div><div class="line">    <span class="string">"process.env"</span>:&#123;</div><div class="line">        <span class="attr">NODE_ENV</span>:<span class="string">'"production"'</span></div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="6-ProvidePlugin插件"><a href="#6-ProvidePlugin插件" class="headerlink" title="6. ProvidePlugin插件"></a>6. ProvidePlugin插件</h3><p>自动添加引用插件，全局暴露插件，直接使用</p>
+<p><img src="\img\p11.jpg" alt=""></p>
+<h2 id="六、其他知识点"><a href="#六、其他知识点" class="headerlink" title="六、其他知识点"></a>六、其他知识点</h2><ol>
+<li>webpack和gulp集成</li>
+</ol>
+</li>
+</ol>
+<p>即：在gulp中使用webpack<br>使用如下的<code>gulpfile.js</code>文件即可,最终直接执行gulp即可。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// gulp的任务是控制执行流程，webpack的任务是处理复杂引用的依赖</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</div><div class="line"><span class="comment">// 删除文件和目录</span></div><div class="line"><span class="keyword">var</span> del = <span class="built_in">require</span>(<span class="string">'del'</span>);</div><div class="line"><span class="comment">// 按顺序执行</span></div><div class="line"><span class="keyword">var</span> gulpSequence = <span class="built_in">require</span>(<span class="string">'gulp-sequence'</span>);</div><div class="line"><span class="comment">// 引入webpack的本地模块</span></div><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">"webpack"</span>);</div><div class="line"><span class="comment">// 引入wbpack的配置文件</span></div><div class="line"><span class="keyword">var</span> webpackConfig = <span class="built_in">require</span>(<span class="string">"./webpack.publish.config.js"</span>);</div><div class="line"></div><div class="line">gulp.task(<span class="string">'default'</span>, [<span class="string">'sequence'</span>], <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"项目构建成功"</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 流程控制</span></div><div class="line">gulp.task(<span class="string">'sequence'</span>, gulpSequence(<span class="string">'clean'</span>, <span class="string">'webpack'</span>));</div><div class="line"></div><div class="line"><span class="comment">// 删除文件和文件夹</span></div><div class="line">gulp.task(<span class="string">'clean'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">cb</span>) </span>&#123;</div><div class="line">    <span class="comment">//del('dist);// 如果直接给dist的目录，项目启动的顺序还有清除结果会报错，所以要写的更详细一些</span></div><div class="line">    del([<span class="string">'dist/*.js'</span>, <span class="string">'dist/*.css'</span>, <span class="string">'dist/images'</span>, <span class="string">'dist/*.html'</span>]).then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        cb()</div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//写一个任务，在gulp中执行webpack的构建</span></div><div class="line"><span class="comment">// gulp 负责任务流程部分的操作，webpack负责复杂模块系统的引用分离工作</span></div><div class="line">gulp.task(<span class="string">'webpack'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">cb</span>) </span>&#123;</div><div class="line">    <span class="comment">// 执行webpack的构建任务</span></div><div class="line">    webpack(webpackConfig, <span class="function"><span class="keyword">function</span> (<span class="params">err, stats</span>) </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (err) &#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"构建任务失败"</span>);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            cb();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<ol>
+<li>webpack中的非入口文件（异步加载）</li>
+</ol>
+<p>这个是重点要配合chunkname属性，后面的react-router的动态路由会用到<br><a href="http://react-china.org/t/webpack-output-filename-output-chunkfilename/2256/2" target="_blank" rel="external">点我</a></p>
+<p>基本上都是在require.ensure去加载模块的时候才会出现，chunkFileName，个人理解是cmd和amd异步加载，而且没有给入口文 件时，会生成了no-name的chunk，所以你看到的例子，chunkFileName一般都会是<code>[id].[chunkhash].js</code>,也就是这 种chunk的命名一般都会是<code>0.a5898fnub6.js</code>.</p>
+<ol>
+<li>Resolve属性</li>
+</ol>
+<p>webpack在构建包的时候会按目录的进行文件的查找，resolve属性中的extensions数组中用于配置程序可以自行补全哪些文件后缀：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">resolve: &#123;</div><div class="line">        <span class="comment">//查找module的话从这里开始查找</span></div><div class="line">        root: <span class="string">'/pomy/github/flux-example/src'</span>, <span class="comment">//绝对路径</span></div><div class="line">        </div><div class="line">        <span class="comment">//自动扩展文件后缀名，意味着我们require模块可以省略不写后缀名</span></div><div class="line"><span class="comment">//注意一下, extensions 第一个是空字符串! 对应不需要后缀的情况.</span></div><div class="line">        extensions: [<span class="string">''</span>, <span class="string">'.js'</span>, <span class="string">'.json'</span>, <span class="string">'.scss'</span>,’jsx’],</div><div class="line">        </div><div class="line">        <span class="comment">//模块别名定义，方便后续直接引用别名，无须多写长长的地址</span></div><div class="line">        alias: &#123;</div><div class="line">            <span class="attr">AppStore</span> : <span class="string">'js/stores/AppStores.js'</span>,<span class="comment">//后续直接 require('AppStore') 即可</span></div><div class="line">            ActionType : <span class="string">'js/actions/ActionType.js'</span>,</div><div class="line">            <span class="attr">AppAction</span> : <span class="string">'js/actions/AppAction.js'</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<ol>
+<li>Externals属性</li>
+</ol>
+<p>外部依赖不需要打包进bundle，当我们想在项目中require一些其他的类库或者API，而又不想让这些类库的源码被构建到运行时文件中，这在实际开发中很有必要。<br>比如：你在页面里通过script标签引用了<code>jQuery：&lt;script src=&quot;//code.jquery.com/jquery-1.12.0.min.js&quot;&gt;&lt;/script&gt;</code>，所以并不想在其他js里再打包进入一遍，比如你的其他js代码类似：<br><img src="\img\p13.jpg" alt=""><br>其实就是不是通过require或者import引入的，而是直接写在html中的js地址。<br><img src="\img\p14.jpg" alt=""></p>
+<ol>
+<li>开发环境中使用压缩文件</li>
+</ol>
+<p><a href="http://fakefish.github.io/react-webpack-cookbook/Optimizing-rebundling.html" target="_blank" rel="external">点我</a>不使用就会把react在处理一遍<br><img src="\img\p15.jpg" alt=""></p>
+<ol>
+<li>noParse属性</li>
+</ol>
+<p><img src="\img\p16.jpg" alt=""></p>
+<ol>
+<li>多文件入口<a href="http://fakefish.github.io/react-webpack-cookbook/Multiple-entry-points.html" target="_blank" rel="external">点我</a></li>
+</ol>
+<p><img src="\img\p17.jpg" alt=""></p>
+<ol>
+<li>强制从新加载文件<br><a href="http://fakefish.github.io/react-webpack-cookbook/Optimizing-caching.html" target="_blank" rel="external">点我</a></li>
+<li><p>Chunk<br><a href="http://webpack.github.io/docs/code-splitting.html" target="_blank" rel="external">点我</a></p>
+</li>
+<li><p>懒加载</p>
+</li>
+</ol>
+<p>（1）<a href="http://fakefish.github.io/react-webpack-cookbook/Lazy-loaded-entry-points.html" target="_blank" rel="external">在react中如何使用</a></p>
+<p>（2）在react-router中用到动态加载路由可以实现</p>
+<ol>
+<li>在服务器端用webpack</li>
+</ol>
+<p><a href="http://www.tuicool.com/articles/IvQb2ey" target="_blank" rel="external">Node和webpack集成用到的中间件</a></p>
+<p><a href="http://www.tuicool.com/articles/zEZneuq" target="_blank" rel="external">node和webpack集成过程中遇到的坑如何解决</a></p>
+<ol>
+<li><a href="http://fakefish.github.io/react-webpack-cookbook/Hot-loading-components.html" target="_blank" rel="external">热加载组件（了解）</a></li>
+</ol>
 
       
 
@@ -618,11 +754,15 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">高并发与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">高并发与多线程</a>
+                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -630,23 +770,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">JS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -658,15 +794,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">DB</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -678,15 +810,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">源码</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">《深入理解Java虚拟机》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
               </li>
             
             <div class="clearfix"></div>

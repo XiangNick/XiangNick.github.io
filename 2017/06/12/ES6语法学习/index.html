@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/06/12/ES6语法学习/index.html">
 <meta property="og:site_name" content="Mr.Zhang">
 <meta property="og:description" content="环境搭建环境可以去我的GitHub使用gulp,babel搭建即时编译es6语法的环境直接使用。">
-<meta property="og:updated_time" content="2017-06-14T17:00:00.995Z">
+<meta property="og:updated_time" content="2017-06-15T17:14:23.583Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6语法学习">
 <meta name="twitter:description" content="环境搭建环境可以去我的GitHub使用gulp,babel搭建即时编译es6语法的环境直接使用。">
@@ -223,6 +223,7 @@
 </ul>
 <p>由此，根据需求，我们可以手工实现一个迭代器。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> factory = <span class="function"><span class="keyword">function</span>(<span class="params">cars</span>)</span>&#123;</div><div class="line">    <span class="keyword">let</span> i = <span class="number">0</span>;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        next()&#123;</div><div class="line">            <span class="keyword">let</span> done = (i&gt;=cars.length); <span class="comment">//注意done和value的定义顺序         </span></div><div class="line">            <span class="keyword">let</span> value = !done ? cars[i++] : <span class="literal">undefined</span>;</div><div class="line">            <span class="keyword">return</span> &#123;</div><div class="line">                <span class="attr">value</span>:value,</div><div class="line">                <span class="attr">done</span>:done</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> cars = factory([<span class="string">'劳斯莱斯'</span>,<span class="string">'法拉利'</span>,<span class="string">'保时捷'</span>]);</div><div class="line"><span class="built_in">console</span>.log(cars.next());<span class="comment">//Object &#123;value: "劳斯莱斯", done: false&#125;</span></div><div class="line"><span class="built_in">console</span>.log(cars.next());<span class="comment">//Object &#123;value: "法拉利", done: false&#125;</span></div><div class="line"><span class="built_in">console</span>.log(cars.next());<span class="comment">//Object &#123;value: "保时捷", done: false&#125;</span></div><div class="line"><span class="built_in">console</span>.log(cars.next());<span class="comment">//Object &#123;value: undefined, done: true&#125;</span></div></pre></td></tr></table></figure></p>
 <h3 id="17-Generators"><a href="#17-Generators" class="headerlink" title="17. Generators"></a>17. Generators</h3><p>手工写迭代器有些麻烦，我们可以利用Generators(生成器)来创建一个迭代器<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="string">"babel-polyfill"</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span>* <span class="title">factory</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">yield</span>  <span class="string">'劳斯莱斯'</span>;</div><div class="line">    <span class="keyword">yield</span>  <span class="string">'法拉利'</span>;</div><div class="line">    <span class="keyword">yield</span>  <span class="string">'保时捷'</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> cars = factory();</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(cars.next());</div><div class="line"><span class="comment">//Object &#123;value: "劳斯莱斯", done: false&#125;</span></div><div class="line"><span class="built_in">console</span>.log(cars.next());</div><div class="line"><span class="comment">//Object &#123;value: "法拉利", done: false&#125;</span></div><div class="line"><span class="built_in">console</span>.log(cars.next());</div><div class="line"><span class="comment">//Object &#123;value: "保时捷", done: false&#125;</span></div><div class="line"><span class="built_in">console</span>.log(cars.next());</div><div class="line"><span class="comment">//Object &#123;value: undefined, done: true&#125;</span></div></pre></td></tr></table></figure></p>
+<p>我们可以对这个生成器改造下，使他接收参数来迭代<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>* <span class="title">factory</span>(<span class="params">cars</span>)</span>&#123;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; cars.length; i++)&#123;</div><div class="line">        <span class="keyword">yield</span> cars[i]</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"> <span class="keyword">let</span> cars = factory([<span class="string">'劳斯莱斯'</span>,<span class="string">'法拉利'</span>,<span class="string">'保时捷'</span>]);</div><div class="line"></div><div class="line"> <span class="built_in">console</span>.log(cars.next());</div><div class="line"><span class="comment">//Object &#123;value: "劳斯莱斯", done: false&#125;</span></div><div class="line"><span class="built_in">console</span>.log(cars.next());</div><div class="line"><span class="comment">//Object &#123;value: "法拉利", done: false&#125;</span></div><div class="line"><span class="built_in">console</span>.log(cars.next());</div><div class="line"><span class="comment">//Object &#123;value: "保时捷", done: false&#125;</span></div><div class="line"><span class="built_in">console</span>.log(cars.next());</div><div class="line"><span class="comment">//Object &#123;value: undefined, done: true&#125;</span></div></pre></td></tr></table></figure></p>
 <blockquote>
 <p>tips1:在浏览器端使用Generators会报错，<code>regeneratorruntime is not defined</code></p>
 </blockquote>
@@ -241,6 +242,11 @@
 <p>babel-polyfill是一股脑把全部都添加到js文件中，而现在的transform-runtime将会判断你哪些需要加载的，有选择性的进行加载，并且后者也不会污染全局变量。</p>
 <p>使用方法：<br>1.安装babel-plugin-transform-runtime<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i --save-dev babel-plugin-transform-runtime</div></pre></td></tr></table></figure></p>
 <p>2.在 .babelrc 文件中添加：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="string">"plugins"</span>: [[</div><div class="line">    <span class="string">"transform-runtime"</span>,</div><div class="line">    &#123;</div><div class="line">      <span class="string">"helpers"</span>: <span class="literal">false</span>,</div><div class="line">      <span class="string">"polyfill"</span>: <span class="literal">false</span>,</div><div class="line">      <span class="string">"regenerator"</span>: <span class="literal">true</span>,</div><div class="line">      <span class="string">"moduleName"</span>: <span class="string">"babel-runtime"</span></div><div class="line">    &#125;</div><div class="line">  ]]</div></pre></td></tr></table></figure></p>
+<h3 id="18-class类"><a href="#18-class类" class="headerlink" title="18. class类"></a>18. class类</h3><p>  es6中可以创建一个类，他的constructor(字段)方法就是他的构造器，可以设置一些字段作为构造器的参数<br>  ，方法直接用方法名(){}来定义，和Java写法差不多 <code>[不过他好像不需要提前声明字段，直接在constructor里用this.字段=形参就行了 ]</code></p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Chef</span></span>&#123;</div><div class="line">     <span class="keyword">constructor</span>(food)&#123;</div><div class="line">         <span class="keyword">this</span>.food = food;</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     cook()&#123;</div><div class="line">         <span class="built_in">console</span>.log(<span class="keyword">this</span>.food);</div><div class="line">     &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> xiaoming = <span class="keyword">new</span> Chef(<span class="string">'apple'</span>);</div><div class="line">xiaoming.cook();<span class="comment">//apple</span></div></pre></td></tr></table></figure>
+<h3 id="19-getter和setter"><a href="#19-getter和setter" class="headerlink" title="19. getter和setter"></a>19. getter和setter</h3><p>可以通过get和set属性，对一个字段进行操作<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Chef</span></span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(food)&#123;</div><div class="line">        <span class="keyword">this</span>.food = food;</div><div class="line">        <span class="keyword">this</span>.dish = [];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    get menu()&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.dish;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    set menu(dish)&#123;</div><div class="line">        <span class="keyword">this</span>.dish.push(dish);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> xiaoming = <span class="keyword">new</span> Chef();</div><div class="line"><span class="built_in">console</span>.log(xiaoming.menu = <span class="string">"cake"</span>);<span class="comment">//cake</span></div><div class="line"><span class="built_in">console</span>.log(xiaoming.menu = <span class="string">"noodles"</span>);<span class="comment">//noodles</span></div><div class="line"><span class="built_in">console</span>.log(xiaoming.menu);<span class="comment">//["cake", "noodles"]</span></div></pre></td></tr></table></figure></p>
+<h3 id="20-静态方法"><a href="#20-静态方法" class="headerlink" title="20. 静态方法"></a>20. 静态方法</h3><p>静态方法是不需要实例化，直接用类就可以使用的方法。直接在方法名前添加static关键字即可。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Chef</span></span>&#123;</div><div class="line">     <span class="keyword">static</span> sayHi(name)&#123;</div><div class="line">         <span class="built_in">console</span>.log(<span class="string">`你好啊!<span class="subst">$&#123;name&#125;</span>`</span>)</div><div class="line">     &#125;</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> Chef.sayHi(<span class="string">"XiangNick"</span>);<span class="comment">//你好啊!XiangNick</span></div></pre></td></tr></table></figure>
 
       
 
@@ -456,11 +462,15 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">高并发与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">高并发与多线程</a>
+                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -468,23 +478,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">JS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -496,15 +502,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">DB</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -516,15 +518,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">源码</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">《深入理解Java虚拟机》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
               </li>
             
             <div class="clearfix"></div>
