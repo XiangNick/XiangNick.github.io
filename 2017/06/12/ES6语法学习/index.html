@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/06/12/ES6语法学习/index.html">
 <meta property="og:site_name" content="Mr.Zhang">
 <meta property="og:description" content="环境搭建环境可以去我的GitHub使用gulp,babel搭建即时编译es6语法的环境直接使用。">
-<meta property="og:updated_time" content="2017-06-15T17:14:23.583Z">
+<meta property="og:updated_time" content="2017-06-17T11:42:27.506Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6语法学习">
 <meta name="twitter:description" content="环境搭建环境可以去我的GitHub使用gulp,babel搭建即时编译es6语法的环境直接使用。">
@@ -247,6 +247,103 @@
 <h3 id="19-getter和setter"><a href="#19-getter和setter" class="headerlink" title="19. getter和setter"></a>19. getter和setter</h3><p>可以通过get和set属性，对一个字段进行操作<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Chef</span></span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(food)&#123;</div><div class="line">        <span class="keyword">this</span>.food = food;</div><div class="line">        <span class="keyword">this</span>.dish = [];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    get menu()&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.dish;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    set menu(dish)&#123;</div><div class="line">        <span class="keyword">this</span>.dish.push(dish);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> xiaoming = <span class="keyword">new</span> Chef();</div><div class="line"><span class="built_in">console</span>.log(xiaoming.menu = <span class="string">"cake"</span>);<span class="comment">//cake</span></div><div class="line"><span class="built_in">console</span>.log(xiaoming.menu = <span class="string">"noodles"</span>);<span class="comment">//noodles</span></div><div class="line"><span class="built_in">console</span>.log(xiaoming.menu);<span class="comment">//["cake", "noodles"]</span></div></pre></td></tr></table></figure></p>
 <h3 id="20-静态方法"><a href="#20-静态方法" class="headerlink" title="20. 静态方法"></a>20. 静态方法</h3><p>静态方法是不需要实例化，直接用类就可以使用的方法。直接在方法名前添加static关键字即可。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Chef</span></span>&#123;</div><div class="line">     <span class="keyword">static</span> sayHi(name)&#123;</div><div class="line">         <span class="built_in">console</span>.log(<span class="string">`你好啊!<span class="subst">$&#123;name&#125;</span>`</span>)</div><div class="line">     &#125;</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> Chef.sayHi(<span class="string">"XiangNick"</span>);<span class="comment">//你好啊!XiangNick</span></div></pre></td></tr></table></figure>
+<h3 id="21-extend-继承"><a href="#21-extend-继承" class="headerlink" title="21.extend 继承"></a>21.extend 继承</h3><p>es6中终于实现了继承，以后不用再写用原型链或者遍历赋值那么麻烦的继承了<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(name,age)&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">        <span class="keyword">this</span>.age = age;</div><div class="line">    &#125;</div><div class="line">    sayHi()&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'Hello!'</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">littleBoy</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(name,age)&#123;</div><div class="line">        <span class="keyword">super</span>(name,age);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> nick = <span class="keyword">new</span> littleBoy(<span class="string">'nick'</span>,<span class="string">'1995-12-10'</span>);</div><div class="line">nick.sayHi();<span class="comment">//Hello!</span></div></pre></td></tr></table></figure></p>
+<p>子类的constructor需要通过super调用父类的构造器。</p>
+<h3 id="22-集合-Set"><a href="#22-集合-Set" class="headerlink" title="22. 集合 Set"></a>22. 集合 Set</h3><p>Set类似于Java中的Set，作为集合来存数据，Set中不允许有重复元素。</p>
+<p>常用api</p>
+<ul>
+<li>add() Set 方法，添加元素,返回该Set</li>
+<li>has() boolean 方法，判断是否有某元素，返回boolean</li>
+<li>delete() boolean 方法，删除元素，返回是否删除成功</li>
+<li>forEach((item)=&gt;{})  undefined 方法，迭代Set内元素，传回调进去，无返回值</li>
+<li>clear()  undefined 方法，清空Set，无返回值</li>
+<li>size  属性，获得Set的元素个数<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> foods = <span class="keyword">new</span> <span class="built_in">Set</span>();</div><div class="line">foods.add(<span class="string">'noodle'</span>);</div><div class="line">foods.add(<span class="string">'noodle'</span>);</div><div class="line">foods.add(<span class="string">'apple'</span>);</div><div class="line">foods.add(<span class="string">'banana'</span>);</div><div class="line"><span class="built_in">console</span>.log(foods);<span class="comment">//Set(3) &#123;"noodle", "apple", "banana"&#125;</span></div><div class="line"><span class="built_in">console</span>.log(foods.size);<span class="comment">//3</span></div><div class="line"><span class="built_in">console</span>.log(foods.has(<span class="string">'ice'</span>));<span class="comment">//false</span></div><div class="line">foods.delete(<span class="string">'apple'</span>);</div><div class="line"><span class="built_in">console</span>.log(foods);<span class="comment">//Set(2) &#123;"noodle", "banana"&#125;</span></div><div class="line">foods.forEach(<span class="function"><span class="params">food</span> =&gt;</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(food);</div><div class="line">    <span class="comment">//noodle</span></div><div class="line">    <span class="comment">//banana</span></div><div class="line">&#125;);</div><div class="line">foods.clear();</div><div class="line"><span class="built_in">console</span>.log(foods);<span class="comment">//Set(0) &#123;&#125;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="22-集合-Map"><a href="#22-集合-Map" class="headerlink" title="22. 集合 Map"></a>22. 集合 Map</h3><p>Map是K-V集合，JS中的对象也是K-V对应的，但是JS中的对象有局限性，比如他不能拿对象或者函数作为key，而Map可以。</p>
+<p>常用api</p>
+<ul>
+<li>set() Map 方法，添加元素,返回该Map</li>
+<li>get()  value 方法，根据key返回该value的值</li>
+<li>has() boolean 方法，判断是否有某元素，返回boolean</li>
+<li>delete() boolean 方法，删除元素，返回是否删除成功</li>
+<li>forEach((key,value)=&gt;{})  undefined 方法，迭代Map内元素，传回调进去，无返回值</li>
+<li>clear()  undefined 方法，清空Set，无返回值</li>
+<li>size  属性，获得Set的元素个数</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> foods = <span class="keyword">new</span> <span class="built_in">Map</span>();</div><div class="line"><span class="keyword">let</span> fruit = &#123;&#125;,cook = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,dessert = <span class="string">"甜点"</span></div><div class="line"></div><div class="line">foods.set(fruit,<span class="string">"apple"</span>);</div><div class="line">foods.set(fruit,<span class="string">"banana"</span>);<span class="comment">//相同的key，value会覆盖</span></div><div class="line">foods.set(cook,<span class="string">"noddle"</span>);</div><div class="line">foods.set(dessert,<span class="string">"cake"</span>);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(foods);<span class="comment">//Map(3) &#123;Object &#123;&#125; =&gt; "banana", function =&gt; "noddle", "甜点" =&gt; "cake"&#125;</span></div><div class="line"><span class="built_in">console</span>.log(foods.get(fruit));<span class="comment">//banana</span></div><div class="line">foods.delete(dessert);</div><div class="line"><span class="built_in">console</span>.log(foods.size)<span class="comment">//2</span></div><div class="line"><span class="built_in">console</span>.log(foods.has(fruit));<span class="comment">//true</span></div><div class="line">foods.forEach(<span class="function">(<span class="params">key,value</span>)=&gt;</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;key&#125;</span>,<span class="subst">$&#123;value&#125;</span>`</span>);</div><div class="line">    <span class="comment">//banana,[object Object]</span></div><div class="line">    <span class="comment">//noddle,function cook() &#123;&#125;</span></div><div class="line">&#125;)</div><div class="line">foods.clear();</div><div class="line"><span class="built_in">console</span>.log(foods);<span class="comment">//Map(0) &#123;&#125;</span></div></pre></td></tr></table></figure>
+<h3 id="23-Module"><a href="#23-Module" class="headerlink" title="23. Module"></a>23. Module</h3><p>es6中建议模块化编程，每一个js文件就是一个模块。可以import其他模块的接口和export接口给其他模块。</p>
+<ul>
+<li><p>chef.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> dessert = <span class="string">"cake"</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">let</span> fruit = <span class="string">"banana"</span></div><div class="line"><span class="keyword">let</span> cook = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'I am cooking!~'</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> chef = &#123;<span class="attr">name</span>:<span class="string">"xiaoming"</span>,<span class="attr">age</span>:<span class="number">18</span>&#125;;</div><div class="line"></div><div class="line"><span class="keyword">export</span> &#123;cook,dessert&#125; ;</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> chef;</div></pre></td></tr></table></figure>
+</li>
+<li><p>app.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> * <span class="keyword">as</span> obj <span class="keyword">from</span> <span class="string">'./chef.js'</span><span class="comment">//用* as 名称 则是把他所有export的包装成一个对象，一起导出</span></div><div class="line"><span class="keyword">import</span> chef <span class="keyword">from</span> <span class="string">'./chef.js'</span><span class="comment">//默认import就是他指定的default</span></div><div class="line"><span class="keyword">import</span> &#123;fruit&#125; <span class="keyword">from</span> <span class="string">'./chef.js'</span><span class="comment">//使用&#123;&#125;内的名称要和他暴露的接口名称一致</span></div><div class="line"><span class="keyword">import</span> &#123;dessert,cook&#125; <span class="keyword">from</span> <span class="string">'./chef.js'</span><span class="comment">//&#123;&#125;内可以写多个接口名同时导出</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(obj);</div><div class="line"><span class="comment">//Object &#123;fruit: "banana", dessert: "cake", default: Object, __esModule: true, cook: function&#125;</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"----"</span>);</div><div class="line"><span class="built_in">console</span>.log(chef);</div><div class="line"><span class="comment">//Object &#123;name: "xiaoming", age: 18&#125;</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"----"</span>);</div><div class="line"><span class="built_in">console</span>.log(fruit);<span class="comment">//banana</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"----"</span>);</div><div class="line"><span class="built_in">console</span>.log(dessert,cook);</div><div class="line"><span class="comment">/*cake function cook() &#123;</span></div><div class="line">    console.log('I am cooking!~');</div><div class="line">&#125;</div><div class="line">*/</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li>可以直接在变量(可以是函数，对象，字符串等)处export，变量名就是接口名，要导出多少变量就要写多少个export，很麻烦，也不直观 <font color="skyblue"> [ 不推荐 ]</font></li>
+</ol>
+<ul>
+<li>export.js<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">let</span> fruit = <span class="string">"apple"</span>;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这样接收方要用他暴露的接口名，使用{接口名}来接收</p>
+<ul>
+<li>import.js<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;fruit&#125; <span class="keyword">from</span> <span class="string">'./export.js'</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li>上部写代码，底部使用{}来一口气导出多个接口<font color="skyblue"> [ 推荐 ]</font></li>
+</ol>
+<ul>
+<li>export.js<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> fruit = <span class="string">"apple"</span>;</div><div class="line"><span class="keyword">let</span> cook = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"I am cooking!~"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> &#123;fruit,cook&#125;;<span class="comment">//很直观，能直接看到导出了哪些</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>接收方写的接口名要和导出方对应</p>
+<ul>
+<li>import.js<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;fruit,cook&#125; <span class="keyword">from</span> <span class="string">'./export.js'</span>;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li>使用default关键字导出</li>
+</ol>
+<p>之前的方式，都需要接收方知道导出方的接口名，而导出方使用default关键字来指定一个默认导出，接收方不需要知道该默认导出变量的接口名，可以自己随意命名使用。</p>
+<ul>
+<li><p>export.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> fruit = <span class="string">"apple"</span>;</div><div class="line"><span class="keyword">let</span> cook = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"I am cooking!~"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> chef = &#123;<span class="attr">name</span>:<span class="string">"xiaoming"</span>,<span class="attr">age</span>:<span class="number">18</span>&#125;;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> chef; </div><div class="line"><span class="keyword">export</span> &#123;fruit,cook&#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>import.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;fruit,cook&#125; <span class="keyword">from</span> <span class="string">'./export.js'</span></div><div class="line"><span class="keyword">import</span> something <span class="keyword">from</span> <span class="string">'./export.js'</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>注意：</p>
+<ul>
+<li><font color="red">defalut关键字只能指定一个</font></li>
+<li>default相当于给他指定了名字为default，导入方可以随意命名，导出的default接口不会影响其他导出接口，他们是独立的。</li>
+<li>一般写react之类的组件化代码，直接给整个组件class类指定default，这样接收方好随意命名</li>
+</ul>
+</blockquote>
+<ol>
+<li>as 关键字</li>
+</ol>
+<p>导出方可以使用as关键字来给接口重新命名 </p>
+<ul>
+<li>export.js<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> fruit = <span class="string">"apple"</span>;</div><div class="line"><span class="keyword">export</span> &#123;fruit <span class="keyword">as</span> something&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这样接口名就更改了。<br>导入方也可以使用as关键字来给接口再次重新命名</p>
+<ul>
+<li>import.js<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;something <span class="keyword">as</span> fruit&#125; <span class="keyword">from</span> <span class="string">'./export.js'</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>导入导出方都可以使用as关键字来给接口重新命名。</p>
+<p>除了export default 变量外，还可以使用as关键字<br>export {变量 as default}来指定默认导出。</p>
+<p>接收方还可以使用* as关键字将导出方的所有导出一起打包成一个以别名为变量名的对象<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> * <span class="keyword">as</span> obj <span class="keyword">from</span> <span class="string">'./export.js'</span></div></pre></td></tr></table></figure></p>
+<p>这样<code>export.js</code>里的所有导出的接口，包括default，都被一起打包进了obj对象里。<br>使用：</p>
+<p><code>obj.接口名</code>来调用普通导出</p>
+<p><code>obj.default</code>来调用默认导出</p>
 
       
 
@@ -466,19 +563,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">AngularJS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">高并发与多线程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
+                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -486,11 +575,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JS</a>
+                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
+                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -502,15 +595,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DB</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Java高并发程序设计</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">源码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -522,15 +615,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AngularJS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">源码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">《深入理解Java虚拟机》</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java高并发程序设计</a>
               </li>
             
             <div class="clearfix"></div>
