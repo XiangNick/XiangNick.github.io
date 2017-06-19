@@ -6,16 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>CentOS日常操作 | Mr.Zhang</title>
+  <title>VMWare下CentOS6-8安装与配置 | Mr.Zhang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="VMware环境安装1. CentOS6.8镜像下载由于个人阿里云服务器CentOS版本为6.8，所以平时虚拟机里也喜欢和他版本同步。
-去阿里的镜像站下载CentOS6.8">
+去阿里的镜像站下载CentOS6.8http://mirrors.aliyun.com/centos/6.8/isos/x86_64/CentOS-6.8-x86_64-bin-DVD1.iso">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CentOS日常操作">
+<meta property="og:title" content="VMWare下CentOS6-8安装与配置">
 <meta property="og:url" content="http://yoursite.com/2017/06/18/VMWare下CentOS6-8安装与配置/index.html">
 <meta property="og:site_name" content="Mr.Zhang">
 <meta property="og:description" content="VMware环境安装1. CentOS6.8镜像下载由于个人阿里云服务器CentOS版本为6.8，所以平时虚拟机里也喜欢和他版本同步。
-去阿里的镜像站下载CentOS6.8">
+去阿里的镜像站下载CentOS6.8http://mirrors.aliyun.com/centos/6.8/isos/x86_64/CentOS-6.8-x86_64-bin-DVD1.iso">
 <meta property="og:image" content="http://yoursite.com/\img\r2.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\r3.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\r4.jpg">
@@ -33,7 +33,6 @@
 <meta property="og:image" content="http://yoursite.com/\img\r16.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\r17.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\r18.jpg">
-<meta property="og:image" content="http://yoursite.com/\img\r19.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\r20.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\r21.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\r22.jpg">
@@ -50,11 +49,42 @@
 <meta property="og:image" content="http://yoursite.com/\img\r33.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\r34.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\r35.jpg">
-<meta property="og:updated_time" content="2017-06-17T17:50:47.667Z">
+<meta property="og:image" content="http://yoursite.com/\img\z1.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\z2.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\z3.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\z5.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\z4.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\z6.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\z12.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\z7.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\z8.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\zbbb.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\zccc.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\zaaa.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\zddd.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\zeee.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\zz2.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\zz1.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\zz3.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\zz4.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\zz6.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\zz5.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\zz8.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\zz7.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\zz9.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\zz10.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\zz15.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\zz16.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\zz17.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\zz12.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\zz14.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\zz11.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\zz13.jpg">
+<meta property="og:updated_time" content="2017-06-19T03:34:27.314Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CentOS日常操作">
+<meta name="twitter:title" content="VMWare下CentOS6-8安装与配置">
 <meta name="twitter:description" content="VMware环境安装1. CentOS6.8镜像下载由于个人阿里云服务器CentOS版本为6.8，所以平时虚拟机里也喜欢和他版本同步。
-去阿里的镜像站下载CentOS6.8">
+去阿里的镜像站下载CentOS6.8http://mirrors.aliyun.com/centos/6.8/isos/x86_64/CentOS-6.8-x86_64-bin-DVD1.iso">
 <meta name="twitter:image" content="http://yoursite.com/\img\r2.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Zhang" type="application/atom+xml">
@@ -197,7 +227,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      CentOS日常操作
+      VMWare下CentOS6-8安装与配置
     </h1>
   
 
@@ -211,7 +241,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="VMware环境安装"><a href="#VMware环境安装" class="headerlink" title="VMware环境安装"></a>VMware环境安装</h2><h3 id="1-CentOS6-8镜像下载"><a href="#1-CentOS6-8镜像下载" class="headerlink" title="1. CentOS6.8镜像下载"></a>1. CentOS6.8镜像下载</h3><p>由于个人阿里云服务器CentOS版本为6.8，所以平时虚拟机里也喜欢和他版本同步。</p>
-<p>去阿里的镜像站下载<a href="http://mirrors.aliyun.com/centos/6.8/isos/x86_64/CentOS-6.8-x86_64-bin-DVD1.iso" target="_blank" rel="external">CentOS6.8</a></p>
+<p>去阿里的镜像站下载<a href="http://mirrors.aliyun.com/centos/6.8/isos/x86_64/CentOS-6.8-x86_64-bin-DVD1.iso" target="_blank" rel="external">CentOS6.8</a><br><code>http://mirrors.aliyun.com/centos/6.8/isos/x86_64/CentOS-6.8-x86_64-bin-DVD1.iso</code></p>
 <a id="more"></a>
 <h3 id="2-VMWare下CentOS-6-8安装配置"><a href="#2-VMWare下CentOS-6-8安装配置" class="headerlink" title="2. VMWare下CentOS 6.8安装配置"></a>2. VMWare下CentOS 6.8安装配置</h3><ol>
 <li>打开VMware，单击【创建新虚拟机】按钮</li>
@@ -297,7 +327,6 @@
 <ol>
 <li>安装语言，选择【中文（简体）】</li>
 </ol>
-<p><img src="\img\r19.jpg" alt=""></p>
 <ol>
 <li>系统键盘，选择【美国英语式】</li>
 </ol>
@@ -368,6 +397,147 @@
 <ol>
 <li>CentOS安装已经完成。单击【重新引导】，进入系统</li>
 </ol>
+<h2 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h2><p>这里总结了两个坑少的方法来配置网络。分两种情况，一个是电脑在局域网内，但是不能连接外网。一个是电脑可以连接外网。</p>
+<h3 id="1-电脑未连接外网"><a href="#1-电脑未连接外网" class="headerlink" title="1. 电脑未连接外网"></a>1. 电脑未连接外网</h3><p>在电脑不能上网，但在局域网内的情况下，我们可以配置静态ip和通过桥接使得宿主机和vmware里的centos通信(xshell和filezilla等)</p>
+<ol>
+<li>设置虚拟机连接方式为桥接</li>
+</ol>
+<p>关闭虚拟机，在虚拟机-&gt;设置里，选择连接为桥接</p>
+<p><img src="\img\z1.jpg" alt=""></p>
+<ol>
+<li>开启虚拟机，给centos设置静态ip</li>
+</ol>
+<p>先查看我们本机的ip地址<br>在本机的cmd窗口里执行<code>ipconfig</code>命令</p>
+<p><img src="\img\z2.jpg" alt=""></p>
+<p>记住以太网本地连接的ipv4地址、子网掩码、默认网关</p>
+<p>因为这里我们默认电脑在局域网里，不能连接外网的情况，所以我们配置虚拟机是以宿主机的以太网本地连接为参照。</p>
+<p>再进入vmware，使用root用户进入<code>/etc/sysconfig/network-scripts</code>目录。<br>ls看到有<code>ifcfg-eth0</code>文件。先将其拷贝一份以免我们写坏。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp ifcfg-eth0 ifcfg-eth0.bak</div></pre></td></tr></table></figure></p>
+<p>将备份存为<code>ifcfg-eth0.bak</code>，然后去修改<code>ifcfg-eth0</code>文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim ifcfg-eth0</div></pre></td></tr></table></figure>
+<p>修改他的IPADDR,NETMASK,GATWAY, IPADDR和宿主机处在一个网段里，最后一位保证没有其他机器使用即可。NETMASK和GATWAY保持和宿主机的一致。</p>
+<p><img src="\img\z3.jpg" alt=""></p>
+<ol>
+<li>给虚拟机设置默认网关<br>修改虚拟机的network文件<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/sysconfig/network</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="\img\z5.jpg" alt=""></p>
+<p>修改为和宿主机一致的网关。</p>
+<p>保存后，执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service network restart</div></pre></td></tr></table></figure></p>
+<p>来重启我们的network服务。</p>
+<p>执行<code>ip addr</code>来查看虚拟机的ip地址</p>
+<p><img src="\img\z4.jpg" alt=""></p>
+<p>宿主机来ping这个地址，发现可以ping通。<br>虚拟机来ping宿主机，发现也可以ping通。</p>
+<p>再去xshell去登录该ip地址即可完成在局域网，无外网的情况下与虚拟机内centos通信。</p>
+<h3 id="2-电脑可以连接外网"><a href="#2-电脑可以连接外网" class="headerlink" title="2. 电脑可以连接外网"></a>2. 电脑可以连接外网</h3><p>这种情况是最方便的方式</p>
+<p>设置虚拟机nat连接方式<br><code>(三种连接方式的区别前面有提到)</code><br>然后网络设置dhcp自动获取即可。</p>
+<ol>
+<li>设置虚拟机连接方式为nat连接</li>
+</ol>
+<p>关闭虚拟机，在虚拟机-&gt;设置里，选择连接为nat连接</p>
+<p><img src="\img\z6.jpg" alt=""></p>
+<p>在编辑-&gt;虚拟网络编辑器里，选择vmnet8为nat连接。<br><img src="\img\z12.jpg" alt=""></p>
+<ol>
+<li>设置虚拟机ip获取方式为DHCP自动获取</li>
+</ol>
+<p>开启虚拟机，在系统-&gt;首选项-&gt;网络连接里设置我们的eth0网卡。</p>
+<p><img src="\img\z7.jpg" alt=""></p>
+<p><img src="\img\z8.jpg" alt=""></p>
+<p>应用完毕后重启虚拟机，再重启network服务。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service network restart</div></pre></td></tr></table></figure>
+<blockquote>
+<p>tips:要确保宿主机的<code>控制面板\网络和 Internet\网络连接</code>里VMnet1和VMnet8是启用状态，虚拟机里的eth0处于连接状态。</p>
+</blockquote>
+<p><img src="\img\zbbb.jpg" alt=""><br><img src="\img\zccc.jpg" alt=""></p>
+<p>如果不是，可以关闭虚拟机，点击还原默认设置。</p>
+<p><img src="\img\zaaa.jpg" alt=""></p>
+<p>再次进入虚拟机，使用<code>ip addr</code>命令查看ip</p>
+<p><img src="\img\zddd.jpg" alt=""></p>
+<p>记住该ip</p>
+<p>ping宿主机，可以ping通。<br>宿主机ping虚拟机，可以ping通。</p>
+<p>虚拟机ping外网，可以ping通。</p>
+<p><img src="\img\zeee.jpg" alt=""></p>
+<p>通过nat连接和dhcp自动获取的ip，宿主机通过xshell和他通信。</p>
+<blockquote>
+<p>这种方式既实现了宿主机与虚拟机的通信，同时虚拟机也能访问外网。</p>
+</blockquote>
+<h2 id="FTP配置"><a href="#FTP配置" class="headerlink" title="FTP配置"></a>FTP配置</h2><p>在上一步的网络配置中，不论是使用桥接还是nat方式。宿主机都是可以和虚拟机通信的，这里我们继续配置ftp服务，使得宿主机可以传文件给虚拟机。</p>
+<h3 id="1-虚拟机安装vsftpd服务"><a href="#1-虚拟机安装vsftpd服务" class="headerlink" title="1. 虚拟机安装vsftpd服务"></a>1. 虚拟机安装vsftpd服务</h3><p>分两种方式。如果虚拟机不能连接外网，选择方式1，可以连接外网选择方式2.</p>
+<h3 id="【方式一】"><a href="#【方式一】" class="headerlink" title="【方式一】"></a>【方式一】</h3><p> 宿主机不能连接外网，使用的是桥接本地以太网方式配置虚拟机网络的，vmware选择挂载虚拟机的光盘来安装vsftpd。</p>
+<p>由于在之前创建新的虚拟机时，我们指定了CD/DVD使用的是CentOS6.8的ISO镜像文件，该文件中包含了很多的离线rpm包可以直接安装。</p>
+<p><img src="\img\zz2.jpg" alt=""></p>
+<p>在CentOS的图形界面可以直接进入安装。</p>
+<p><img src="\img\zz1.jpg" alt=""></p>
+<p>找到vsftpd，点击安装。</p>
+<p>如果是命令行，进入<code>/media</code>目录也可以看到挂载的光盘。</p>
+<p><img src="\img\zz3.jpg" alt=""></p>
+<p>在<code>/media/CentOS_6.8_Final/Packages</code>目录里，找到vsftpd的rpm，进行安装。</p>
+<p>在root权限下执行该命令安装rpm包<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -ivh vsftpd-在光盘里找到的版本.rpm</div></pre></td></tr></table></figure></p>
+<p>如果不是root账户可以在命令前加上sudo命令</p>
+<p><img src="\img\zz4.jpg" alt=""></p>
+<p>安装完毕。</p>
+<p><img src="\img\zz6.jpg" alt=""></p>
+<blockquote>
+<p>tips:日常应用中，不应该使用root帐号，而应该使用普通帐号，但是遇到普通帐号权限不够的情况，可以用root帐号给普通帐号授sudo权，root帐号使用sudovi命令，在该行添加想要授sudo权的普通用户</p>
+</blockquote>
+<p><img src="\img\zz5.jpg" alt=""></p>
+<h3 id="【方式二】"><a href="#【方式二】" class="headerlink" title="【方式二】"></a>【方式二】</h3><p>宿主机可以连外网</p>
+<p>直接<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo yum install vsftpd</div></pre></td></tr></table></figure></p>
+<p>安装即可。</p>
+<p><img src="\img\zz8.jpg" alt=""></p>
+<h3 id="2-虚拟机配置vsftpd服务"><a href="#2-虚拟机配置vsftpd服务" class="headerlink" title="2. 虚拟机配置vsftpd服务"></a>2. 虚拟机配置vsftpd服务</h3><p>安装vsftpd完毕后，进入该目录</p>
+<p><img src="\img\zz7.jpg" alt=""><br>该目录下的<code>ftpusers</code>, <code>user_list</code>,  <code>vsftpd.conf</code><br>三个文件是我们要配置的。</p>
+<h3 id="配置能访问ftp的用户"><a href="#配置能访问ftp的用户" class="headerlink" title="配置能访问ftp的用户"></a>配置能访问ftp的用户</h3><ul>
+<li>ftpusers<br>里面的用户都是不允许访问ftp服务</li>
+<li>user_list<br>里面的用户都是不允许访问ftp服务</li>
+</ul>
+<p>如果不想让某个用户访问ftp服务，就把他的用户名写入<code>ftpusers</code>, <code>user_list</code>里</p>
+<p>这里我们希望root用户能访问ftp服务，就<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo vim ftpusers</div><div class="line">sudo vim user_list</div></pre></td></tr></table></figure></p>
+<p>把ftpusers和user_list里的root给注释掉。</p>
+<p><img src="\img\zz9.jpg" alt=""></p>
+<p><img src="\img\zz10.jpg" alt=""></p>
+<h3 id="配置普通用户只能访问自己的家目录，无法访问以外的目录。"><a href="#配置普通用户只能访问自己的家目录，无法访问以外的目录。" class="headerlink" title="配置普通用户只能访问自己的家目录，无法访问以外的目录。"></a>配置普通用户只能访问自己的家目录，无法访问以外的目录。</h3><p>修改vsftpd.conf文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vim vsftpd.conf</div></pre></td></tr></table></figure></p>
+<p> 将允许匿名登录<code>anonymous_enable</code>设置为no</p>
+<p><img src="\img\zz15.jpg" alt=""></p>
+<p>使用:set nu命令设置行号，在大约97行有开关，控制用户只允许访问自己的家目录，99行有具体配置文件列表。</p>
+<p><img src="\img\zz16.jpg" alt=""></p>
+<p>将这三个注释解开。并将<code>chroot_local_user</code>设置为NO</p>
+<p>由于我们进行了如下设置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">chroot_local_user＝NO</div><div class="line">chroot_list_enable=YES//这行必须要有, 否则文件vsftpd.chroot_list不会起作用</div><div class="line">chroot_list_file=/etc/vsftpd/chroot_list</div></pre></td></tr></table></figure></p>
+<p><code>chroot_list_file=/etc/vsftpd/chroot_list</code>里指定的就是<br><code>不能访问除家目录以外目录的用户</code></p>
+<p>如果<code>/etc/vsftpd/</code>目录下无<code>chroot_list</code>文件，我们要自己创建</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo touch /etc/vsftpd/chroot_list</div></pre></td></tr></table></figure>
+<p>将不希望有浏览其主目录之上的各目录权限的用户添加到该文件中即可(一行一个用户名)</p>
+<p><img src="\img\zz17.jpg" alt=""></p>
+<p>这样xiangnick就不能访问除家目录以外的目录了。</p>
+<h3 id="更改vsftpd服为开机启动"><a href="#更改vsftpd服为开机启动" class="headerlink" title="更改vsftpd服为开机启动"></a>更改vsftpd服为开机启动</h3><ul>
+<li>chkconfig –level 345 vsftpd on</li>
+<li>chkconfig –list</li>
+</ul>
+<p>vsftpd服务在345运行模式下进行开机启动。</p>
+<p>修改了文件之后，别忘了重启vsftpd服务。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service vsftpd restart</div></pre></td></tr></table></figure>
+<p>宿主机使用filezilla之类的ftp软件来连接虚拟机。</p>
+<p><img src="\img\zz12.jpg" alt=""></p>
+<p>发现连接超时，这时候我们还得设置一下CentOS。</p>
+<h3 id="关闭CentOS的防火墙。"><a href="#关闭CentOS的防火墙。" class="headerlink" title="关闭CentOS的防火墙。"></a>关闭CentOS的防火墙。</h3><p>关闭命令：  </p>
+<ul>
+<li>service iptables stop </li>
+</ul>
+<p>永久关闭防火墙：</p>
+<ul>
+<li>chkconfig iptables off</li>
+</ul>
+<p>两个命令同时运行，运行完成后查看防火墙关闭状态<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service iptables status</div></pre></td></tr></table></figure></p>
+<p><img src="\img\zz14.jpg" alt=""></p>
+<h3 id="修改selinux的设置。"><a href="#修改selinux的设置。" class="headerlink" title="修改selinux的设置。"></a>修改selinux的设置。</h3><p>因为selinux的保护机制，影响了用户登录ftp。</p>
+<p><img src="\img\zz11.jpg" alt=""></p>
+<p>修改该配置文件。</p>
+<p><img src="\img\zz13.jpg" alt=""></p>
+<p><code>将SELINUX修改为disabled</code></p>
+<p>重启vsftpd服务。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service vsftpd restart</div></pre></td></tr></table></figure></p>
+<p>一切搞定，这时候使用ftp软件，普通用户只能访问家目录，root目录可以访问所有目录。</p>
+<blockquote>
+<p>还有一种vsftpd的配置方式，配置/ftp目录，所有的普通ftp用户只能访问该目录，且没有关闭防火墙，设置了防火墙规则，这种方式更好,适用于生产环境。<br><a href="http://blog.csdn.net/windex2000/article/details/8668309" target="_blank" rel="external">centos6.3–64位vsftpd虚拟用户配置</a><br><code>http://blog.csdn.net/windex2000/article/details/8668309</code></p>
+</blockquote>
 
       
 
@@ -591,15 +761,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">高并发与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
+                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
+                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -615,15 +789,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">高并发与多线程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -643,7 +809,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">源码</a>
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -652,6 +818,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">RN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">源码</a>
               </li>
              
               <li class="article-tag-list-item">
