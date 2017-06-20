@@ -81,7 +81,7 @@
 <meta property="og:image" content="http://yoursite.com/\img\x14.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\x15.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\x16.jpg">
-<meta property="og:updated_time" content="2017-06-20T01:19:25.882Z">
+<meta property="og:updated_time" content="2017-06-20T01:27:58.248Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VMWare下CentOS6-8安装与配置">
 <meta name="twitter:description" content="VMware环境安装1. CentOS6.8镜像下载由于个人阿里云服务器CentOS版本为6.8，所以平时虚拟机里也喜欢和他版本同步。
@@ -632,7 +632,7 @@ OK！
 <p> 将不允许访问家目录以外的用户添加进该文件，如刚才创建的<code>ftpuser</code>用户</p>
 <p> (9) 重启vsftpd服务<br> <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service vsftpd restart</div></pre></td></tr></table></figure></p>
 <blockquote>
-<p>tips :详细的 vsftpd的配置可以看另一篇博客<br><a href="">vsftpd详细配置解读</a></p>
+<p>tips :详细的 vsftpd的配置可以看另一篇博客<br><a href="http://xiangnick.website/2017/06/19/vsftpd%E8%AF%A6%E7%BB%86%E9%85%8D%E7%BD%AE%E8%A7%A3%E8%AF%BB/#more" target="_blank" rel="external">vsftpd详细配置解读</a></p>
 <h3 id="5-4-防火墙配置"><a href="#5-4-防火墙配置" class="headerlink" title="5.4 防火墙配置"></a>5.4 防火墙配置</h3></blockquote>
 <p>  (1)<br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vim /etc/sysconfig/iptables</div></pre></td></tr></table></figure></p>
 <p>  (2)<br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">-A INPUT -p TCP --dport 61001:62000 -j ACCEPT </div><div class="line">-A OUTPUT -p TCP --sport 61001:62000 -j ACCEPT </div><div class="line"></div><div class="line">-A INPUT -p TCP --dport 20 -j ACCEPT </div><div class="line">-A OUTPUT -p TCP --sport 20 -j ACCEPT</div><div class="line">-A INPUT -p TCP --dport 21 -j ACCEPT </div><div class="line">-A OUTPUT -p TCP --sport 21 -j ACCEPT</div></pre></td></tr></table></figure></p>
@@ -896,18 +896,6 @@ OK！
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java高并发程序设计</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
               </li>
              
@@ -916,7 +904,19 @@ OK！
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Java高并发程序设计</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DB</a>
               </li>
              
               <li class="article-tag-list-item">
