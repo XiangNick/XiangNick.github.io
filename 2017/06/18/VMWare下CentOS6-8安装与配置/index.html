@@ -81,7 +81,7 @@
 <meta property="og:image" content="http://yoursite.com/\img\x14.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\x15.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\x16.jpg">
-<meta property="og:updated_time" content="2017-06-20T00:48:51.231Z">
+<meta property="og:updated_time" content="2017-06-20T01:19:25.882Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VMWare下CentOS6-8安装与配置">
 <meta name="twitter:description" content="VMware环境安装1. CentOS6.8镜像下载由于个人阿里云服务器CentOS版本为6.8，所以平时虚拟机里也喜欢和他版本同步。
@@ -486,8 +486,8 @@
 <p><img src="\img\x3.jpg" alt=""></p>
 <p>(2) 下载完毕后，在centos的<code>/</code>目录下创建一个develop文件夹用于存放我们的开发软件包</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo mkdir /develop</div></pre></td></tr></table></figure>
-<p>然后本机使用ftp软件如filezilla传刚才下好的<code>jdk-7u80-linux-x64.rpm</code>至<code>\develop</code></p>
-<p>(3) 到<code>\develop</code>目录，安装jdk<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo rpm -ivh jdk-7u80-linux-x64.rpm</div></pre></td></tr></table></figure></p>
+<p>然后本机使用ftp软件如filezilla传刚才下好的<code>jdk-7u80-linux-x64.rpm</code>至<code>/develop</code></p>
+<p>(3) 到<code>/develop</code>目录，安装jdk<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo rpm -ivh jdk-7u80-linux-x64.rpm</div></pre></td></tr></table></figure></p>
 <p>安装好的jdk在<code>/usr/java/jdk1.7.0_80</code>目录下</p>
 <h3 id="2-4-配置Java环境变量"><a href="#2-4-配置Java环境变量" class="headerlink" title="2.4 配置Java环境变量"></a>2.4 配置Java环境变量</h3><p>(1)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vim /etc/profile</div></pre></td></tr></table></figure></p>
 <p>(2) 在最下方增加</p>
@@ -512,8 +512,8 @@
 </li>
 </ul>
 <h3 id="3-2-tomcat的安装与配置"><a href="#3-2-tomcat的安装与配置" class="headerlink" title="3.2 tomcat的安装与配置"></a>3.2 tomcat的安装与配置</h3><p>(1) 下载tomcat，并ftp传到centos里</p>
-<p>去tomcat官网下载linux版本的完毕后，使用ftp软件如filezilla传到centos的<code>\develop</code>文件夹里。</p>
-<p>(2) 到<code>\develop</code>目录，解压tomcat的压缩包</p>
+<p>去tomcat官网下载linux版本的完毕后，使用ftp软件如filezilla传到centos的<code>/develop</code>文件夹里。</p>
+<p>(2) 到<code>/develop</code>目录，解压tomcat的压缩包</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -zxvf apache-tomcat-7.0.73.tar.gz</div></pre></td></tr></table></figure>
 <blockquote>
 <p>注： 是否使用sudo权限根据具体环境确定</p>
@@ -868,11 +868,19 @@ OK！
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
+                <a href="javascript:void(0)" class="js-tag color5">AngularJS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">AngularJS</a>
+                <a href="javascript:void(0)" class="js-tag color3">高并发与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -880,7 +888,11 @@ OK！
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">高并发与多线程</a>
+                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -892,31 +904,7 @@ OK！
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">DB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">源码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -928,11 +916,23 @@ OK！
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IDE</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">RN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">源码</a>
               </li>
              
               <li class="article-tag-list-item">
