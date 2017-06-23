@@ -8,79 +8,16 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>MySQL日期类型、时间类型总结 | Mr.Zhang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、日期类型的比较MySQL 日期类型：日期格式、所占存储空间、日期范围 比较。
-
-
-
-日期类型
-存储空间
-日期格式
-日期范围
-
-
-
-
-datetime
-8 bytes
-YYYY-MM-DD HH:MM:SS
-1000-01-01 00:00:00 ~ 9999-12-31 23:59:59
-
-
-timestamp
-4 bytes
-YYYY-MM-DD HH:MM:SS
-1970-01-01 00">
+  <meta name="description" content="一、日期类型的比较MySQL 日期类型：日期格式、所占存储空间、日期范围 比较。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL日期类型、时间类型总结">
 <meta property="og:url" content="http://yoursite.com/2017/06/23/MySQL日期类型、时间类型总结/index.html">
 <meta property="og:site_name" content="Mr.Zhang">
-<meta property="og:description" content="一、日期类型的比较MySQL 日期类型：日期格式、所占存储空间、日期范围 比较。
-
-
-
-日期类型
-存储空间
-日期格式
-日期范围
-
-
-
-
-datetime
-8 bytes
-YYYY-MM-DD HH:MM:SS
-1000-01-01 00:00:00 ~ 9999-12-31 23:59:59
-
-
-timestamp
-4 bytes
-YYYY-MM-DD HH:MM:SS
-1970-01-01 00">
-<meta property="og:updated_time" content="2017-06-23T03:48:42.198Z">
+<meta property="og:description" content="一、日期类型的比较MySQL 日期类型：日期格式、所占存储空间、日期范围 比较。">
+<meta property="og:updated_time" content="2017-06-23T12:39:35.577Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL日期类型、时间类型总结">
-<meta name="twitter:description" content="一、日期类型的比较MySQL 日期类型：日期格式、所占存储空间、日期范围 比较。
-
-
-
-日期类型
-存储空间
-日期格式
-日期范围
-
-
-
-
-datetime
-8 bytes
-YYYY-MM-DD HH:MM:SS
-1000-01-01 00:00:00 ~ 9999-12-31 23:59:59
-
-
-timestamp
-4 bytes
-YYYY-MM-DD HH:MM:SS
-1970-01-01 00">
+<meta name="twitter:description" content="一、日期类型的比较MySQL 日期类型：日期格式、所占存储空间、日期范围 比较。">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Zhang" type="application/atom+xml">
   
@@ -235,7 +172,7 @@ YYYY-MM-DD HH:MM:SS
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、日期类型的比较"><a href="#一、日期类型的比较" class="headerlink" title="一、日期类型的比较"></a>一、日期类型的比较</h2><p>MySQL 日期类型：日期格式、所占存储空间、日期范围 比较。</p>
+        <h2 id="一、日期类型的比较"><a href="#一、日期类型的比较" class="headerlink" title="一、日期类型的比较"></a>一、日期类型的比较</h2><p>MySQL 日期类型：日期格式、所占存储空间、日期范围 比较。<br><a id="more"></a></p>
 <table>
 <thead>
 <tr>
@@ -276,7 +213,7 @@ YYYY-MM-DD HH:MM:SS
 <p>建表的代码为:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> tableDemo (</div><div class="line">  <span class="string">`id1`</span> <span class="keyword">timestamp</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">default</span> <span class="keyword">CURRENT_TIMESTAMP</span>,</div><div class="line">  <span class="string">`id2`</span> datetime <span class="keyword">default</span> <span class="literal">NULL</span></div><div class="line">);</div></pre></td></tr></table></figure></p>
 <p>一般情况下，我倾向于使用 datetime 日期类型。<br>两者之间的比较:</p>
 <ol>
-<li><p>timestamp容易所支持的范围比timedate要小。 并且容易出现超出的情况</p>
+<li><p>timestamp容易所支持的范围比datetime要小。 并且容易出现超出的情况</p>
 </li>
 <li><p>timestamp比较受时区timezone的影响以及MYSQL版本和服务器的SQL MODE的影响.</p>
 </li>
@@ -624,15 +561,11 @@ YYYY-MM-DD HH:MM:SS
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">AngularJS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">高并发与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -640,11 +573,11 @@ YYYY-MM-DD HH:MM:SS
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
+                <a href="javascript:void(0)" class="js-tag color5">AngularJS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
+                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -652,7 +585,7 @@ YYYY-MM-DD HH:MM:SS
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DB</a>
+                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -660,11 +593,11 @@ YYYY-MM-DD HH:MM:SS
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java高并发程序设计</a>
+                <a href="javascript:void(0)" class="js-tag color3">DB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -676,15 +609,7 @@ YYYY-MM-DD HH:MM:SS
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">源码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -693,6 +618,18 @@ YYYY-MM-DD HH:MM:SS
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">RN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Java高并发程序设计</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">源码</a>
               </li>
              
               <li class="article-tag-list-item">
