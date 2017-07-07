@@ -174,131 +174,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="一、初始配置"><a href="#一、初始配置" class="headerlink" title="一、初始配置"></a>一、初始配置</h2><ol>
-<li>配置jdk<br>安装完毕后，选择<code>Configure-&gt;Project Defaults-&gt;Project Structure</code>进行jdk的设置</li>
-</ol>
-<p><img src="\img\idea1.jpg" alt=""></p>
-<p>在这两处设置同样的版本(1.7对应7)<br><img src="\img\idea2.jpg" alt=""><br>如果此处显示的为<code>No SDK</code>,则需要去<code>SKDs</code>里配置<br><img src="\img\idea3.jpg" alt=""><br>点击<code>+</code>号，选择jdk的路径<br><img src="\img\idea4.jpg" alt=""><br>设置完毕后点击<code>Apply</code><br><img src="\img\idea5.jpg" alt=""><br>这样在上一步的jdk就可以设置为现在新增的。</p>
-<ol>
-<li>配置maven</li>
-</ol>
-<p>点击<code>Project Defaults-&gt;Settings</code><br><img src="\img\idea6.jpg" alt=""><br>在搜索框中搜索 <code>maven</code><br>在maven的设置界面，点击右方的小按钮，选择maven的路径<br><img src="\img\idea7.jpg" alt=""><br><code>User settings file</code>和<code>Local repository</code>保持默认的即可。<br><img src="\img\idea8.jpg" alt=""></p>
-<ol>
-<li>配置tomcat</li>
-</ol>
-<p>创建一个maven项目并启动idea。进入代码界面后，点击上方配置按钮配置tomcat<br><img src="\img\idea9.jpg" alt=""><br>点击<code>+</code>，找到<code>Tomcat Server</code>节点，选择<code>Local</code>，<br><img src="\img\idea10.jpg" alt=""><br>配置解压好的Tomcat<br><img src="\img\idea11.jpg" alt=""><br>可以配置tomcat的名字和端口号。<br><img src="\img\idea12.jpg" alt=""><br>配置完毕后点击<code>Deployment</code>来配置war包解压路径。<br><img src="\img\idea13.jpg" alt=""><br>点击右侧<code>+</code>号，选择<code>Artifact</code>，将我们创建好的项目的war包部署在tomcat的根目录<code>/</code><br><img src="\img\idea14.jpg" alt=""></p>
-<h2 id="二、快捷键"><a href="#二、快捷键" class="headerlink" title="二、快捷键"></a>二、快捷键</h2><h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><ul>
-<li>Alt+回车 导入包,自动修正</li>
-<li>Ctrl+N   查找类</li>
-<li>Ctrl+Shift+N 查找文件</li>
-<li>Ctrl+Alt+L  格式化代码</li>
-<li>Ctrl+Alt+O 优化导入的类和包</li>
-<li>Alt+Insert 生成代码(如get,set方法,构造函数等)</li>
-<li>Ctrl+E或者Alt+Shift+C  最近更改的代码</li>
-<li>Ctrl+R 替换文本</li>
-<li>Ctrl+F 查找文本</li>
-<li>Ctrl+Shift+Space 自动补全代码</li>
-<li>Ctrl+空格 代码提示</li>
-<li>Ctrl+Alt+Space 类名或接口名提示</li>
-<li>Ctrl+P 方法参数提示</li>
-<li>Ctrl+Shift+Alt+N 查找类中的方法或变量</li>
-<li>Alt+Shift+C 对比最近修改的代码</li>
-<li>Shift+F6  重构-重命名</li>
-<li>Ctrl+Shift+先上键</li>
-<li>Ctrl+X 删除行</li>
-<li>Ctrl+D 复制行</li>
-<li>Ctrl+/ 或 Ctrl+Shift+/  注释（// 或者/<em>…</em>/ ）</li>
-<li>Ctrl+J  自动代码</li>
-<li>Ctrl+E 最近打开的文件</li>
-<li>Ctrl+H 显示类结构图</li>
-<li>Ctrl+Q 显示注释文档</li>
-<li>Alt+F1 查找代码所在位置</li>
-<li>Alt+1 快速打开或隐藏工程面板</li>
-<li>Ctrl+Alt+ left/right 返回至上次浏览的位置</li>
-<li>Alt+ left/right 切换代码视图</li>
-<li>Alt+ Up/Down 在方法间快速移动定位</li>
-<li>Ctrl+Shift+Up/Down 代码向上/下移动。</li>
-<li>F2 或Shift+F2 高亮错误或警告快速定位<br>代码标签输入完成后，按Tab，生成代码。<br>选中文本，按Ctrl+Shift+F7 ，高亮显示所有该文本，按Esc高亮消失。</li>
-<li>Ctrl+W 选中代码，连续按会有其他效果<br>选中文本，按Alt+F3 ，逐个往下查找相同文本，并高亮显示。</li>
-<li>Ctrl+Up/Down 光标跳转到第一行或最后一行下</li>
-<li>Ctrl+B 快速打开光标处的类或方法 <h3 id="Intellij-IDEA最常用快捷键"><a href="#Intellij-IDEA最常用快捷键" class="headerlink" title="Intellij IDEA最常用快捷键"></a>Intellij IDEA最常用快捷键</h3></li>
-</ul>
-<ol>
-<li>Ctrl＋E，可以显示最近编辑的文件列表<br>2 .Shift＋Click可以关闭文件</li>
-<li>Ctrl＋[或]可以跳到大括号的开头结尾</li>
-<li>Ctrl＋Shift＋Backspace可以跳转到上次编辑的地方</li>
-<li>Ctrl＋F12，可以显示当前文件的结构</li>
-<li>Ctrl＋F7可以查询当前元素在当前文件中的引用，然后按F3可以选择</li>
-<li>Ctrl＋N，可以快速打开类</li>
-<li>Ctrl＋Shift＋N，可以快速打开文件</li>
-<li>Alt＋Q可以看到当前方法的声明</li>
-<li>Ctrl＋W可以选择单词继而语句继而行继而函数</li>
-<li>Alt＋F1可以将正在编辑的元素在各个面板中定位</li>
-<li>Ctrl＋P，可以显示参数信息</li>
-<li>Ctrl＋Shift＋Insert可以选择剪贴板内容并插入</li>
-<li>Alt＋Insert可以生成构造器/Getter/Setter等</li>
-<li>Ctrl＋Alt＋V 可以引入变量。例如把括号内的SQL赋成一个变量</li>
-<li>Ctrl＋Alt＋T可以把代码包在一块内，例如try/catch</li>
-<li>Alt＋Up and Alt＋Down可在方法间快速移动<h3 id="IDEA内存优化"><a href="#IDEA内存优化" class="headerlink" title="IDEA内存优化"></a>IDEA内存优化</h3>因机器本身的配置而配置：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">\IntelliJ IDEA 8\bin\idea.exe.vmoptions  </div><div class="line">-----------------------------------------  </div><div class="line">-Xms64m  </div><div class="line">-Xmx256m  </div><div class="line">-XX:MaxPermSize=92m  </div><div class="line">-ea  </div><div class="line">-server  </div><div class="line">-Dsun.awt.keepWorkingSetOnMinimize=true</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="查询快捷键"><a href="#查询快捷键" class="headerlink" title="查询快捷键"></a>查询快捷键</h3><ul>
-<li>CTRL+N   查找类 </li>
-<li>CTRL+SHIFT+N  查找文件 </li>
-<li>CTRL+SHIFT+ALT+N 查找类中的方法或变量 </li>
-<li>CIRL+B   找变量的来源 </li>
-<li>CTRL+ALT+B  找所有的子类 </li>
-<li>CTRL+SHIFT+B  找变量的类 </li>
-<li>CTRL+G   定位行 </li>
-<li>CTRL+F   在当前窗口查找文本 </li>
-<li>CTRL+SHIFT+F  在指定窗口查找文本 </li>
-<li>CTRL+R   在 当前窗口替换文本 </li>
-<li>CTRL+SHIFT+R  在指定窗口替换文本 </li>
-<li>ALT+SHIFT+C  查找修改的文件 </li>
-<li>CTRL+E   最近打开的文件 </li>
-<li>F3   向下查找关键字出现位置 </li>
-<li>SHIFT+F3  向上一个关键字出现位置 </li>
-<li>F4   查找变量来源 </li>
-<li>CTRL+ALT+F7  选中的字符查找工程出现的地方 </li>
-<li>CTRL+SHIFT+O  弹出显示查找内容<h3 id="自动代码"><a href="#自动代码" class="headerlink" title="自动代码"></a>自动代码</h3></li>
-<li>ALT+回车  导入包,自动修正 </li>
-<li>CTRL+ALT+L  格式化代码 </li>
-<li>CTRL+ALT+I  自动缩进 </li>
-<li>CTRL+ALT+O  优化导入的类和包 </li>
-<li>ALT+INSERT  生成代码(如GET,SET方法,构造函数等) </li>
-<li>CTRL+E 最近更改的代码 </li>
-<li>CTRL+SHIFT+SPACE 自动补全代码 </li>
-<li>CTRL+空格  代码提示 </li>
-<li>CTRL+ALT+SPACE  类名或接口名提示 </li>
-<li>CTRL+P   方法参数提示 </li>
-<li>CTRL+J   自动代码 </li>
-<li>CTRL+ALT+T  把选中的代码放在 TRY{} IF{} ELSE{} 里<h3 id="复制快捷方式"><a href="#复制快捷方式" class="headerlink" title="复制快捷方式"></a>复制快捷方式</h3></li>
-<li>CTRL+D   复制行 </li>
-<li>CTRL+X   剪切,删除行  <h3 id="其他快捷方式"><a href="#其他快捷方式" class="headerlink" title="其他快捷方式"></a>其他快捷方式</h3></li>
-<li>CIRL+U   大小写切换 </li>
-<li>CTRL+Z   倒退 </li>
-<li>CTRL+SHIFT+Z  向前 </li>
-<li>CTRL+ALT+F12  资源管理器打开文件夹 </li>
-<li>ALT+F1   查找文件所在目录位置 </li>
-<li>SHIFT+ALT+INSERT 竖编辑模式 </li>
-<li>CTRL+/   注释//   </li>
-<li>CTRL+SHIFT+/  注释/<em>…</em>/ </li>
-<li>CTRL+W   选中代码，连续按会有其他效果 </li>
-<li>CTRL+B   快速打开光标处的类或方法 </li>
-<li>ALT+ ←/→  切换代码视图 </li>
-<li>CTRL+ALT ←/→  返回上次编辑的位置 </li>
-<li>ALT+ ↑/↓  在方法间快速移动定位 </li>
-<li>SHIFT+F6  重构-重命名 </li>
-<li>CTRL+H   显示类结构图 </li>
-<li>CTRL+Q   显示注释文档 </li>
-<li>ALT+1   快速打开或隐藏工程面板 </li>
-<li>CTRL+SHIFT+UP/DOWN 代码向上/下移动。 </li>
-<li>CTRL+UP/DOWN  光标跳转到第一行或最后一行下 </li>
-<li>ESC   光标返回编辑框 </li>
-<li>SHIFT+ESC  光标返回编辑框,关闭无用的窗口 </li>
-<li>F1   帮助千万别按,很卡! </li>
-<li>CTRL+F4   非常重要下班都用</li>
-</ul>
-
+<li>配置jdk<br>安装完毕后，选择<code>Configure-&gt;Project Defaults-&gt;Project Structure</code>进行jdk的设置
+        
+          <a class="article-more-a" href="/2017/07/06/Idea使用小结/#more">more >></a>
+        
       
 
       
@@ -712,7 +591,15 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">高并发与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -720,19 +607,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">高并发与多线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -744,15 +619,11 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">JS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -764,7 +635,23 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Java高并发程序设计</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -777,14 +664,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">RN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java高并发程序设计</a>
               </li>
              
               <li class="article-tag-list-item">
