@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/06/09/Java中的高并发-一/index.html">
 <meta property="og:site_name" content="Mr.Zhang">
 <meta property="og:description" content="一、并发知识基础1.1 临界区表示一种公共资源或者共享数据，可以被多个线程使用。但是每一次只能有一个线程使用他，一旦临界资源被占用，其他线程想要使用这个资源的只能挂起等待。如果有多个线程同时修改临界资源，就会出现线程不安全现象。">
-<meta property="og:updated_time" content="2017-07-09T02:19:41.227Z">
+<meta property="og:updated_time" content="2017-07-18T07:26:51.292Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java中的高并发(一)">
 <meta name="twitter:description" content="一、并发知识基础1.1 临界区表示一种公共资源或者共享数据，可以被多个线程使用。但是每一次只能有一个线程使用他，一旦临界资源被占用，其他线程想要使用这个资源的只能挂起等待。如果有多个线程同时修改临界资源，就会出现线程不安全现象。">
@@ -263,7 +263,7 @@
 <li>线程的中断 ( interrupt() ) 先于被中断线程的代码</li>
 <li>对象的构造函数执行、结束先于finalize()方法</li>
 </ul>
-<h2 id="二、Java并行程序基础"><a href="#二、Java并行程序基础" class="headerlink" title="二、Java并行程序基础"></a>二、Java并行程序基础</h2><h2 id="2-1-线程的状态"><a href="#2-1-线程的状态" class="headerlink" title="2.1 线程的状态"></a>2.1 线程的状态</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">enum</span> State &#123;</div><div class="line">    NEW,  <span class="comment">//刚刚new创建的线程</span></div><div class="line">    RUNNABLE, <span class="comment">// 运行的线程 ( 回不去 NEW 状态 )</span></div><div class="line">    BLOCKED,<span class="comment">// 遇到synchronized同步块，直到等到获得请求的锁</span></div><div class="line">    WAITING, <span class="comment">// 无限时间的等待，等待结束事件，</span></div><div class="line">    <span class="comment">//通过wait()等待的，等待notify(),通过join()等待的，等待目标线程中止</span></div><div class="line">    TIMED_WAITING,<span class="comment">//有限时间等待</span></div><div class="line">    TERMINATED<span class="comment">//终止，( 回不去 runnable 状态 )</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="二、Java并行程序基础"><a href="#二、Java并行程序基础" class="headerlink" title="二、Java并行程序基础"></a>二、Java并行程序基础</h2><h2 id="2-1-线程的状态"><a href="#2-1-线程的状态" class="headerlink" title="2.1 线程的状态"></a>2.1 线程的状态</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">enum</span> State &#123;</div><div class="line">    NEW,  <span class="comment">//刚刚new创建的线程</span></div><div class="line">    RUNNABLE, <span class="comment">// 运行的线程 ( 回不去 NEW 状态 )</span></div><div class="line">    BLOCKED,<span class="comment">// 遇到Lock或者synchronized，直到等到获得请求的锁</span></div><div class="line">    WAITING, <span class="comment">// 无限时间的等待，等待结束事件，</span></div><div class="line">    <span class="comment">//通过wait()等待的，等待notify(),通过join()等待的，等待目标线程中止</span></div><div class="line">    TIMED_WAITING,<span class="comment">//计时等待状态,使用了带参数的sleep和wait方法，</span></div><div class="line">    <span class="comment">//如Thread.sleep(10),this.wait(10)</span></div><div class="line">    TERMINATED<span class="comment">//终止，( 回不去 runnable 状态 )</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="2-2-初始线程"><a href="#2-2-初始线程" class="headerlink" title="2.2 初始线程"></a>2.2 初始线程</h2><h3 id="2-2-1-新建线程"><a href="#2-2-1-新建线程" class="headerlink" title="2.2.1 新建线程"></a>2.2.1 新建线程</h3><ol>
 <li>继承Thread类，覆写run()方法，或者直接new Thread的匿名内部类</li>
 <li><p>实现Runnable接口,实现run()方法，丢入Thread <font color="skyblue">[合理]</font></p>
@@ -289,10 +289,20 @@
 </ul>
 <font color="red">在线程中没有预先写好中断处理的逻辑，调用t1.interrupt()方法来中断t1线程是无效的。所以想要t1在被置上中断标志位后能退出，还得自己在合适的地方写上中断处理逻辑代码。</font>
 
-<p>举例：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">Thread t1 = <span class="keyword">new</span> Thread()&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</div><div class="line">            <span class="keyword">if</span>(Thread.currentThread().isInterrupted())&#123;</div><div class="line">                System.out.println(<span class="string">'Interrupted!'</span>);</div><div class="line">                <span class="keyword">break</span>; </div><div class="line">                <span class="comment">//如果监测到t1被置上中断标志位，就break掉while循环，</span></div><div class="line">                <span class="comment">//线程执行完毕，中断了。</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>举例：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">Thread t1 = <span class="keyword">new</span> Thread()&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</div><div class="line">            <span class="keyword">if</span>(Thread.currentThread().isInterrupted())&#123;</div><div class="line">                System.out.println(<span class="string">"Interrupted!"</span>);</div><div class="line">                <span class="keyword">break</span>; </div><div class="line">                <span class="comment">//如果监测到t1被置上中断标志位，就break掉while循环，</span></div><div class="line">                <span class="comment">//线程执行完毕，中断了。</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>和之前的stopMe示例很像，对吧。这三个方法是官方API实现。</p>
 <p>Thread.sleep(long millis)方法。<br>让当前线程休眠若干时间,会抛出InterruptedException,<br>该方法由于中断而抛出异常，sleep方法会清除中断标记，下一次循环时就无法捕获这个中断了，所以在catch处理块中，还要手动设置中断标志位(Thread.currentThread().interrupt()).</p>
-<h3 id="2-2-4-等待-wait-和通知-notify"><a href="#2-2-4-等待-wait-和通知-notify" class="headerlink" title="2.2.4 等待 ( wait ) 和通知 ( notify )"></a>2.2.4 等待 ( wait ) 和通知 ( notify )</h3>
+<h3 id="2-2-4-暂停-suspend-和恢复-resume"><a href="#2-2-4-暂停-suspend-和恢复-resume" class="headerlink" title="2.2.4 暂停 ( suspend ) 和恢复 ( resume )"></a>2.2.4 暂停 ( suspend ) 和恢复 ( resume )</h3><ul>
+<li><p>suspend()</p>
+<p>  使正在运行的线程放弃CPU,暂停运行.</p>
+<p>  该方法已经遭到反对，因为它具有固有的死锁倾向。因为suspend方法并不会释放同步监听对象，如果某个目标线程持有同步监听对象而被suspend暂停，其他的线程都不能获取到同步监听对象，而很容易就死锁。</p>
+</li>
+<li><p>resume()</p>
+<p>  使暂停的线程恢复运行.</p>
+<p>  和suspend()方法成对使用，但 suspend() 已经遭到反对，因为它具有死锁倾向。</p>
+</li>
+</ul>
+<h3 id="2-2-5-等待-wait-和通知-notify"><a href="#2-2-5-等待-wait-和通知-notify" class="headerlink" title="2.2.5 等待 ( wait ) 和通知 ( notify )"></a>2.2.5 等待 ( wait ) 和通知 ( notify )</h3>
       
 
       
@@ -527,11 +537,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
+                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
+                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -539,7 +549,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -547,11 +561,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -559,7 +573,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -571,6 +589,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">idea</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">源码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IDE</a>
               </li>
              
@@ -579,27 +605,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">源码</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">心得</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
               </li>
              
               <li class="article-tag-list-item">

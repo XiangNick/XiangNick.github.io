@@ -35,7 +35,10 @@
 <meta property="og:image" content="http://yoursite.com/\img\idea17.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\idea18.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\idea19.jpg">
-<meta property="og:updated_time" content="2017-07-08T07:04:06.154Z">
+<meta property="og:image" content="http://yoursite.com/\img\i11.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\i12.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\i13.jpg">
+<meta property="og:updated_time" content="2017-08-10T01:24:59.743Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Idea使用小结">
 <meta name="twitter:description" content="一、初始配置
@@ -220,8 +223,16 @@
 <p><img src="\img\idea19.jpg" alt=""></p>
 <blockquote>
 <p>tips:<br>将xml等资源文件放置到main下的resources文件夹中(<code>别忘了标注为Resources Root</code>)。这样maven工具默认在编译的时候，会将resources文件夹中的资源文件一块打包进classes目录中，否则打出的war包不会有非.java文件，并且那些需要classpath:的配置文件也无法找到路径。(<code>即标注了后，resources目录就是classpath的根目录</code>)</p>
+<h2 id="三、idea配置tomcat热部署"><a href="#三、idea配置tomcat热部署" class="headerlink" title="三、idea配置tomcat热部署"></a>三、idea配置tomcat热部署</h2><p>① 点击idea中tomcat配置</p>
 </blockquote>
-<h2 id="三、快捷键"><a href="#三、快捷键" class="headerlink" title="三、快捷键"></a>三、快捷键</h2><h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><ul>
+<p><img src="\img\i11.jpg" alt=""></p>
+<p>② 配置deployment为exploded</p>
+<p><img src="\img\i12.jpg" alt=""></p>
+<p>③ 配置server，将 “On Update action”、”On frame deactivation” 都选择 update classes and resources </p>
+<p><img src="\img\i13.jpg" alt=""></p>
+<p>④ 配置完毕！切记！要用DEBUG模式启动！！</p>
+<p>⑤ 以后修改了resource资源文件和代码，都不需要重启tomcat，直接刷新浏览器就可以了。</p>
+<h2 id="四、快捷键"><a href="#四、快捷键" class="headerlink" title="四、快捷键"></a>四、快捷键</h2><h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><ul>
 <li>Alt+回车 导入包,自动修正</li>
 <li>Ctrl+N   查找类</li>
 <li>Ctrl+Shift+N 查找文件</li>
@@ -560,11 +571,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
+                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
+                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -572,7 +583,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">j2ee</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -580,11 +595,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -592,7 +607,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -604,6 +623,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">idea</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">源码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IDE</a>
               </li>
              
@@ -612,27 +639,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">源码</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">心得</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
               </li>
              
               <li class="article-tag-list-item">
