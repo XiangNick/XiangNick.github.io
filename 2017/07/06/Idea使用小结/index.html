@@ -35,10 +35,18 @@
 <meta property="og:image" content="http://yoursite.com/\img\idea17.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\idea18.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\idea19.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\i20.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\i21.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\i22.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\i23.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\i24.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\i11.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\i12.jpg">
 <meta property="og:image" content="http://yoursite.com/\img\i13.jpg">
-<meta property="og:updated_time" content="2017-08-10T01:24:59.743Z">
+<meta property="og:image" content="http://yoursite.com/\img\i25.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\i26.jpg">
+<meta property="og:image" content="http://yoursite.com/\img\i27.png">
+<meta property="og:updated_time" content="2017-08-16T01:48:40.155Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Idea使用小结">
 <meta name="twitter:description" content="一、初始配置
@@ -223,15 +231,30 @@
 <p><img src="\img\idea19.jpg" alt=""></p>
 <blockquote>
 <p>tips:<br>将xml等资源文件放置到main下的resources文件夹中(<code>别忘了标注为Resources Root</code>)。这样maven工具默认在编译的时候，会将resources文件夹中的资源文件一块打包进classes目录中，否则打出的war包不会有非.java文件，并且那些需要classpath:的配置文件也无法找到路径。(<code>即标注了后，resources目录就是classpath的根目录</code>)</p>
-<h2 id="三、idea配置tomcat热部署"><a href="#三、idea配置tomcat热部署" class="headerlink" title="三、idea配置tomcat热部署"></a>三、idea配置tomcat热部署</h2><p>① 点击idea中tomcat配置</p>
+<h2 id="三、idea配置jrebel热部署"><a href="#三、idea配置jrebel热部署" class="headerlink" title="三、idea配置jrebel热部署"></a>三、idea配置jrebel热部署</h2><p>jrebel是非常方便的热部署插件，修改java代码和配置文件，不需要重启web容器即可访问修改内容。</p>
 </blockquote>
+<h2 id="3-1-安装Jrebel插件"><a href="#3-1-安装Jrebel插件" class="headerlink" title="3.1 安装Jrebel插件"></a>3.1 安装Jrebel插件</h2><p>File-&gt;Settings-&gt;Plugins-&gt;Browse respositories<br>搜索Jrebel for Intellij<br><img src="\img\i20.jpg" alt=""><br>安装完毕后重启idea</p>
+<h2 id="3-2-激活Jrebel插件"><a href="#3-2-激活Jrebel插件" class="headerlink" title="3.2 激活Jrebel插件"></a>3.2 激活Jrebel插件</h2><h3 id="方式一：MyJrebel邀请码永久激活"><a href="#方式一：MyJrebel邀请码永久激活" class="headerlink" title="方式一：MyJrebel邀请码永久激活"></a>方式一：MyJrebel邀请码永久激活</h3><p><a href="https://my.jrebel.com/" target="_blank" rel="external">MyJrebel</a><br>需要翻墙，访问该网站，使用推特或者facebook帐号登录即可。</p>
+<p><img src="\img\i21.jpg" alt=""><br><img src="\img\i22.jpg" alt=""><br><img src="\img\i23.jpg" alt=""></p>
+<p>获取该注册码，进入重启后的idea</p>
+<p><code>Help -&gt; Jrebel -&gt; Activation</code></p>
+<p>选择<code>I already have a licensing</code>，将刚才的邀请码填入</p>
+<p><img src="\img\i24.jpg" alt=""></p>
+<p>即可激活完毕。</p>
+<h3 id="方式二：使用破解补丁或者设置server"><a href="#方式二：使用破解补丁或者设置server" class="headerlink" title="方式二：使用破解补丁或者设置server"></a>方式二：使用破解补丁或者设置server</h3><p>百度即可</p>
+<h2 id="3-3-配置热部署"><a href="#3-3-配置热部署" class="headerlink" title="3.3 配置热部署"></a>3.3 配置热部署</h2><p>先配置tomcat</p>
+<p>① 点击idea中tomcat配置</p>
 <p><img src="\img\i11.jpg" alt=""></p>
 <p>② 配置deployment为exploded</p>
 <p><img src="\img\i12.jpg" alt=""></p>
 <p>③ 配置server，将 “On Update action”、”On frame deactivation” 都选择 update classes and resources </p>
 <p><img src="\img\i13.jpg" alt=""></p>
-<p>④ 配置完毕！切记！要用DEBUG模式启动！！</p>
-<p>⑤ 以后修改了resource资源文件和代码，都不需要重启tomcat，直接刷新浏览器就可以了。</p>
+<p>再配置Jrebel</p>
+<p>④<code>view -&gt; tool windows -&gt; Jrebel</code></p>
+<p>将项目勾选上<br> <img src="\img\i25.jpg" alt=""></p>
+<h2 id="3-4-使用热部署"><a href="#3-4-使用热部署" class="headerlink" title="3.4 使用热部署"></a>3.4 使用热部署</h2><p>选择tomcat，使用Jrebel的debug模式启动即可！</p>
+<p> <img src="\img\i26.jpg" alt=""></p>
+<p>任意修改 java 代码，并 ctrl + s 保存 ，update classes and resources 一下。<br>（如果配置了idea的自动编译，这一步都不用，修改完代码直接切到浏览器即可）<br> <img src="\img\i27.png" alt=""></p>
 <h2 id="四、快捷键"><a href="#四、快捷键" class="headerlink" title="四、快捷键"></a>四、快捷键</h2><h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><ul>
 <li>Alt+回车 导入包,自动修正</li>
 <li>Ctrl+N   查找类</li>
@@ -559,31 +582,7 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">高并发与多线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">AngularJS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -591,7 +590,31 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AngularJS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">JS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">高并发与多线程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -603,14 +626,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
@@ -619,15 +634,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">源码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -636,6 +651,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">RN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">源码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -648,6 +667,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">《深入理解Java虚拟机》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">idea</a>
               </li>
             
             <div class="clearfix"></div>
